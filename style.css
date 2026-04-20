@@ -1,0 +1,183 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --sidebar-bg: #121212;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --accent-blue: #0052D4;
+    --accent-green: #00C853;
+    --glow-blue: rgba(0, 82, 212, 0.5);
+    --glow-green: rgba(0, 200, 83, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+}
+
+/* =========================================
+   BARRA LATERAL (SIDEBAR)
+   ========================================= */
+.sidebar {
+    width: 280px; height: 100vh;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid #333;
+    position: fixed; left: 0; top: 0;
+    display: flex; flex-direction: column; padding: 40px 20px;
+    z-index: 100;
+}
+
+.profile-img {
+    width: 80px; height: 80px;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    border-radius: 20px; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', sans-serif; font-weight: bold; font-size: 1.8rem;
+    box-shadow: 0 0 20px var(--glow-blue);
+}
+
+.profile-info h1 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-align: center; margin-bottom: 5px; }
+.profile-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; text-align: center; margin-bottom: 5px; }
+.profile-info p { font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-bottom: 40px; }
+
+/* Menú y Botones */
+.menu ul { list-style: none; }
+.btn-nav {
+    width: 100%; padding: 12px 15px; background: none; border: none;
+    color: var(--text-dim); text-align: left; font-size: 0.95rem;
+    cursor: pointer; transition: 0.3s; border-radius: 10px;
+    margin-bottom: 8px; font-weight: 600;
+}
+
+.btn-nav:hover { background: #1a1a1a; color: white; }
+
+/* ESTADO MARCADO (Active State) */
+.active-nav {
+    background: linear-gradient(90deg, rgba(0, 82, 212, 0.1), transparent);
+    color: var(--accent-blue) !important;
+    border-left: 4px solid var(--accent-blue);
+    box-shadow: -10px 0 20px rgba(0, 82, 212, 0.05);
+}
+
+.sidebar-footer { margin-top: auto; }
+.btn-contacto {
+    width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--accent-green);
+    background: transparent; color: var(--accent-green); font-weight: bold; cursor: pointer;
+    transition: 0.3s;
+}
+.btn-contacto:hover { background: var(--accent-green); color: black; box-shadow: 0 0 15px var(--glow-green); }
+
+/* =========================================
+   CONTENIDO PRINCIPAL Y PANTALLAS
+   ========================================= */
+.content { margin-left: 280px; padding: 80px 8%; width: calc(100% - 280px); }
+
+/* Animación de cambio de pantalla */
+.pantalla { display: none; animation: fadeIn 0.4s ease; }
+.pantalla.activa { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Hero Section / Inicio */
+.badge { background: #1a1a1a; padding: 5px 15px; border-radius: 20px; color: var(--accent-green); font-size: 0.8rem; font-weight: bold; border: 1px solid #333; }
+.text-gradient { background: linear-gradient(90deg, var(--accent-blue), var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Orbitron', sans-serif; }
+h2 { font-size: 3.5rem; margin: 20px 0; line-height: 1.1; }
+p { font-size: 1.05rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px; }
+
+.social-links a { color: var(--accent-blue); text-decoration: none; font-weight: bold; margin-right: 15px; }
+
+/* Grid de Servicios */
+.section-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 40px; color: var(--text-main); border-bottom: 2px solid #333; padding-bottom: 10px;}
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.service-card {
+    background: #121212; padding: 30px; border-radius: 20px; border: 1px solid #222;
+    transition: 0.3s; position: relative; overflow: hidden; cursor: pointer;
+}
+.service-card:hover { border-color: var(--accent-blue); transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 82, 212, 0.1);}
+
+.card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.service-card h3 { color: white; margin-bottom: 10px; font-size: 1.3rem;}
+.price { display: block; margin-top: 20px; color: var(--accent-green); font-weight: bold; font-size: 1.1rem;}
+.click-hint { font-size: 0.8rem; color: var(--text-dim); margin-top: 15px; opacity: 0.5; transition: 0.3s; font-weight: bold;}
+.service-card:hover .click-hint { opacity: 1; color: var(--accent-blue); }
+
+/* Línea de tiempo y Listas */
+.timeline, .project-list { display: flex; flex-direction: column; gap: 25px; }
+.timeline-item, .project-item { background: #121212; padding: 20px; border-left: 3px solid var(--accent-blue); border-radius: 0 10px 10px 0; }
+.timeline-year { color: var(--accent-green); font-weight: bold; margin-bottom: 5px; font-family: 'Orbitron', sans-serif; }
+.timeline-content h3, .project-item h3 { color: white; margin-bottom: 8px; }
+.timeline-content p, .project-item p { margin: 0; font-size: 0.95rem; }
+
+/* Formulario de Contacto */
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
+input, textarea { background: #121212; border: 1px solid #333; padding: 15px; border-radius: 10px; color: white; outline: none; font-family: inherit; }
+input:focus, textarea:focus { border-color: var(--accent-blue); }
+.btn-send { background: linear-gradient(45deg, var(--accent-blue), #003a99); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s;}
+.btn-send:hover { box-shadow: 0 0 20px var(--glow-blue); transform: translateY(-2px);}
+
+/* =========================================
+   ESTILOS DE LAS VENTANAS (MODALES)
+   ========================================= */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);
+    z-index: 2000; justify-content: center; align-items: center;
+}
+
+.modal-content {
+    background: var(--sidebar-bg); border: 1px solid #333;
+    border-radius: 15px; width: 90%; max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 82, 212, 0.2);
+    animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-header {
+    padding: 20px 25px; border-bottom: 1px solid #222;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(90deg, rgba(0, 82, 212, 0.1), transparent);
+    border-top-left-radius: 15px; border-top-right-radius: 15px;
+}
+
+.modal-header h2 { font-size: 1.4rem; margin: 0; color: var(--text-main); font-family: 'Orbitron', sans-serif;}
+
+.cerrar {
+    font-size: 2rem; color: var(--text-dim); cursor: pointer;
+    transition: 0.3s; line-height: 1;
+}
+.cerrar:hover { color: #ff4444; transform: scale(1.1); }
+
+.modal-body { padding: 25px; color: var(--text-dim); line-height: 1.6; }
+.modal-body p { margin-bottom: 15px; }
+.modal-body ul { list-style: none; margin-top: 15px; }
+.modal-body ul li {
+    margin-bottom: 12px; padding-left: 20px; position: relative;
+    color: var(--text-main); font-size: 0.95rem;
+}
+.modal-body ul li::before {
+    content: "▹"; color: var(--accent-green);
+    position: absolute; left: 0; font-weight: bold;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Estilos para la nueva introducción */
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.intro-text strong {
+    color: var(--text-main); /* Hace que las letras en negrita resalten en blanco puro */
+}
+
+.hero-actions {
+    margin-bottom: 20px;
+}

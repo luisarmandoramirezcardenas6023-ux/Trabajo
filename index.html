@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Ramirez | Digital Solutions 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="profile-info">
+            <div class="profile-img">LR</div> 
+            <h1>Luis Armando Ramirez Cardenas</h1>
+            <h3>Licenciatura en Inteligencia de Negocios</h3>
+            <p>Enfoque: Ciencia de Datos, Consultoría de Negocios, Tecnologías de la Información, Inteligencia Artificial</p>
+        </div>
+        
+        <nav class="menu">
+            <ul>
+                <li><button class="btn-nav active-nav" onclick="cambiarPantalla('inicio', this)">Inicio</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('servicios', this)">Servicios 2026</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('educacion', this)">Trayectoria</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('proyectos', this)">Portafolio BI</button></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="btn-contacto" onclick="cambiarPantalla('contacto', this)">Hablemos</button>
+        </div>
+    </aside>
+
+    <main class="content">
+        
+        <section id="inicio" class="pantalla activa">
+            <div class="hero-content">
+                <span class="badge">UABC • Facultad de Contaduría y Administración</span>
+                <h2>Diseño Web con <br><span class="text-gradient">Visión Estratégica</span></h2>
+                
+                <p class="intro-text">
+                    ¡Hola! Soy Luis Armando, estudiante de <strong>7mo semestre de Inteligencia de Negocios</strong> en la Universidad Autónoma de Baja California (UABC).
+                    <br><br>
+                    Actualmente ofrezco mis servicios como desarrollador web freelance para <strong>generar un ingreso que me permita solventar mis estudios universitarios</strong>. Al trabajar conmigo, obtienes una página web profesional, rápida y moderna a un precio accesible, y al mismo tiempo estás apoyando directamente el desarrollo de un futuro profesional.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn-send" onclick="cambiarPantalla('servicios', document.querySelectorAll('.btn-nav')[1])">Ver Paquetes y Precios</button>
+                </div>
+
+                <div class="social-links" style="margin-top: 30px;">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="pantalla">
+            <h2 class="section-title">PAQUETES DE DESARROLLO WEB</h2>
+            <div class="services-grid">
+                
+                <div class="service-card" onclick="abrirModal('modal-presencia')">
+                    <div class="card-icon">📄</div>
+                    <h3>Presencia Digital</h3>
+                    <p>Landing Page directa y minimalista. Ideal para tu tarjeta de presentación digital.</p>
+                    <span class="price">Desde $2,500 MXN</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+                
+                <div class="service-card" onclick="abrirModal('modal-crecimiento')">
+                    <div class="card-icon">📈</div>
+                    <h3>Negocio Crecimiento</h3>
+                    <p>Sitio web dinámico de 3 secciones, perfecto para mostrar catálogo y servicios.</p>
+                    <span class="price">Desde $4,500 MXN</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+                
+                <div class="service-card" onclick="abrirModal('modal-corporativo')">
+                    <div class="card-icon">🏢</div>
+                    <h3>Proyección Corporativa</h3>
+                    <p>Plataforma web de 6 secciones con recursos multimedia y galerías dinámicas.</p>
+                    <span class="price">Desde $7,500 MXN</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+
+                <div class="service-card featured" onclick="abrirModal('modal-elite')">
+                    <div class="card-icon">💎</div>
+                    <h3>Elite BI & Custom</h3>
+                    <p>Sistema escalable de 9 secciones con integración de Inteligencia de Negocios.</p>
+                    <span class="price">Desde $15,500 MXN</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="educacion" class="pantalla">
+            <h2 class="section-title">Formación Estratégica</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2022 - 2026</div>
+                    <div class="timeline-content">
+                        <h3>Lic. Inteligencia de Negocios</h3>
+                        <p>Universidad Autónoma de Baja California (UABC) - Séptimo Semestre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Google Data Analytics & Project Management</h3>
+                        <p>Certificaciones Profesionales Internacionales de Google.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Scrum Fundamentals (SFC)</h3>
+                        <p>Marcos de trabajo ágiles para el desarrollo de proyectos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="pantalla">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="project-list">
+                <div class="project-item">
+                    <h3>Sistema de Inventario Flask/MySQL</h3>
+                    <p>Arquitectura robusta con triggers para auditoría y trazabilidad completa de inventarios.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Web Scraping Inteligente</h3>
+                    <p>Extracción automatizada de datos masivos con Selenium y Pandas desde portales como IMDb.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="pantalla">
+            <h2 class="section-title">Inicia tu Transformación Digital</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre del Proyecto o Empresa" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <textarea placeholder="¿Cómo puedo ayudarte a escalar tu negocio con datos y diseño?" rows="5"></textarea>
+                <button type="submit" class="btn-send">Enviar Mensaje</button>
+            </form>
+        </section>
+
+    </main>
+
+    <div id="modal-presencia" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📄 Presencia Digital</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-presencia')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Ideal para freelancers o pequeños negocios que necesitan estar en internet de forma rápida y directa.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> Diseño de 1 sola página (Landing Page estática).</li>
+                    <li><strong>Identidad:</strong> Paleta corporativa de hasta 4 colores.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($600) + Dominio ($500) = $1,100 MXN.</li>
+                    <li><strong>Desarrollo:</strong> Desde $1,400 MXN.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-crecimiento" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📈 Negocio en Crecimiento</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-crecimiento')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Perfecto para Pymes y empresas locales que necesitan explicar sus servicios con detalle e imágenes de calidad.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> Sitio dinámico con 3 secciones (Ej. Inicio, Servicios, Contacto).</li>
+                    <li><strong>Diseño Personalizado:</strong> Estilos CSS avanzados y paleta de 4 colores.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($600) + Dominio ($1,300) = $1,900 MXN.</li>
+                    <li><strong>Desarrollo:</strong> Desde $2,600 MXN.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-corporativo" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏢 Proyección Corporativa</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-corporativo')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Enfocado a empresas consolidadas que buscan autoridad en su sector mediante galerías y contenido multimedia.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> Plataforma completa de hasta 6 secciones.</li>
+                    <li><strong>Diseño Premium:</strong> Hasta 7 colores corporativos, imágenes HD y videos cortos.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($600) + Dominio ($1,300) = $1,900 MXN.</li>
+                    <li><strong>Desarrollo:</strong> Desde $5,600 MXN.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-elite" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💎 Elite BI & Custom</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-elite')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>La solución definitiva. Un sistema estratégico diseñado a la medida para procesar y visualizar los datos clave de tu negocio.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> Arquitectura compleja de hasta 9 secciones.</li>
+                    <li><strong>Diseño Libre:</strong> Colores deseados, recursos multimedia y diseño UI/UX de alto impacto.</li>
+                    <li><strong>Inteligencia de Negocios:</strong> Configuración de bases de datos y tableros (Dashboards) analíticos.</li>
+                    <li><strong>Infraestructura Anual (Alta Capacidad):</strong> Servidor VPS ($3,900) + Dominio ($600) = $4,500 MXN.</li>
+                    <li><strong>Desarrollo y Setup:</strong> Desde $11,000 MXN.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
