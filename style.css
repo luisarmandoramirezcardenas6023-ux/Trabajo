@@ -181,3 +181,12 @@ input:focus, textarea:focus { border-color: var(--accent-blue); }
 .hero-actions {
     margin-bottom: 20px;
 }
+
+.section-note {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: -20px; /* Sube la nota para que quede pegada al título */
+    margin-bottom: 30px;
+    font-style: italic;
+    opacity: 0.8;
+}
