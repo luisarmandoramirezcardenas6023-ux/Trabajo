@@ -184,9 +184,9 @@ input:focus, textarea:focus { border-color: var(--accent-blue); }
 
 .section-note {
     color: var(--text-dim);
-    font-size: 0.9rem;
-    margin-top: -20px; /* Sube la nota para que quede pegada al título */
-    margin-bottom: 30px;
+    font-size: 0.95rem;
+    margin-top: -15px;      /* Lo acerca un poquito al título de arriba */
+    margin-bottom: 40px;    /* 🟢 Esto es lo que empuja las tarjetas hacia abajo para que no se mezclen */
     font-style: italic;
-    opacity: 0.8;
+    display: block;
 }
