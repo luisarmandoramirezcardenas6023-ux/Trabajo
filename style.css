@@ -216,3 +216,26 @@ input:focus, textarea:focus { border-color: var(--accent-blue); }
     font-style: italic;
     display: block;
 }
+/* Estilos extra para las etiquetas de tecnología dentro de las cards */
+.tech-stack {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-stack .badge {
+    background: rgba(0, 82, 212, 0.15);
+    border: 1px solid rgba(0, 82, 212, 0.3);
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
