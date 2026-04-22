@@ -91,14 +91,9 @@
                 <li><button class="btn-nav" onclick="cambiarPantalla('curriculum', this)">Curriculum</button></li>
                 <li><button class="btn-nav" onclick="cambiarPantalla('desarrollo-web', this)">Desarrollo Web</button></li>
                 <li><button class="btn-nav" onclick="cambiarPantalla('contratacion', this)">Contratación</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('linkedin', this)">LinkedIn</button></li>
                 <li><button class="btn-nav" onclick="cambiarPantalla('contacto', this)">Contacto</button></li>
             </ul>
         </nav>
-        
-        <div class="sidebar-footer">
-            <button class="btn-contacto" onclick="cambiarPantalla('contacto', this)">Hablemos</button>
-        </div>
     </aside>
 
     <main class="content">
@@ -567,21 +562,22 @@
 
         <section id="contacto" class="pantalla">
             <h2 class="section-title">Inicia tu Transformación Digital</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Nombre del Proyecto o Empresa" required>
-                <input type="email" placeholder="Correo Electrónico" required>
-                <textarea placeholder="¿Cómo puedo ayudarte a escalar tu negocio?" rows="5"></textarea>
-                <button type="submit" class="btn-send">Enviar Mensaje</button>
-            </form>
-        </section>
-
-        <section id="linkedin" class="pantalla">
-            <h2 class="section-title">Conectemos Profesionalmente</h2>
-            <div class="project-item">
-                <h3>Mi Perfil de LinkedIn</h3>
-                <p>Consulta mi red profesional, recomendaciones y actividad académica reciente.</p>
-                <br>
-                <a href="https://www.linkedin.com/in/luis-armando-ramirez-cardenas-53712035b/" target="_blank" class="btn-send" style="text-decoration:none; display:inline-block;">Ir a mi Perfil</a>
+            
+            <div class="service-card" style="border-left-color: var(--accent-green); max-width: 600px; margin: 0 auto;">
+                <div class="card-icon">✉️</div>
+                <h3>¿Listo para colaborar?</h3>
+                <p style="margin-bottom: 25px; color: var(--text-main);">Puedes contactarme directamente a través de mi correo electrónico o conectar conmigo profesionalmente en LinkedIn:</p>
+                
+                <div style="margin-bottom: 30px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; border-left: 2px solid var(--accent-blue);">
+                    <p style="font-weight: bold; color: var(--accent-blue); margin-bottom: 5px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem;">CORREO ELECTRÓNICO</p>
+                    <p style="font-size: 1.1rem; color: var(--text-main); word-break: break-all;">luis.armando.ramirez.cardenas6023@gmail.com</p>
+                </div>
+        
+                <div style="margin-top: 10px;">
+                    <a href="https://www.linkedin.com/in/luis-armando-ramirez-carden-53712035b/" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; font-family: 'Orbitron', sans-serif;">
+                        CONECTAR EN LINKEDIN
+                    </a>
+                </div>
             </div>
         </section>
 
