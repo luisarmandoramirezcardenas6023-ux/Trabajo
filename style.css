@@ -301,3 +301,88 @@ input:focus, textarea:focus { border-color: var(--accent-blue); }
     font-style: italic;
     display: block;
 }
+/* =========================================
+   ESTILOS DE LISTAS DESPLEGABLES (ACORDEÓN)
+   ========================================= */
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.service-accordion {
+    background: #121212;
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.service-accordion[open] {
+    border-left-color: var(--accent-green);
+    box-shadow: 0 0 20px rgba(0, 200, 83, 0.1);
+}
+
+.service-accordion summary {
+    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    color: white;
+    cursor: pointer;
+    list-style: none; /* Quita la flecha por defecto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* Flecha personalizada */
+.service-accordion summary::after {
+    content: "＋";
+    color: var(--accent-blue);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.service-accordion[open] summary::after {
+    content: "－";
+    color: var(--accent-green);
+    transform: rotate(90deg);
+}
+
+.service-accordion summary:hover {
+    background: rgba(0, 82, 212, 0.1);
+}
+
+.accordion-content {
+    padding: 0 25px 25px 25px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.accordion-content ul {
+    list-style: none;
+}
+
+.accordion-content li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.accordion-content li::before {
+    content: "▹";
+    color: var(--accent-green);
+    position: absolute;
+    left: 0;
+}
+
+.accordion-content strong {
+    color: var(--text-main);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
