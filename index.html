@@ -439,36 +439,84 @@
             <h2 class="section-title">PAQUETES DE DESARROLLO WEB</h2>
             <p class="section-note">Nota: En todos los paquetes se requiere pago inicial de la infraestructura para comenzar</p>
             
+            <h3 style="color: white; margin-top: 30px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">Línea Básica: Estructura Estática (HTML)</h3>
+            <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 0.9rem;">Ideal para transmitir información directa. Sitios informativos sin programación interactiva ni estilos visuales complejos.</p>
+            
             <div class="services-grid">
-                <div class="service-card" onclick="abrirModal('modal-presencia')">
+                <div class="service-card" onclick="abrirModal('modal-html-1')">
                     <div class="card-icon">📄</div>
-                    <h3>Presencia Digital</h3>
-                    <p>Landing Page directa y minimalista. Ideal para tu tarjeta de presentación digital.</p>
-                    <span class="price">Desde $259 dlls</span>
+                    <h3>HTML Landing</h3>
+                    <p>1 Página (Sin secciones). 4 colores.</p>
+                    <span class="price">Desarrollo: $180 dlls</span>
                     <div class="click-hint">Click para ver detalles ⬈</div>
                 </div>
                 
-                <div class="service-card" onclick="abrirModal('modal-crecimiento')">
-                    <div class="card-icon">📈</div>
-                    <h3>Negocio Crecimiento</h3>
-                    <p>Sitio web dinámico de 3 secciones, perfecto para mostrar catálogo y servicios.</p>
-                    <span class="price">Desde $382 dlls</span>
+                <div class="service-card" onclick="abrirModal('modal-html-2')">
+                    <div class="card-icon">🗂️</div>
+                    <h3>HTML Estándar</h3>
+                    <p>3 Secciones. 4 colores.</p>
+                    <span class="price">Desarrollo: $220 dlls</span>
                     <div class="click-hint">Click para ver detalles ⬈</div>
                 </div>
                 
-                <div class="service-card" onclick="abrirModal('modal-corporativo')">
+                <div class="service-card" onclick="abrirModal('modal-html-3')">
                     <div class="card-icon">🏢</div>
-                    <h3>Proyección Corporativa</h3>
-                    <p>Plataforma web de 7 secciones con recursos multimedia y galerías dinámicas.</p>
-                    <span class="price">Desde $528 dlls</span>
+                    <h3>HTML Corporativo</h3>
+                    <p>7 Secciones. 6 colores.</p>
+                    <span class="price">Desarrollo: $260 dlls</span>
                     <div class="click-hint">Click para ver detalles ⬈</div>
                 </div>
 
-                <div class="service-card featured" onclick="abrirModal('modal-elite')">
+                <div class="service-card" onclick="abrirModal('modal-html-4')">
+                    <div class="card-icon">🌐</div>
+                    <h3>HTML Extendido</h3>
+                    <p>11 Secciones. 8 colores.</p>
+                    <span class="price">Desarrollo: $300 dlls</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+            </div>
+
+            <h3 style="color: white; margin-top: 50px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px;">Línea Interactiva: Diseño Premium (HTML, CSS y JS)</h3>
+            <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 0.9rem;">Experiencia web interactiva, animaciones, diseño adaptable a celulares y estética moderna para una proyección profesional superior.</p>
+
+            <div class="services-grid">
+                <div class="service-card" onclick="abrirModal('modal-premium-1')">
+                    <div class="card-icon">✨</div>
+                    <h3>Premium Landing</h3>
+                    <p>1 Página (Landing). 4 colores.</p>
+                    <span class="price">Desarrollo: $235 dlls</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+                
+                <div class="service-card" onclick="abrirModal('modal-premium-2')">
+                    <div class="card-icon">🚀</div>
+                    <h3>Premium Estándar</h3>
+                    <p>3 Secciones. 4 colores.</p>
+                    <span class="price">Desarrollo: $323 dlls</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+                
+                <div class="service-card" onclick="abrirModal('modal-premium-3')">
+                    <div class="card-icon">📈</div>
+                    <h3>Premium Avanzado</h3>
+                    <p>6 Secciones. 6 colores.</p>
+                    <span class="price">Desarrollo: $411 dlls</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+
+                <div class="service-card" onclick="abrirModal('modal-premium-4')">
+                    <div class="card-icon">🏢</div>
+                    <h3>Premium Corporativo</h3>
+                    <p>9 Secciones. 6 colores.</p>
+                    <span class="price">Desarrollo: $500 dlls</span>
+                    <div class="click-hint">Click para ver detalles ⬈</div>
+                </div>
+
+                <div class="service-card featured" onclick="abrirModal('modal-premium-5')">
                     <div class="card-icon">💎</div>
-                    <h3>Elite BI & Custom</h3>
-                    <p>Sistema escalable de 10 secciones con integración de Inteligencia de Negocios.</p>
-                    <span class="price">Desde $918 dlls.</span>
+                    <h3>Premium Elite</h3>
+                    <p>12 Secciones. 8 colores. Interactividad total.</p>
+                    <span class="price">Desarrollo: $588 dlls</span>
                     <div class="click-hint">Click para ver detalles ⬈</div>
                 </div>
             </div>
@@ -583,96 +631,181 @@
 
     </main>
 
-    <div id="modal-presencia" class="modal-overlay">
+    <div id="modal-html-1" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>📄 Presencia Digital</h2>
-                <span class="cerrar" onclick="cerrarModal('modal-presencia')">&times;</span>
+                <h2>📄 HTML Landing</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-html-1')">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Ideal para freelancers o pequeños negocios que necesitan estar en internet de forma rápida y directa.</p>
+                <p>Estructura web básica ideal para transmitir información directa sin interactividad.</p>
                 <ul>
-                    <li><strong>Estructura:</strong> Diseño de 1 sola página (Landing Page estática).</li>
-                    <li><strong>Identidad:</strong> Paleta corporativa de hasta 4 colores.</li>
-                    <li><strong>Infraestructura Anual:</strong> Hosting ($35 dlls) + Dominio ($29 dlls) = $64 dlls.</li>
-                    <li><strong>Desarrollo:</strong> $195 dlls</li>
-                    <li><strong>Horas: (a la semana)</strong> 15 (3 horas diarias) </li>
-                    <li><strong>Fecha de Entrega (estimado):</strong> 1 - 1/2 semanas</li>
-                    <li><strong>Precio por hora: </strong> $13 dlls. </li>
-                    <li><strong>Total: (Dominio + Hosting + Desarrollo)</strong> $259 dlls. </li>
-                    <li><strong>Actualizacion: </strong> $ 50 dlls. </li>
+                    <li><strong>Estructura:</strong> 1 sola página (sin secciones adicionales).</li>
+                    <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
+                    <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos pequeños limitados.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
+                    <li><strong>Costo de Desarrollo:</strong> $180 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $244 dlls.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="modal-crecimiento" class="modal-overlay">
+    <div id="modal-html-2" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>📈 Negocio en Crecimiento</h2>
-                <span class="cerrar" onclick="cerrarModal('modal-crecimiento')">&times;</span>
+                <h2>🗂️ HTML Estándar</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-html-2')">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Perfecto para Pymes y empresas locales que necesitan explicar sus servicios con detalle e imágenes de calidad.</p>
+                <p>Estructura web básica ideal para transmitir información directa sin interactividad.</p>
                 <ul>
-                    <li><strong>Estructura:</strong> Sitio dinámico con 3 secciones (Ej. Inicio, Servicios, Contacto).</li>
-                    <li><strong>Diseño Personalizado:</strong> Estilos CSS avanzados y paleta de 4 colores e imagenes</li>
-                    <li><strong>Infraestructura Anual:</strong> Hosting ($77 dlls) + Dominio ($35 dlls) = $112 dlls.</li>
-                    <li><strong>Desarrollo:</strong> $270 dlls.</li>
-                    <li><strong>Horas:(dia)</strong> 18 horas (3 horas diarias)</li>
-                    <li><strong>Fecha de Entrega (estimado):</strong> 2 semanas</li>
-                    <li><strong>Precio por hora: </strong> $15 dlls. </li>
-                    <li><strong>Total: (Dominio + Hosting + Desarrollo)</strong> $382 dlls. </li>
-                    <li><strong>Actualizacion: </strong> $ 70 dlls. </li>
-                    <li><strong>Nota: </strong> Este paquete incluye una actualizacion gratis al año (Se establece la fecha en la negociacion)</li>
+                    <li><strong>Estructura:</strong> 3 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
+                    <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos pequeños limitados.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
+                    <li><strong>Costo de Desarrollo:</strong> $220 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $284 dlls.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="modal-corporativo" class="modal-overlay">
+    <div id="modal-html-3" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>🏢 Proyección Corporativa</h2>
-                <span class="cerrar" onclick="cerrarModal('modal-corporativo')">&times;</span>
+                <h2>🏢 HTML Corporativo</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-html-3')">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Enfocado a empresas consolidadas que buscan autoridad en su sector mediante galerías y contenido multimedia.</p>
+                <p>Estructura web básica ideal para transmitir información directa sin interactividad.</p>
                 <ul>
-                    <li><strong>Estructura:</strong> Plataforma completa de hasta 7 secciones.</li>
-                    <li><strong>Diseño Premium:</strong> Hasta 7 colores corporativos, imágenes, videos cortos limitados</li>
-                    <li><strong>Infraestructura Anual:</strong> Hosting ($77 dlls) + Dominio ($35 dlls) = $112 dlls.</li>
-                    <li><strong>Desarrollo:</strong> $416 dlls.</li>
-                    <li><strong>Horas:(dia)</strong> 26 horas (3 horas diarias)</li>
-                    <li><strong>Fecha de Entrega (estimado):</strong> 2 - 3 semanas</li>
-                    <li><strong>Precio por hora: </strong> $16 dlls. </li>
-                    <li><strong>Total: (Dominio + Hosting + Desarrollo)</strong> $528 dlls. </li>
-                    <li><strong>Actualizacion: </strong> $ 90 dlls. </li>
-                    <li><strong>Nota: </strong> Este paquete incluye 2 actualizaciones gratis al año (Se establecen la fecha en la negociacion)</li>
+                    <li><strong>Estructura:</strong> 7 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
+                    <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos pequeños limitados.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
+                    <li><strong>Costo de Desarrollo:</strong> $260 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $324 dlls.</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div id="modal-elite" class="modal-overlay">
+    <div id="modal-html-4" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>💎 Elite BI & Custom</h2>
-                <span class="cerrar" onclick="cerrarModal('modal-elite')">&times;</span>
+                <h2>🌐 HTML Extendido</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-html-4')">&times;</span>
             </div>
             <div class="modal-body">
-                <p>La solución definitiva. Un sistema estratégico diseñado a la medida para procesar y visualizar los datos clave de tu negocio.</p>
+                <p>Estructura web básica ideal para transmitir información directa sin interactividad.</p>
                 <ul>
-                    <li><strong>Estructura:</strong> Arquitectura compleja de hasta 10 secciones.</li>
-                    <li><strong>Diseño Libre:</strong> Colores deseados, recursos multimedia, detalles llamativos a la vista, elementos premium, dashbpards (Bussines Intelligence)</li>
-                    <li><strong>Infraestructura Anual:</strong> Hosting ($235 dlls) + Dominio ($35 dlls) = $270 dlls.</li>
-                    <li><strong>Desarrollo:</strong> $648 dlls.</li>
-                    <li><strong>Horas:(dia)</strong> 36 horas (3 horas diarias)</li>
-                    <li><strong>Fecha de Entrega (estimado):</strong> 3 - 4 semanas</li>
-                    <li><strong>Precio por hora: </strong> $18 dlls. </li>
-                    <li><strong>Total: (Dominio + Hosting + Desarrollo)</strong> $918 dlls. </li>
-                    <li><strong>Actualizacion: </strong> $ 120 dlls. </li>
-                    <li><strong>Nota: </strong> Este paquete incluye 3 actualizaciones gratis al año (Se establecen la fecha en la negociacion)</li>
+                    <li><strong>Estructura:</strong> 11 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
+                    <li><strong>Recursos:</strong> Paleta de 8 colores. Fotos y videos pequeños limitados.</li>
+                    <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
+                    <li><strong>Costo de Desarrollo:</strong> $300 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $364 dlls.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-premium-1" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✨ Premium Landing</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-premium-1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Diseño web completo para una experiencia interactiva y moderna.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> 1 sola página (sin secciones adicionales).</li>
+                    <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
+                    <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos limitados.</li>
+                    <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
+                    <li><strong>Costo de Desarrollo:</strong> $235 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $494 dlls.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-premium-2" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🚀 Premium Estándar</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-premium-2')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Diseño web completo para una experiencia interactiva y moderna.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> 3 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
+                    <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos limitados.</li>
+                    <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
+                    <li><strong>Costo de Desarrollo:</strong> $323 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $582 dlls.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-premium-3" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📈 Premium Avanzado</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-premium-3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Diseño web completo para una experiencia interactiva y moderna.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> 6 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
+                    <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos limitados.</li>
+                    <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
+                    <li><strong>Costo de Desarrollo:</strong> $411 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $670 dlls.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-premium-4" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏢 Premium Corporativo</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-premium-4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Diseño web completo para una experiencia interactiva y moderna.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> 9 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
+                    <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos limitados.</li>
+                    <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
+                    <li><strong>Costo de Desarrollo:</strong> $500 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $759 dlls.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-premium-5" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💎 Premium Elite</h2>
+                <span class="cerrar" onclick="cerrarModal('modal-premium-5')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>La solución definitiva con interactividad total, diseño a la medida y máxima capacidad.</p>
+                <ul>
+                    <li><strong>Estructura:</strong> 12 secciones integradas.</li>
+                    <li><strong>Diseño:</strong> Programación avanzada con HTML, CSS y JavaScript.</li>
+                    <li><strong>Recursos:</strong> Paleta de 8 colores. Fotos y videos limitados.</li>
+                    <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
+                    <li><strong>Costo de Desarrollo:</strong> $588 dlls.</li>
+                    <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $847 dlls.</li>
                 </ul>
             </div>
         </div>
