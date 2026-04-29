@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultoría Legal y Financiera</title>
+</head>
+<body style="background-color: #F4F6F7; color: #1A252C; font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0;">
 
+    <div style="background-color: #1A252C; color: #F4F6F7; padding: 40px 20px; text-align: center;">
+        <h1 style="margin: 0; color: #005B96;">Gómez & Asociados</h1>
+        <p style="font-size: 1.2rem;">Protegemos tu patrimonio con estrategias legales y financieras.</p>
+    </div>
+
+    <div style="padding: 30px 20px; text-align: center;">
+        <h2 style="color: #005B96;">Más de 15 años de experiencia</h2>
+        <p>Entendemos que los problemas legales no pueden esperar. Te ofrecemos soluciones rápidas, transparentes y 100% enfocadas en resultados.</p>
+        <img src="https://via.placeholder.com/400x250?text=Foto+del+Despacho" alt="Oficina" style="border: 4px solid #1A252C; max-width: 100%;">
+    </div>
+
+    <hr style="border: 1px solid #005B96; margin: 0 20px;">
+
+    <div style="padding: 30px 20px;">
+        <h2 style="color: #005B96;">Áreas de Práctica</h2>
+        <ul>
+            <li style="margin-bottom: 10px;"><strong>Derecho Corporativo:</strong> Constitución de empresas, contratos y auditorías legales.</li>
+            <li style="margin-bottom: 10px;"><strong>Asesoría Fiscal:</strong> Planeación tributaria y defensa ante autoridades.</li>
+            <li style="margin-bottom: 10px;"><strong>Propiedad Intelectual:</strong> Registro de marcas y patentes a nivel nacional.</li>
+        </ul>
+    </div>
+
+    <hr style="border: 1px solid #005B96; margin: 0 20px;">
+
+    <div style="padding: 30px 20px;">
+        <h2 style="color: #005B96;">Preguntas Frecuentes</h2>
+        <p>Haz clic en las preguntas para leer la respuesta:</p>
+
+        <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #005B96; margin-bottom: 10px;">
+            <summary style="font-weight: bold; cursor: pointer; color: #1A252C;">¿La primera consulta tiene costo?</summary>
+            <p style="margin-top: 10px;">La primera consulta de evaluación es totalmente gratuita. En ella analizaremos tu caso y te presentaremos un presupuesto detallado.</p>
+        </details>
+
+        <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #005B96; margin-bottom: 10px;">
+            <summary style="font-weight: bold; cursor: pointer; color: #1A252C;">¿Cuánto tiempo tarda el registro de una marca?</summary>
+            <p style="margin-top: 10px;">El proceso ante el instituto correspondiente suele tomar entre 4 a 6 meses, dependiendo de si hay observaciones de terceros.</p>
+        </details>
+
+        <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #D9534F; margin-bottom: 10px;">
+            <summary style="font-weight: bold; cursor: pointer; color: #D9534F;">¿Qué hago si recibo una notificación fiscal urgente?</summary>
+            <p style="margin-top: 10px;">Contáctanos inmediatamente. Las notificaciones tienen plazos estrictos de respuesta (a veces de solo 3 días) para evitar multas mayores.</p>
+        </details>
+    </div>
+
+    <hr style="border: 1px solid #005B96; margin: 0 20px;">
+
+    <div style="padding: 30px 20px; background-color: #1A252C; color: #F4F6F7;">
+        <h2 style="color: #005B96;">Lo que dicen nuestros clientes</h2>
+        <blockquote style="border-left: 4px solid #D9534F; margin: 0; padding-left: 15px; font-style: italic;">
+            "Gracias a Gómez & Asociados logramos resolver una auditoría que ponía en riesgo a nuestra empresa. Profesionales al 100%."
+            <br><br>
+            <strong style="color: #005B96;">— Roberto S., Director General</strong>
+        </blockquote>
+    </div>
+
+    <div style="padding: 30px 20px; text-align: center;">
+        <h2 style="color: #005B96;">Conoce a nuestro fundador</h2>
+        <video width="320" controls style="border: 3px solid #1A252C; max-width: 100%;">
+            <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+
+        <h3 style="color: #D9534F; margin-top: 30px;">Agenda tu cita hoy</h3>
+        <p><strong>Teléfono:</strong> (664) 123 4567</p>
+        <p><strong>Correo:</strong> contacto@gomez-asociados.com</p>
+        <p><strong>Ubicación:</strong> Zona Río, Tijuana, B.C.</p>
+        
+        <p style="background-color: #005B96; color: #F4F6F7; padding: 15px; display: inline-block; font-weight: bold;">
+            Atención 24/7 para emergencias legales
+        </p>
+    </div>
+
+</body>
+</html>
