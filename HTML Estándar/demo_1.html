@@ -6,60 +6,73 @@
 </head>
 <body style="background-color: #000000; color: #FFFFFF; font-family: Arial, sans-serif; margin: 0;">
 
-    <!-- MENÚ DE NAVEGACIÓN (Botones con JavaScript) -->
-    <div style="background-color: #333333; padding: 15px; text-align: center;">
-        <button onclick="mostrarSeccion('sec-bienvenida')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Bienvenida</button>
-        <button onclick="mostrarSeccion('sec-portafolio')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Portafolio</button>
-        <button onclick="mostrarSeccion('sec-reservas')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Reservaciones</button>
-    </div>
+    <!-- CONTENEDOR PRINCIPAL FLEX -->
+    <div style="display: flex; min-height: 100vh;">
 
-    <!-- SECCIÓN 1: BIENVENIDA -->
-    <div id="sec-bienvenida" style="display: block; padding: 40px 20px; text-align: center;">
-        <h1 style="color: #FFD700;">Capturando tus mejores momentos</h1>
-        <p>Especialistas en retratos corporativos, bodas y eventos sociales en Tijuana.</p>
-        <img src="https://via.placeholder.com/300x200?text=Camara+Fotografica" alt="Cámara" width="300" style="border: 2px solid #333333; margin-top: 20px;">
-    </div>
-
-    <!-- SECCIÓN 2: PORTAFOLIO -->
-    <div id="sec-portafolio" style="display: none; padding: 40px 20px; text-align: center;">
-        <h2 style="color: #FFD700;">Nuestro Trabajo</h2>
-        <p>Hacemos que la iluminación trabaje a tu favor.</p>
-        
-        <div style="margin-bottom: 20px;">
-            <p style="background-color: #333333; padding: 10px; display: inline-block;">Sesiones de Boda (Desde $500 USD)</p><br>
-            <img src="https://via.placeholder.com/250x150?text=Boda" alt="Boda" width="250">
+        <!-- MENÚ LATERAL (SIDEBAR) -->
+        <div style="width: 25%; background-color: #333333; padding: 20px; border-right: 2px solid #FFD700;">
+            <h2 style="color: #FFD700; text-align: center; margin-top: 0; margin-bottom: 30px;">Luz & Sombra</h2>
+            
+            <button onclick="mostrarSeccion('sec-bienvenida')" style="background-color: #FFD700; color: #000000; padding: 15px; margin-bottom: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">1. Bienvenida</button>
+            
+            <button onclick="mostrarSeccion('sec-portafolio')" style="background-color: #FFD700; color: #000000; padding: 15px; margin-bottom: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">2. Portafolio</button>
+            
+            <button onclick="mostrarSeccion('sec-reservas')" style="background-color: #FFD700; color: #000000; padding: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">3. Reservaciones</button>
         </div>
-        
-        <div style="margin-bottom: 20px;">
-            <p style="background-color: #333333; padding: 10px; display: inline-block;">Retrato Corporativo (Desde $100 USD)</p><br>
-            <img src="https://via.placeholder.com/250x150?text=Retrato" alt="Retrato" width="250">
+
+        <!-- ÁREA DE CONTENIDO DERECHA -->
+        <div style="width: 75%; padding: 40px 5%;">
+            
+            <!-- SECCIÓN 1: BIENVENIDA -->
+            <div id="sec-bienvenida" style="display: block; text-align: center;">
+                <h1 style="color: #FFD700;">Capturando tus mejores momentos</h1>
+                <p>Especialistas en retratos corporativos, bodas y eventos sociales en Tijuana.</p>
+                <img src="https://via.placeholder.com/450x250?text=Camara+Fotografica" alt="Cámara" style="border: 2px solid #333333; margin-top: 20px; max-width: 100%;">
+            </div>
+
+            <!-- SECCIÓN 2: PORTAFOLIO -->
+            <div id="sec-portafolio" style="display: none; text-align: center;">
+                <h2 style="color: #FFD700;">Nuestro Trabajo</h2>
+                <p style="margin-bottom: 30px;">Hacemos que la iluminación trabaje a tu favor.</p>
+                
+                <div style="margin-bottom: 30px;">
+                    <p style="background-color: #333333; padding: 10px; display: inline-block; margin-top: 0; margin-bottom: 5px;">Sesiones de Boda (Desde $500 USD)</p><br>
+                    <img src="https://via.placeholder.com/350x200?text=Sesion+Boda" alt="Boda" style="max-width: 100%;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <p style="background-color: #333333; padding: 10px; display: inline-block; margin-top: 0; margin-bottom: 5px;">Retrato Corporativo (Desde $100 USD)</p><br>
+                    <img src="https://via.placeholder.com/350x200?text=Sesion+Retrato" alt="Retrato" style="max-width: 100%;">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: RESERVACIONES -->
+            <div id="sec-reservas" style="display: none; text-align: center;">
+                <h2 style="color: #FFD700;">Reserva tu fecha</h2>
+                <p>Mira cómo trabajamos detrás de cámaras en este breve video:</p>
+                
+                <video width="400" controls style="border: 3px solid #333333; max-width: 100%; margin-top: 15px;">
+                    <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+
+                <h3 style="margin-top: 40px;">Contacto Directo</h3>
+                <p>Email: hola@luzysombra.com</p>
+                <p>Tel: (664) 123 0000</p>
+            </div>
+
         </div>
-    </div>
-
-    <!-- SECCIÓN 3: RESERVACIONES -->
-    <div id="sec-reservas" style="display: none; padding: 40px 20px; text-align: center;">
-        <h2 style="color: #FFD700;">Reserva tu fecha</h2>
-        <p>Mira cómo trabajamos detrás de cámaras:</p>
-        
-        <video width="300" controls style="border: 3px solid #333333;">
-            <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
-            Tu navegador no soporta video.
-        </video>
-
-        <h3 style="margin-top: 30px;">Contacto Directo</h3>
-        <p>Email: hola@luzysombra.com</p>
-        <p>Tel: (664) 123 0000</p>
     </div>
 
     <!-- SCRIPT DE JAVASCRIPT PARA CAMBIAR LAS PANTALLAS -->
     <script>
         function mostrarSeccion(idSeccion) {
-            // Primero ocultamos todas las secciones
+            // Ocultamos todas las secciones
             document.getElementById('sec-bienvenida').style.display = 'none';
             document.getElementById('sec-portafolio').style.display = 'none';
             document.getElementById('sec-reservas').style.display = 'none';
             
-            // Luego mostramos solo la que el usuario pidió
+            // Mostramos la solicitada
             document.getElementById(idSeccion).style.display = 'block';
         }
     </script>
