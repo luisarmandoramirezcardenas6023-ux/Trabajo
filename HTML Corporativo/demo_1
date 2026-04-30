@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>NexusTech Solutions | Corporativo</title>
+</head>
+<body style="background-color: #F1F1F1; color: #333333; font-family: Arial, sans-serif; margin: 0; padding: 0;">
 
+    <!-- MENÚ DE NAVEGACIÓN SUPERIOR (7 Botones) -->
+    <div style="background-color: #0A2342; padding: 15px; text-align: center;">
+        <button onclick="cambiarTab('sec-inicio')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">1. Inicio</button>
+        <button onclick="cambiarTab('sec-nosotros')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">2. Nosotros</button>
+        <button onclick="cambiarTab('sec-servicios')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">3. Servicios</button>
+        <button onclick="cambiarTab('sec-metodologia')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">4. Metodología</button>
+        <button onclick="cambiarTab('sec-clientes')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">5. Clientes</button>
+        <button onclick="cambiarTab('sec-faq')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">6. FAQ</button>
+        <button onclick="cambiarTab('sec-contacto')" style="background-color: #2CA58D; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">7. Contacto</button>
+    </div>
+
+    <!-- 1. INICIO -->
+    <div id="sec-inicio" style="display: block; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h1 style="color: #1768AC; font-size: 2.5rem; margin-bottom: 10px;">NexusTech Solutions</h1>
+        <p style="font-size: 1.2rem; color: #333333;">Transformación Digital para Grandes Empresas</p>
+        <img src="https://via.placeholder.com/600x300?text=Corporativo+NexusTech" alt="Edificio Corporativo" style="border: 5px solid #0A2342; max-width: 100%; margin-top: 20px;">
+    </div>
+
+    <!-- 2. NOSOTROS -->
+    <div id="sec-nosotros" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #0A2342; font-size: 2rem;">Sobre Nosotros</h2>
+        <p style="max-width: 700px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.6;">Con más de 10 años en el mercado, NexusTech se especializa en la optimización de procesos operativos mediante integraciones de software a la medida, ciberseguridad y análisis de datos. Nuestro objetivo es hacer tu empresa más ágil y rentable.</p>
+    </div>
+
+    <!-- 3. SERVICIOS -->
+    <div id="sec-servicios" style="display: none; background-color: #0A2342; color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #2CA58D; font-size: 2rem;">Nuestro Catálogo de Servicios</h2>
+        <ul style="list-style-type: square; max-width: 500px; margin: 0 auto; text-align: left; font-size: 1.1rem; line-height: 2;">
+            <li><strong>Migración a la Nube (Cloud):</strong> Transición segura de datos a AWS y Azure.</li>
+            <li><strong>Desarrollo de Software B2B:</strong> Creación de ERPs y CRMs internos.</li>
+            <li><strong>Auditoría de Ciberseguridad:</strong> Pruebas de penetración y protección de bases de datos.</li>
+            <li><strong>Business Intelligence:</strong> Creación de Dashboards corporativos en tiempo real.</li>
+        </ul>
+    </div>
+
+    <!-- 4. METODOLOGÍA -->
+    <div id="sec-metodologia" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #1768AC; font-size: 2rem;">¿Cómo trabajamos?</h2>
+        <p style="margin-bottom: 30px;">Implementamos marcos de trabajo ágiles (Scrum) para garantizar entregas en tiempo y forma.</p>
+        
+        <div style="display: inline-block; background-color: #F1F1F1; border-left: 5px solid #2CA58D; padding: 20px; margin: 10px; width: 250px; text-align: left;">
+            <h3 style="color: #0A2342; margin-top: 0;">1. Diagnóstico</h3>
+            <p style="font-size: 0.95rem;">Analizamos tu arquitectura actual y detectamos cuellos de botella operativos y tecnológicos.</p>
+        </div>
+        
+        <div style="display: inline-block; background-color: #F1F1F1; border-left: 5px solid #1768AC; padding: 20px; margin: 10px; width: 250px; text-align: left;">
+            <h3 style="color: #0A2342; margin-top: 0;">2. Desarrollo</h3>
+            <p style="font-size: 0.95rem;">Programamos soluciones escalables mediante Sprints estructurados de 2 semanas.</p>
+        </div>
+    </div>
+
+    <!-- 5. CLIENTES -->
+    <div id="sec-clientes" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #0A2342; font-size: 2rem;">Casos de Éxito</h2>
+        <p style="margin-bottom: 20px;">Conoce cómo ayudamos a una empresa de logística a reducir sus costos operativos en un 30%:</p>
+        <video width="500" controls style="border: 4px solid #1768AC; max-width: 100%; background-color: #000;">
+            <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+    </div>
+
+    <!-- 6. FAQ -->
+    <div id="sec-faq" style="display: none; background-color: #FFFFFF; padding: 60px 20px;">
+        <h2 style="color: #1768AC; text-align: center; font-size: 2rem;">Preguntas Frecuentes</h2>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <details style="background-color: #F1F1F1; padding: 15px; border: 1px solid #1768AC; margin-bottom: 15px;">
+                <summary style="font-weight: bold; cursor: pointer; color: #0A2342;">¿Brindan soporte técnico 24/7?</summary>
+                <p style="margin-top: 10px; color: #333333;">Sí, todos nuestros contratos de nivel empresarial incluyen un SLA con soporte continuo 24/7/365 para incidentes críticos.</p>
+            </details>
+            <details style="background-color: #F1F1F1; padding: 15px; border: 1px solid #1768AC; margin-bottom: 15px;">
+                <summary style="font-weight: bold; cursor: pointer; color: #0A2342;">¿Firmamos acuerdos de confidencialidad (NDA)?</summary>
+                <p style="margin-top: 10px; color: #333333;">Absolutamente. La seguridad y privacidad de la información corporativa de tu empresa es nuestra máxima prioridad desde el día uno.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 7. CONTACTO -->
+    <div id="sec-contacto" style="display: none; background-color: #0A2342; color: #FFFFFF; padding: 60px 20px; text-align: center;">
+        <h2 style="color: #2CA58D; font-size: 2rem;">Inicia tu Transformación Digital</h2>
+        <p style="font-size: 1.1rem;">Nuestro equipo de ingeniería está listo para evaluar tu proyecto.</p>
+        <div style="background-color: #1768AC; padding: 20px; max-width: 400px; margin: 30px auto; border-radius: 8px;">
+            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Línea Corporativa:</strong><br>+52 (664) 800 0000</p>
+            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Email:</strong><br>contacto@nexustech.com</p>
+            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Oficinas:</strong><br>Torre Platino, Piso 12. Tijuana, B.C.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT JS -->
+    <script>
+        function cambiarTab(idSeccion) {
+            const secciones = ['sec-inicio', 'sec-nosotros', 'sec-servicios', 'sec-metodologia', 'sec-clientes', 'sec-faq', 'sec-contacto'];
+            for (let i = 0; i < secciones.length; i++) {
+                document.getElementById(secciones[i]).style.display = 'none';
+            }
+            document.getElementById(idSeccion).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
