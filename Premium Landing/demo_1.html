@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFlow AI | Software Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de Paleta de Colores */
+        :root {
+            --bg-dark: #1A0B2E;
+            --accent-cyan: #00E5FF;
+            --text-white: #FFFFFF;
+            --card-gray: #2D2D2D;
+        }
 
+        /* Reset y Ajustes Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navegación Pegajosa */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            background-color: rgba(26, 11, 46, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            padding: 15px 5%;
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--text-white); }
+        .logo span { color: var(--accent-cyan); }
+        .btn-nav {
+            background-color: transparent;
+            color: var(--text-white);
+            border: 1px solid var(--accent-cyan);
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-nav:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+        }
+
+        /* Sección Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at center, #2a1147 0%, var(--bg-dark) 100%);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #A0A0A0;
+        }
+        .btn-primary {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Sección Características (Grid) */
+        .features { padding: 100px 5%; text-align: center; }
+        .features h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: var(--card-gray);
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: 0.3s ease;
+            border-bottom: 4px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--accent-cyan);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .card h3 { color: var(--accent-cyan); margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* Footer / CTA Final */
+        .footer-cta {
+            background-color: var(--card-gray);
+            padding: 80px 5%;
+            text-align: center;
+            border-top: 1px solid #444;
+        }
+        .footer-cta h2 { margin-bottom: 20px; }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">DataFlow <span>AI</span></div>
+        <button class="btn-nav" onclick="document.getElementById('features').scrollIntoView();">Ver Soluciones</button>
+    </nav>
+
+    <header class="hero">
+        <h1>Inteligencia de Negocios<br>en Tiempo Real</h1>
+        <p>Conecta tus bases de datos y transforma información cruda en Dashboards interactivos sin escribir una sola línea de código.</p>
+        <a href="#features" class="btn-primary">Empieza tu Prueba Gratis</a>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Potencia tu Toma de Decisiones</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Integración Total</h3>
+                <p>Conéctate a MySQL, PostgreSQL, Excel o APIs de terceros en menos de 5 minutos.</p>
+            </div>
+            <div class="card">
+                <h3>Reportes Automatizados</h3>
+                <p>Programa el envío de reportes financieros y KPIs directamente al correo de tus directivos.</p>
+            </div>
+            <div class="card">
+                <h3>Seguridad Bancaria</h3>
+                <p>Tu información está protegida con encriptación AES-256 y protocolos de nivel corporativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-cta">
+        <h2>¿Listo para escalar tu empresa?</h2>
+        <p style="margin-bottom: 30px; color: #A0A0A0;">Únete a más de 500 empresas que ya optimizan sus datos.</p>
+        <a href="#" class="btn-primary">Contactar a Ventas</a>
+        <p style="margin-top: 40px; font-size: 0.8rem; color: #666;">&copy; 2026 DataFlow AI. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para interacción -->
+    <script>
+        // Efecto del menú al hacer scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
