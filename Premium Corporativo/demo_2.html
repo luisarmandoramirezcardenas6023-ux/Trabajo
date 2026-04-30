@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Motors | Vehículos Eléctricos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #121212; --gray: #2C2C2C; --red: #D32F2F;
+            --white: #FFFFFF; --silver: #E0E0E0; --blue: #1976D2;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--black); color: var(--white); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
 
+        /* Navbar */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 25px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.9), transparent); transition: background 0.3s;
+        }
+        nav.scrolled { background: var(--black); box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 3px; }
+        .logo span { color: var(--red); }
+        .nav-links a { color: var(--silver); text-decoration: none; margin-left: 25px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; transition: 0.3s; }
+        .nav-links a:hover { color: var(--white); }
+
+        /* General Sections */
+        section { padding: 100px 5%; }
+        .title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        .desc { color: var(--silver); line-height: 1.8; font-size: 1.1rem; max-width: 600px; }
+
+        /* 1. Hero */
+        .hero { height: 100vh; background: url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1920&q=80') center/cover fixed; display: flex; align-items: flex-end; padding-bottom: 100px; position: relative; }
+        .hero::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, var(--black), transparent); }
+        .hero-content { position: relative; z-index: 2; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
+        .hero h1 { font-size: 5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+        .hero h1 span { display: block; font-weight: 300; font-size: 2rem; color: var(--red); }
+        .btn-red { background: var(--red); color: var(--white); padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-red:hover { background: var(--white); color: var(--black); }
+
+        /* 2. Visión */
+        .vision { display: flex; align-items: center; gap: 50px; background: var(--gray); }
+        .vision-text { flex: 1; }
+        .vision-img { flex: 1; height: 400px; background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80') center/cover; }
+
+        /* 3. Modelos */
+        .models { text-align: center; }
+        .models-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .model-card { background: var(--gray); padding: 40px 20px; transition: 0.4s; border-bottom: 3px solid transparent; }
+        .model-card:hover { transform: translateY(-10px); border-bottom-color: var(--blue); }
+        .model-img { width: 100%; height: 150px; object-fit: contain; margin-bottom: 20px; }
+
+        /* 4. Rendimiento (Parallax) */
+        .performance { background: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1920&q=80') center/cover fixed; padding: 150px 5%; position: relative; }
+        .performance::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
+        .perf-content { position: relative; z-index: 2; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; }
+        .perf-stat h3 { font-size: 4rem; color: var(--white); font-weight: 900; }
+        .perf-stat p { color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* 5. Carga / Batería */
+        .charging { display: flex; align-items: center; gap: 50px; flex-direction: row-reverse; }
+
+        /* 6. Tecnología */
+        .tech { background: var(--gray); text-align: center; }
+        .tech-img { width: 100%; max-width: 900px; height: 400px; object-fit: cover; margin-top: 40px; }
+
+        /* 7. Sustentabilidad */
+        .sustain { background: linear-gradient(135deg, var(--black), #002b1f); border-top: 1px solid var(--gray); }
+
+        /* 8. Galería */
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-auto-rows: 250px; gap: 15px; margin-top: 40px; }
+        .gal-item { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; filter: grayscale(50%); }
+        .gal-item:hover { filter: grayscale(0%); transform: scale(1.02); z-index: 2; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .gal-1 { grid-column: 1 / 3; grid-row: 1 / 3; }
+
+        /* 9. Contacto / Reserva */
+        .reserve { background: var(--red); color: var(--white); text-align: center; }
+        .reserve form { max-width: 500px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 15px; }
+        .reserve input, .reserve select { padding: 15px; background: var(--white); border: none; font-family: inherit; font-weight: 700; outline: none; }
+        .btn-black { background: var(--black); color: var(--white); padding: 15px; border: none; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
+        .btn-black:hover { background: var(--gray); }
+
+        /* JS Reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } .hero h1 { font-size: 3rem; } .hero-content { flex-direction: column; align-items: flex-start; gap: 20px; } .vision, .charging { flex-direction: column; } .gallery-grid { grid-template-columns: 1fr; } .gal-1 { grid-column: 1; grid-row: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#inicio" class="logo">Nova<span>Motors</span></a>
+        <div class="nav-links">
+            <a href="#modelos">Modelos</a>
+            <a href="#rendimiento">Rendimiento</a>
+            <a href="#tecnologia">Tecnología</a>
+            <a href="#reserva">Test Drive</a>
+        </div>
+    </nav>
+
+    <!-- 1. Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1 class="reveal">El futuro <span>ya se conduce.</span></h1>
+            <a href="#reserva" class="btn-red reveal" style="transition-delay: 0.2s;">Configurar Modelo</a>
+        </div>
+    </section>
+
+    <!-- 2. Visión -->
+    <section id="vision" class="vision reveal">
+        <div class="vision-text">
+            <h2 class="title">Diseño Puro</h2>
+            <p class="desc">En Nova Motors, no rediseñamos el automóvil; lo reinventamos desde cero. Cada curva y cada componente están optimizados aerodinámicamente para lograr el máximo coeficiente de eficiencia sin sacrificar la elegancia.</p>
+        </div>
+        <div class="vision-img"></div>
+    </section>
+
+    <!-- 3. Modelos -->
+    <section id="modelos" class="models reveal">
+        <h2 class="title">Nuestra Línea</h2>
+        <div class="models-grid">
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=400&q=80" alt="Model S" class="model-img">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Nova Sedan EV</h3>
+                <p class="desc" style="font-size: 0.9rem;">El equilibrio perfecto entre autonomía y lujo ejecutivo.</p>
+            </div>
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=400&q=80" alt="Model X" class="model-img">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Nova SUV-X</h3>
+                <p class="desc" style="font-size: 0.9rem;">Espacio para 7 pasajeros con tracción total inteligente (AWD).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Rendimiento -->
+    <section id="rendimiento" class="performance reveal">
+        <div class="perf-content">
+            <div class="perf-stat"><h3>1.9s</h3><p>0 - 100 km/h</p></div>
+            <div class="perf-stat"><h3>1020</h3><p>Caballos de Fuerza</p></div>
+            <div class="perf-stat"><h3>322</h3><p>Km/h Velocidad Máxima</p></div>
+        </div>
+    </section>
+
+    <!-- 5. Carga -->
+    <section id="carga" class="charging reveal">
+        <div class="vision-text">
+            <h2 class="title">Carga Ultrarrápida</h2>
+            <p class="desc">La nueva arquitectura de batería de 800 voltios permite recuperar hasta 300 kilómetros de autonomía en tan solo 15 minutos en nuestra red de supercargadores.</p>
+        </div>
+        <div class="vision-img" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938cb?auto=format&fit=crop&w=800&q=80');"></div>
+    </section>
+
+    <!-- 6. Tecnología -->
+    <section id="tecnologia" class="tech reveal">
+        <h2 class="title">Cabina Inteligente</h2>
+        <p class="desc" style="margin: 0 auto;">Sin botones. Una pantalla central cinematográfica de 17 pulgadas controla absolutamente todo, desde la temperatura hasta el sistema de conducción autónoma de nivel 3.</p>
+        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1000&q=80" alt="Interior" class="tech-img">
+    </section>
+
+    <!-- 7. Sustentabilidad -->
+    <section id="sustentabilidad" class="sustain reveal">
+        <h2 class="title">Cero Emisiones</h2>
+        <p class="desc">Nuestra planta de ensamblaje funciona 100% con energía solar. El interior de nuestros vehículos está tapizado con cuero vegano y plásticos reciclados del océano.</p>
+    </section>
+
+    <!-- 8. Galería -->
+    <section id="galeria" class="reveal">
+        <h2 class="title">El Arte del Movimiento</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80" class="gal-item gal-1">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=400&q=80" class="gal-item">
+            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80" class="gal-item">
+        </div>
+    </section>
+
+    <!-- 9. Reserva -->
+    <section id="reserva" class="reserve reveal">
+        <h2 class="title">Solicita un Test Drive</h2>
+        <p>Siente la aceleración instantánea en tus propias manos.</p>
+        <form>
+            <input type="text" placeholder="Nombre Completo" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <select>
+                <option>Nova Sedan EV</option>
+                <option>Nova SUV-X</option>
+            </select>
+            <button type="submit" class="btn-black">Agendar Prueba</button>
+        </form>
+    </section>
+
+    <script>
+        // Navbar Background change on scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
