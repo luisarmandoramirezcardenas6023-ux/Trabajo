@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Instituto Tecnológico | Extendido</title>
+</head>
+<body style="background-color: #F8F8F8; color: #1D2731; font-family: Arial, sans-serif; margin: 0; padding: 0;">
 
+    <!-- MENÚ SUPERIOR (11 Botones con Flexbox para que se acomoden bien) -->
+    <div style="background-color: #0B3C5D; padding: 15px; display: flex; flex-wrap: wrap; justify-content: center;">
+        <button onclick="cambiarSeccion('s1')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">1. Inicio</button>
+        <button onclick="cambiarSeccion('s2')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">2. Nosotros</button>
+        <button onclick="cambiarSeccion('s3')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">3. Oferta Académica</button>
+        <button onclick="cambiarSeccion('s4')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">4. Admisiones</button>
+        <button onclick="cambiarSeccion('s5')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">5. Instalaciones</button>
+        <button onclick="cambiarSeccion('s6')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">6. Vida Estudiantil</button>
+        <button onclick="cambiarSeccion('s7')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">7. Egresados</button>
+        <button onclick="cambiarSeccion('s8')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">8. Investigación</button>
+        <button onclick="cambiarSeccion('s9')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">9. Becas</button>
+        <button onclick="cambiarSeccion('s10')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">10. FAQ</button>
+        <button onclick="cambiarSeccion('s11')" style="background-color: #D9B310; color: #1D2731; padding: 8px 12px; margin: 3px; border: 1px solid #1D2731; cursor: pointer; font-weight: bold;">11. Contacto</button>
+    </div>
+
+    <!-- CONTENEDOR CENTRAL -->
+    <div style="padding: 40px 20px; max-width: 900px; margin: 0 auto; background-color: #FFFFFF; border-left: 2px solid #DDDDDD; border-right: 2px solid #DDDDDD; min-height: 80vh;">
+
+        <!-- 1. INICIO -->
+        <div id="s1" style="display: block; text-align: center;">
+            <h1 style="color: #0B3C5D; font-size: 2.5rem;">Instituto Tecnológico de Negocios</h1>
+            <p style="color: #328CC1; font-size: 1.3rem;">Formando a los líderes del mañana.</p>
+            <img src="https://via.placeholder.com/600x300?text=Campus+Universitario" alt="Campus" style="border: 4px solid #D9B310; max-width: 100%; margin-top: 15px;">
+        </div>
+
+        <!-- 2. NOSOTROS -->
+        <div id="s2" style="display: none; text-align: center;">
+            <h2 style="color: #0B3C5D;">Nuestra Historia</h2>
+            <p style="text-align: justify; line-height: 1.6;">Fundado con la misión de integrar la tecnología y la administración. Llevamos más de 20 años transformando la educación superior mediante programas de vanguardia enfocados en Inteligencia de Negocios, Análisis de Datos y Dirección Empresarial.</p>
+        </div>
+
+        <!-- 3. OFERTA ACADÉMICA -->
+        <div id="s3" style="display: none; text-align: center;">
+            <h2 style="color: #328CC1;">Oferta Académica</h2>
+            <p>Descubre nuestras licenciaturas e ingenierías.</p>
+            <div style="background-color: #F8F8F8; border-left: 5px solid #D9B310; padding: 15px; text-align: left; margin-bottom: 10px;">🎓 Licenciatura en Inteligencia de Negocios</div>
+            <div style="background-color: #F8F8F8; border-left: 5px solid #0B3C5D; padding: 15px; text-align: left; margin-bottom: 10px;">🎓 Ingeniería en Software y Datos</div>
+            <div style="background-color: #F8F8F8; border-left: 5px solid #328CC1; padding: 15px; text-align: left;">🎓 Maestría en Gestión de Proyectos TI</div>
+        </div>
+
+        <!-- 4. ADMISIONES -->
+        <div id="s4" style="display: none; text-align: center;">
+            <h2 style="color: #0B3C5D;">Proceso de Admisión</h2>
+            <p style="color: #990000; font-weight: bold;">¡Convocatoria Abierta!</p>
+            <ol style="text-align: left; max-width: 400px; margin: 0 auto; line-height: 1.8;">
+                <li>Registro en línea.</li>
+                <li>Examen diagnóstico de conocimientos.</li>
+                <li>Entrevista con el coordinador.</li>
+                <li>Entrega de documentación oficial.</li>
+            </ol>
+        </div>
+
+        <!-- 5. INSTALACIONES -->
+        <div id="s5" style="display: none; text-align: center;">
+            <h2 style="color: #D9B310;">Nuestras Instalaciones</h2>
+            <video width="500" controls style="border: 3px solid #1D2731; max-width: 100%;">
+                <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- 6. VIDA ESTUDIANTIL -->
+        <div id="s6" style="display: none; text-align: center;">
+            <h2 style="color: #328CC1;">Vida Estudiantil</h2>
+            <p>Clubes de robótica, equipos deportivos, talleres de emprendimiento y semanas culturales para un desarrollo integral.</p>
+        </div>
+
+        <!-- 7. EGRESADOS -->
+        <div id="s7" style="display: none; text-align: center;">
+            <h2 style="color: #0B3C5D;">Red de Egresados</h2>
+            <p>Nuestros exalumnos trabajan en las mejores empresas tecnológicas de la región. Mantén el contacto a través de nuestra plataforma Alumni.</p>
+        </div>
+
+        <!-- 8. INVESTIGACIÓN -->
+        <div id="s8" style="display: none; text-align: center;">
+            <h2 style="color: #1D2731;">Centros de Investigación</h2>
+            <p>Contamos con laboratorios dedicados al Machine Learning, automatización industrial (RPA) y procesamiento de Big Data.</p>
+        </div>
+
+        <!-- 9. BECAS -->
+        <div id="s9" style="display: none; text-align: center;">
+            <h2 style="color: #990000;">Becas y Financiamiento</h2>
+            <p>Nadie debería quedarse sin estudiar por falta de recursos. Ofrecemos Becas de Excelencia (hasta 50%), Becas Deportivas y financiamiento educativo a meses sin intereses.</p>
+        </div>
+
+        <!-- 10. FAQ -->
+        <div id="s10" style="display: none; text-align: center;">
+            <h2 style="color: #328CC1;">Preguntas Frecuentes</h2>
+            <details style="background-color: #DDDDDD; padding: 15px; margin-bottom: 10px; text-align: left;">
+                <summary style="font-weight: bold; cursor: pointer; color: #0B3C5D;">¿Tienen intercambios internacionales?</summary>
+                <p style="margin-top: 10px;">Sí, convenios con más de 15 universidades en Europa y Sudamérica.</p>
+            </details>
+            <details style="background-color: #DDDDDD; padding: 15px; margin-bottom: 10px; text-align: left;">
+                <summary style="font-weight: bold; cursor: pointer; color: #0B3C5D;">¿Cuál es el horario de clases?</summary>
+                <p style="margin-top: 10px;">Turno matutino (7:00 am - 1:00 pm) y vespertino (5:00 pm - 10:00 pm).</p>
+            </details>
+        </div>
+
+        <!-- 11. CONTACTO -->
+        <div id="s11" style="display: none; text-align: center;">
+            <h2 style="color: #D9B310;">Contacto</h2>
+            <div style="background-color: #1D2731; color: #FFFFFF; padding: 30px; border-radius: 10px;">
+                <p><strong>Teléfono:</strong> (664) 555 1234</p>
+                <p><strong>Email:</strong> admisiones@instituto.edu.mx</p>
+                <p><strong>Campus:</strong> Tijuana, B.C.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function cambiarSeccion(id) {
+            for (let i = 1; i <= 11; i++) {
+                document.getElementById('s' + i).style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
