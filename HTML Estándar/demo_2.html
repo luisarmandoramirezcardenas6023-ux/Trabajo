@@ -6,72 +6,69 @@
 </head>
 <body style="background-color: #E0F7FA; color: #006064; font-family: Tahoma, sans-serif; margin: 0;">
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <div style="background-color: #006064; padding: 15px; text-align: center;">
-        <button onclick="cambiarTab('tab-inicio')" style="background-color: #FF8A65; color: #FFFFFF; padding: 10px; font-weight: bold; border: 1px solid #FFFFFF;">1. Inicio</button>
-        <button onclick="cambiarTab('tab-servicios')" style="background-color: #FF8A65; color: #FFFFFF; padding: 10px; font-weight: bold; border: 1px solid #FFFFFF;">2. Servicios</button>
-        <button onclick="cambiarTab('tab-ubicacion')" style="background-color: #FF8A65; color: #FFFFFF; padding: 10px; font-weight: bold; border: 1px solid #FFFFFF;">3. Ubicación</button>
+    <!-- MENÚ DE NAVEGACIÓN SUPERIOR -->
+    <div style="background-color: #006064; padding: 20px; text-align: center;">
+        <button onclick="cambiarTab('tab-inicio')" style="background-color: #FF8A65; color: #FFFFFF; padding: 12px 25px; font-weight: bold; border: 2px solid #FFFFFF; cursor: pointer; margin: 5px;">1. Inicio</button>
+        <button onclick="cambiarTab('tab-servicios')" style="background-color: #FF8A65; color: #FFFFFF; padding: 12px 25px; font-weight: bold; border: 2px solid #FFFFFF; cursor: pointer; margin: 5px;">2. Servicios</button>
+        <button onclick="cambiarTab('tab-ubicacion')" style="background-color: #FF8A65; color: #FFFFFF; padding: 12px 25px; font-weight: bold; border: 2px solid #FFFFFF; cursor: pointer; margin: 5px;">3. Ubicación</button>
     </div>
 
     <!-- SECCIÓN 1: INICIO -->
-    <div id="tab-inicio" style="display: block; padding: 40px 20px; text-align: center;">
-        <h1 style="color: #FF8A65;">Veterinaria Huellitas</h1>
-        <p>Cuidando a los reyes del hogar con amor y profesionalismo.</p>
+    <div id="tab-inicio" style="display: block; padding: 50px 20px; text-align: center;">
+        <h1 style="color: #FF8A65; font-size: 2.5rem; margin-bottom: 5px;">Veterinaria Huellitas</h1>
+        <p style="font-size: 1.2rem; margin-top: 0;">Cuidando a los reyes del hogar con amor y profesionalismo.</p>
         
-        <img src="https://via.placeholder.com/300x200?text=Perrito+Feliz" alt="Perrito Feliz" width="300" style="border: 5px solid #006064; border-radius: 10px; margin-top: 15px;">
-        
-        <p style="background-color: #FFFFFF; padding: 15px; display: inline-block; margin-top: 20px;">
+        <img src="https://via.placeholder.com/400x250?text=Perrito+Feliz" alt="Perrito Feliz" style="border: 5px solid #006064; border-radius: 10px; margin-top: 20px; max-width: 100%;">
+        <br>
+        <p style="background-color: #FFFFFF; padding: 15px; display: inline-block; margin-top: 25px; border-left: 5px solid #FF8A65; font-size: 1.1rem;">
             <strong>Urgencias 24 horas.</strong> Siempre disponibles para tu mascota.
         </p>
     </div>
 
     <!-- SECCIÓN 2: SERVICIOS -->
-    <div id="tab-servicios" style="display: none; padding: 40px 20px;">
-        <h2 style="color: #FF8A65; text-align: center;">Nuestros Servicios</h2>
-        <p style="text-align: center;">Da clic en cada servicio para leer más:</p>
+    <div id="tab-servicios" style="display: none; padding: 50px 20px;">
+        <h2 style="color: #FF8A65; text-align: center; font-size: 2rem;">Nuestros Servicios</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Da clic en cada servicio para leer los detalles médicos:</p>
         
-        <div style="max-width: 500px; margin: 0 auto;">
-            <details style="background-color: #FFFFFF; padding: 10px; margin-bottom: 10px; border-left: 5px solid #006064;">
-                <summary style="font-weight: bold; cursor: pointer;">Consultas Generales</summary>
-                <p>Revisión completa, diagnóstico y receta médica para perros y gatos.</p>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <details style="background-color: #FFFFFF; padding: 15px; margin-bottom: 15px; border-left: 5px solid #006064;">
+                <summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem;">Consultas Generales y Vacunación</summary>
+                <p style="margin-top: 10px;">Revisión completa, diagnóstico, cartilla de vacunación al día y receta médica para perros, gatos y especies pequeñas.</p>
             </details>
 
-            <details style="background-color: #FFFFFF; padding: 10px; margin-bottom: 10px; border-left: 5px solid #006064;">
-                <summary style="font-weight: bold; cursor: pointer;">Estética Canina y Felina</summary>
-                <p>Baño con agua tibia, corte de pelo, limpieza de oídos y corte de uñas.</p>
+            <details style="background-color: #FFFFFF; padding: 15px; margin-bottom: 15px; border-left: 5px solid #006064;">
+                <summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem;">Estética Canina y Felina</summary>
+                <p style="margin-top: 10px;">Baño con agua tibia, corte de pelo según la raza, limpieza profunda de oídos, drenado de glándulas y corte de uñas.</p>
             </details>
 
-            <details style="background-color: #FFFFFF; padding: 10px; margin-bottom: 10px; border-left: 5px solid #006064;">
-                <summary style="font-weight: bold; cursor: pointer;">Cirugías y Esterilización</summary>
-                <p>Contamos con quirófano equipado y anestesia inhalada para mayor seguridad.</p>
+            <details style="background-color: #FFFFFF; padding: 15px; margin-bottom: 15px; border-left: 5px solid #006064;">
+                <summary style="font-weight: bold; cursor: pointer; font-size: 1.1rem;">Cirugías y Esterilización</summary>
+                <p style="margin-top: 10px;">Contamos con quirófano altamente equipado, monitoreo de signos vitales y anestesia inhalada para la mayor seguridad de tu mascota.</p>
             </details>
         </div>
     </div>
 
     <!-- SECCIÓN 3: UBICACIÓN -->
-    <div id="tab-ubicacion" style="display: none; padding: 40px 20px; text-align: center;">
-        <h2 style="color: #FF8A65;">¿Dónde estamos?</h2>
+    <div id="tab-ubicacion" style="display: none; padding: 50px 20px; text-align: center;">
+        <h2 style="color: #FF8A65; font-size: 2rem;">¿Dónde estamos?</h2>
+        <p style="font-size: 1.1rem;">Avenida de las Mascotas #99, Colonia Centro, Tijuana.</p>
         
-        <p>Avenida de las Mascotas #99, Colonia Centro.</p>
-        
-        <video width="300" controls style="border: 4px solid #FFFFFF; margin-top: 10px;">
+        <video width="400" controls style="border: 4px solid #FFFFFF; margin-top: 15px; max-width: 100%;">
             <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
             Tu navegador no soporta video.
         </video>
 
-        <h3 style="color: #006064;">Teléfono para citas:</h3>
-        <p style="font-size: 1.5rem; background-color: #FF8A65; color: #FFFFFF; display: inline-block; padding: 10px;">(664) 999 8877</p>
+        <h3 style="color: #006064; margin-top: 40px;">Teléfono para citas y emergencias:</h3>
+        <p style="font-size: 1.8rem; background-color: #FF8A65; color: #FFFFFF; display: inline-block; padding: 15px 30px; border-radius: 5px; margin-top: 0; font-weight: bold;">(664) 999 8877</p>
     </div>
 
     <!-- SCRIPT DE JAVASCRIPT -->
     <script>
         function cambiarTab(idTab) {
-            // Ocultar las 3 secciones
             document.getElementById('tab-inicio').style.display = 'none';
             document.getElementById('tab-servicios').style.display = 'none';
             document.getElementById('tab-ubicacion').style.display = 'none';
             
-            // Mostrar la sección seleccionada
             document.getElementById(idTab).style.display = 'block';
         }
     </script>
