@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Data | Premium Estándar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables de Paleta */
+        :root {
+            --dark: #1E1E24;
+            --accent: #FF4D4D;
+            --light: #F4F4F9;
+            --gray: #9296AB;
+        }
 
+        /* Reset Premium */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light); color: var(--dark); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        /* Navegación Inteligente */
+        nav {
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            padding: 25px 10%; display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.4s ease;
+        }
+        nav.scrolled { background-color: var(--dark); padding: 15px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav.scrolled .logo, nav.scrolled .nav-links a { color: var(--light); }
+        
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--dark); transition: 0.4s; }
+        .logo span { color: var(--accent); }
+        .nav-links a {
+            text-decoration: none; color: var(--dark); font-weight: 500; margin-left: 30px;
+            transition: 0.3s; position: relative;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0; background-color: var(--accent); transition: 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Sección 1: Inicio (Hero) */
+        .hero {
+            height: 100vh; display: flex; align-items: center; padding: 0 10%;
+            background: linear-gradient(135deg, var(--light) 0%, #e0e0ec 100%);
+            position: relative;
+        }
+        .hero-content { max-width: 600px; z-index: 2; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: var(--gray); margin-bottom: 40px; }
+        .btn-main {
+            background-color: var(--accent); color: var(--light); padding: 15px 40px;
+            text-decoration: none; border-radius: 30px; font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s; display: inline-block;
+        }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4); }
+
+        /* Sección 2: Soluciones */
+        .soluciones { padding: 100px 10%; text-align: center; background-color: var(--dark); color: var(--light); }
+        .soluciones h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .card {
+            background-color: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); transition: 0.4s;
+        }
+        .card:hover { background-color: var(--accent); transform: translateY(-10px); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .card p { color: var(--light); opacity: 0.8; }
+
+        /* Sección 3: Contacto */
+        .contacto { padding: 100px 10%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .contacto-info { flex: 1; min-width: 300px; margin-right: 50px; }
+        .contacto-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contacto-info p { color: var(--gray); margin-bottom: 10px; font-size: 1.1rem; }
+        
+        .form-box { flex: 1; min-width: 300px; background-color: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .form-box input, .form-box textarea {
+            width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd;
+            border-radius: 10px; font-family: inherit; transition: 0.3s;
+        }
+        .form-box input:focus, .form-box textarea:focus { border-color: var(--accent); outline: none; }
+        .form-box button {
+            width: 100%; background-color: var(--dark); color: var(--light); border: none;
+            padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s;
+        }
+        .form-box button:hover { background-color: var(--accent); }
+
+        /* Clases para Animación JS */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .nav-links { display: none; } /* Oculto en móvil para este demo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">Vortex<span>Data</span></div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#soluciones">Soluciones</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- 1. INICIO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content fade-in">
+            <h1>Transforma tus datos en rentabilidad.</h1>
+            <p>Implementamos arquitecturas de datos sólidas y dashboards ejecutivos para que tomes decisiones informadas y escales tu negocio.</p>
+            <a href="#contacto" class="btn-main">Auditoría Gratuita</a>
+        </div>
+    </section>
+
+    <!-- 2. SOLUCIONES -->
+    <section id="soluciones" class="soluciones">
+        <h2 class="fade-in">¿Cómo aportamos valor?</h2>
+        <div class="grid">
+            <div class="card fade-in">
+                <h3>Data Warehousing</h3>
+                <p>Centralizamos tu información dispersa creando una única fuente de verdad utilizando metodologías ágiles.</p>
+            </div>
+            <div class="card fade-in" style="transition-delay: 0.2s;">
+                <h3>Business Intelligence</h3>
+                <p>Desarrollo de tableros interactivos para monitorear el desempeño de tu empresa en tiempo real.</p>
+            </div>
+            <div class="card fade-in" style="transition-delay: 0.4s;">
+                <h3>Automatización (RPA)</h3>
+                <p>Elimina procesos manuales en Excel. Extraemos, limpiamos y cargamos tus datos automáticamente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contacto-info fade-in">
+            <h2>Hablemos de tu proyecto.</h2>
+            <p>Email: consultoria@vortexdata.mx</p>
+            <p>Teléfono: (664) 999 0000</p>
+            <p>Ubicación: Edificio Vía Corporativo, Tijuana.</p>
+        </div>
+        <div class="form-box fade-in" style="transition-delay: 0.3s;">
+            <input type="text" placeholder="Tu Nombre">
+            <input type="email" placeholder="Correo Corporativo">
+            <textarea rows="4" placeholder="¿Qué reto técnico tienes actualmente?"></textarea>
+            <button>Enviar Solicitud</button>
+        </div>
+    </section>
+
+    <script>
+        // Efecto del Navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Observer para revelar elementos al bajar (Fade In)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
