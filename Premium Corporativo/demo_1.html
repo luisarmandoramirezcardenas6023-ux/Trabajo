@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Capital | Premium Corporativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0A192F; --bg-card: #112240; --accent: #64FFDA; 
+            --text-main: #F8F9FA; --text-muted: #8892B0; --gold: #FFD700;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
 
+        /* Navbar Glassmorphism */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1); transition: 0.3s;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+        .btn-outline { border: 1px solid var(--accent); color: var(--accent); padding: 8px 15px; border-radius: 4px; text-decoration: none; transition: 0.3s; margin-left: 20px; }
+        .btn-outline:hover { background: rgba(100,255,218,0.1); }
+
+        /* Estructura Base */
+        section { padding: 100px 10%; }
+        .section-title { font-size: 2.5rem; color: var(--text-main); margin-bottom: 20px; text-align: center; }
+        .section-title span { color: var(--accent); }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-inline: auto; line-height: 1.6; }
+
+        /* 1. Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, var(--bg-card), var(--bg-main)); }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+        .btn-primary { background: var(--accent); color: var(--bg-main); padding: 15px 35px; font-weight: 800; border-radius: 4px; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
+        .btn-primary:hover { box-shadow: 0 0 20px rgba(100,255,218,0.4); transform: translateY(-3px); }
+
+        /* 2. Nosotros */
+        .about { display: flex; align-items: center; gap: 50px; background: var(--bg-card); }
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .about-img { flex: 1; height: 400px; background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80') center/cover; border-radius: 8px; border: 1px solid var(--accent); }
+
+        /* 3. Soluciones */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--bg-main); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .card h3 { color: var(--text-main); margin-bottom: 15px; font-size: 1.3rem; }
+        .card p { color: var(--text-muted); line-height: 1.6; }
+
+        /* 4. Plataforma */
+        .platform { background: var(--bg-main); text-align: center; }
+        .dashboard-mockup { width: 100%; max-width: 900px; height: 400px; margin: 0 auto; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80') center/cover; border-radius: 12px; border: 4px solid var(--bg-card); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
+        /* 5. Estadísticas (Contadores JS) */
+        .stats { background: var(--bg-card); display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; padding: 80px 10%; border-top: 1px solid rgba(255,215,0,0.2); border-bottom: 1px solid rgba(255,215,0,0.2); }
+        .stat-item h4 { font-size: 4rem; color: var(--gold); margin-bottom: 10px; font-weight: 800; }
+        .stat-item p { color: var(--text-main); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* 6. Seguridad */
+        .security { display: flex; align-items: center; gap: 50px; flex-direction: row-reverse; }
+
+        /* 7. Testimonios */
+        .testimonials { background: var(--bg-card); }
+        .testimonial-card { background: var(--bg-main); padding: 30px; border-radius: 8px; border-left: 4px solid var(--accent); }
+        .testimonial-card p { color: var(--text-muted); font-style: italic; margin-bottom: 20px; }
+        .testimonial-card h5 { color: var(--text-main); font-size: 1rem; }
+
+        /* 8. FAQ */
+        .faq-item { background: var(--bg-card); margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--text-muted); }
+
+        /* 9. Contacto */
+        .contact { text-align: center; }
+        .contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .contact input, .contact textarea { padding: 15px; background: var(--bg-card); border: 1px solid var(--text-muted); color: var(--text-main); border-radius: 4px; outline: none; transition: 0.3s; }
+        .contact input:focus, .contact textarea:focus { border-color: var(--accent); }
+
+        /* Animaciones */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 3rem; } .about, .security { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#inicio" class="logo">Apex<span>Capital</span></a>
+        <div class="nav-links">
+            <a href="#soluciones">Soluciones</a>
+            <a href="#plataforma">Plataforma</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacto" class="btn-outline">Acceso Clientes</a>
+        </div>
+    </nav>
+
+    <!-- 1. Inicio -->
+    <section id="inicio" class="hero">
+        <h1 class="reveal">Inteligencia Financiera</h1>
+        <p class="reveal">Gestión patrimonial impulsada por algoritmos de vanguardia y análisis de datos en tiempo real.</p>
+        <a href="#contacto" class="btn-primary reveal">Abrir Cuenta Corporativa</a>
+    </section>
+
+    <!-- 2. Nosotros -->
+    <section id="nosotros" class="about reveal">
+        <div class="about-text">
+            <h2>Nuestra <span>Visión</span></h2>
+            <p>En Apex Capital, democratizamos el acceso a herramientas de inversión institucionales. Nuestro equipo de ingenieros de datos y analistas financieros han creado una infraestructura tecnológica que minimiza el riesgo y maximiza el rendimiento a través del Machine Learning.</p>
+        </div>
+        <div class="about-img"></div>
+    </section>
+
+    <!-- 3. Soluciones -->
+    <section id="soluciones" class="reveal">
+        <h2 class="section-title">Portafolio de <span>Servicios</span></h2>
+        <p class="section-subtitle">Soluciones adaptables a las necesidades de liquidez y crecimiento de tu empresa.</p>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Gestión Activa</h3>
+                <p>Rebalanceo automático de portafolios basado en volatilidad del mercado y análisis predictivo.</p>
+            </div>
+            <div class="card">
+                <h3>Tesorería Corporativa</h3>
+                <p>Instrumentos de deuda a corto plazo para optimizar el flujo de caja operativo de tu negocio.</p>
+            </div>
+            <div class="card">
+                <h3>Venture Capital</h3>
+                <p>Acceso exclusivo a rondas de inversión privadas en startups tecnológicas emergentes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Plataforma -->
+    <section id="plataforma" class="platform reveal">
+        <h2 class="section-title">Tu capital, <span>tu control</span></h2>
+        <p class="section-subtitle">Visualiza tus rendimientos, exporta reportes fiscales y conecta tus cuentas bancarias desde nuestro Dashboard intuitivo.</p>
+        <div class="dashboard-mockup"></div>
+    </section>
+
+    <!-- 5. Estadísticas -->
+    <section id="estadisticas" class="stats reveal">
+        <div class="stat-item"><h4 class="counter" data-target="850">0</h4><p>Millones Gestionados</p></div>
+        <div class="stat-item"><h4 class="counter" data-target="99">0</h4><p>% Retención de Clientes</p></div>
+        <div class="stat-item"><h4 class="counter" data-target="15">0</h4><p>Años de Experiencia</p></div>
+    </section>
+
+    <!-- 6. Seguridad -->
+    <section id="seguridad" class="security reveal">
+        <div class="about-text">
+            <h2>Seguridad <span>Inquebrantable</span></h2>
+            <p>Tu tranquilidad es nuestra prioridad. Operamos bajo estrictas regulaciones internacionales. Toda tu información y transacciones están protegidas por encriptación AES-256 de grado militar y autenticación biométrica de múltiples factores.</p>
+        </div>
+        <div class="about-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80');"></div>
+    </section>
+
+    <!-- 7. Testimonios -->
+    <section id="testimonios" class="testimonials reveal">
+        <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
+        <div class="grid-3">
+            <div class="testimonial-card">
+                <p>"La transparencia de su plataforma y los reportes automatizados nos han ahorrado decenas de horas en contabilidad mensual."</p>
+                <h5>— CFO, Empresa Logística</h5>
+            </div>
+            <div class="testimonial-card">
+                <p>"Sus algoritmos de protección contra caídas del mercado funcionaron a la perfección durante la última crisis financiera."</p>
+                <h5>— Inversor Privado</h5>
+            </div>
+            <div class="testimonial-card">
+                <p>"El equipo de soporte técnico y los asesores financieros están siempre disponibles. Un servicio verdaderamente premium."</p>
+                <h5>— CEO, Startup Tecnológica</h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section id="faq" class="reveal">
+        <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Cuál es el monto mínimo de inversión? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom: 20px;">El monto mínimo para cuentas corporativas es de $50,000 USD.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Tienen plazos forzosos? <span>+</span></div>
+                <div class="faq-answer"><p style="padding-bottom: 20px;">No, ofrecemos liquidez diaria en nuestros fondos de tesorería a la vista.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Contacto -->
+    <section id="contacto" class="contact reveal">
+        <h2 class="section-title">Hablemos de <span>negocios</span></h2>
+        <form>
+            <input type="text" placeholder="Nombre Completo">
+            <input type="email" placeholder="Correo Electrónico">
+            <textarea rows="5" placeholder="¿Cómo podemos ayudarte?"></textarea>
+            <button class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <script>
+        // Animación al hacer Scroll (Reveal)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Iniciar contadores si es la sección de stats
+                    if(entry.target.classList.contains('stats')) {
+                        startCounters();
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Animación de Contadores
+        let countersStarted = false;
+        function startCounters() {
+            if(countersStarted) return;
+            countersStarted = true;
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const increment = target / 50;
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if(current < target) {
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCounter, 30);
+                    } else {
+                        counter.innerText = target + (target > 50 ? '+' : '');
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Acordeón FAQ
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const symbol = element.querySelector('span');
+            if (answer.style.maxHeight) {
+                answer.style.maxHeight = null;
+                symbol.innerText = '+';
+            } else {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                symbol.innerText = '-';
+            }
+        }
+    </script>
+</body>
+</html>
