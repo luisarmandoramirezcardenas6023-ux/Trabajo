@@ -2,72 +2,67 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Baja Inmobiliaria | Tijuana</title>
+    <title>Luz & Sombra | Fotografía</title>
 </head>
-<body style="background-color: #E8ECEF; color: #0B2B40; font-family: Arial, sans-serif; margin: 0; padding: 0;">
+<body style="background-color: #000000; color: #FFFFFF; font-family: Arial, sans-serif; margin: 0;">
 
-    <div style="background-color: #0B2B40; padding: 15px; text-align: center;">
-        <a href="#inicio" style="color: #FFFFFF; text-decoration: none; margin: 0 10px; font-weight: bold;">1. Inicio</a> |
-        <a href="#propiedades" style="color: #C2A878; text-decoration: none; margin: 0 10px; font-weight: bold;">2. Propiedades</a> |
-        <a href="#contacto" style="color: #FFFFFF; text-decoration: none; margin: 0 10px; font-weight: bold;">3. Contacto</a>
+    <!-- MENÚ DE NAVEGACIÓN (Botones con JavaScript) -->
+    <div style="background-color: #333333; padding: 15px; text-align: center;">
+        <button onclick="mostrarSeccion('sec-bienvenida')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Bienvenida</button>
+        <button onclick="mostrarSeccion('sec-portafolio')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Portafolio</button>
+        <button onclick="mostrarSeccion('sec-reservas')" style="background-color: #FFD700; color: #000000; padding: 10px 20px; font-weight: bold; border: none; cursor: pointer;">Reservaciones</button>
     </div>
 
-    <div id="inicio" style="padding: 40px 20px; text-align: center; background-color: #FFFFFF;">
-        <h1 style="color: #0B2B40; margin-bottom: 5px;">Baja Inmobiliaria</h1>
-        <p style="color: #C2A878; font-size: 1.2rem; margin-top: 0;">Encuentra tu hogar ideal en Tijuana y Rosarito</p>
-        
-        <p style="max-width: 600px; margin: 20px auto; text-align: justify;">Somos la agencia líder en la zona costa. Contamos con un catálogo exclusivo de casas, departamentos y terrenos comerciales listos para escriturar. Nuestro equipo legal te acompaña en cada paso de la compra.</p>
-        
-        <img src="https://via.placeholder.com/400x250?text=Casa+en+Venta" alt="Casa en venta" width="400" style="border: 4px solid #C2A878; max-width: 100%;">
+    <!-- SECCIÓN 1: BIENVENIDA -->
+    <div id="sec-bienvenida" style="display: block; padding: 40px 20px; text-align: center;">
+        <h1 style="color: #FFD700;">Capturando tus mejores momentos</h1>
+        <p>Especialistas en retratos corporativos, bodas y eventos sociales en Tijuana.</p>
+        <img src="https://via.placeholder.com/300x200?text=Camara+Fotografica" alt="Cámara" width="300" style="border: 2px solid #333333; margin-top: 20px;">
     </div>
 
-    <hr style="border: 2px solid #0B2B40; margin: 0;">
-
-    <div id="propiedades" style="padding: 40px 20px; background-color: #E8ECEF;">
-        <h2 style="color: #0B2B40; text-align: center;">Propiedades Destacadas</h2>
-        <p style="text-align: center;">Haz clic en cada propiedad para ver los detalles:</p>
-
-        <div style="max-width: 600px; margin: 0 auto;">
-            <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #C2A878; margin-bottom: 15px;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0B2B40;">Departamento en Zona Río - $250,000 USD</summary>
-                <p style="margin-top: 10px;">2 recámaras, 2 baños completos, seguridad 24/7 y gimnasio equipado. Excelente oportunidad de inversión para rentas vacacionales.</p>
-            </details>
-
-            <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #C2A878; margin-bottom: 15px;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0B2B40;">Casa Familiar en Playas de Tijuana - $310,000 USD</summary>
-                <p style="margin-top: 10px;">Casa independiente a solo 3 cuadras de la playa. 3 recámaras, patio amplio con asador y cochera eléctrica para 2 autos.</p>
-            </details>
-
-            <details style="background-color: #FFFFFF; padding: 15px; border-left: 5px solid #0B2B40; margin-bottom: 15px;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0B2B40;">Terreno Comercial en Blvd. Agua Caliente - Se renta</summary>
-                <p style="margin-top: 10px;">Superficie de 500m² ideal para franquicias, farmacias o tiendas de conveniencia. Alto flujo vehicular garantizado.</p>
-            </details>
+    <!-- SECCIÓN 2: PORTAFOLIO -->
+    <div id="sec-portafolio" style="display: none; padding: 40px 20px; text-align: center;">
+        <h2 style="color: #FFD700;">Nuestro Trabajo</h2>
+        <p>Hacemos que la iluminación trabaje a tu favor.</p>
+        
+        <div style="margin-bottom: 20px;">
+            <p style="background-color: #333333; padding: 10px; display: inline-block;">Sesiones de Boda (Desde $500 USD)</p><br>
+            <img src="https://via.placeholder.com/250x150?text=Boda" alt="Boda" width="250">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <p style="background-color: #333333; padding: 10px; display: inline-block;">Retrato Corporativo (Desde $100 USD)</p><br>
+            <img src="https://via.placeholder.com/250x150?text=Retrato" alt="Retrato" width="250">
         </div>
     </div>
 
-    <hr style="border: 2px solid #0B2B40; margin: 0;">
-
-    <div id="contacto" style="padding: 40px 20px; text-align: center; background-color: #FFFFFF;">
-        <h2 style="color: #0B2B40;">Recorrido Virtual</h2>
-        <p>Conoce la calidad de nuestros desarrollos en este breve video:</p>
+    <!-- SECCIÓN 3: RESERVACIONES -->
+    <div id="sec-reservas" style="display: none; padding: 40px 20px; text-align: center;">
+        <h2 style="color: #FFD700;">Reserva tu fecha</h2>
+        <p>Mira cómo trabajamos detrás de cámaras:</p>
         
-        <video width="320" height="240" controls style="border: 4px solid #0B2B40; max-width: 100%; background-color: #000000;">
+        <video width="300" controls style="border: 3px solid #333333;">
             <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
-            Tu navegador no soporta el formato de video.
+            Tu navegador no soporta video.
         </video>
 
-        <h3 style="color: #C2A878; margin-top: 30px;">¡Agenda una visita!</h3>
-        <ul style="list-style-type: none; padding: 0; max-width: 300px; margin: 0 auto; text-align: left;">
-            <li style="margin-bottom: 10px;"><strong>Teléfono:</strong> (664) 111 2233</li>
-            <li style="margin-bottom: 10px;"><strong>Correo:</strong> ventas@bajainmobiliaria.com</li>
-            <li style="margin-bottom: 10px;"><strong>Oficina:</strong> Blvd. Sánchez Taboada, Tijuana.</li>
-        </ul>
+        <h3 style="margin-top: 30px;">Contacto Directo</h3>
+        <p>Email: hola@luzysombra.com</p>
+        <p>Tel: (664) 123 0000</p>
     </div>
 
-    <div style="background-color: #0B2B40; color: #E8ECEF; text-align: center; padding: 20px;">
-        <p style="margin: 0; font-size: 0.9rem;">&copy; 2026 Baja Inmobiliaria. Todos los derechos reservados.</p>
-        <a href="#inicio" style="color: #C2A878; text-decoration: none; font-size: 0.8rem;">Volver arriba</a>
-    </div>
+    <!-- SCRIPT DE JAVASCRIPT PARA CAMBIAR LAS PANTALLAS -->
+    <script>
+        function mostrarSeccion(idSeccion) {
+            // Primero ocultamos todas las secciones
+            document.getElementById('sec-bienvenida').style.display = 'none';
+            document.getElementById('sec-portafolio').style.display = 'none';
+            document.getElementById('sec-reservas').style.display = 'none';
+            
+            // Luego mostramos solo la que el usuario pidió
+            document.getElementById(idSeccion).style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
