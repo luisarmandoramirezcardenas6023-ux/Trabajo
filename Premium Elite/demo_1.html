@@ -1,1 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCore | Inteligencia de Negocios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0A1931; --bg-panel: #222831; --primary: #185ADB; --cyan: #00E7DF;
+            --white: #FFFFFF; --gray: #F5F5F5; --purple: #9D4EDD; --yellow: #FFC107;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--gray); color: var(--bg-dark); display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Menú Lateral */
+        .sidebar { width: 260px; background: var(--bg-dark); color: var(--white); display: flex; flex-direction: column; overflow-y: auto; box-shadow: 4px 0 15px rgba(0,0,0,0.1); z-index: 10; }
+        .sidebar-header { padding: 30px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 1.8rem; font-weight: 900; color: var(--white); }
+        .logo span { color: var(--cyan); }
+        
+        .nav-btn { background: transparent; border: none; color: #aaa; text-align: left; padding: 15px 20px; font-size: 0.95rem; font-weight: 500; cursor: pointer; border-left: 4px solid transparent; transition: 0.3s; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-btn:hover { color: var(--white); background: rgba(24, 90, 219, 0.2); }
+        .nav-btn.active { color: var(--cyan); border-left-color: var(--cyan); background: rgba(0, 231, 223, 0.1); font-weight: 700; }
 
+        /* Contenedor Principal (Donde cargan las páginas) */
+        .main-content { flex: 1; overflow-y: auto; background-color: var(--white); position: relative; }
+        
+        /* Estructura de las "Páginas" */
+        .page { display: none; padding: 60px 8%; animation: fadeIn 0.4s ease-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilos Internos */
+        h1 { font-size: 3rem; color: var(--bg-dark); margin-bottom: 15px; font-weight: 900; }
+        h1 span { color: var(--primary); }
+        h2 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: var(--gray); padding: 30px; border-radius: 12px; border-top: 4px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--bg-dark); margin-bottom: 10px; }
+        .card-cyan { border-top-color: var(--cyan); }
+        .card-purple { border-top-color: var(--purple); }
+
+        .btn-action { background: var(--primary); color: var(--white); padding: 15px 30px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .btn-action:hover { background: var(--bg-dark); box-shadow: 0 5px 15px rgba(24, 90, 219, 0.4); }
+
+        .tech-tag { display: inline-block; background: var(--bg-panel); color: var(--cyan); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin: 5px 5px 0 0; font-weight: 700; }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ LATERAL (12 Botones) -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">Data<span>Core</span></div>
+        </div>
+        <button class="nav-btn active" onclick="cambiarPagina('p1', this)">1. Resumen Ejecutivo</button>
+        <button class="nav-btn" onclick="cambiarPagina('p2', this)">2. Quiénes Somos</button>
+        <button class="nav-btn" onclick="cambiarPagina('p3', this)">3. Data Warehousing</button>
+        <button class="nav-btn" onclick="cambiarPagina('p4', this)">4. Metodología Inmon</button>
+        <button class="nav-btn" onclick="cambiarPagina('p5', this)">5. Metodología Kimball</button>
+        <button class="nav-btn" onclick="cambiarPagina('p6', this)">6. Desarrollo Python</button>
+        <button class="nav-btn" onclick="cambiarPagina('p7', this)">7. Modelado SQL</button>
+        <button class="nav-btn" onclick="cambiarPagina('p8', this)">8. Dashboards BI</button>
+        <button class="nav-btn" onclick="cambiarPagina('p9', this)">9. Hardware & Servidores</button>
+        <button class="nav-btn" onclick="cambiarPagina('p10', this)">10. Casos de Éxito</button>
+        <button class="nav-btn" onclick="cambiarPagina('p11', this)">11. FAQ Técnico</button>
+        <button class="nav-btn" onclick="cambiarPagina('p12', this)">12. Portal de Contacto</button>
+    </div>
+
+    <!-- CONTENEDOR DE PÁGINAS -->
+    <div class="main-content">
+
+        <!-- Página 1 -->
+        <div id="p1" class="page active">
+            <h1>Business <span>Intelligence</span> a gran escala.</h1>
+            <p>Transformamos datos crudos en decisiones estratégicas. Diseñamos ecosistemas analíticos completos, desde la extracción hasta la visualización en tiempo real.</p>
+            <div style="background: var(--bg-panel); color: var(--white); padding: 40px; border-radius: 12px; margin-top: 30px;">
+                <h2 style="color: var(--cyan);">Diagnóstico de Datos Gratuito</h2>
+                <p style="color: #ccc;">Evaluamos tu infraestructura actual de bases de datos y proponemos una arquitectura escalable.</p>
+                <button class="btn-action">Agendar Consultoría</button>
+            </div>
+        </div>
+
+        <!-- Página 2 -->
+        <div id="p2" class="page">
+            <h2>Quiénes Somos</h2>
+            <p>Somos un equipo de ingenieros de datos y analistas especializados en la Universidad Autónoma de Baja California (UABC). Entendemos que el valor de una empresa no está en cuánto software tiene, sino en cómo integra su información.</p>
+            <div class="grid-cards">
+                <div class="card card-cyan"><h3>Misión</h3><p>Democratizar el acceso a métricas precisas para empresas en crecimiento.</p></div>
+                <div class="card card-purple"><h3>Visión</h3><p>Ser el referente en Baja California en implementaciones de Data Vault y modelos analíticos predictivos.</p></div>
+            </div>
+        </div>
+
+        <!-- Página 3 -->
+        <div id="p3" class="page">
+            <h2>Data Warehousing</h2>
+            <p>Construimos el cerebro de tu empresa. Centralizamos información de ERPs, CRMs y archivos planos en un repositorio único, limpio y auditable.</p>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-top: 20px;">
+        </div>
+
+        <!-- Página 4 -->
+        <div id="p4" class="page">
+            <h2>Metodología Bill Inmon</h2>
+            <p>Aplicamos el enfoque "Top-Down" para corporativos. Creamos un Enterprise Data Warehouse (EDW) altamente normalizado (3NF) que garantiza la integridad absoluta de la información a nivel empresarial antes de crear Data Marts departamentales.</p>
+            <div style="padding: 20px; border-left: 5px solid var(--purple); background: var(--gray);">Ideal para el sector financiero y aseguradoras donde la trazabilidad es ley.</div>
+        </div>
+
+        <!-- Página 5 -->
+        <div id="p5" class="page">
+            <h2>Metodología Ralph Kimball</h2>
+            <p>Desplegamos modelos dimensionales (Esquema de Estrella o Copo de Nieve) basados en procesos de negocio ("Bottom-Up").</p>
+            <p>Esta arquitectura está optimizada para la velocidad de consulta y es la base perfecta para conectar herramientas como Power BI o Tableau rápidamente.</p>
+        </div>
+
+        <!-- Página 6 -->
+        <div id="p6" class="page">
+            <h2>Desarrollo con Python</h2>
+            <p>Automatizamos lo manual. Construimos pipelines ETL (Extract, Transform, Load) utilizando Python para limpiar y procesar millones de registros en minutos.</p>
+            <div>
+                <span class="tech-tag">Pandas</span> <span class="tech-tag">NumPy</span> <span class="tech-tag">Flask (APIs)</span> <span class="tech-tag">Machine Learning</span>
+            </div>
+        </div>
+
+        <!-- Página 7 -->
+        <div id="p7" class="page">
+            <h2>Modelado SQL Avanzado</h2>
+            <p>El lenguaje universal de los datos. Optimizamos consultas lentas, estructuramos vistas materializadas y gestionamos bases de datos relacionales robustas para garantizar que tus reportes carguen al instante.</p>
+        </div>
+
+        <!-- Página 8 -->
+        <div id="p8" class="page">
+            <h2>Dashboards BI Interactivos</h2>
+            <p>Los datos no sirven si no se entienden. Diseñamos tableros visuales de alto impacto (KPIs) para que la directiva pueda monitorear ventas, mermas e inventarios en tiempo real desde cualquier dispositivo.</p>
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
+        </div>
+
+        <!-- Página 9 -->
+        <div id="p9" class="page">
+            <h2>Consultoría en Hardware TI</h2>
+            <p>Recomendamos y configuramos la infraestructura física necesaria para alojar tus datos locales.</p>
+            <div class="grid-cards">
+                <div class="card"><h3>Servidores Mini PC</h3><p>Alta eficiencia energética y procesamiento potente para correr scripts de Python 24/7 en oficinas pequeñas.</p></div>
+                <div class="card"><h3>Workstations</h3><p>Asesoría en equipos (RAM, GPU) para analistas que procesan modelos de Machine Learning locales.</p></div>
+            </div>
+        </div>
+
+        <!-- Página 10 -->
+        <div id="p10" class="page">
+            <h2>Casos de Estudio</h2>
+            <div class="grid-cards">
+                <div class="card card-purple">
+                    <h3 style="color: var(--purple);">Análisis de Incidencia Criminal</h3>
+                    <p>Uso de Kimball para mapear delitos en Tijuana, permitiendo filtros por colonia y hora en dashboards interactivos.</p>
+                </div>
+                <div class="card card-cyan">
+                    <h3 style="color: var(--cyan);">Detección de Fraude Bancario</h3>
+                    <p>Implementación de un repositorio seguro con metodología Inmon para cruzar perfiles financieros y detectar anomalías transaccionales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 11 -->
+        <div id="p11" class="page">
+            <h2>FAQ Técnico</h2>
+            <div style="background: var(--white); border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                <h3 style="color: var(--bg-dark);">¿Trabajan con la nube o en servidores locales?</h3>
+                <p style="margin-bottom: 0;">Nos adaptamos. Podemos configurar instancias en AWS/Azure o montar arquitecturas híbridas on-premise.</p>
+            </div>
+            <div style="background: var(--white); border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+                <h3 style="color: var(--bg-dark);">¿Qué pasa si mi empresa usa Access o Excel?</h3>
+                <p style="margin-bottom: 0;">Es el escenario más común. Creamos rutinas en Python para migrar tus históricos de Access/Excel a un motor SQL robusto (MySQL/PostgreSQL) sin perder un solo registro.</p>
+            </div>
+        </div>
+
+        <!-- Página 12 -->
+        <div id="p12" class="page">
+            <h2>Inicia tu Proyecto</h2>
+            <p>Estamos listos para estructurar el futuro de tu empresa.</p>
+            <form style="max-width: 500px; display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <input type="text" placeholder="Nombre de la Empresa" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
+                <input type="email" placeholder="Correo Corporativo" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
+                <textarea rows="5" placeholder="Describe brevemente cómo manejas tus datos hoy (Excel, ERP, etc.)" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+                <button type="button" class="btn-action">Solicitar Propuesta</button>
+            </form>
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
+                <p style="margin: 0; font-weight: 700;">Base de Operaciones: Tijuana, Baja California.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT PARA CAMBIAR DE PÁGINA (JAVA/JS) -->
+    <script>
+        function cambiarPagina(idPagina, botonMenu) {
+            // 1. Ocultar todas las páginas
+            const paginas = document.querySelectorAll('.page');
+            paginas.forEach(pag => pag.classList.remove('active'));
+
+            // 2. Quitar el color "activo" de todos los botones del menú
+            const botones = document.querySelectorAll('.nav-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+
+            // 3. Mostrar la página solicitada (se activa la animación CSS)
+            document.getElementById(idPagina).classList.add('active');
+            
+            // 4. Resaltar el botón que se presionó
+            botonMenu.classList.add('active');
+
+            // 5. Hacer scroll hacia arriba al cambiar de página
+            document.querySelector('.main-content').scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
