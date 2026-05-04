@@ -233,177 +233,71 @@
 
     <main class="content">
         
-    <section id="inicio" class="pantalla activa" style="padding: 40px 5%;">
-            <style>
-                /* Estilos encapsulados - Tendencia Material Design 2016 */
-                .card-2016 {
-                    background-color: #263238; /* Gris azulado oscuro típico de 2016 */
-                    border-radius: 2px; /* Esquinas casi cuadradas */
-                    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra Elevation 8 */
-                    max-width: 1000px;
-                    margin: 0 auto;
-                    padding: 40px;
-                    color: #cfd8dc;
-                    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
-                }
-        
-                .header-2016 {
-                    text-align: center;
-                    border-bottom: 1px solid #37474f;
-                    padding-bottom: 20px;
-                    margin-bottom: 30px;
-                }
-        
-                .header-2016 h2 {
-                    font-size: 2.5rem;
-                    color: #ffffff;
-                    font-weight: 300; /* Fuentes delgadas muy de moda en 2016 */
-                    margin: 0 0 10px 0;
-                    letter-spacing: -1px;
-                }
-        
-                .header-2016 h3 {
-                    font-size: 1.1rem;
-                    color: #00bcd4; /* Cian acento Material */
-                    text-transform: uppercase;
-                    letter-spacing: 2px;
-                    margin: 0 0 15px 0;
-                    font-weight: 500;
-                }
-        
-                .badges-2016 span {
-                    background: #37474f;
-                    color: #b0bec5;
-                    padding: 6px 12px;
-                    border-radius: 2px;
-                    font-size: 0.8rem;
-                    font-weight: 500;
-                    margin: 0 5px;
-                    text-transform: uppercase;
-                }
-        
-                .lead-2016 {
-                    font-size: 1.1rem;
-                    line-height: 1.8;
-                    text-align: center;
-                    margin-bottom: 40px;
-                    font-weight: 300;
-                    color: #eceff1;
-                }
-        
-                .grid-2016 {
-                    display: flex;
-                    gap: 30px;
-                    flex-wrap: wrap;
-                }
-        
-                .box-2016 {
-                    flex: 1;
-                    min-width: 300px;
-                    background: #2b363c;
-                    border-top: 3px solid #00bcd4; /* Línea de acento superior */
-                    padding: 25px;
-                    border-radius: 2px;
-                    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-                }
-        
-                .box-2016 h4 {
-                    color: #ffffff;
-                    margin-top: 0;
-                    margin-bottom: 15px;
-                    font-size: 1.2rem;
-                    font-weight: 400;
-                }
-        
-                .box-2016 p {
-                    font-size: 0.95rem;
-                    line-height: 1.7;
-                    margin-bottom: 0;
-                    color: #b0bec5;
-                }
-        
-                /* Etiquetas de código (estilo badge flat) */
-                .tech-tag-2016 {
-                    display: inline-block;
-                    background: #1e262b;
-                    color: #80cbc4;
-                    padding: 3px 8px;
-                    border-radius: 2px;
-                    font-size: 0.85rem;
-                    margin: 3px 2px;
-                    border: 1px solid #37474f;
-                }
-        
-                /* Ghost Button clásico de 2016 */
-                .btn-ghost-2016 {
-                    display: block;
-                    width: max-content;
-                    margin: 40px auto 0 auto;
-                    padding: 12px 35px;
-                    border: 2px solid #00bcd4;
-                    color: #00bcd4;
-                    background: transparent;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    border-radius: 2px;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                }
-        
-                .btn-ghost-2016:hover {
-                    background: #00bcd4;
-                    color: #263238;
-                    box-shadow: 0 5px 11px 0 rgba(0,188,212,0.18), 0 4px 15px 0 rgba(0,188,212,0.15);
-                }
-            </style>
-        
-            <div class="card-2016">
-                
-                <!-- Cabecera Flat/Material -->
-                <div class="header-2016">
-                    <h2>Luis Armando Ramirez Cardenas</h2>
-                    <h3>Inteligencia de Negocios</h3>
-                    <div class="badges-2016">
-                        <span>Universidad Autónoma de Baja California</span>
-                        <span>Facultad de Contaduría y Administración</span>
-                    </div>
+    <section id="inicio" class="pantalla activa">
+        <div class="hero-content" style="max-width: 1100px; margin: 0 auto; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(12px);">
+                <!-- Cabecera -->
+                <div class="inicio-header" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 30px; margin-bottom: 30px;">
+                    <h2 class="text-gradient" style="font-size: 2.8rem; margin-bottom: 10px;">Luis Armando Ramirez Cardenas</h2>
+                    <h3 style="color: var(--text-main, #ffffff); font-size: 1.2rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Inteligencia de Negocios</h3>
+                    <p class="uabc-info" style="color: #aaaaaa; margin: 5px 0;">Universidad Autónoma de Baja California</p>
+                    <p class="facultad-info" style="color: #888888; font-size: 0.9rem;">Facultad de Contaduría y Administración</p>
                 </div>
-        
+                
                 <!-- Introducción -->
-                <p class="lead-2016">
+                <p class="intro-text" style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: #cccccc; max-width: 850px; margin: 0 auto 40px auto;">
                     ¡Hola! Soy estudiante de 7mo semestre de la Licenciatura en Inteligencia de Negocios en la UABC. El diseño y desarrollo de esta página web es un reflejo de mi pasión por la tecnología: disfruto crear soluciones digitales desde cero que sean tanto visualmente atractivas como altamente funcionales.
                 </p>
         
-                <!-- Contenedor Grid (Cajas de características) -->
-                <div class="grid-2016">
+                <!-- Grid de Tarjetas Modernas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px;">
                     
-                    <!-- Caja 1 -->
-                    <div class="box-2016">
-                        <h4>¿En qué me especializo?</h4>
-                        <p>
-                            Mi enfoque se centra en la convergencia entre el análisis de datos masivos, la automatización y la arquitectura web. Domino lenguajes e integraciones como <span class="tech-tag-2016">Python</span> <span class="tech-tag-2016">MySQL</span> <span class="tech-tag-2016">Flask</span> <span class="tech-tag-2016">JavaScript</span> <span class="tech-tag-2016">Odoo</span> y <span class="tech-tag-2016">WordPress</span>. 
-                            <br><br>
-                            Tengo amplia experiencia aplicando metodologías de modelado de datos como Data Vault, Kimball e Inmon para estructurar información compleja. Además, desarrollo aplicaciones de visión computacional utilizando OpenCV y YOLOv8 para sistemas de detección y reconocimiento facial, permitiendo integrar inteligencia visual en procesos industriales o de seguridad.
+                    <!-- Tarjeta 1: Especialidad -->
+                    <div style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border-top: 3px solid #00E7DF; transition: transform 0.3s ease;">
+                        <h4 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.4rem;">⚙️</span> ¿En qué me especializo?
+                        </h4>
+                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;">
+                            Mi enfoque se centra en la convergencia entre el análisis de datos masivos, la automatización y la arquitectura web. Domino lenguajes e integraciones como:
+                        </p>
+                        <div style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Python</span>
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MySQL</span>
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Flask</span>
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">JavaScript</span>
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Odoo</span>
+                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">WordPress</span>
+                        </div>
+                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem; margin-bottom: 0;">
+                            Aplico metodologías Data Vault, Kimball e Inmon para estructurar información compleja. Además, desarrollo aplicaciones de visión computacional utilizando OpenCV y YOLOv8.
                         </p>
                     </div>
         
-                    <!-- Caja 2 -->
-                    <div class="box-2016">
-                        <h4>¿Qué puedo aportar a tu empresa?</h4>
-                        <p>
-                            Ayudo a transformar datos crudos en decisiones estratégicas mediante el manejo de grandes volúmenes de información, habiendo trabajado previamente con conjuntos de datos de más de 7 millones de registros para identificar patrones de comportamiento y tendencias críticas. 
+                    <!-- Tarjeta 2: Aportación -->
+                    <div style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border-top: 3px solid #9D4EDD; transition: transform 0.3s ease;">
+                        <h4 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.4rem;">🚀</span> ¿Qué aporto a tu empresa?
+                        </h4>
+                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;">
+                            Transformo datos crudos en decisiones estratégicas. He trabajado con datasets de <strong>+7 millones de registros</strong> para identificar patrones de comportamiento y tendencias críticas.
                             <br><br>
-                            Puedo optimizar el control de tu negocio creando sistemas a la medida, como soluciones de Smart Warehouse para la gestión inteligente de inventarios con Python y MySQL, o extraer datos masivos del mercado mediante Web Scraping para analizar a tu competencia de forma automatizada. También diseño dashboards que te permiten monitorear tus métricas y KPIs en tiempo real para una gestión eficiente. Mis procesos están respaldados por marcos de trabajo ágiles y certificaciones oficiales en Google Data Analytics, Google Project Management y Scrum Fundamentals (SFC).
+                            Optimizo el control de tu negocio creando sistemas a la medida (Smart Warehouse), extrayendo datos masivos del mercado (Web Scraping) y diseñando dashboards interactivos para monitorear KPIs en tiempo real.
                         </p>
+                        <!-- Sección de Certificaciones -->
+                        <div style="margin-top: 20px; border-top: 1px dashed rgba(255, 255, 255, 0.15); padding-top: 15px;">
+                            <p style="color: #888888; font-size: 0.85rem; margin: 0 0 5px 0;">Respaldado por certificaciones oficiales en:</p>
+                            <p style="color: #dddddd; font-size: 0.9rem; font-weight: bold; margin: 0;">Google Data Analytics • Project Management • Scrum (SFC)</p>
+                        </div>
                     </div>
         
                 </div>
         
-                <!-- Botón Fantasma (Ghost Button) -->
-                <button class="btn-ghost-2016" onclick="cambiarPantalla('desarrollo-web', document.querySelectorAll('.btn-nav')[5])">
-                    Explorar Servicios
-                </button>
+                <!-- Botón de Acción -->
+                <div class="hero-actions" style="text-align: center;">
+                    <button class="btn-send" onclick="cambiarPantalla('desarrollo-web', document.querySelectorAll('.btn-nav')[5])" style="padding: 15px 40px; font-size: 1.1rem; cursor: pointer;">
+                        Explorar Servicios
+                    </button>
+                </div>
+                
             </div>
         </section>
 
