@@ -19,7 +19,6 @@ function cambiarPantalla(idPantalla, botonPresionado) {
     }
 }
 
-
 // ==========================================
 // 2. SISTEMA DE VENTANAS EMERGENTES (MODALES)
 // ==========================================
@@ -40,3 +39,25 @@ window.onclick = function(event) {
         event.target.style.display = 'none';
     }
 }
+
+// ==========================================
+// 3. MENÚ RESPONSIVO (MÓVILES)
+// ==========================================
+
+function toggleMenu() {
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.querySelector('.overlay-menu').classList.toggle('open');
+}
+
+// Esperamos a que todo el HTML cargue antes de asignarle clics a los botones
+document.addEventListener("DOMContentLoaded", () => {
+    // Cierra el menú al hacer clic en cualquier botón de navegación (solo en celulares)
+    document.querySelectorAll('.btn-nav, .btn-contacto').forEach(btn => {
+        btn.addEventListener('click', () => {
+            if(window.innerWidth <= 850) {
+                document.querySelector('.sidebar').classList.remove('open');
+                document.querySelector('.overlay-menu').classList.remove('open');
+            }
+        });
+    });
+});
