@@ -23,20 +23,21 @@
         <nav class="menu">
             <ul>
                 <li><button class="btn-nav active-nav" onclick="cambiarPantalla('inicio', this)">Inicio</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('portafolio', this)">Portafolio</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('proyectos', this)">Proyectos</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('certificaciones', this)">Certificaciones</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('conocimientos', this)">Conocimientos</button></li>
                 <li><button class="btn-nav" onclick="cambiarPantalla('curriculum', this)">Curriculum</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('certificaciones', this)">Certificaciones</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('soluciones', this)">Soluciones a Medida</button></li>
                 <li><button class="btn-nav" onclick="cambiarPantalla('desarrollo-web', this)">Desarrollo Web</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('contratacion', this)">Contratación</button></li>
-                <li><button class="btn-nav" onclick="cambiarPantalla('linkedin', this)">LinkedIn</button></li>
+                <li><button class="btn-nav" onclick="cambiarPantalla('contacto', this)">Contacto</button></li>
             </ul>
         </nav>
     </aside>
 
     <main class="content">
         
-        <!-- SECCIÓN DE INICIO -->
+        <!-- ==============================================
+             1. SECCIÓN DE INICIO 
+             ============================================== -->
         <section id="inicio" class="pantalla activa">
             <div class="glass-container">
                 
@@ -92,214 +93,103 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE PORTAFOLIO -->
-        <section id="portafolio" class="pantalla">
-            <div class="glass-container">
-        
-                <div class="portafolio-header">
-                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Portafolio de Soluciones Digitales</h2>
-                    <p>Explora mis desarrollos en ingeniería de datos, automatización y arquitecturas escalables.</p>
-                </div>
-        
-                <div class="grid-portafolio">
-                    
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📦</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Python</span>
-                            <span class="badge-portafolio">Pandas</span>
-                        </div>
-                        <h3>Gestión de Almacén Inteligente</h3>
-                        <p>Automatización del ciclo de inventarios y generación de reportes financieros (Excel/PDF) con trazabilidad de préstamos.</p>
-                        <div class="btn-container">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Sistema-de-Gestion_Inventario" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
-                        </div>
-                    </div>
-        
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🏢</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">MySQL</span>
-                            <span class="badge-portafolio badge-purple">Triggers</span>
-                        </div>
-                        <h3>Arquitectura Smoke Shop</h3>
-                        <p>Diseño de base de datos relacional con sistema de auditoría automatizado para seguridad de transacciones de alto volumen.</p>
-                        <div class="btn-container">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Base-de-Datos-Avanzadas-Proyecto-Final" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
-                        </div>
-                    </div>
-        
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🧠</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">TensorFlow</span>
-                            <span class="badge-portafolio">JS</span>
-                        </div>
-                        <h3>Clasificador de Big Data</h3>
-                        <p>Implementación de redes neuronales para la categorización automatizada de patrones masivos de información en tiempo real.</p>
-                        <div class="btn-container">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Juego_BigData" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
-                        </div>
-                    </div>
-        
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🔄</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Python</span>
-                            <span class="badge-portafolio">MongoDB</span>
-                        </div>
-                        <h3>Integración SQL a NoSQL</h3>
-                        <p>Script de automatización ETL para la migración y escalabilidad de datos entre entornos relacionales y documentales de alto rendimiento.</p>
-                        <div class="btn-container">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Programa-de-ETL" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
-                        </div>
-                    </div>
-        
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🌐</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">WordPress</span>
-                            <span class="badge-portafolio badge-purple">PHP</span>
-                        </div>
-                        <h3>Conciencia y Corazón</h3>
-                        <p>Plataforma web tipo blog personal desarrollada para la gestión de contenidos y servicio social profesional con enfoque humano.</p>
-                        <div class="btn-container">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Conciencia-corazon-wp." target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
-                        </div>
-                    </div>
-        
-                </div>
-            </div>
-        </section>
-        
-        <!-- SECCIÓN DE PROYECTOS PEQUEÑOS -->
-        <section id="proyectos" class="pantalla">
-            <div class="glass-container">
-                
-                <div class="portafolio-header">
-                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Proyectos</h2>
-                    <p>Estos son trabajos pequeños que puedo realizar en caso de que necesite apoyo en algo.</p>
-                </div>
-        
-                <div class="grid-portafolio">
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🧹</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Pandas</span>
-                            <span class="badge-portafolio">Excel Avanzado</span>
-                        </div>
-                        <h3>Limpieza y Estructuración de Datos</h3>
-                        <p>Transformación de bases de datos desordenadas en información lista para análisis. Especialista en procesamiento eficiente de grandes volúmenes de datos, asegurando la integridad y calidad del dato para decisiones estratégicas.</p>
-                    </div>
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🔒</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">MySQL</span>
-                            <span class="badge-portafolio badge-purple">Triggers</span>
-                        </div>
-                        <h3>Seguridad y Auditoría SQL</h3>
-                        <p>Diseño de arquitecturas relacionales con sistemas de auditoría inmutables. Implementación de registros automáticos para monitorear cambios en información sensible, garantizando el control total y la trazabilidad del negocio.</p>
-                    </div>
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🤖</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Python</span>
-                            <span class="badge-portafolio">Selenium</span>
-                        </div>
-                        <h3>Automatización de Tareas (ETL)</h3>
-                        <p>Desarrollo de scripts para la extracción automatizada de información (Web Scraping) y generación programada de reportes operativos. Optimización de procesos manuales para ahorrar tiempo y reducir errores.</p>
-                    </div>
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📊</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Dash / Plotly</span>
-                            <span class="badge-portafolio badge-purple">Power BI</span>
-                        </div>
-                        <h3>Dashboards Analíticos</h3>
-                        <p>Creación de tableros interactivos para el monitoreo de KPIs en tiempo real. Visualización de tendencias históricas y métricas críticas que facilitan la claridad operativa para los tomadores de decisiones.</p>
-                    </div>
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">👁️</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">OpenCV</span>
-                            <span class="badge-portafolio">YOLOv8</span>
-                        </div>
-                        <h3>Scripts de Visión Computacional</h3>
-                        <p>Implementación de modelos de reconocimiento de imágenes y patrones físicos. Soluciones aplicadas a la seguridad, control de acceso facial o detección visual de defectos en entornos industriales.</p>
-                    </div>
-            
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📦</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Python</span>
-                            <span class="badge-portafolio badge-purple">MySQL</span>
-                        </div>
-                        <h3>Sistemas de Control de Inventario</h3>
-                        <p>Desarrollo de lógica de persistencia de datos para almacenes inteligentes. Administración técnica de entradas, salidas y trazabilidad completa de movimientos para una gestión de inventarios eficiente.</p>
-                    </div>
-            
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN DE CERTIFICACIONES -->
-        <section id="certificaciones" class="pantalla">
+        <!-- ==============================================
+             2. SECCIÓN DE CONOCIMIENTOS (ANTES CONTRATACIÓN)
+             ============================================== -->
+        <section id="conocimientos" class="pantalla">
             <div class="glass-container">
 
                 <div class="portafolio-header">
-                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Certificaciones Profesionales</h2>
-                    <p>Credenciales oficiales y validación de competencias técnicas y ágiles.</p>
+                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">¿En qué te puedo ayudar?</h2>
                 </div>
                 
-                <div class="grid-portafolio">
+                <div class="project-item" style="margin-bottom: 40px;">
+                    <p>Soy un estudiante dedicado que busca aplicar las herramientas de <strong>Business Intelligence</strong> en el mundo real. Cada proyecto aceptado me ayuda a costear inscripciones, certificaciones adicionales y equipo tecnológico necesario para mi carrera. Gracias por ser parte de mi crecimiento profesional.</p>
+                </div>
+            
+                <div class="accordion-container">
                     
-                    <div class="card-portafolio">
-                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
-                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Junio 2025</span>
-                            <span class="badge-portafolio" style="color: var(--accent-green); background: rgba(0, 200, 83, 0.15); border-color: rgba(0, 200, 83, 0.3);">Google</span>
+                    <details class="service-accordion">
+                        <summary>1. Operaciones, Logística y Manufactura (Ideal para Tijuana)</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">En este sector, el objetivo es la eficiencia, la reducción de mermas y la velocidad.</p>
+                            <ul>
+                                <li><strong>Gestión de Almacén Inteligente (Smart Warehousing):</strong> Desarrollo de sistemas a la medida (Python/MySQL) para rastrear entradas, salidas y préstamos de material, eliminando el uso de Excel manual y evitando pérdidas de inventario.</li>
+                                <li><strong>Visión Computacional para Control de Calidad:</strong> Implementación de modelos con OpenCV y YOLOv8 en líneas de producción para detectar defectos en piezas, clasificar productos o contar inventario físico mediante cámaras, reduciendo el error humano.</li>
+                                <li><strong>Mantenimiento Predictivo:</strong> Análisis de los datos históricos de las máquinas para predecir cuándo es probable que fallen, permitiendo programar mantenimientos antes de que la línea de producción se detenga.</li>
+                                <li><strong>Optimización de Cadenas de Suministro (Supply Chain):</strong> Procesamiento de bases de datos masivas para identificar cuellos de botella en la logística, analizar patrones de demora en envíos y visualizar rutas óptimas.</li>
+                            </ul>
                         </div>
-                        <h3 style="font-size: 1.1rem; min-height: 45px;">Google Data Analytics Professional Certificate</h3>
-                        <p style="flex-grow: 1;">Programa intensivo sobre el ciclo de vida del análisis de datos, incluyendo limpieza, análisis y visualización estratégica para la toma de decisiones.</p>
-                        <div class="btn-container">
-                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/5EKPQF1JTKCM" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
-                        </div>
-                    </div>
+                    </details>
             
-                    <div class="card-portafolio">
-                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
-                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Junio 2025</span>
-                            <span class="badge-portafolio" style="color: var(--accent-green); background: rgba(0, 200, 83, 0.15); border-color: rgba(0, 200, 83, 0.3);">Google</span>
+                    <details class="service-accordion">
+                        <summary>2. Finanzas y Dirección General</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">Los tomadores de decisiones buscan reducir riesgos, aumentar la rentabilidad y tener información unificada.</p>
+                            <ul>
+                                <li><strong>Arquitectura y Gobierno de Datos:</strong> Unificar bases de datos dispersas de la empresa utilizando metodologías formales (Kimball, Inmon, Data Vault) para crear un "Data Warehouse" (Almacén de datos) limpio y confiable.</li>
+                                <li><strong>Detección de Fraudes y Anomalías (Auditoría):</strong> Programación de Triggers y Procedimientos Almacenados en MySQL que alerten automáticamente sobre transacciones inusuales, gastos duplicados o modificaciones no autorizadas en bases de datos sensibles.</li>
+                                <li><strong>Automatización de Reportes Financieros (ETL):</strong> Creación de scripts que extraigan información cruda del ERP contable, la limpien con Pandas y generen automáticamente los cierres de mes, balances o reportes ejecutivos en PDF.</li>
+                                <li><strong>Proyecciones de Flujo de Efectivo:</strong> Creación de modelos de análisis que cruzan cuentas por cobrar, cuentas por pagar y tendencias de ventas para predecir la liquidez de la empresa en los próximos meses.</li>
+                            </ul>
                         </div>
-                        <h3 style="font-size: 1.1rem; min-height: 45px;">Google Project Management Professional Certificate</h3>
-                        <p style="flex-grow: 1;">Dominio en la gestión de proyectos, desde la iniciación y planificación hasta la ejecución ágil, gestión de riesgos y comunicación con stakeholders.</p>
-                        <div class="btn-container">
-                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/DTUWZ1CXG03M" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
-                        </div>
-                    </div>
+                    </details>
             
-                    <div class="card-portafolio">
-                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
-                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Abril 2025</span>
-                            <span class="badge-portafolio" style="color: var(--accent-blue); background: rgba(0, 82, 212, 0.15); border-color: rgba(0, 82, 212, 0.3);">SCRUMstudy</span>
+                    <details class="service-accordion">
+                        <summary>3. Ventas, Marketing e Inteligencia Competitiva</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">El objetivo aquí es vender más, retener clientes y entender el mercado.</p>
+                            <ul>
+                                <li><strong>Minería de Datos de la Competencia (Web Scraping):</strong> Creación de bots con Selenium y Python para extraer masivamente catálogos, precios y reseñas de competidores desde páginas web, permitiendo a la empresa ajustar sus estrategias de precios en tiempo real.</li>
+                                <li><strong>Dashboards de Rendimiento Comercial:</strong> Creación de tableros de control (Dashboards) que muestren las ventas en tiempo real, cumplimiento de cuotas por vendedor, embudos de conversión y productos más rentables.</li>
+                                <li><strong>Análisis de Fuga de Clientes (Churn Rate):</strong> Análisis de la base de datos de clientes para identificar patrones (ej. baja frecuencia de compra, tickets de soporte no resueltos) que predicen qué clientes están a punto de abandonar la empresa, para poder retenerlos.</li>
+                                <li><strong>Segmentación Avanzada de Clientes:</strong> Clasificación automatizada de la base de datos en grupos según su comportamiento de compra (frecuencia, monto gastado) para dirigir campañas de marketing más efectivas.</li>
+                            </ul>
                         </div>
-                        <h3 style="font-size: 1.1rem; min-height: 45px;">Scrum Fundamentals Certified (SFC)</h3>
-                        <p style="flex-grow: 1;">Acreditación oficial en los principios fundamentales del marco de trabajo ágil Scrum, enfocado en la entrega de valor continua y la adaptabilidad.</p>
-                        <div class="btn-container">
-                            <a href="https://www.scrumstudy.com/certification/verify?type=SFC&number=1077299" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
+                    </details>
+            
+                    <details class="service-accordion">
+                        <summary>4. Compras y Adquisiciones (Procurement)</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">Esta área necesita comprar al mejor precio y asegurar que nunca falte material.</p>
+                            <ul>
+                                <li><strong>Alertas de Reabastecimiento Automatizadas:</strong> Sistemas que monitorean el inventario y envían alertas automáticas (o generan la orden de compra) cuando un producto clave está por debajo del stock mínimo.</li>
+                                <li><strong>Análisis de Rendimiento de Proveedores:</strong> Dashboards que evalúan qué proveedores entregan tarde, cuáles tienen más defectos de calidad y cómo ha variado su precio a lo largo del tiempo.</li>
+                            </ul>
                         </div>
-                    </div>
+                    </details>
+            
+                    <details class="service-accordion">
+                        <summary>5. Recursos Humanos y Control de Accesos</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">La gestión del talento y la seguridad interna también se optimizan con datos.</p>
+                            <ul>
+                                <li><strong>Control de Accesos Biométrico:</strong> Desarrollo de sistemas con Machine Learning y reconocimiento facial para gestionar la entrada y salida de personal, vinculando los datos directamente con la base de datos de nómina.</li>
+                                <li><strong>Análisis de Rotación de Personal:</strong> Uso de datos históricos para identificar los factores (departamento, turno, salario, jefe directo) que más influyen en la renuncia de los empleados, ayudando a RRHH a crear planes de retención.</li>
+                                <li><strong>Dashboards de Productividad y KPIs:</strong> Medición del desempeño de los empleados de forma objetiva, cruzando datos de horas trabajadas vs. metas alcanzadas.</li>
+                            </ul>
+                        </div>
+                    </details>
+            
+                    <details class="service-accordion">
+                        <summary>6. Tecnología (TI) y Desarrollo a la Medida</summary>
+                        <div class="accordion-content">
+                            <p style="margin-bottom: 15px;">Cuando el software comercial no es suficiente, tú puedes construir la solución.</p>
+                            <ul>
+                                <li><strong>Migración de Bases de Datos:</strong> Scripts de automatización para migrar datos de sistemas antiguos u hojas de Excel a bases de datos modernas (SQL o MongoDB), asegurando la integridad de los datos.</li>
+                                <li><strong>Desarrollo de Herramientas Internas (Intranet):</strong> Creación de plataformas web internas (con Flask o WordPress) para digitalizar procesos manuales, como aprobaciones de vacaciones, solicitudes de viáticos o manuales operativos.</li>
+                                <li><strong>Gestión Ágil de Proyectos Tecnológicos:</strong> Actuar como Scrum Master o líder de proyecto para asegurar que las implementaciones de nuevo software en la empresa se hagan a tiempo, en presupuesto y cumplan con lo que el negocio realmente necesita.</li>
+                            </ul>
+                        </div>
+                    </details>
             
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN CURRÍCULUM -->
-        <!-- SECCIÓN CURRÍCULUM -->
+        <!-- ==============================================
+             3. SECCIÓN CURRÍCULUM 
+             ============================================== -->
         <section id="curriculum" class="pantalla">
             <div class="glass-container">
 
@@ -520,7 +410,139 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DESARROLLO WEB -->
+        <!-- ==============================================
+             4. SECCIÓN DE CERTIFICACIONES 
+             ============================================== -->
+        <section id="certificaciones" class="pantalla">
+            <div class="glass-container">
+
+                <div class="portafolio-header">
+                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Certificaciones Profesionales</h2>
+                    <p>Credenciales oficiales y validación de competencias técnicas y ágiles.</p>
+                </div>
+                
+                <div class="grid-portafolio">
+                    
+                    <div class="card-portafolio">
+                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
+                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Junio 2025</span>
+                            <span class="badge-portafolio" style="color: var(--accent-green); background: rgba(0, 200, 83, 0.15); border-color: rgba(0, 200, 83, 0.3);">Google</span>
+                        </div>
+                        <h3 style="font-size: 1.1rem; min-height: 45px;">Google Data Analytics Professional Certificate</h3>
+                        <p style="flex-grow: 1;">Programa intensivo sobre el ciclo de vida del análisis de datos, incluyendo limpieza, análisis y visualización estratégica para la toma de decisiones.</p>
+                        <div class="btn-container">
+                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/5EKPQF1JTKCM" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
+                        </div>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
+                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Junio 2025</span>
+                            <span class="badge-portafolio" style="color: var(--accent-green); background: rgba(0, 200, 83, 0.15); border-color: rgba(0, 200, 83, 0.3);">Google</span>
+                        </div>
+                        <h3 style="font-size: 1.1rem; min-height: 45px;">Google Project Management Professional Certificate</h3>
+                        <p style="flex-grow: 1;">Dominio en la gestión de proyectos, desde la iniciación y planificación hasta la ejecución ágil, gestión de riesgos y comunicación con stakeholders.</p>
+                        <div class="btn-container">
+                            <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/DTUWZ1CXG03M" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
+                        </div>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="tech-badges-portafolio" style="justify-content: space-between; width: 100%; margin-bottom: 15px;">
+                            <span class="badge-portafolio" style="color: var(--text-main); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">Abril 2025</span>
+                            <span class="badge-portafolio" style="color: var(--accent-blue); background: rgba(0, 82, 212, 0.15); border-color: rgba(0, 82, 212, 0.3);">SCRUMstudy</span>
+                        </div>
+                        <h3 style="font-size: 1.1rem; min-height: 45px;">Scrum Fundamentals Certified (SFC)</h3>
+                        <p style="flex-grow: 1;">Acreditación oficial en los principios fundamentales del marco de trabajo ágil Scrum, enfocado en la entrega de valor continua y la adaptabilidad.</p>
+                        <div class="btn-container">
+                            <a href="https://www.scrumstudy.com/certification/verify?type=SFC&number=1077299" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             5. SECCIÓN SOLUCIONES A MEDIDA (ANTES PROYECTOS) 
+             ============================================== -->
+        <section id="soluciones" class="pantalla">
+            <div class="glass-container">
+                
+                <div class="portafolio-header">
+                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Soluciones a Medida</h2>
+                    <p>Desarrollos independientes y trabajos técnicos que puedo realizar como apoyo para tu empresa u organización.</p>
+                </div>
+        
+                <div class="grid-portafolio">
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🧹</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio">Pandas</span>
+                            <span class="badge-portafolio">Excel Avanzado</span>
+                        </div>
+                        <h3>Limpieza y Estructuración de Datos</h3>
+                        <p>Transformación de bases de datos desordenadas en información lista para análisis. Especialista en procesamiento eficiente de grandes volúmenes de datos, asegurando la integridad y calidad del dato para decisiones estratégicas.</p>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🔒</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio badge-purple">MySQL</span>
+                            <span class="badge-portafolio badge-purple">Triggers</span>
+                        </div>
+                        <h3>Seguridad y Auditoría SQL</h3>
+                        <p>Diseño de arquitecturas relacionales con sistemas de auditoría inmutables. Implementación de registros automáticos para monitorear cambios en información sensible, garantizando el control total y la trazabilidad del negocio.</p>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🤖</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio">Python</span>
+                            <span class="badge-portafolio">Selenium</span>
+                        </div>
+                        <h3>Automatización de Tareas (ETL)</h3>
+                        <p>Desarrollo de scripts para la extracción automatizada de información (Web Scraping) y generación programada de reportes operativos. Optimización de procesos manuales para ahorrar tiempo y reducir errores.</p>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">📊</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio badge-purple">Dash / Plotly</span>
+                            <span class="badge-portafolio badge-purple">Power BI</span>
+                        </div>
+                        <h3>Dashboards Analíticos</h3>
+                        <p>Creación de tableros interactivos para el monitoreo de KPIs en tiempo real. Visualización de tendencias históricas y métricas críticas que facilitan la claridad operativa para los tomadores de decisiones.</p>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">👁️</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio">OpenCV</span>
+                            <span class="badge-portafolio">YOLOv8</span>
+                        </div>
+                        <h3>Scripts de Visión Computacional</h3>
+                        <p>Implementación de modelos de reconocimiento de imágenes y patrones físicos. Soluciones aplicadas a la seguridad, control de acceso facial o detección visual de defectos en entornos industriales.</p>
+                    </div>
+            
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">📦</div>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio badge-purple">Python</span>
+                            <span class="badge-portafolio badge-purple">MySQL</span>
+                        </div>
+                        <h3>Sistemas de Control de Inventario</h3>
+                        <p>Desarrollo de lógica de persistencia de datos para almacenes inteligentes. Administración técnica de entradas, salidas y trazabilidad completa de movimientos para una gestión de inventarios eficiente.</p>
+                    </div>
+            
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             6. SECCIÓN DESARROLLO WEB 
+             ============================================== -->
         <section id="desarrollo-web" class="pantalla">
             <div class="glass-container">
 
@@ -764,100 +786,10 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE CONTRATACIÓN -->
-        <section id="contratacion" class="pantalla">
-            <div class="glass-container">
-
-                <div class="portafolio-header">
-                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">¿Por qué contratarme?</h2>
-                </div>
-                
-                <div class="project-item" style="margin-bottom: 40px;">
-                    <p>Soy un estudiante dedicado que busca aplicar las herramientas de <strong>Business Intelligence</strong> en el mundo real. Cada proyecto aceptado me ayuda a costear inscripciones, certificaciones adicionales y equipo tecnológico necesario para mi carrera. Gracias por ser parte de mi crecimiento profesional.</p>
-                </div>
-            
-                <div class="accordion-container">
-                    
-                    <details class="service-accordion">
-                        <summary>1. Operaciones, Logística y Manufactura (Ideal para Tijuana)</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">En este sector, el objetivo es la eficiencia, la reducción de mermas y la velocidad.</p>
-                            <ul>
-                                <li><strong>Gestión de Almacén Inteligente (Smart Warehousing):</strong> Desarrollo de sistemas a la medida (Python/MySQL) para rastrear entradas, salidas y préstamos de material, eliminando el uso de Excel manual y evitando pérdidas de inventario.</li>
-                                <li><strong>Visión Computacional para Control de Calidad:</strong> Implementación de modelos con OpenCV y YOLOv8 en líneas de producción para detectar defectos en piezas, clasificar productos o contar inventario físico mediante cámaras, reduciendo el error humano.</li>
-                                <li><strong>Mantenimiento Predictivo:</strong> Análisis de los datos históricos de las máquinas para predecir cuándo es probable que fallen, permitiendo programar mantenimientos antes de que la línea de producción se detenga.</li>
-                                <li><strong>Optimización de Cadenas de Suministro (Supply Chain):</strong> Procesamiento de bases de datos masivas para identificar cuellos de botella en la logística, analizar patrones de demora en envíos y visualizar rutas óptimas.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                    <details class="service-accordion">
-                        <summary>2. Finanzas y Dirección General</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">Los tomadores de decisiones buscan reducir riesgos, aumentar la rentabilidad y tener información unificada.</p>
-                            <ul>
-                                <li><strong>Arquitectura y Gobierno de Datos:</strong> Unificar bases de datos dispersas de la empresa utilizando metodologías formales (Kimball, Inmon, Data Vault) para crear un "Data Warehouse" (Almacén de datos) limpio y confiable.</li>
-                                <li><strong>Detección de Fraudes y Anomalías (Auditoría):</strong> Programación de Triggers y Procedimientos Almacenados en MySQL que alerten automáticamente sobre transacciones inusuales, gastos duplicados o modificaciones no autorizadas en bases de datos sensibles.</li>
-                                <li><strong>Automatización de Reportes Financieros (ETL):</strong> Creación de scripts que extraigan información cruda del ERP contable, la limpien con Pandas y generen automáticamente los cierres de mes, balances o reportes ejecutivos en PDF.</li>
-                                <li><strong>Proyecciones de Flujo de Efectivo:</strong> Creación de modelos de análisis que cruzan cuentas por cobrar, cuentas por pagar y tendencias de ventas para predecir la liquidez de la empresa en los próximos meses.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                    <details class="service-accordion">
-                        <summary>3. Ventas, Marketing e Inteligencia Competitiva</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">El objetivo aquí es vender más, retener clientes y entender el mercado.</p>
-                            <ul>
-                                <li><strong>Minería de Datos de la Competencia (Web Scraping):</strong> Creación de bots con Selenium y Python para extraer masivamente catálogos, precios y reseñas de competidores desde páginas web, permitiendo a la empresa ajustar sus estrategias de precios en tiempo real.</li>
-                                <li><strong>Dashboards de Rendimiento Comercial:</strong> Creación de tableros de control (Dashboards) que muestren las ventas en tiempo real, cumplimiento de cuotas por vendedor, embudos de conversión y productos más rentables.</li>
-                                <li><strong>Análisis de Fuga de Clientes (Churn Rate):</strong> Análisis de la base de datos de clientes para identificar patrones (ej. baja frecuencia de compra, tickets de soporte no resueltos) que predicen qué clientes están a punto de abandonar la empresa, para poder retenerlos.</li>
-                                <li><strong>Segmentación Avanzada de Clientes:</strong> Clasificación automatizada de la base de datos en grupos según su comportamiento de compra (frecuencia, monto gastado) para dirigir campañas de marketing más efectivas.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                    <details class="service-accordion">
-                        <summary>4. Compras y Adquisiciones (Procurement)</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">Esta área necesita comprar al mejor precio y asegurar que nunca falte material.</p>
-                            <ul>
-                                <li><strong>Alertas de Reabastecimiento Automatizadas:</strong> Sistemas que monitorean el inventario y envían alertas automáticas (o generan la orden de compra) cuando un producto clave está por debajo del stock mínimo.</li>
-                                <li><strong>Análisis de Rendimiento de Proveedores:</strong> Dashboards que evalúan qué proveedores entregan tarde, cuáles tienen más defectos de calidad y cómo ha variado su precio a lo largo del tiempo.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                    <details class="service-accordion">
-                        <summary>5. Recursos Humanos y Control de Accesos</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">La gestión del talento y la seguridad interna también se optimizan con datos.</p>
-                            <ul>
-                                <li><strong>Control de Accesos Biométrico:</strong> Desarrollo de sistemas con Machine Learning y reconocimiento facial para gestionar la entrada y salida de personal, vinculando los datos directamente con la base de datos de nómina.</li>
-                                <li><strong>Análisis de Rotación de Personal:</strong> Uso de datos históricos para identificar los factores (departamento, turno, salario, jefe directo) que más influyen en la renuncia de los empleados, ayudando a RRHH a crear planes de retención.</li>
-                                <li><strong>Dashboards de Productividad y KPIs:</strong> Medición del desempeño de los empleados de forma objetiva, cruzando datos de horas trabajadas vs. metas alcanzadas.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                    <details class="service-accordion">
-                        <summary>6. Tecnología (TI) y Desarrollo a la Medida</summary>
-                        <div class="accordion-content">
-                            <p style="margin-bottom: 15px;">Cuando el software comercial no es suficiente, tú puedes construir la solución.</p>
-                            <ul>
-                                <li><strong>Migración de Bases de Datos:</strong> Scripts de automatización para migrar datos de sistemas antiguos u hojas de Excel a bases de datos modernas (SQL o MongoDB), asegurando la integridad de los datos.</li>
-                                <li><strong>Desarrollo de Herramientas Internas (Intranet):</strong> Creación de plataformas web internas (con Flask o WordPress) para digitalizar procesos manuales, como aprobaciones de vacaciones, solicitudes de viáticos o manuales operativos.</li>
-                                <li><strong>Gestión Ágil de Proyectos Tecnológicos:</strong> Actuar como Scrum Master o líder de proyecto para asegurar que las implementaciones de nuevo software en la empresa se hagan a tiempo, en presupuesto y cumplan con lo que el negocio realmente necesita.</li>
-                            </ul>
-                        </div>
-                    </details>
-            
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN DE LINKEDIN -->
-        <section id="linkedin" class="pantalla">
+        <!-- ==============================================
+             7. SECCIÓN CONTACTO (ANTES LINKEDIN)
+             ============================================== -->
+        <section id="contacto" class="pantalla">
             <div class="glass-container" style="max-width: 800px;">
                 <div class="portafolio-header">
                     <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Conectemos Profesionalmente</h2>
@@ -1073,6 +1005,7 @@
             </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
