@@ -302,20 +302,31 @@
         </section>
 
         <section id="portafolio" class="pantalla">
-              <style>
+            <style>
                 /* Animaciones y diseño Glassmorphism para el Portafolio */
-                .grid-portafolio {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 30px;
-                    margin-top: 40px;
-                    max-width: 1200px;
-                    margin-left: auto;
-                    margin-right: auto;
+                
+                /* CUADRO MAESTRO QUE ENVUELVE TODO */
+                .main-box-portafolio {
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    background: rgba(255, 255, 255, 0.03);
+                    border: 1px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 20px;
+                    padding: 50px 40px;
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(12px);
                 }
         
+                .grid-portafolio {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 25px;
+                    margin-top: 40px;
+                }
+        
+                /* Tarjetas Internas */
                 .card-portafolio {
-                    background: rgba(0, 0, 0, 0.2);
+                    background: rgba(0, 0, 0, 0.25);
                     border: 1px solid rgba(255, 255, 255, 0.05);
                     border-radius: 16px;
                     padding: 30px;
@@ -324,13 +335,12 @@
                     flex-direction: column;
                     position: relative;
                     overflow: hidden;
-                    backdrop-filter: blur(10px);
                 }
         
                 /* Animación Hover: Elevación y Brillo */
                 .card-portafolio:hover {
-                    transform: translateY(-10px);
-                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                    transform: translateY(-8px);
+                    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
                     border-color: rgba(0, 231, 223, 0.3);
                 }
         
@@ -349,13 +359,13 @@
                 }
         
                 .icon-portafolio {
-                    font-size: 2.2rem;
+                    font-size: 2rem;
                     margin-bottom: 20px;
-                    background: rgba(255, 255, 255, 0.03);
-                    width: 60px; height: 60px;
+                    background: rgba(255, 255, 255, 0.05);
+                    width: 55px; height: 55px;
                     display: flex; align-items: center; justify-content: center;
                     border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.08);
                 }
         
                 .tech-badges {
@@ -377,81 +387,86 @@
                 }
             </style>
         
-            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;">
-                <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Portafolio de Soluciones Digitales</h2>
-                <p class="section-note" style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6;">Explora mis desarrollos en ingeniería de datos, automatización y arquitecturas escalables.</p>
-            </div>
+            <!-- AQUÍ INICIA EL CUADRO CONTENEDOR -->
+            <div class="main-box-portafolio">
         
-            <div class="grid-portafolio">
-                
-                <!-- Proyecto 1 -->
-                <div class="card-portafolio">
-                    <div class="icon-portafolio">📦</div>
-                    <div class="tech-badges">
-                        <span class="badge-portafolio">Python</span>
-                        <span class="badge-portafolio">Pandas</span>
-                    </div>
-                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Gestión de Almacén Inteligente</h3>
-                    <p style="color: #cccccc; text-align: justify; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">Automatización del ciclo de inventarios y generación de reportes financieros (Excel/PDF) con trazabilidad de préstamos.</p>
-                    <div style="margin-top: auto;">
-                        <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Sistema-de-Gestion_Inventario" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
-                    </div>
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Portafolio de Soluciones Digitales</h2>
+                    <p class="section-note" style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6;">Explora mis desarrollos en ingeniería de datos, automatización y arquitecturas escalables.</p>
                 </div>
         
-                <!-- Proyecto 2 -->
-                <div class="card-portafolio">
-                    <div class="icon-portafolio">🏢</div>
-                    <div class="tech-badges">
-                        <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">MySQL</span>
-                        <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">Triggers</span>
+                <div class="grid-portafolio">
+                    
+                    <!-- Proyecto 1 -->
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">📦</div>
+                        <div class="tech-badges">
+                            <span class="badge-portafolio">Python</span>
+                            <span class="badge-portafolio">Pandas</span>
+                        </div>
+                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Gestión de Almacén Inteligente</h3>
+                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Automatización del ciclo de inventarios y generación de reportes financieros (Excel/PDF) con trazabilidad de préstamos.</p>
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Sistema-de-Gestion_Inventario" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        </div>
                     </div>
-                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Arquitectura Smoke Shop</h3>
-                    <p style="color: #cccccc; text-align: justify; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">Diseño de base de datos relacional con sistema de auditoría automatizado para seguridad de transacciones de alto volumen.</p>
-                    <div style="margin-top: auto;">
-                        <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Base-de-Datos-Avanzadas-Proyecto-Final" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
-                    </div>
-                </div>
         
-                <!-- Proyecto 3 -->
-                <div class="card-portafolio">
-                    <div class="icon-portafolio">🧠</div>
-                    <div class="tech-badges">
-                        <span class="badge-portafolio">TensorFlow</span>
-                        <span class="badge-portafolio">JS</span>
+                    <!-- Proyecto 2 -->
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🏢</div>
+                        <div class="tech-badges">
+                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">MySQL</span>
+                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">Triggers</span>
+                        </div>
+                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Arquitectura Smoke Shop</h3>
+                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Diseño de base de datos relacional con sistema de auditoría automatizado para seguridad de transacciones de alto volumen.</p>
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Base-de-Datos-Avanzadas-Proyecto-Final" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        </div>
                     </div>
-                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Clasificador de Big Data</h3>
-                    <p style="color: #cccccc; text-align: justify; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">Implementación de redes neuronales para la categorización automatizada de patrones masivos de información en tiempo real.</p>
-                    <div style="margin-top: auto;">
-                        <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Juego_BigData" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
-                    </div>
-                </div>
         
-                <!-- Proyecto 4 -->
-                <div class="card-portafolio">
-                    <div class="icon-portafolio">🔄</div>
-                    <div class="tech-badges">
-                        <span class="badge-portafolio">Python</span>
-                        <span class="badge-portafolio">MongoDB</span>
+                    <!-- Proyecto 3 -->
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🧠</div>
+                        <div class="tech-badges">
+                            <span class="badge-portafolio">TensorFlow</span>
+                            <span class="badge-portafolio">JS</span>
+                        </div>
+                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Clasificador de Big Data</h3>
+                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Implementación de redes neuronales para la categorización automatizada de patrones masivos de información en tiempo real.</p>
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Juego_BigData" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        </div>
                     </div>
-                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Integración SQL a NoSQL</h3>
-                    <p style="color: #cccccc; text-align: justify; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">Script de automatización ETL para la migración y escalabilidad de datos entre entornos relacionales y documentales de alto rendimiento.</p>
-                    <div style="margin-top: auto;">
-                        <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Programa-de-ETL" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
-                    </div>
-                </div>
         
-                <!-- Proyecto 5 -->
-                <div class="card-portafolio">
-                    <div class="icon-portafolio">🌐</div>
-                    <div class="tech-badges">
-                        <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">WordPress</span>
-                        <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">PHP</span>
+                    <!-- Proyecto 4 -->
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🔄</div>
+                        <div class="tech-badges">
+                            <span class="badge-portafolio">Python</span>
+                            <span class="badge-portafolio">MongoDB</span>
+                        </div>
+                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Integración SQL a NoSQL</h3>
+                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Script de automatización ETL para la migración y escalabilidad de datos entre entornos relacionales y documentales de alto rendimiento.</p>
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Programa-de-ETL" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        </div>
                     </div>
-                    <h3 style="color: #ffffff; font-size: 1.3rem; margin-bottom: 15px;">Conciencia y Corazón</h3>
-                    <p style="color: #cccccc; text-align: justify; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">Plataforma web tipo blog personal desarrollada para la gestión de contenidos y servicio social profesional con enfoque humano.</p>
-                    <div style="margin-top: auto;">
-                        <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Conciencia-corazon-wp." target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+        
+                    <!-- Proyecto 5 -->
+                    <div class="card-portafolio">
+                        <div class="icon-portafolio">🌐</div>
+                        <div class="tech-badges">
+                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">WordPress</span>
+                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">PHP</span>
+                        </div>
+                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Conciencia y Corazón</h3>
+                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Plataforma web tipo blog personal desarrollada para la gestión de contenidos y servicio social profesional con enfoque humano.</p>
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Conciencia-corazon-wp." target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        </div>
                     </div>
+        
                 </div>
             </div>
         </section>
