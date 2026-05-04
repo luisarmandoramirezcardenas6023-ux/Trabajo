@@ -6,198 +6,6 @@
     <title>Armando Ramirez | Business Intelligence 2026 </title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* =========================================
-           NUEVOS AJUSTES: COLOR Y SCROLLBAR
-           ========================================= */
-        /* Fondo azul marino fuerte para la sección derecha */
-        :root {
-            --bg-dark: #0A192F !important; 
-        }
-        body, .content {
-            background-color: var(--bg-dark) !important;
-        }
-
-        /* Barra de desplazamiento (Scroll) para el menú izquierdo */
-        .sidebar {
-            overflow-y: auto;
-        }
-        .sidebar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .sidebar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .sidebar::-webkit-scrollbar-thumb {
-            background: #0052D4; /* Color azul */
-            border-radius: 10px;
-        }
-        .sidebar::-webkit-scrollbar-thumb:hover {
-            background: #00C853; /* Color verde al pasar el mouse */
-        }
-
-        /* =========================================
-           AJUSTES ANTERIORES
-           ========================================= */
-        .sidebar .profile-info h1 {
-            color: #ffffff !important;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .sidebar .profile-info h3 {
-            font-size: 0.85rem;
-            color: var(--accent-blue);
-            text-transform: none;
-            font-family: 'Inter', sans-serif;
-        }
-        .inicio-header h2 {
-            margin-bottom: 0;
-        }
-        .inicio-header h3 {
-            color: var(--accent-green);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        .uabc-info {
-            font-size: 1rem;
-            color: var(--text-main);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        .facultad-info {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-            margin-bottom: 25px;
-        }
-
-        /* Elementos del menú hamburguesa ocultos en computadora */
-        .menu-toggle { display: none; }
-        .overlay-menu { display: none; }
-
-        /* =========================================
-           DISEÑO RESPONSIVO (MÓVILES Y TABLETS) - MENÚ HAMBURGUESA
-           ========================================= */
-        @media screen and (max-width: 850px) {
-            body {
-                display: block !important; 
-            }
-
-            /* Botón Hamburguesa ☰ flotante */
-            .menu-toggle {
-                display: flex;
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                background-color: var(--sidebar-bg);
-                border: 2px solid var(--accent-blue);
-                color: var(--accent-green);
-                font-size: 1.8rem;
-                align-items: center;
-                justify-content: center;
-                border-radius: 10px;
-                z-index: 3000;
-                cursor: pointer;
-                box-shadow: 0 0 15px rgba(0, 82, 212, 0.5);
-            }
-
-            /* Fondo oscuro borroso al abrir el menú */
-            .overlay-menu {
-                display: block;
-                position: fixed;
-                top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(4px);
-                z-index: 1500;
-                opacity: 0;
-                visibility: hidden;
-                transition: 0.3s ease;
-            }
-            .overlay-menu.open {
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            /* Barra Lateral oculta a la izquierda */
-            .sidebar {
-                position: fixed !important;
-                top: 0;
-                left: -100% !important; /* Escondido por defecto */
-                width: 280px !important;
-                height: 100vh !important;
-                border-right: 2px solid var(--accent-blue) !important;
-                border-bottom: none !important;
-                padding: 30px 20px !important;
-                z-index: 2000;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Deslizamiento suave */
-                box-shadow: 10px 0 30px rgba(0,0,0,0.8);
-            }
-
-            /* Clase para desplegar el menú */
-            .sidebar.open {
-                left: 0 !important; /* Entra a la pantalla */
-            }
-            
-            /* Reducimos un poco el tamaño de la foto en celular */
-            .profile-img {
-                width: 70px !important;
-                height: 70px !important;
-                font-size: 1.4rem !important;
-            }
-
-            /* Menú vertical normal */
-            .menu ul {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
-            .btn-nav {
-                text-align: left !important;
-                font-size: 0.95rem !important;
-            }
-            
-            /* Contenido Principal al 100% de la pantalla */
-            .content {
-                margin-left: 0 !important;
-                width: 100% !important;
-                padding: 80px 5% 40px 5% !important; /* Espacio extra arriba para que no estorbe el botón */
-            }
-            
-            /* Ajustes de Títulos y Textos para móviles */
-            .inicio-header h2 { font-size: 1.8rem !important; }
-            h2.section-title { font-size: 1.4rem !important; }
-            .intro-text { font-size: 1rem !important; padding: 0 !important; }
-
-            /* Tarjetas en 1 sola columna */
-            .services-grid {
-                grid-template-columns: 1fr !important; 
-            }
-            
-            /* Modales ajustados */
-            .modal-content {
-                width: 95% !important;
-                max-height: 85vh;
-                overflow-y: auto;
-                margin: 20px auto !important;
-            }
-            .modal-header { padding: 15px !important; }
-            .modal-header h2 { font-size: 1.2rem !important; }
-            .modal-body { padding: 15px !important; }
-
-            /* Botones de Demos responsivos */
-            .accordion-content div {
-                flex-direction: column;
-                align-items: flex-start !important;
-                gap: 10px;
-            }
-            .accordion-content .btn-send {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -233,166 +41,77 @@
 
     <main class="content">
         
-    <section id="inicio" class="pantalla activa">
-        <div class="hero-content" style="max-width: 1100px; margin: 0 auto; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); backdrop-filter: blur(12px);">
+        <!-- SECCIÓN DE INICIO -->
+        <section id="inicio" class="pantalla activa">
+            <div class="glass-container">
+                
                 <!-- Cabecera -->
-                <div class="inicio-header" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 30px; margin-bottom: 30px;">
-                    <h2 class="text-gradient" style="font-size: 2.8rem; margin-bottom: 10px;">Luis Armando Ramirez Cardenas</h2>
-                    <h3 style="color: var(--text-main, #ffffff); font-size: 1.2rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Inteligencia de Negocios</h3>
-                    <p class="uabc-info" style="color: #aaaaaa; margin: 5px 0;">Universidad Autónoma de Baja California</p>
-                    <p class="facultad-info" style="color: #888888; font-size: 0.9rem;">Facultad de Contaduría y Administración</p>
+                <div class="inicio-header">
+                    <h2 class="text-gradient">Luis Armando Ramirez Cardenas</h2>
+                    <h3>Inteligencia de Negocios</h3>
+                    <p class="uabc-info">Universidad Autónoma de Baja California</p>
+                    <p class="facultad-info">Facultad de Contaduría y Administración</p>
                 </div>
                 
                 <!-- Introducción -->
-                <p class="intro-text" style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: #cccccc; max-width: 850px; margin: 0 auto 40px auto;">
+                <p class="intro-text">
                     ¡Hola! Soy estudiante de 7mo semestre de la Licenciatura en Inteligencia de Negocios en la UABC. El diseño y desarrollo de esta página web es un reflejo de mi pasión por la tecnología: disfruto crear soluciones digitales desde cero que sean tanto visualmente atractivas como altamente funcionales.
                 </p>
         
                 <!-- Grid de Tarjetas Modernas -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                <div class="glass-grid">
                     
                     <!-- Tarjeta 1: Especialidad -->
-                    <div style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border-top: 3px solid #00E7DF; transition: transform 0.3s ease;">
-                        <h4 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 1.4rem;">⚙️</span> ¿En qué me especializo?
-                        </h4>
-                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;">
+                    <div class="glass-card-inicio border-cyan">
+                        <h4><span style="font-size: 1.4rem;">⚙️</span> ¿En qué me especializo?</h4>
+                        <p>
                             Mi enfoque se centra en la convergencia entre el análisis de datos masivos, la automatización y la arquitectura web. Domino lenguajes e integraciones como:
                         </p>
-                        <div style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Python</span>
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MySQL</span>
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Flask</span>
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">JavaScript</span>
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">Odoo</span>
-                            <span style="background: rgba(0, 231, 223, 0.1); color: #00E7DF; border: 1px solid rgba(0, 231, 223, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">WordPress</span>
+                        <div class="tech-container-inicio">
+                            <span class="tech-badge-cyan">Python</span>
+                            <span class="tech-badge-cyan">MySQL</span>
+                            <span class="tech-badge-cyan">Flask</span>
+                            <span class="tech-badge-cyan">JavaScript</span>
+                            <span class="tech-badge-cyan">Odoo</span>
+                            <span class="tech-badge-cyan">WordPress</span>
                         </div>
-                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem; margin-bottom: 0;">
+                        <p style="margin-bottom: 0;">
                             Aplico metodologías Data Vault, Kimball e Inmon para estructurar información compleja. Además, desarrollo aplicaciones de visión computacional utilizando OpenCV y YOLOv8.
                         </p>
                     </div>
         
                     <!-- Tarjeta 2: Aportación -->
-                    <div style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border-top: 3px solid #9D4EDD; transition: transform 0.3s ease;">
-                        <h4 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                            <span style="font-size: 1.4rem;">🚀</span> ¿Qué aporto a tu empresa?
-                        </h4>
-                        <p style="color: #aaaaaa; line-height: 1.7; font-size: 0.95rem;">
+                    <div class="glass-card-inicio border-purple">
+                        <h4><span style="font-size: 1.4rem;">🚀</span> ¿Qué aporto a tu empresa?</h4>
+                        <p>
                             Transformo datos crudos en decisiones estratégicas. He trabajado con datasets de <strong>+7 millones de registros</strong> para identificar patrones de comportamiento y tendencias críticas.
                             <br><br>
                             Optimizo el control de tu negocio creando sistemas a la medida (Smart Warehouse), extrayendo datos masivos del mercado (Web Scraping) y diseñando dashboards interactivos para monitorear KPIs en tiempo real.
                         </p>
                         <!-- Sección de Certificaciones -->
-                        <div style="margin-top: 20px; border-top: 1px dashed rgba(255, 255, 255, 0.15); padding-top: 15px;">
-                            <p style="color: #888888; font-size: 0.85rem; margin: 0 0 5px 0;">Respaldado por certificaciones oficiales en:</p>
-                            <p style="color: #dddddd; font-size: 0.9rem; font-weight: bold; margin: 0;">Google Data Analytics • Project Management • Scrum (SFC)</p>
+                        <div class="cert-section">
+                            <p class="cert-section-title">Respaldado por certificaciones oficiales en:</p>
+                            <p class="cert-section-text">Google Data Analytics • Project Management • Scrum (SFC)</p>
                         </div>
                     </div>
-        
                 </div>
         
                 <!-- Botón de Acción -->
-                <div class="hero-actions" style="text-align: center;">
-                    <button class="btn-send" onclick="cambiarPantalla('desarrollo-web', document.querySelectorAll('.btn-nav')[5])" style="padding: 15px 40px; font-size: 1.1rem; cursor: pointer;">
+                <div class="hero-actions">
+                    <button class="btn-send" style="padding: 15px 40px; font-size: 1.1rem;" onclick="cambiarPantalla('desarrollo-web', document.querySelectorAll('.btn-nav')[5])">
                         Explorar Servicios
                     </button>
                 </div>
-                
             </div>
         </section>
 
+        <!-- SECCIÓN DE PORTAFOLIO -->
         <section id="portafolio" class="pantalla">
-            <style>
-                /* Animaciones y diseño Glassmorphism para el Portafolio */
-                
-                /* CUADRO MAESTRO QUE ENVUELVE TODO */
-                .main-box-portafolio {
-                    max-width: 1100px;
-                    margin: 0 auto;
-                    background: rgba(255, 255, 255, 0.03);
-                    border: 1px solid rgba(255, 255, 255, 0.08);
-                    border-radius: 20px;
-                    padding: 50px 40px;
-                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-                    backdrop-filter: blur(12px);
-                }
+            <div class="glass-container">
         
-                .grid-portafolio {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 25px;
-                    margin-top: 40px;
-                }
-        
-                /* Tarjetas Internas */
-                .card-portafolio {
-                    background: rgba(0, 0, 0, 0.25);
-                    border: 1px solid rgba(255, 255, 255, 0.05);
-                    border-radius: 16px;
-                    padding: 30px;
-                    transition: all 0.4s ease;
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    overflow: hidden;
-                }
-        
-                /* Animación Hover: Elevación y Brillo */
-                .card-portafolio:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
-                    border-color: rgba(0, 231, 223, 0.3);
-                }
-        
-                /* Línea superior degradada que aparece al hacer hover */
-                .card-portafolio::before {
-                    content: '';
-                    position: absolute;
-                    top: 0; left: 0; width: 100%; height: 4px;
-                    background: linear-gradient(90deg, #00E7DF, #9D4EDD);
-                    opacity: 0;
-                    transition: opacity 0.4s ease;
-                }
-        
-                .card-portafolio:hover::before {
-                    opacity: 1;
-                }
-        
-                .icon-portafolio {
-                    font-size: 2rem;
-                    margin-bottom: 20px;
-                    background: rgba(255, 255, 255, 0.05);
-                    width: 55px; height: 55px;
-                    display: flex; align-items: center; justify-content: center;
-                    border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.08);
-                }
-        
-                .tech-badges {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 8px;
-                    margin-bottom: 15px;
-                }
-        
-                .badge-portafolio {
-                    background: rgba(0, 231, 223, 0.08);
-                    color: #00E7DF;
-                    border: 1px solid rgba(0, 231, 223, 0.2);
-                    padding: 4px 10px;
-                    border-radius: 20px;
-                    font-size: 0.75rem;
-                    font-weight: bold;
-                    letter-spacing: 0.5px;
-                }
-            </style>
-        
-            <!-- AQUÍ INICIA EL CUADRO CONTENEDOR -->
-            <div class="main-box-portafolio">
-        
-                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div class="portafolio-header">
                     <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Portafolio de Soluciones Digitales</h2>
-                    <p class="section-note" style="color: #aaaaaa; font-size: 1.1rem; line-height: 1.6;">Explora mis desarrollos en ingeniería de datos, automatización y arquitecturas escalables.</p>
+                    <p>Explora mis desarrollos en ingeniería de datos, automatización y arquitecturas escalables.</p>
                 </div>
         
                 <div class="grid-portafolio">
@@ -400,70 +119,70 @@
                     <!-- Proyecto 1 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">📦</div>
-                        <div class="tech-badges">
+                        <div class="tech-badges-portafolio">
                             <span class="badge-portafolio">Python</span>
                             <span class="badge-portafolio">Pandas</span>
                         </div>
-                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Gestión de Almacén Inteligente</h3>
-                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Automatización del ciclo de inventarios y generación de reportes financieros (Excel/PDF) con trazabilidad de préstamos.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Sistema-de-Gestion_Inventario" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        <h3>Gestión de Almacén Inteligente</h3>
+                        <p>Automatización del ciclo de inventarios y generación de reportes financieros (Excel/PDF) con trazabilidad de préstamos.</p>
+                        <div class="btn-container">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Sistema-de-Gestion_Inventario" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
                         </div>
                     </div>
         
                     <!-- Proyecto 2 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🏢</div>
-                        <div class="tech-badges">
-                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">MySQL</span>
-                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">Triggers</span>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio badge-purple">MySQL</span>
+                            <span class="badge-portafolio badge-purple">Triggers</span>
                         </div>
-                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Arquitectura Smoke Shop</h3>
-                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Diseño de base de datos relacional con sistema de auditoría automatizado para seguridad de transacciones de alto volumen.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Base-de-Datos-Avanzadas-Proyecto-Final" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        <h3>Arquitectura Smoke Shop</h3>
+                        <p>Diseño de base de datos relacional con sistema de auditoría automatizado para seguridad de transacciones de alto volumen.</p>
+                        <div class="btn-container">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Base-de-Datos-Avanzadas-Proyecto-Final" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
                         </div>
                     </div>
         
                     <!-- Proyecto 3 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🧠</div>
-                        <div class="tech-badges">
+                        <div class="tech-badges-portafolio">
                             <span class="badge-portafolio">TensorFlow</span>
                             <span class="badge-portafolio">JS</span>
                         </div>
-                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Clasificador de Big Data</h3>
-                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Implementación de redes neuronales para la categorización automatizada de patrones masivos de información en tiempo real.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Juego_BigData" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        <h3>Clasificador de Big Data</h3>
+                        <p>Implementación de redes neuronales para la categorización automatizada de patrones masivos de información en tiempo real.</p>
+                        <div class="btn-container">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Juego_BigData" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
                         </div>
                     </div>
         
                     <!-- Proyecto 4 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🔄</div>
-                        <div class="tech-badges">
+                        <div class="tech-badges-portafolio">
                             <span class="badge-portafolio">Python</span>
                             <span class="badge-portafolio">MongoDB</span>
                         </div>
-                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Integración SQL a NoSQL</h3>
-                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Script de automatización ETL para la migración y escalabilidad de datos entre entornos relacionales y documentales de alto rendimiento.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Programa-de-ETL" target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        <h3>Integración SQL a NoSQL</h3>
+                        <p>Script de automatización ETL para la migración y escalabilidad de datos entre entornos relacionales y documentales de alto rendimiento.</p>
+                        <div class="btn-container">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Programa-de-ETL" target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
                         </div>
                     </div>
         
                     <!-- Proyecto 5 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🌐</div>
-                        <div class="tech-badges">
-                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">WordPress</span>
-                            <span class="badge-portafolio" style="color: #9D4EDD; border-color: rgba(157, 78, 221, 0.3); background: rgba(157, 78, 221, 0.1);">PHP</span>
+                        <div class="tech-badges-portafolio">
+                            <span class="badge-portafolio badge-purple">WordPress</span>
+                            <span class="badge-portafolio badge-purple">PHP</span>
                         </div>
-                        <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 15px;">Conciencia y Corazón</h3>
-                        <p style="color: #cccccc; text-align: justify; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px;">Plataforma web tipo blog personal desarrollada para la gestión de contenidos y servicio social profesional con enfoque humano.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Conciencia-corazon-wp." target="_blank" class="btn-send" style="text-decoration: none; display: block; text-align: center; padding: 12px; font-size: 0.9rem;">Ver Repositorio</a>
+                        <h3>Conciencia y Corazón</h3>
+                        <p>Plataforma web tipo blog personal desarrollada para la gestión de contenidos y servicio social profesional con enfoque humano.</p>
+                        <div class="btn-container">
+                            <a href="https://github.com/luisarmandoramirezcardenas6023-ux/Conciencia-corazon-wp." target="_blank" class="btn-send btn-send-port">Ver Repositorio</a>
                         </div>
                     </div>
         
@@ -1059,6 +778,7 @@
 
     </main>
 
+    <!-- ZONA DE MODALES (VENTANAS EMERGENTES) -->
     <div id="modal-html-1" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -1072,7 +792,7 @@
                     <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
                     <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos pequeños limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 7 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> $50 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> $50 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
                     <li><strong>Costo de Desarrollo:</strong> $180 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $244 dlls.</li>
@@ -1094,7 +814,7 @@
                     <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
                     <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos pequeños limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 10 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> $50 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> $50 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
                     <li><strong>Costo de Desarrollo:</strong> $220 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $284 dlls.</li>
@@ -1116,7 +836,7 @@
                     <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
                     <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos pequeños limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 13 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Actualizaciones extra por $50 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Extra: $50 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
                     <li><strong>Costo de Desarrollo:</strong> $260 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $324 dlls.</li>
@@ -1138,7 +858,7 @@
                     <li><strong>Diseño:</strong> HTML puro (Sin CSS ni JavaScript).</li>
                     <li><strong>Recursos:</strong> Paleta de 8 colores. Fotos y videos pequeños limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 16 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> Incluye 2 actualizaciones gratis al año. Actualizaciones extra por $50 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> Incluye 2 actualizaciones gratis al año. Extra: $50 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura Anual:</strong> Hosting ($35) + Dominio ($29) = $64 dlls.</li>
                     <li><strong>Costo de Desarrollo:</strong> $300 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $364 dlls.</li>
@@ -1160,7 +880,7 @@
                     <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
                     <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 7 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> $70 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> $70 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
                     <li><strong>Costo de Desarrollo:</strong> $235 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $494 dlls.</li>
@@ -1182,7 +902,7 @@
                     <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
                     <li><strong>Recursos:</strong> Paleta de 4 colores. Fotos y videos limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 10 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> $70 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> $70 dlls por evento. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
                     <li><strong>Costo de Desarrollo:</strong> $323 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $582 dlls.</li>
@@ -1204,7 +924,7 @@
                     <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
                     <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 14 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Actualizaciones extra por $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Extra: $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
                     <li><strong>Costo de Desarrollo:</strong> $411 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $670 dlls.</li>
@@ -1226,7 +946,7 @@
                     <li><strong>Diseño:</strong> Programación con HTML, CSS y JavaScript.</li>
                     <li><strong>Recursos:</strong> Paleta de 6 colores. Fotos y videos limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 18 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Actualizaciones extra por $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> Incluye 1 actualización gratis al año. Extra: $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
                     <li><strong>Costo de Desarrollo:</strong> $500 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $759 dlls.</li>
@@ -1248,7 +968,7 @@
                     <li><strong>Diseño:</strong> Programación avanzada con HTML, CSS y JavaScript.</li>
                     <li><strong>Recursos:</strong> Paleta de 8 colores. Fotos y videos limitados.</li>
                     <li><strong>Tiempo de Entrega:</strong> 21 días laborables.</li>
-                    <li><strong>Actualizaciones:</strong> Incluye 2 actualizaciones gratis al año. Actualizaciones extra por $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados (es necesario tener claro qué se actualizará).</span></li>
+                    <li><strong>Actualizaciones:</strong> Incluye 2 actualizaciones gratis al año. Extra: $70 dlls. <br><span style="font-size: 0.85rem; color: var(--text-dim);">* El tiempo de entrega se establece en la conversación dependiendo de los cambios solicitados.</span></li>
                     <li><strong>Infraestructura (1er año):</strong> $259 dlls (Renovación posterior: $318 dlls anuales).</li>
                     <li><strong>Costo de Desarrollo:</strong> $588 dlls.</li>
                     <li style="color: var(--accent-green); font-weight: bold;"><strong>Inversión Total Inicial:</strong> $847 dlls.</li>
