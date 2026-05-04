@@ -267,3 +267,30 @@ input:focus, textarea:focus { border-color: var(--accent-blue); }
     .accordion-content div { flex-direction: column; align-items: flex-start !important; gap: 10px; }
     .accordion-content .btn-send { width: 100%; text-align: center; }
 }
+
+/* =========================================
+   PARCHE: DISEÑO DE ACORDEONES Y CELULARES
+   ========================================= */
+.service-accordion {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid var(--accent-blue) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px);
+}
+.service-accordion:hover { 
+    background: rgba(0, 0, 0, 0.4) !important; 
+}
+.project-item {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid var(--accent-green) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Ajustes finos de padding para la pantalla del celular */
+@media screen and (max-width: 850px) {
+    .glass-container { padding: 30px 20px !important; }
+    .portafolio-header h2 { font-size: 1.8rem !important; }
+}
