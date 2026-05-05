@@ -6,6 +6,15 @@
     <title>Armando Ramirez | Business Intelligence 2026 </title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Estilo añadido para ocultar el enfoque en escritorio y mostrarlo solo en celular -->
+    <style>
+        @media (min-width: 769px) {
+            .mobile-focus {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -15,7 +24,7 @@
     <aside class="sidebar">
         <div class="profile-info">
             <!-- FOTO DE PERFIL CON FUNCIÓN CLIC PARA VOLVER AL INICIO -->
-            <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/multimedia/fotomia.jpg" alt="Foto de Luis Armando" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px auto; display: block; border: 3px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); cursor: pointer;" onclick="cambiarPantalla('inicio', document.querySelectorAll('.btn-nav')[0])"> 
+            <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/multimedia/fotomia.jpg" alt="Foto de Luis Armando" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 15px auto; display: block; border: 3px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 25px rgba(0, 210, 255, 0.6)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 15px rgba(0, 210, 255, 0.3)';" onclick="cambiarPantalla('inicio', document.querySelectorAll('.btn-nav')[0])"> 
             <h1>Luis Armando Ramirez Cardenas</h1>
             <h3>Licenciatura en Inteligencia de Negocios</h3>
             <p>Enfoque: Ciencia de Datos, Consultoría de Negocios, Tecnologías de la Información, Inteligencia Artificial, E-administración, Nube Inteligente, Big Data, Análisis de Datos, Sistemas Inteligentes, Seguridad y Ciberseguridad, Business Intelligence y E-commerce.</p>
@@ -49,6 +58,11 @@
                 <h3>Inteligencia de Negocios</h3>
                 <p class="uabc-info">Universidad Autónoma de Baja California</p>
                 <p class="facultad-info">Facultad de Contaduría y Administración</p>
+                
+                <!-- ENFOQUE VISIBLE SOLO PARA CELULARES -->
+                <p class="mobile-focus" style="margin-top: 20px; font-size: 0.95rem; color: var(--text-main); line-height: 1.6; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <strong>Enfoque:</strong> Ciencia de Datos, Consultoría de Negocios, Tecnologías de la Información, Inteligencia Artificial, E-administración, Nube Inteligente, Big Data, Análisis de Datos, Sistemas Inteligentes, Seguridad y Ciberseguridad, Business Intelligence y E-commerce.
+                </p>
             </div>
             
             <p class="intro-text">
@@ -97,7 +111,7 @@
     </section>
 
     <!-- ==============================================
-         NEW: SECCIÓN SOBRE MÍ
+         NEW: SECCIÓN SOBRE MÍ (UI Bento Grid)
          ============================================== -->
     <section id="sobre-mi" class="pantalla">
         <div class="glass-container">
@@ -105,19 +119,72 @@
                 <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Sobre Mí</h2>
             </div>
             
-            <div style="color: var(--text-main); line-height: 1.8; font-size: 1.05rem;">
-                <p style="margin-bottom: 20px;">
-                    Soy <strong>Luis Armando Ramirez Cardenas</strong>, y mi pasión es transformar datos complejos y problemas operativos en decisiones estratégicas claras que impulsen el crecimiento y la eficiencia de las empresas.
-                </p>
-                <p style="margin-bottom: 20px;">
-                    A lo largo de mi formación en Inteligencia de Negocios en la UABC y mediante proyectos independientes, he desarrollado un perfil "híbrido": hablo el idioma técnico de los programadores (Python, SQL, Machine Learning) y el idioma corporativo de los directores (Finanzas, Marketing, ROI). Esto me permite no solo crear soluciones de software o análisis, sino asegurar que estas herramientas generen valor y rentabilidad real para los negocios.
-                </p>
-                <p style="margin-bottom: 20px;">
-                    Mi filosofía de trabajo se basa en la responsabilidad, la atención al detalle y la colaboración ágil. Ya sea desarrollando un pipeline de datos, automatizando tareas repetitivas o programando una página web, mi objetivo es siempre entregar soluciones escalables e innovadoras.
-                </p>
-                <p>
-                    Actualmente, busco aplicar mis conocimientos en retos del mundo real, trabajando con empresas que deseen modernizarse y utilizar la tecnología como su mayor ventaja competitiva.
-                </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                
+                <!-- Intro Card -->
+                <div class="card-portafolio" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)); border-color: rgba(255,255,255,0.1);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 5px;">Ramirez Cardenas Luis Armando</h3>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 15px; font-size: 1.1rem;">📍 Tijuana, B.C., México | 🎂 25 años</p>
+                        <p style="color: var(--text-dim); line-height: 1.7; font-size: 1.05rem;">
+                            Soy una persona responsable, sumamente <strong>atenta al detalle</strong> y con una pasión inagotable por <strong>aprender cosas nuevas</strong> todos los días. Mi visión es integrar el análisis estructurado con el crecimiento tecnológico constante.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pasatiempos -->
+                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(187, 134, 252, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="color: var(--accent-purple);">🎧</div>
+                    <h3 style="margin-bottom: 15px;">Estilo de Vida y Pasatiempos</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir al cine</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Jugar Fútbol</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Montañismo</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Caminar</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Amigos & Antros</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir a la Playa</span>
+                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Conciertos</span>
+                        <span class="badge-portafolio badge-purple" style="width: 100%;">🎶 Música: Pop, Reggaetón, Corridos (Inglés/Español)</span>
+                    </div>
+                </div>
+
+                <!-- Gaming -->
+                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio">🎮</div>
+                    <h3 style="margin-bottom: 5px;">Gaming Zone</h3>
+                    <p style="font-size: 0.9rem; color: var(--accent-cyan); margin-bottom: 15px;">Sagas Favoritas: Hollow Knight & Resident Evil</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="badge-portafolio badge-purple">Resident Evil</span>
+                        <span class="badge-portafolio badge-purple">God of War</span>
+                        <span class="badge-portafolio badge-purple">Cuphead</span>
+                        <span class="badge-portafolio badge-purple">Apex</span>
+                        <span class="badge-portafolio badge-purple">Crash</span>
+                        <span class="badge-portafolio badge-purple">Pokémon</span>
+                        <span class="badge-portafolio badge-purple">Hollow Knight</span>
+                        <span class="badge-portafolio badge-purple">Clash Royale</span>
+                    </div>
+                </div>
+
+                <!-- Comida -->
+                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(0, 200, 83, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="color: var(--accent-green);">🌮</div>
+                    <h3 style="margin-bottom: 15px;">Gastronomía Favorita</h3>
+                    <ul style="padding-left: 20px; color: var(--text-dim); line-height: 1.6;">
+                        <li style="margin-bottom: 5px;"><strong>Tacos:</strong> Asada, Adobada, Carnitas, Birria.</li>
+                        <li style="margin-bottom: 5px;"><strong>Comida China:</strong> Pollo Cantonés, Enchilado, Pollo con Piña, Agridulce.</li>
+                        <li><strong>Pizza</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Mascota -->
+                <div class="card-portafolio" style="display: flex; align-items: center; gap: 20px; background: linear-gradient(145deg, rgba(0, 210, 255, 0.05), transparent); border-color: rgba(0, 210, 255, 0.2); transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 3.5rem; text-shadow: 0 0 10px rgba(0,210,255,0.5);">🐈</div>
+                    <div>
+                        <h3 style="margin-bottom: 5px; color: var(--text-main);">Pelusín</h3>
+                        <p style="margin: 0; font-size: 0.95rem; color: var(--text-dim);">Mi fiel gato y compañero de aventuras.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -531,7 +598,7 @@
                         <span class="badge-portafolio" style="color: var(--accent-green); background: rgba(0, 200, 83, 0.15); border-color: rgba(0, 200, 83, 0.3);">Google</span>
                     </div>
                     <h3 style="font-size: 1.1rem; min-height: 45px;">Google Project Management Professional Certificate</h3>
-                    <p style="flex-grow: 1;">Dominio en la gestión de proyectos, desde la iniciación y planificación hasta la ejecución ágil, gestión de riesgos y comunicación con stakeholders.</p>
+                    <p style="flex-grow: 1;">Dominio en la gestión de proyectos, desde la iniciación y planificación hasta la ejecución ágil, gestión de riesgos y communication con stakeholders.</p>
                     <div class="btn-container">
                         <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/DTUWZ1CXG03M" target="_blank" class="btn-send btn-send-port">Ver Credencial</a>
                     </div>
@@ -1138,7 +1205,7 @@
                 </details>
             </div>
 
-            <div style="margin-bottom: 50px; padding: 20px; background: rgba(0, 200, 83, 0.05); border-radius: 12px; border-left: 4px solid var(--accent-green); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div style="margin-top: 20px; margin-bottom: 50px; padding: 20px; background: rgba(0, 200, 83, 0.05); border-radius: 12px; border-left: 4px solid var(--accent-green); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <h4 style="color: var(--accent-green); margin-bottom: 10px; font-family: 'Orbitron', sans-serif;">Ejemplo de la página HTML</h4>
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                     <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">Explora una demostración funcional completa de esta categoría.</p>
@@ -1202,7 +1269,7 @@
             </div>
 
             <h4 style="color: var(--accent-blue); margin-top: 40px; margin-bottom: 15px; font-family: 'Orbitron', sans-serif;">Ejemplos Línea Interactiva (Premium)</h4>
-            <div class="accordion-container">
+            <div class="accordion-container" style="margin-bottom: 20px;">
                 <details class="service-accordion">
                     <summary>Premium Landing</summary>
                     <div class="accordion-content">
@@ -1271,7 +1338,7 @@
             </div>
 
             <!-- NUEVO BOTÓN DE EJEMPLO PREMIUM AÑADIDO AQUÍ -->
-            <div style="margin-bottom: 50px; padding: 20px; background: rgba(0, 200, 83, 0.05); border-radius: 12px; border-left: 4px solid var(--accent-green); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div style="margin-top: 20px; margin-bottom: 50px; padding: 20px; background: rgba(0, 200, 83, 0.05); border-radius: 12px; border-left: 4px solid var(--accent-green); border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <h4 style="color: var(--accent-green); margin-bottom: 10px; font-family: 'Orbitron', sans-serif;">Ejemplo de la página Premium</h4>
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                     <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0;">Explora una demostración funcional de la categoría interactiva (HTML, CSS, JS).</p>
