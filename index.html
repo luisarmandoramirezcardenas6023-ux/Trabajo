@@ -6,6 +6,15 @@
     <title>Armando Ramirez | Business Intelligence 2026 </title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Estilo añadido para ocultar el enfoque en escritorio y mostrarlo solo en celular -->
+    <style>
+        @media (min-width: 769px) {
+            .mobile-focus {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -48,8 +57,8 @@
                 <p class="uabc-info">Universidad Autónoma de Baja California</p>
                 <p class="facultad-info">Facultad de Contaduría y Administración</p>
                 
-                <!-- ENFOQUE VISIBLE PARA CELULARES -->
-                <p style="margin-top: 20px; font-size: 0.95rem; color: var(--text-main); line-height: 1.6; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                <!-- ENFOQUE VISIBLE SOLO PARA CELULARES -->
+                <p class="mobile-focus" style="margin-top: 20px; font-size: 0.95rem; color: var(--text-main); line-height: 1.6; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
                     <strong>Enfoque:</strong> Ciencia de Datos, Consultoría de Negocios, Tecnologías de la Información, Inteligencia Artificial, E-administración, Nube Inteligente, Big Data, Análisis de Datos, Sistemas Inteligentes, Seguridad y Ciberseguridad, Business Intelligence y E-commerce.
                 </p>
             </div>
@@ -625,7 +634,6 @@
         
                 <div class="grid-portafolio">
             
-                    <!-- Solución 1 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🧹</div>
                         <div class="tech-badges-portafolio">
@@ -636,7 +644,6 @@
                         <p>Transformación de bases de datos desordenadas en información lista para análisis. Especialista en procesamiento eficiente de grandes volúmenes de datos, asegurando la integridad y calidad del dato.</p>
                     </div>
             
-                    <!-- Solución 2 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🔒</div>
                         <div class="tech-badges-portafolio">
@@ -647,7 +654,6 @@
                         <p>Diseño de arquitecturas relacionales con sistemas de auditoría inmutables. Implementación de registros automáticos para monitorear cambios en información sensible y garantizar trazabilidad.</p>
                     </div>
             
-                    <!-- Solución 3 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">⚙️</div>
                         <div class="tech-badges-portafolio">
@@ -658,7 +664,6 @@
                         <p>Desarrollo de scripts para la extracción y transformación de datos, y generación programada de reportes operativos. Optimización de procesos manuales para ahorrar tiempo y reducir errores.</p>
                     </div>
             
-                    <!-- Solución 4 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">📊</div>
                         <div class="tech-badges-portafolio">
@@ -669,7 +674,6 @@
                         <p>Creación de tableros interactivos para el monitoreo de KPIs en tiempo real. Visualización de tendencias históricas y métricas críticas que facilitan la claridad operativa para tomadores de decisiones.</p>
                     </div>
             
-                    <!-- Solución 5 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">👁️</div>
                         <div class="tech-badges-portafolio">
@@ -680,7 +684,6 @@
                         <p>Implementación de modelos de reconocimiento de imágenes y patrones físicos. Soluciones aplicadas a la seguridad, control de acceso facial o detección visual de defectos en entornos industriales.</p>
                     </div>
             
-                    <!-- Solución 6 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">📦</div>
                         <div class="tech-badges-portafolio">
@@ -691,7 +694,6 @@
                         <p>Desarrollo de lógica de persistencia de datos para almacenes inteligentes. Administración técnica de entradas, salidas y trazabilidad completa de movimientos para una gestión eficiente.</p>
                     </div>
 
-                    <!-- Solución 7 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🕸️</div>
                         <div class="tech-badges-portafolio">
@@ -702,7 +704,6 @@
                         <p>Extracción masiva y automatizada de información desde sitios web (catálogos de la competencia, precios, directorios de clientes). Ideal para estudios de mercado e inteligencia competitiva.</p>
                     </div>
 
-                    <!-- Solución 8 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">📗</div>
                         <div class="tech-badges-portafolio">
@@ -713,7 +714,6 @@
                         <p>Programación de Macros complejas para automatizar tareas administrativas diarias, generar facturas, cruzar inventarios masivos o consolidar múltiples libros de cálculo en segundos.</p>
                     </div>
 
-                    <!-- Solución 9 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">📈</div>
                         <div class="tech-badges-portafolio">
@@ -724,7 +724,6 @@
                         <p>Aplicación de algoritmos de regresión y análisis de series de tiempo sobre históricos de ventas para pronosticar la demanda futura, ayudando a optimizar compras y evitar desabasto.</p>
                     </div>
 
-                    <!-- Solución 10 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🏃</div>
                         <div class="tech-badges-portafolio">
@@ -735,7 +734,6 @@
                         <p>Segmentación avanzada y modelado predictivo para identificar patrones de comportamiento en clientes a punto de abandonar la empresa, permitiendo lanzar campañas de retención a tiempo.</p>
                     </div>
 
-                    <!-- Solución 11 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">💻</div>
                         <div class="tech-badges-portafolio">
@@ -746,7 +744,6 @@
                         <p>Desarrollo de aplicaciones web exclusivas para uso interno de la empresa, digitalizando flujos como aprobación de viáticos, solicitudes de vacaciones o registro de visitantes.</p>
                     </div>
 
-                    <!-- Solución 12 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🔗</div>
                         <div class="tech-badges-portafolio">
@@ -757,7 +754,6 @@
                         <p>Conexión e intercambio de datos automatizado entre diferentes herramientas de software que use tu empresa, eliminando la doble captura y sincronizando la información en tiempo real.</p>
                     </div>
 
-                    <!-- Solución 13 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">💬</div>
                         <div class="tech-badges-portafolio">
@@ -768,7 +764,6 @@
                         <p>Desarrollo y configuración de asistentes virtuales potenciados por inteligencia artificial y reglas lógicas para atención a clientes, filtrado de prospectos o soporte técnico 24/7.</p>
                     </div>
 
-                    <!-- Solución 14 -->
                     <div class="card-portafolio">
                         <div class="icon-portafolio">🗃️</div>
                         <div class="tech-badges-portafolio">
@@ -778,227 +773,7 @@
                         <h3>Migración y Respaldo de Datos</h3>
                         <p>Traslado seguro de información desde sistemas obsoletos u hojas de cálculo hacia gestores de bases de datos relacionales o NoSQL modernos. Configuración de copias de seguridad corporativas.</p>
                     </div>
-
-                    <!-- NUEVAS 20 SOLUCIONES -->
-                    <!-- Solución 15 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🧮</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Finanzas</span>
-                            <span class="badge-portafolio">Modelado</span>
-                        </div>
-                        <h3>Plantillas Financieras Automatizadas</h3>
-                        <p>Diseño de calculadoras interactivas en Excel para costeo de productos, proyecciones de flujo de efectivo y cálculo de márgenes de ganancia con variables dinámicas.</p>
-                    </div>
-
-                    <!-- Solución 16 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📂</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Data Wrangling</span>
-                            <span class="badge-portafolio badge-purple">Python</span>
-                        </div>
-                        <h3>Consolidación Masiva de Archivos</h3>
-                        <p>Creación de algoritmos para unificar cientos de archivos mensuales (Excel, CSV, TXT) en un solo repositorio maestro limpio y listo para el análisis contable o directivo.</p>
-                    </div>
-
-                    <!-- Solución 17 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🗺️</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Arquitectura</span>
-                            <span class="badge-portafolio">SQL</span>
-                        </div>
-                        <h3>Diseño de Diagramas Entidad-Relación</h3>
-                        <p>Estructuración lógica y normalización de nuevas bases de datos relacionales antes de su programación, asegurando que el software sea escalable y sin redundancias de información.</p>
-                    </div>
-
-                    <!-- Solución 18 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📖</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Gobernanza</span>
-                            <span class="badge-portafolio badge-purple">Documentación</span>
-                        </div>
-                        <h3>Diccionarios de Datos Empresariales</h3>
-                        <p>Auditoría y documentación técnica de los sistemas actuales de la empresa, definiendo catálogos, variables y reglas de negocio para asegurar un correcto Gobierno de TI.</p>
-                    </div>
-
-                    <!-- Solución 19 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">👥</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Recursos Humanos</span>
-                            <span class="badge-portafolio">Power BI</span>
-                        </div>
-                        <h3>Dashboards Analíticos para RRHH</h3>
-                        <p>Tableros de control enfocados en la gestión del talento: medición de rotación de personal, horas extra, ausentismo, efectividad de capacitaciones y alcance de metas por empleado.</p>
-                    </div>
-
-                    <!-- Solución 20 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📑</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Python</span>
-                            <span class="badge-portafolio badge-purple">Cron</span>
-                        </div>
-                        <h3>Reportes PDF Automatizados</h3>
-                        <p>Programación de sistemas que extraen datos, generan gráficos, arman un reporte ejecutivo en formato PDF y lo envían automáticamente por correo a la directiva cada cierre de mes.</p>
-                    </div>
-
-                    <!-- Solución 21 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🎭</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">NLP</span>
-                            <span class="badge-portafolio">Machine Learning</span>
-                        </div>
-                        <h3>Análisis de Sentimientos y Reseñas</h3>
-                        <p>Algoritmos de Procesamiento de Lenguaje Natural (NLP) para leer miles de comentarios en Google Maps o redes sociales y clasificar automáticamente la percepción (positiva/negativa) de la marca.</p>
-                    </div>
-
-                    <!-- Solución 22 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🛍️</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">E-commerce</span>
-                            <span class="badge-portafolio badge-purple">Algoritmos</span>
-                        </div>
-                        <h3>Sistemas de Recomendación Web</h3>
-                        <p>Desarrollo de lógica para tiendas en línea que sugiere productos cruzados (Cross-selling) analizando historiales de compra, aumentando el ticket promedio de los clientes.</p>
-                    </div>
-
-                    <!-- Solución 23 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">💲</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Pricing</span>
-                            <span class="badge-portafolio">Business Intelligence</span>
-                        </div>
-                        <h3>Estrategias de Precios Dinámicos</h3>
-                        <p>Modelos de datos que analizan los precios de la competencia, el inventario actual y la demanda del mercado para sugerir ajustes de precios y maximizar los márgenes de ganancia.</p>
-                    </div>
-
-                    <!-- Solución 24 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📱</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">WhatsApp API</span>
-                            <span class="badge-portafolio badge-purple">Automatización</span>
-                        </div>
-                        <h3>Bots de Notificaciones Comerciales</h3>
-                        <p>Integración de sistemas para enviar alertas automáticas (vía correo o WhatsApp) a los clientes sobre estatus de pedidos, facturas generadas o recordatorios de pago.</p>
-                    </div>
-
-                    <!-- Solución 25 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🤖</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">RPA</span>
-                            <span class="badge-portafolio">Python</span>
-                        </div>
-                        <h3>RPA para Tareas Administrativas</h3>
-                        <p>Desarrollo de "Robots" de software que simulan clics humanos para descargar automáticamente comprobantes de portales bancarios o gubernamentales, ahorrando cientos de horas hombre.</p>
-                    </div>
-
-                    <!-- Solución 26 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🔄</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Odoo / ERP</span>
-                            <span class="badge-portafolio badge-purple">Integración</span>
-                        </div>
-                        <h3>Sincronización ERP y Tienda Online</h3>
-                        <p>Desarrollo de puentes de conexión para que los inventarios de almacén (ERP) y los catálogos de tu E-commerce se actualicen mutuamente en tiempo real sin intervención humana.</p>
-                    </div>
-
-                    <!-- Solución 27 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📝</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">HTML / JS</span>
-                            <span class="badge-portafolio">Bases de Datos</span>
-                        </div>
-                        <h3>Formularios Web Inteligentes</h3>
-                        <p>Diseño de encuestas o formularios de captación de leads que aplican lógicas condicionales y guardan la información directamente en una base de datos segura o un CRM corporativo.</p>
-                    </div>
-
-                    <!-- Solución 28 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">⚡</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Web Performance</span>
-                            <span class="badge-portafolio badge-purple">Optimización</span>
-                        </div>
-                        <h3>Optimización de Velocidad Web (WPO)</h3>
-                        <p>Auditoría de código, compresión de assets y refactorización técnica para reducir los tiempos de carga de páginas web corporativas, mejorando la experiencia del usuario y el posicionamiento SEO.</p>
-                    </div>
-
-                    <!-- Solución 29 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🚑</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Ciberseguridad</span>
-                            <span class="badge-portafolio">ISO 27000</span>
-                        </div>
-                        <h3>Planes de Recuperación (DRP)</h3>
-                        <p>Diseño y consultoría sobre Planes de Recuperación ante Desastres (Disaster Recovery Plan) para asegurar que la empresa mantenga su continuidad operativa tras hackeos o fallos críticos.</p>
-                    </div>
-
-                    <!-- Solución 30 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📋</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Scrum</span>
-                            <span class="badge-portafolio badge-purple">Agilidad</span>
-                        </div>
-                        <h3>Configuración de Tableros Ágiles</h3>
-                        <p>Implementación técnica y capacitación en herramientas como Jira, Trello o Asana para digitalizar el control de proyectos, organizar tareas y mejorar la comunicación de equipos multidisciplinarios.</p>
-                    </div>
-
-                    <!-- Solución 31 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">💵</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Finanzas TI</span>
-                            <span class="badge-portafolio">ROI</span>
-                        </div>
-                        <h3>Análisis de Costo-Beneficio Tecnológico</h3>
-                        <p>Estudios de rentabilidad financiera previos a la adquisición de nuevo software o hardware, garantizando que la inversión tecnológica generará valor y ahorro comprobable a la empresa.</p>
-                    </div>
-
-                    <!-- Solución 32 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">🗺️</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">Consultoría</span>
-                            <span class="badge-portafolio badge-purple">BPM</span>
-                        </div>
-                        <h3>Mapeo de Flujos Operativos (BPM)</h3>
-                        <p>Levantamiento y diagramación técnica de los procesos actuales de la empresa para detectar cuellos de botella e identificar oportunidades clave de automatización de tareas.</p>
-                    </div>
-
-                    <!-- Solución 33 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">☁️</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio">Infraestructura</span>
-                            <span class="badge-portafolio">TI</span>
-                        </div>
-                        <h3>Análisis y Estrategia hacia la Nube</h3>
-                        <p>Auditoría de la infraestructura tecnológica actual de la empresa para diseñar una ruta de migración segura hacia ecosistemas Cloud, reduciendo costos de servidores físicos.</p>
-                    </div>
-
-                    <!-- Solución 34 -->
-                    <div class="card-portafolio">
-                        <div class="icon-portafolio">📍</div>
-                        <div class="tech-badges-portafolio">
-                            <span class="badge-portafolio badge-purple">GIS</span>
-                            <span class="badge-portafolio badge-purple">Plotly</span>
-                        </div>
-                        <h3>Análisis y Visualización Geoespacial</h3>
-                        <p>Desarrollo de mapas interactivos y de calor para analizar la distribución demográfica de las ventas, la cobertura logística y optimizar la ubicación de nuevas sucursales comerciales.</p>
-                    </div>
+            
                 </div>
             </div>
         </section>
