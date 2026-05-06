@@ -1353,17 +1353,63 @@
          7. SECCIÓN CONTACTO
          ============================================== -->
     <section id="contacto" class="pantalla">
-        <div class="glass-container" style="max-width: 800px;">
+        <div class="glass-container" style="max-width: 1000px;">
             <div class="portafolio-header">
                 <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Conectemos Profesionalmente</h2>
+                <p>¿Tienes un proyecto en mente o necesitas una solución a medida? Escríbeme.</p>
             </div>
-            <div class="card-portafolio" style="text-align: center; padding: 50px;">
-                <div class="icon-portafolio" style="margin: 0 auto 20px auto; color: var(--accent-blue);">💼</div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Mi Perfil de LinkedIn</h3>
-                <p style="text-align: center; margin-bottom: 30px;">Consulta mi red profesional, recomendaciones y actividad académica reciente.</p>
-                <div class="btn-container">
-                    <a href="https://www.linkedin.com/in/luis-armando-ramirez-cardenas-53712035b/" target="_blank" class="btn-send btn-send-port" style="display: inline-block; padding: 15px 40px;">Ir a mi Perfil</a>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                
+                <!-- TARJETA IZQUIERDA: LINKEDIN -->
+                <div class="card-portafolio" style="text-align: center; padding: 50px 30px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <div class="icon-portafolio" style="margin: 0 auto 20px auto; color: var(--accent-blue);">💼</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Mi Perfil de LinkedIn</h3>
+                    <p style="text-align: center; margin-bottom: 30px; color: var(--text-dim);">Consulta mi red profesional, recomendaciones y actividad académica reciente.</p>
+                    <div class="btn-container">
+                        <a href="https://www.linkedin.com/in/luis-armando-ramirez-cardenas-53712035b/" target="_blank" class="btn-send btn-send-port" style="display: inline-block; padding: 15px 40px; font-size: 1.05rem;">Ir a mi Perfil</a>
+                    </div>
                 </div>
+
+                <!-- TARJETA DERECHA: FORMULARIO -->
+                <div class="card-portafolio" style="padding: 40px 30px;">
+                    <h3 style="margin-bottom: 25px; font-size: 1.4rem; color: white;">Envíame un Mensaje</h3>
+                    
+                    <form action="https://formsubmit.co/luis.armando.ramirez.cardenas6023@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                        
+                        <!-- Configuraciones ocultas de FormSubmit -->
+                        <input type="hidden" name="_subject" value="¡Nuevo mensaje de tu Portafolio web!">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="true">
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <input type="text" name="Nombre" placeholder="Nombre(s)" required class="form-input">
+                            <input type="text" name="Apellidos" placeholder="Apellidos" required class="form-input">
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <input type="tel" name="Teléfono" placeholder="Teléfono" required class="form-input">
+                            <input type="email" name="Correo" placeholder="Correo Electrónico" required class="form-input">
+                        </div>
+
+                        <input type="text" name="Asunto_Paquete_Servicio" placeholder="Asunto / Paquete / Servicio de Interés" required class="form-input">
+                        
+                        <textarea name="Mensaje" placeholder="Cuéntame sobre tu proyecto o consulta..." required class="form-input" style="min-height: 120px; resize: vertical;"></textarea>
+                        
+                        <button type="submit" class="btn-send" style="padding: 15px; font-size: 1.1rem; margin-top: 10px; cursor: pointer; width: 100%; border: none;">
+                            Enviar Mensaje 🚀
+                        </button>
+
+                        <!-- Mensaje de agradecimiento integrado al diseño -->
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(0, 210, 255, 0.05); border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                            <p style="text-align: center; margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.5;">
+                                <strong>¡Muchas gracias por contactarme!</strong><br>
+                                <span style="color: var(--text-dim); font-size: 0.85rem;">Revisaré tu información y te contestaré en un par de horas. ⏱️</span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </section>
