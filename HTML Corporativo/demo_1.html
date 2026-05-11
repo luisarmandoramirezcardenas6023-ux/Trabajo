@@ -2,106 +2,189 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>NexusTech Solutions | Corporativo</title>
+    <title>Las 7 Maravillas del Mundo Moderno</title>
 </head>
-<body style="background-color: #F1F1F1; color: #333333; font-family: Arial, sans-serif; margin: 0; padding: 0;">
+<body style="background-color: #F4F1DE; color: #3D405B; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6;">
 
-    <!-- MENÚ DE NAVEGACIÓN SUPERIOR (7 Botones) -->
-    <div style="background-color: #0A2342; padding: 15px; text-align: center;">
-        <button onclick="cambiarTab('sec-inicio')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">1. Inicio</button>
-        <button onclick="cambiarTab('sec-nosotros')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">2. Nosotros</button>
-        <button onclick="cambiarTab('sec-servicios')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">3. Servicios</button>
-        <button onclick="cambiarTab('sec-metodologia')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">4. Metodología</button>
-        <button onclick="cambiarTab('sec-clientes')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">5. Clientes</button>
-        <button onclick="cambiarTab('sec-faq')" style="background-color: #1768AC; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">6. FAQ</button>
-        <button onclick="cambiarTab('sec-contacto')" style="background-color: #2CA58D; color: #FFFFFF; padding: 10px 15px; border: 1px solid #FFFFFF; cursor: pointer; margin: 3px; font-weight: bold;">7. Contacto</button>
-    </div>
+    <div style="display: flex; min-height: 100vh; flex-wrap: wrap;">
 
-    <!-- 1. INICIO -->
-    <div id="sec-inicio" style="display: block; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h1 style="color: #1768AC; font-size: 2.5rem; margin-bottom: 10px;">NexusTech Solutions</h1>
-        <p style="font-size: 1.2rem; color: #333333;">Transformación Digital para Grandes Empresas</p>
-        <img src="https://via.placeholder.com/600x300?text=Corporativo+NexusTech" alt="Edificio Corporativo" style="border: 5px solid #0A2342; max-width: 100%; margin-top: 20px;">
-    </div>
-
-    <!-- 2. NOSOTROS -->
-    <div id="sec-nosotros" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #0A2342; font-size: 2rem;">Sobre Nosotros</h2>
-        <p style="max-width: 700px; margin: 0 auto; text-align: justify; font-size: 1.1rem; line-height: 1.6;">Con más de 10 años en el mercado, NexusTech se especializa en la optimización de procesos operativos mediante integraciones de software a la medida, ciberseguridad y análisis de datos. Nuestro objetivo es hacer tu empresa más ágil y rentable.</p>
-    </div>
-
-    <!-- 3. SERVICIOS -->
-    <div id="sec-servicios" style="display: none; background-color: #0A2342; color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #2CA58D; font-size: 2rem;">Nuestro Catálogo de Servicios</h2>
-        <ul style="list-style-type: square; max-width: 500px; margin: 0 auto; text-align: left; font-size: 1.1rem; line-height: 2;">
-            <li><strong>Migración a la Nube (Cloud):</strong> Transición segura de datos a AWS y Azure.</li>
-            <li><strong>Desarrollo de Software B2B:</strong> Creación de ERPs y CRMs internos.</li>
-            <li><strong>Auditoría de Ciberseguridad:</strong> Pruebas de penetración y protección de bases de datos.</li>
-            <li><strong>Business Intelligence:</strong> Creación de Dashboards corporativos en tiempo real.</li>
-        </ul>
-    </div>
-
-    <!-- 4. METODOLOGÍA -->
-    <div id="sec-metodologia" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #1768AC; font-size: 2rem;">¿Cómo trabajamos?</h2>
-        <p style="margin-bottom: 30px;">Implementamos marcos de trabajo ágiles (Scrum) para garantizar entregas en tiempo y forma.</p>
-        
-        <div style="display: inline-block; background-color: #F1F1F1; border-left: 5px solid #2CA58D; padding: 20px; margin: 10px; width: 250px; text-align: left;">
-            <h3 style="color: #0A2342; margin-top: 0;">1. Diagnóstico</h3>
-            <p style="font-size: 0.95rem;">Analizamos tu arquitectura actual y detectamos cuellos de botella operativos y tecnológicos.</p>
+        <div style="width: 25%; min-width: 260px; background-color: #81B29A; padding: 30px 20px; border-right: 5px solid #F2CC8F; box-sizing: border-box;">
+            <h2 style="color: #FFFFFF; text-align: center; font-family: Georgia, serif; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Patrimonio Mundial</h2>
+            <p style="color: #F4F1DE; text-align: center; font-size: 0.9rem; margin-bottom: 35px; font-style: italic;">Explora la grandeza de la humanidad</p>
+            
+            <button onclick="mostrarSeccion('sec-chichen')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem; transition: 0.3s;">1. Chichén Itzá</button>
+            <button onclick="mostrarSeccion('sec-coliseo')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">2. El Coliseo</button>
+            <button onclick="mostrarSeccion('sec-cristo')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">3. Cristo Redentor</button>
+            <button onclick="mostrarSeccion('sec-machu')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">4. Machu Picchu</button>
+            <button onclick="mostrarSeccion('sec-muralla')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">5. Muralla China</button>
+            <button onclick="mostrarSeccion('sec-petra')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; margin-bottom: 10px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">6. Petra</button>
+            <button onclick="mostrarSeccion('sec-taj')" style="background-color: #E07A5F; color: #FFFFFF; padding: 12px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; border-left: 5px solid #F2CC8F; font-size: 1rem;">7. Taj Mahal</button>
         </div>
-        
-        <div style="display: inline-block; background-color: #F1F1F1; border-left: 5px solid #1768AC; padding: 20px; margin: 10px; width: 250px; text-align: left;">
-            <h3 style="color: #0A2342; margin-top: 0;">2. Desarrollo</h3>
-            <p style="font-size: 0.95rem;">Programamos soluciones escalables mediante Sprints estructurados de 2 semanas.</p>
+
+        <div style="width: 75%; padding: 40px 5%; box-sizing: border-box; background-color: #F4F1DE;">
+
+            <div id="sec-chichen" style="display: block;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">Chichén Itzá</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Península de Yucatán, México</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/chichen_itza.jpg" alt="Chichén Itzá" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">Fundada en el año 525 d.C., fue una de las ciudades más importantes y poderosas de la cultura maya. Su nombre significa "En la boca del pozo de los itzaes", haciendo referencia al Cenote Sagrado que servía para ofrendas al dios de la lluvia, Chaac.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">El Templo de Kukulcán (El Castillo)</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Calendario de Piedra:</strong> Tiene 4 escalinatas de 91 escalones cada una. Sumando la plataforma superior, dan 365, los días del año solar maya (Haab).</li>
+                            <li style="margin-bottom: 10px;"><strong>Descenso de la Serpiente:</strong> Durante los equinoccios de primavera y otoño, el sol proyecta sombras en la escalinata norte, creando la ilusión óptica de una serpiente emplumada bajando desde la cima.</li>
+                            <li><strong>Acústica Perfecta:</strong> Si aplaudes frente a la escalinata, el eco que rebota produce un sonido idéntico al canto del quetzal, ave sagrada maya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-coliseo" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">El Coliseo Romano</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Roma, Italia</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/coliseo.jpg" alt="El Coliseo" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">Originalmente llamado Anfiteatro Flavio, su construcción comenzó bajo el emperador Vespasiano en el año 72 d.C. y se completó en el 80 d.C. por su hijo Tito. Es el mayor símbolo de la ingeniería y el poder del Imperio Romano.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Centro del Entretenimiento Antiguo</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Capacidad Masiva:</strong> Podía albergar entre 50,000 y 80,000 espectadores, quienes eran evacuados en menos de 15 minutos gracias a su diseño de salidas (vomitorios).</li>
+                            <li style="margin-bottom: 10px;"><strong>El Hipogeo:</strong> Bajo la arena de madera existía un complejo laberinto de túneles y jaulas donde gladiadores y bestias exóticas esperaban su turno, elevándose a la superficie mediante poleas.</li>
+                            <li><strong>Batallas Navales:</strong> En sus primeros años, el Coliseo era inundado deliberadamente para recrear famosas batallas navales conocidas como <em>naumaquias</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-cristo" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">Cristo Redentor</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Río de Janeiro, Brasil</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/cristo_redentor.jpg" alt="Cristo Redentor" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">Ubicada a 710 metros sobre el nivel del mar en la cima del Cerro del Corcovado (en el Parque Nacional de la Tijuca), esta colosal estatua Art Déco de Jesús de Nazaret se ha convertido en el máximo ícono cultural de Brasil.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Detalles de la Obra</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Dimensiones:</strong> La estatua mide 30 metros de altura (sin contar el pedestal de 8 metros) y sus brazos abiertos se extienden 28 metros de extremo a extremo.</li>
+                            <li style="margin-bottom: 10px;"><strong>Construcción:</strong> Diseñada por el ingeniero Heitor da Silva Costa y esculpida por Paul Landowski. Está hecha de hormigón armado revestido con millones de mosaicos triangulares de piedra esteatita, elegida por su resistencia extrema al clima.</li>
+                            <li><strong>Pararrayos Divino:</strong> Debido a su altura, es golpeada por rayos entre 3 y 5 veces al año, por lo que tiene un sistema de pararrayos integrado en la cabeza y los brazos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-machu" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">Machu Picchu</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Región Cusco, Perú</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/machu_picchu.jpg" alt="Machu Picchu" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">La "Ciudad Perdida de los Incas" fue construida a mediados del siglo XV durante el reinado de Pachacútec. Se eleva a 2,430 metros de altitud en los Andes peruanos. Fue abandonada poco antes de la llegada de los españoles y permaneció oculta hasta que el explorador Hiram Bingham la reveló al mundo en 1911.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Maravilla de la Ingeniería Inca</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Sillares Antisísmicos:</strong> Los bloques de granito fueron tallados con tal precisión que encajan perfectamente sin necesidad de mortero. Esta técnica les ha permitido resistir los constantes terremotos de la región.</li>
+                            <li style="margin-bottom: 10px;"><strong>Terrazas Agrícolas:</strong> Los andenes escalonados no solo servían para cultivar alimentos, sino que funcionaban como un complejo sistema de drenaje que evitaba que la montaña colapsara por las fuertes lluvias.</li>
+                            <li><strong>El Intihuatana:</strong> Una piedra tallada que funcionaba como un preciso reloj solar y observatorio astronómico utilizado para marcar los solsticios.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-muralla" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">La Gran Muralla</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Frontera Norte, China</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/muralla_china.jpg" alt="Gran Muralla China" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">La fortificación humana más larga de la historia, diseñada para proteger al Imperio Chino de las invasiones nómadas (especialmente de los mongoles). Su construcción abarcó desde el siglo V a.C. hasta el siglo XVI, siendo la dinastía Ming la responsable de su aspecto actual.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Una Estructura Insuperable</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Longitud Titánica:</strong> Originalmente medía más de 21,196 kilómetros, cruzando desiertos, valles y montañas escarpadas.</li>
+                            <li style="margin-bottom: 10px;"><strong>Red de Comunicaciones:</strong> No era solo un muro; estaba compuesta por miles de torres de vigilancia. Los soldados se comunicaban a lo largo de cientos de kilómetros usando señales de humo durante el día y fuego durante la noche.</li>
+                            <li><strong>Materiales Únicos:</strong> En ciertas dinastías se utilizó una mezcla de mortero que contenía <em>arroz glutinoso</em> (arroz pegajoso), lo que le dio una resistencia estructural increíble a los ladrillos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-petra" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">Petra</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Valle de Aravá, Jordania</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/petra_jordania.jpg" alt="Petra" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">Conocida como la "Ciudad Rosa" por el color de su piedra, Petra fue la antigua capital del reino Nabateo. Excavada y esculpida directamente en la roca arenisca en el siglo VIII a.C., fue un próspero centro comercial en la ruta de las caravanas de incienso y especias.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Misterios en la Roca</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>El Tesoro (Al-Khazneh):</strong> Su fachada más famosa mide 40 metros de altura y fue tallada de arriba hacia abajo. En realidad, no es un tesoro, sino un mausoleo real monumental.</li>
+                            <li style="margin-bottom: 10px;"><strong>El Siq:</strong> El único acceso a la ciudad es a través de un estrecho y dramático cañón de 1.2 km de largo, flanqueado por acantilados de hasta 80 metros de altura.</li>
+                            <li><strong>Ingeniería Hídrica:</strong> Los nabateos eran maestros del agua. Construyeron una intrincada red de presas, cisternas y conductos tallados en la roca que les permitió prosperar en medio del árido desierto.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-taj" style="display: none;">
+                <h1 style="color: #E07A5F; font-family: Georgia, serif; font-size: 3rem; margin-top: 0; margin-bottom: 5px;">Taj Mahal</h1>
+                <h3 style="color: #81B29A; margin-top: 0; font-weight: 400;">📍 Agra, India</h3>
+                
+                <div style="background-color: #FFFFFF; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 25px; display: flex; flex-wrap: wrap; gap: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Corporativo/taj_mahal.jpg" alt="Taj Mahal" style="width: 100%; border-radius: 8px; border: 3px solid #F2CC8F; box-shadow: 0 5px 15px rgba(224, 122, 95, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <p style="text-align: justify; font-size: 1.1rem; margin-top: 0;">Un poema en mármol blanco. Fue construido entre 1631 y 1654 por el emperador mogol Shah Jahan como un mausoleo para su esposa favorita, Mumtaz Mahal, quien falleció dando a luz a su decimocuarto hijo. Es la cumbre de la arquitectura mogol.</p>
+                        
+                        <h4 style="color: #81B29A; font-size: 1.2rem; border-bottom: 1px solid #F2CC8F; padding-bottom: 5px;">Perfección y Simetría</h4>
+                        <ul style="padding-left: 20px; color: #3D405B;">
+                            <li style="margin-bottom: 10px;"><strong>Simetría Absoluta:</strong> Todo el complejo es un espejo perfecto. La única excepción en todo el recinto es la tumba del propio Shah Jahan, que es más grande y está a un lado de la de su esposa en la cripta inferior.</li>
+                            <li style="margin-bottom: 10px;"><strong>Ilusiones Ópticas:</strong> Los cuatro minaretes (torres) que lo rodean están levemente inclinados hacia afuera. Así, en caso de un terremoto, caerían hacia el jardín y no destruirían la cúpula principal.</li>
+                            <li><strong>Decoración Incrustada:</strong> Las paredes no están pintadas. Presentan caligrafía del Corán y flores creadas con la técnica <em>Pietra dura</em>, incrustando miles de piedras semipreciosas (jade, lapislázuli, turquesa) en el mármol.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- 5. CLIENTES -->
-    <div id="sec-clientes" style="display: none; background-color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #0A2342; font-size: 2rem;">Casos de Éxito</h2>
-        <p style="margin-bottom: 20px;">Conoce cómo ayudamos a una empresa de logística a reducir sus costos operativos en un 30%:</p>
-        <video width="500" controls style="border: 4px solid #1768AC; max-width: 100%; background-color: #000;">
-            <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
-            Tu navegador no soporta video.
-        </video>
-    </div>
-
-    <!-- 6. FAQ -->
-    <div id="sec-faq" style="display: none; background-color: #FFFFFF; padding: 60px 20px;">
-        <h2 style="color: #1768AC; text-align: center; font-size: 2rem;">Preguntas Frecuentes</h2>
-        <div style="max-width: 600px; margin: 0 auto;">
-            <details style="background-color: #F1F1F1; padding: 15px; border: 1px solid #1768AC; margin-bottom: 15px;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0A2342;">¿Brindan soporte técnico 24/7?</summary>
-                <p style="margin-top: 10px; color: #333333;">Sí, todos nuestros contratos de nivel empresarial incluyen un SLA con soporte continuo 24/7/365 para incidentes críticos.</p>
-            </details>
-            <details style="background-color: #F1F1F1; padding: 15px; border: 1px solid #1768AC; margin-bottom: 15px;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0A2342;">¿Firmamos acuerdos de confidencialidad (NDA)?</summary>
-                <p style="margin-top: 10px; color: #333333;">Absolutamente. La seguridad y privacidad de la información corporativa de tu empresa es nuestra máxima prioridad desde el día uno.</p>
-            </details>
-        </div>
-    </div>
-
-    <!-- 7. CONTACTO -->
-    <div id="sec-contacto" style="display: none; background-color: #0A2342; color: #FFFFFF; padding: 60px 20px; text-align: center;">
-        <h2 style="color: #2CA58D; font-size: 2rem;">Inicia tu Transformación Digital</h2>
-        <p style="font-size: 1.1rem;">Nuestro equipo de ingeniería está listo para evaluar tu proyecto.</p>
-        <div style="background-color: #1768AC; padding: 20px; max-width: 400px; margin: 30px auto; border-radius: 8px;">
-            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Línea Corporativa:</strong><br>+52 (664) 800 0000</p>
-            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Email:</strong><br>contacto@nexustech.com</p>
-            <p style="font-size: 1.2rem; margin: 10px 0;"><strong>Oficinas:</strong><br>Torre Platino, Piso 12. Tijuana, B.C.</p>
-        </div>
-    </div>
-
-    <!-- SCRIPT JS -->
     <script>
-        function cambiarTab(idSeccion) {
-            const secciones = ['sec-inicio', 'sec-nosotros', 'sec-servicios', 'sec-metodologia', 'sec-clientes', 'sec-faq', 'sec-contacto'];
-            for (let i = 0; i < secciones.length; i++) {
-                document.getElementById(secciones[i]).style.display = 'none';
-            }
+        function mostrarSeccion(idSeccion) {
+            const secciones = ['sec-chichen', 'sec-coliseo', 'sec-cristo', 'sec-machu', 'sec-muralla', 'sec-petra', 'sec-taj'];
+            
+            secciones.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
             document.getElementById(idSeccion).style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+
 </body>
 </html>
