@@ -2,125 +2,318 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Instituto Tecnológico | Extendido</title>
+    <title>Zodiaco Astral | Guía Extendida</title>
 </head>
-<body style="background-color: #F8F8F8; color: #1D2731; font-family: Arial, sans-serif; margin: 0; padding: 0;">
+<body style="background-color: #0B0D17; color: #F0EAD6; font-family: 'Georgia', serif; margin: 0; line-height: 1.6;">
 
-    <!-- MENÚ SUPERIOR (11 Botones con Flexbox para que se acomoden bien) -->
-    <div style="background-color: #0B3C5D; padding: 15px; display: flex; flex-wrap: wrap; justify-content: center;">
-        <button onclick="cambiarSeccion('s1')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">1. Inicio</button>
-        <button onclick="cambiarSeccion('s2')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">2. Nosotros</button>
-        <button onclick="cambiarSeccion('s3')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">3. Oferta Académica</button>
-        <button onclick="cambiarSeccion('s4')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">4. Admisiones</button>
-        <button onclick="cambiarSeccion('s5')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">5. Instalaciones</button>
-        <button onclick="cambiarSeccion('s6')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">6. Vida Estudiantil</button>
-        <button onclick="cambiarSeccion('s7')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">7. Egresados</button>
-        <button onclick="cambiarSeccion('s8')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">8. Investigación</button>
-        <button onclick="cambiarSeccion('s9')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">9. Becas</button>
-        <button onclick="cambiarSeccion('s10')" style="background-color: #328CC1; color: #FFFFFF; padding: 8px 12px; margin: 3px; border: 1px solid #DDDDDD; cursor: pointer; font-weight: bold;">10. FAQ</button>
-        <button onclick="cambiarSeccion('s11')" style="background-color: #D9B310; color: #1D2731; padding: 8px 12px; margin: 3px; border: 1px solid #1D2731; cursor: pointer; font-weight: bold;">11. Contacto</button>
-    </div>
+    <div style="display: flex; min-height: 100vh; flex-wrap: wrap;">
 
-    <!-- CONTENEDOR CENTRAL -->
-    <div style="padding: 40px 20px; max-width: 900px; margin: 0 auto; background-color: #FFFFFF; border-left: 2px solid #DDDDDD; border-right: 2px solid #DDDDDD; min-height: 80vh;">
-
-        <!-- 1. INICIO -->
-        <div id="s1" style="display: block; text-align: center;">
-            <h1 style="color: #0B3C5D; font-size: 2.5rem;">Instituto Tecnológico de Negocios</h1>
-            <p style="color: #328CC1; font-size: 1.3rem;">Formando a los líderes del mañana.</p>
-            <img src="https://via.placeholder.com/600x300?text=Campus+Universitario" alt="Campus" style="border: 4px solid #D9B310; max-width: 100%; margin-top: 15px;">
+        <div style="width: 25%; min-width: 240px; background-color: #1A1C2C; padding: 30px 20px; border-right: 4px solid #D4AF37; box-sizing: border-box; height: 100vh; overflow-y: auto; position: sticky; top: 0;">
+            <h2 style="color: #D4AF37; text-align: center; margin-top: 0; font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase;">Zodiaco</h2>
+            <p style="color: #C0C0C0; text-align: center; font-size: 0.85rem; font-style: italic; margin-bottom: 30px; border-bottom: 1px solid #4A4E69; padding-bottom: 15px;">La rueda astrológica</p>
+            
+            <button onclick="cambiarSigno('sec-aries')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♈ Aries</button>
+            <button onclick="cambiarSigno('sec-tauro')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♉ Tauro</button>
+            <button onclick="cambiarSigno('sec-geminis')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♊ Géminis</button>
+            <button onclick="cambiarSigno('sec-cancer')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♋ Cáncer</button>
+            <button onclick="cambiarSigno('sec-leo')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♌ Leo</button>
+            <button onclick="cambiarSigno('sec-virgo')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♍ Virgo</button>
+            <button onclick="cambiarSigno('sec-libra')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♎ Libra</button>
+            <button onclick="cambiarSigno('sec-escorpio')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♏ Escorpio</button>
+            <button onclick="cambiarSigno('sec-sagitario')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♐ Sagitario</button>
+            <button onclick="cambiarSigno('sec-capricornio')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♑ Capricornio</button>
+            <button onclick="cambiarSigno('sec-acuario')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; margin-bottom: 8px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♒ Acuario</button>
+            <button onclick="cambiarSigno('sec-piscis')" style="background-color: #D4AF37; color: #0B0D17; padding: 12px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px; font-size: 1rem;">♓ Piscis</button>
         </div>
 
-        <!-- 2. NOSOTROS -->
-        <div id="s2" style="display: none; text-align: center;">
-            <h2 style="color: #0B3C5D;">Nuestra Historia</h2>
-            <p style="text-align: justify; line-height: 1.6;">Fundado con la misión de integrar la tecnología y la administración. Llevamos más de 20 años transformando la educación superior mediante programas de vanguardia enfocados en Inteligencia de Negocios, Análisis de Datos y Dirección Empresarial.</p>
-        </div>
+        <div style="width: 75%; padding: 40px 5%; box-sizing: border-box;">
 
-        <!-- 3. OFERTA ACADÉMICA -->
-        <div id="s3" style="display: none; text-align: center;">
-            <h2 style="color: #328CC1;">Oferta Académica</h2>
-            <p>Descubre nuestras licenciaturas e ingenierías.</p>
-            <div style="background-color: #F8F8F8; border-left: 5px solid #D9B310; padding: 15px; text-align: left; margin-bottom: 10px;">🎓 Licenciatura en Inteligencia de Negocios</div>
-            <div style="background-color: #F8F8F8; border-left: 5px solid #0B3C5D; padding: 15px; text-align: left; margin-bottom: 10px;">🎓 Ingeniería en Software y Datos</div>
-            <div style="background-color: #F8F8F8; border-left: 5px solid #328CC1; padding: 15px; text-align: left;">🎓 Maestría en Gestión de Proyectos TI</div>
-        </div>
-
-        <!-- 4. ADMISIONES -->
-        <div id="s4" style="display: none; text-align: center;">
-            <h2 style="color: #0B3C5D;">Proceso de Admisión</h2>
-            <p style="color: #990000; font-weight: bold;">¡Convocatoria Abierta!</p>
-            <ol style="text-align: left; max-width: 400px; margin: 0 auto; line-height: 1.8;">
-                <li>Registro en línea.</li>
-                <li>Examen diagnóstico de conocimientos.</li>
-                <li>Entrevista con el coordinador.</li>
-                <li>Entrega de documentación oficial.</li>
-            </ol>
-        </div>
-
-        <!-- 5. INSTALACIONES -->
-        <div id="s5" style="display: none; text-align: center;">
-            <h2 style="color: #D9B310;">Nuestras Instalaciones</h2>
-            <video width="500" controls style="border: 3px solid #1D2731; max-width: 100%;">
-                <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- 6. VIDA ESTUDIANTIL -->
-        <div id="s6" style="display: none; text-align: center;">
-            <h2 style="color: #328CC1;">Vida Estudiantil</h2>
-            <p>Clubes de robótica, equipos deportivos, talleres de emprendimiento y semanas culturales para un desarrollo integral.</p>
-        </div>
-
-        <!-- 7. EGRESADOS -->
-        <div id="s7" style="display: none; text-align: center;">
-            <h2 style="color: #0B3C5D;">Red de Egresados</h2>
-            <p>Nuestros exalumnos trabajan en las mejores empresas tecnológicas de la región. Mantén el contacto a través de nuestra plataforma Alumni.</p>
-        </div>
-
-        <!-- 8. INVESTIGACIÓN -->
-        <div id="s8" style="display: none; text-align: center;">
-            <h2 style="color: #1D2731;">Centros de Investigación</h2>
-            <p>Contamos con laboratorios dedicados al Machine Learning, automatización industrial (RPA) y procesamiento de Big Data.</p>
-        </div>
-
-        <!-- 9. BECAS -->
-        <div id="s9" style="display: none; text-align: center;">
-            <h2 style="color: #990000;">Becas y Financiamiento</h2>
-            <p>Nadie debería quedarse sin estudiar por falta de recursos. Ofrecemos Becas de Excelencia (hasta 50%), Becas Deportivas y financiamiento educativo a meses sin intereses.</p>
-        </div>
-
-        <!-- 10. FAQ -->
-        <div id="s10" style="display: none; text-align: center;">
-            <h2 style="color: #328CC1;">Preguntas Frecuentes</h2>
-            <details style="background-color: #DDDDDD; padding: 15px; margin-bottom: 10px; text-align: left;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0B3C5D;">¿Tienen intercambios internacionales?</summary>
-                <p style="margin-top: 10px;">Sí, convenios con más de 15 universidades en Europa y Sudamérica.</p>
-            </details>
-            <details style="background-color: #DDDDDD; padding: 15px; margin-bottom: 10px; text-align: left;">
-                <summary style="font-weight: bold; cursor: pointer; color: #0B3C5D;">¿Cuál es el horario de clases?</summary>
-                <p style="margin-top: 10px;">Turno matutino (7:00 am - 1:00 pm) y vespertino (5:00 pm - 10:00 pm).</p>
-            </details>
-        </div>
-
-        <!-- 11. CONTACTO -->
-        <div id="s11" style="display: none; text-align: center;">
-            <h2 style="color: #D9B310;">Contacto</h2>
-            <div style="background-color: #1D2731; color: #FFFFFF; padding: 30px; border-radius: 10px;">
-                <p><strong>Teléfono:</strong> (664) 555 1234</p>
-                <p><strong>Email:</strong> admisiones@instituto.edu.mx</p>
-                <p><strong>Campus:</strong> Tijuana, B.C.</p>
+            <div id="sec-aries" style="display: block;">
+                <h1 style="color: #E94560; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Aries <span style="font-size: 1.5rem; color: #C0C0C0;">(21 Mar - 19 Abr)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/aries.jpg" alt="Aries" style="width: 100%; border-radius: 12px; border: 3px solid #E94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Fuego | <strong>Planeta:</strong> Marte | <strong>Piedra:</strong> Diamante</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Aries es el primer signo del zodiaco, marcando el inicio del año astrológico. Su presencia casi siempre indica el comienzo de algo energético y turbulento. Están continuamente buscando dinamismo, velocidad y competencia.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Valiente, determinado, seguro, entusiasta, optimista y apasionado.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Impaciente, temperamental, temperamento corto, impulsivo y agresivo.</li>
+                            <li>Aries gobierna la cabeza y lidera con ella, caminando literalmente hacia lo desconocido. Poseen una energía juvenil sin importar su edad.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <div id="sec-tauro" style="display: none;">
+                <h1 style="color: #4ECCA3; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Tauro <span style="font-size: 1.5rem; color: #C0C0C0;">(20 Abr - 20 May)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/tauro.jpg" alt="Tauro" style="width: 100%; border-radius: 12px; border: 3px solid #4ECCA3; box-shadow: 0 0 20px rgba(78, 204, 163, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Tierra | <strong>Planeta:</strong> Venus | <strong>Piedra:</strong> Esmeralda</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Regido por el planeta del amor, la atracción y la belleza. Práctico y bien fundamentado, Tauro es el signo que cosecha los frutos del trabajo. Sienten la necesidad de estar rodeados de amor, belleza y el mundo material.</p>
+                        <h4 style="color: #D4AF37; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Confiable, paciente, práctico, devoto, responsable, estable.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Terco, posesivo, intransigente, materialista.</li>
+                            <li>Es un signo que se toma su tiempo, pero una vez que toma una decisión o se compromete, es casi imposible hacerle cambiar de rumbo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-geminis" style="display: none;">
+                <h1 style="color: #D4AF37; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Géminis <span style="font-size: 1.5rem; color: #C0C0C0;">(21 May - 20 Jun)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/geminis.jpg" alt="Géminis" style="width: 100%; border-radius: 12px; border: 3px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #4ECCA3; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #4ECCA3;"><strong>Elemento:</strong> Aire | <strong>Planeta:</strong> Mercurio | <strong>Piedra:</strong> Ágata</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Representa dos personalidades diferentes en una y nunca estarás seguro de a cuál te enfrentarás. Son sociables, comunicativos y están listos para la diversión, con una tendencia a volverse serios repentinamente.</p>
+                        <h4 style="color: #E94560; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Gentil, afectuoso, curioso, adaptable, capaz de aprender rápidamente.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Nervioso, inconsistente, indeciso, superficial.</li>
+                            <li>Tienen la sensación de que a su vida le falta la otra mitad, por lo que siempre están buscando nuevos amigos, mentores y colegas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-cancer" style="display: none;">
+                <h1 style="color: #C0C0C0; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Cáncer <span style="font-size: 1.5rem; color: #D4AF37;">(21 Jun - 22 Jul)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/cancer.jpg" alt="Cáncer" style="width: 100%; border-radius: 12px; border: 3px solid #C0C0C0; box-shadow: 0 0 20px rgba(192, 192, 192, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Agua | <strong>Planeta:</strong> La Luna | <strong>Piedra:</strong> Perla / Rubí</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Profundamente intuitivo y sentimental, Cáncer puede ser uno de los signos más difíciles de conocer. Son muy emocionales y sensibles, y se preocupan profundamente por los asuntos familiares y el hogar.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Tenaz, altamente imaginativo, leal, emocional, simpático, persuasivo.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Malhumorado, pesimista, suspicaz, manipulador, inseguro.</li>
+                            <li>Tienen un duro caparazón exterior (como el cangrejo que los representa) que esconde un interior extremadamente suave y vulnerable.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-leo" style="display: none;">
+                <h1 style="color: #E94560; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Leo <span style="font-size: 1.5rem; color: #C0C0C0;">(23 Jul - 22 Ago)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/leo.jpg" alt="Leo" style="width: 100%; border-radius: 12px; border: 3px solid #E94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Fuego | <strong>Planeta:</strong> El Sol | <strong>Piedra:</strong> Peridoto</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Las personas nacidas bajo el signo de Leo son líderes natos. Son dramáticos, creativos, seguros de sí mismos y extremadamente difíciles de resistir, capaces de lograr todo lo que se proponen.</p>
+                        <h4 style="color: #D4AF37; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Creativo, apasionado, generoso, de buen corazón, alegre, humorístico.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Arrogante, terco, egocéntrico, perezoso, inflexible.</li>
+                            <li>Tienen una "realeza" intrínseca que a veces puede parecer altanería, pero su lealtad hacia su manada es absoluta e inquebrantable.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-virgo" style="display: none;">
+                <h1 style="color: #4ECCA3; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Virgo <span style="font-size: 1.5rem; color: #C0C0C0;">(23 Ago - 22 Sep)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/virgo.jpg" alt="Virgo" style="width: 100%; border-radius: 12px; border: 3px solid #4ECCA3; box-shadow: 0 0 20px rgba(78, 204, 163, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Tierra | <strong>Planeta:</strong> Mercurio | <strong>Piedra:</strong> Zafiro</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Los Virgo siempre prestan atención a los detalles más pequeños. Su profundo sentido de la humanidad los hace uno de los signos más cuidadosos, teniendo un enfoque metódico para la vida que asegura que nada quede al azar.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Leal, analítico, amable, trabajador, práctico.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Timidez, preocupación excesiva, overly critical of self and others.</li>
+                            <li>A menudo prefieren servir de manera silenciosa antes que estar en el escenario principal, encontrando satisfacción en el orden y la eficiencia.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-libra" style="display: none;">
+                <h1 style="color: #D4AF37; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Libra <span style="font-size: 1.5rem; color: #C0C0C0;">(23 Sep - 22 Oct)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/libra.jpg" alt="Libra" style="width: 100%; border-radius: 12px; border: 3px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #4ECCA3; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #4ECCA3;"><strong>Elemento:</strong> Aire | <strong>Planeta:</strong> Venus | <strong>Piedra:</strong> Ópalo</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Son pacíficos, justos y odian estar solos. La asociación es muy importante para ellos. Estar representados por las balanzas refleja su fascinación por el equilibrio y la simetría; están en una constante búsqueda de la justicia y la igualdad.</p>
+                        <h4 style="color: #E94560; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Cooperativo, diplomático, gracioso, justo, social.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Indeciso, evita confrontaciones, guarda rencores, auto-compasivo.</li>
+                            <li>Tienen una aguda apreciación por el arte, la belleza y la intelectualidad, buscando constantemente rodearse de estética refinada.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-escorpio" style="display: none;">
+                <h1 style="color: #E94560; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Escorpio <span style="font-size: 1.5rem; color: #C0C0C0;">(23 Oct - 21 Nov)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/scorpio.jpg" alt="Escorpio" style="width: 100%; border-radius: 12px; border: 3px solid #E94560; box-shadow: 0 0 20px rgba(233, 69, 96, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Agua | <strong>Planetas:</strong> Plutón y Marte | <strong>Piedra:</strong> Topacio</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Son personas apasionadas y asertivas. Tienen gran determinación y foco, raras veces perdiendo de vista lo que quieren. Viven para experimentar y expresar emociones, siendo excelentes líderes por su ingenio y dedicación.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Ingenioso, valiente, apasionado, testarudo, un verdadero amigo.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Desconfiado, celoso, reservado, violento (reactivo).</li>
+                            <li>Es el signo de las transformaciones profundas; poseen la rara habilidad de renacer de sus propias cenizas como el Ave Fénix.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-sagitario" style="display: none;">
+                <h1 style="color: #D4AF37; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Sagitario <span style="font-size: 1.5rem; color: #C0C0C0;">(22 Nov - 21 Dic)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/sagitario.jpg" alt="Sagitario" style="width: 100%; border-radius: 12px; border: 3px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #E94560; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #E94560;"><strong>Elemento:</strong> Fuego | <strong>Planeta:</strong> Júpiter | <strong>Piedra:</strong> Turquesa</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">El viajero empedernido del zodiaco. De mente abierta y filosófica, los Sagitario están motivados a vagar por el mundo en busca del sentido de la vida. Extrovertidos, optimistas y entusiastas, les gustan los cambios.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Generoso, idealista, gran sentido del humor.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Promete más de lo que puede entregar, muy impaciente, dirá cualquier cosa sin diplomacia.</li>
+                            <li>Su mayor miedo es la claustrofobia mental y física; necesitan libertad absoluta para florecer.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-capricornio" style="display: none;">
+                <h1 style="color: #4ECCA3; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Capricornio <span style="font-size: 1.5rem; color: #C0C0C0;">(22 Dic - 19 Ene)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/capricornio.png" alt="Capricornio" style="width: 100%; border-radius: 12px; border: 3px solid #4ECCA3; box-shadow: 0 0 20px rgba(78, 204, 163, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Tierra | <strong>Planeta:</strong> Saturno | <strong>Piedra:</strong> Granate</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Representan el tiempo y la responsabilidad. Sus representantes son tradicionales y a menudo muy serios por naturaleza. Tienen un estado de independencia que les permite progresos significativos tanto a nivel personal como en los negocios.</p>
+                        <h4 style="color: #D4AF37; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Responsable, disciplinado, con autocontrol, buenos gestores.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Sabelotodo, implacable, condescendiente, esperando lo peor.</li>
+                            <li>Tienen una gran resistencia. Son como la cabra montesa que no se rinde hasta llegar a la cima más alta, sin importar el tiempo que tome.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-acuario" style="display: none;">
+                <h1 style="color: #D4AF37; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Acuario <span style="font-size: 1.5rem; color: #C0C0C0;">(20 Ene - 18 Feb)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/acuario.jpg" alt="Acuario" style="width: 100%; border-radius: 12px; border: 3px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #4ECCA3; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #4ECCA3;"><strong>Elemento:</strong> Aire | <strong>Planetas:</strong> Urano y Saturno | <strong>Piedra:</strong> Amatista</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Son pensadores profundos e intelectualmente independientes. Tienen fama de ser fríos, pero en realidad ven el mundo sin prejuicios, lo que los hace ideales para resolver problemas. Ven el mundo lleno de posibilidades.</p>
+                        <h4 style="color: #E94560; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Progresista, original, independiente, humanitario.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Huye de la expresión emocional, temperamental, intransigente, distante.</li>
+                            <li>Es el signo de los inventores y revolucionarios, siempre un paso adelante en el futuro, preocupándose genuinamente por la humanidad.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-piscis" style="display: none;">
+                <h1 style="color: #C0C0C0; font-size: 3rem; margin-top: 0; margin-bottom: 5px; border-bottom: 2px solid #4A4E69; padding-bottom: 10px;">Piscis <span style="font-size: 1.5rem; color: #D4AF37;">(19 Feb - 20 Mar)</span></h1>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Extendido/piscis.png" alt="Piscis" style="width: 100%; border-radius: 12px; border: 3px solid #C0C0C0; box-shadow: 0 0 20px rgba(192, 192, 192, 0.2);">
+                    </div>
+                    <div style="flex: 1.5; min-width: 300px;">
+                        <div style="background-color: #1A1C2C; padding: 20px; border-radius: 8px; border-left: 5px solid #D4AF37; margin-bottom: 20px;">
+                            <p style="margin: 0; color: #D4AF37;"><strong>Elemento:</strong> Agua | <strong>Planetas:</strong> Neptuno y Júpiter | <strong>Piedra:</strong> Aguamarina</p>
+                        </div>
+                        <p style="text-align: justify; font-size: 1.1rem;">Muy amigables y compasivos. Son conocidos por su inmensa empatía y su capacidad expresiva y emocional. Como es el último signo del zodiaco, se dice que Piscis ha absorbido las lecciones, alegrías y dolores de todos los demás signos.</p>
+                        <h4 style="color: #4ECCA3; font-size: 1.2rem;">Perfil Psicológico</h4>
+                        <ul style="color: #C0C0C0;">
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Fortalezas:</strong> Compasivo, artístico, intuitivo, sabio, musical.</li>
+                            <li style="margin-bottom: 8px;"><strong style="color: #F0EAD6;">Debilidades:</strong> Miedoso, demasiado confiado, triste, deseo de escapar de la realidad.</li>
+                            <li>Tienen una profunda conexión con la música y las artes, utilizándolas como un vehículo para canalizar su rico mundo interior.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script>
-        function cambiarSeccion(id) {
-            for (let i = 1; i <= 11; i++) {
-                document.getElementById('s' + i).style.display = 'none';
-            }
-            document.getElementById(id).style.display = 'block';
+        function cambiarSigno(idSeccion) {
+            // Lista de las 12 secciones
+            const secciones = [
+                'sec-aries', 'sec-tauro', 'sec-geminis', 'sec-cancer', 
+                'sec-leo', 'sec-virgo', 'sec-libra', 'sec-escorpio', 
+                'sec-sagitario', 'sec-capricornio', 'sec-acuario', 'sec-piscis'
+            ];
+            
+            // Ocultar todas
+            secciones.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
+            // Mostrar la seleccionada
+            document.getElementById(idSeccion).style.display = 'block';
+            
+            // Volver arriba de la página suavemente
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
