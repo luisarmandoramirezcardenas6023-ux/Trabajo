@@ -3,62 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataFlow AI | Software Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+    <title>Aura | Expediciones Estacionales Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Variables de Paleta de Colores */
+        /* Paleta de 4 Colores Premium */
         :root {
-            --bg-dark: #1A0B2E;
-            --accent-cyan: #00E5FF;
-            --text-white: #FFFFFF;
-            --card-gray: #2D2D2D;
+            --bg-dark: #0F172A;       /* Azul Pizarra Oscuro (Fondo Principal) */
+            --bg-card: #1E293B;       /* Azul Pizarra Claro (Tarjetas y Secciones) */
+            --text-light: #F8FAFC;    /* Blanco Humo (Texto) */
+            --accent: #14B8A6;        /* Verde Cerceta / Teal (Acentos y Botones) */
         }
 
-        /* Reset y Ajustes Base */
+        /* Reset y Tipografía base */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Lato', sans-serif;
             background-color: var(--bg-dark);
-            color: var(--text-white);
-            line-height: 1.6;
+            color: var(--text-light);
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            line-height: 1.7;
         }
+        h1, h2, h3, .logo { font-family: 'Cinzel', serif; }
 
-        /* Navegación Pegajosa */
+        /* Navegación Sticky */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            padding: 20px 5%;
+            padding: 25px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
         nav.scrolled {
-            background-color: rgba(26, 11, 46, 0.95);
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 15px 8%;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            padding: 15px 5%;
             backdrop-filter: blur(10px);
         }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--text-white); }
-        .logo span { color: var(--accent-cyan); }
+        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+        .logo span { color: var(--accent); }
         .btn-nav {
             background-color: transparent;
-            color: var(--text-white);
-            border: 1px solid var(--accent-cyan);
-            padding: 10px 20px;
-            border-radius: 5px;
+            color: var(--text-light);
+            border: 1px solid var(--accent);
+            padding: 10px 25px;
             cursor: pointer;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
             transition: 0.3s;
         }
         .btn-nav:hover {
-            background-color: var(--accent-cyan);
+            background-color: var(--accent);
             color: var(--bg-dark);
         }
 
-        /* Sección Hero */
+        /* Hero Section (Portada) */
         .hero {
             height: 100vh;
             display: flex;
@@ -66,121 +69,357 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 5%;
-            background: radial-gradient(circle at center, #2a1147 0%, var(--bg-dark) 100%);
+            padding: 0 10%;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
         }
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 4rem;
             margin-bottom: 20px;
-            line-height: 1.2;
+            letter-spacing: 3px;
         }
         .hero p {
             font-size: 1.2rem;
-            max-width: 600px;
+            font-weight: 300;
+            max-width: 700px;
             margin-bottom: 40px;
-            color: #A0A0A0;
+            color: #CBD5E1;
         }
         .btn-primary {
-            background-color: var(--accent-cyan);
+            background-color: var(--accent);
             color: var(--bg-dark);
-            padding: 15px 35px;
+            padding: 15px 40px;
             text-decoration: none;
-            font-weight: 800;
-            border-radius: 30px;
-            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
+            border-radius: 3px;
         }
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(20, 184, 166, 0.4);
         }
 
-        /* Sección Características (Grid) */
-        .features { padding: 100px 5%; text-align: center; }
-        .features h2 { font-size: 2.5rem; margin-bottom: 50px; }
+        /* Sección: La Experiencia (Texto 3 columnas) */
+        .experiencia {
+            padding: 100px 8% 50px;
+            background-color: var(--bg-card);
+            text-align: center;
+        }
+        .experiencia h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--text-light); }
+        .experiencia > p { max-width: 800px; margin: 0 auto 60px; color: #CBD5E1; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+        .feature-item h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.3rem; }
+        .feature-item p { color: #94A3B8; font-size: 0.95rem; }
+
+        /* Sección: Galería de Expediciones */
+        .seasons { padding: 100px 8%; text-align: center; }
+        .seasons h2 { font-size: 2.5rem; margin-bottom: 15px; color: var(--text-light); }
+        .seasons > p { margin-bottom: 60px; color: #CBD5E1; }
+        
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         .card {
-            background-color: var(--card-gray);
-            padding: 40px 30px;
-            border-radius: 15px;
-            transition: 0.3s ease;
-            border-bottom: 4px solid transparent;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            text-align: left;
         }
         .card:hover {
             transform: translateY(-10px);
-            border-bottom: 4px solid var(--accent-cyan);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .card h3 { color: var(--accent-cyan); margin-bottom: 15px; font-size: 1.5rem; }
+        .img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+        .img-container:hover img { transform: scale(1.08); filter: brightness(1.1); }
+        
+        /* Etiqueta flotante en la imagen */
+        .hover-text {
+            position: absolute;
+            bottom: 15px; right: 15px;
+            background-color: rgba(15, 23, 42, 0.8);
+            color: var(--accent);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .img-container:hover .hover-text { opacity: 1; }
 
-        /* Footer / CTA Final */
-        .footer-cta {
-            background-color: var(--card-gray);
-            padding: 80px 5%;
-            text-align: center;
-            border-top: 1px solid #444;
+        /* Contenido de texto bajo la imagen */
+        .card-content { padding: 30px; }
+        .card-content h3 { color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; }
+        .card-content p { color: #94A3B8; font-size: 0.95rem; margin-bottom: 20px; }
+        
+        .tag-list { display: flex; gap: 10px; flex-wrap: wrap; }
+        .tag {
+            background-color: rgba(20, 184, 166, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
-        .footer-cta h2 { margin-bottom: 20px; }
+
+        /* Sección: Qué Incluye */
+        .incluye {
+            padding: 80px 8%;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(20, 184, 166, 0.1);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+        }
+        .incluye h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+        .lista-incluye {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .lista-incluye li {
+            position: relative;
+            padding-left: 25px;
+            color: #CBD5E1;
+        }
+        .lista-incluye li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Modal Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img {
+            max-width: 90%; max-height: 85vh;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 40px rgba(20, 184, 166, 0.3);
+            border-radius: 4px;
+        }
+        .close-btn {
+            position: absolute; top: 20px; right: 40px;
+            color: var(--text-light); font-size: 3rem;
+            cursor: pointer; transition: 0.3s;
+        }
+        .close-btn:hover { color: var(--accent); }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            text-align: center;
+            padding: 60px 20px;
+        }
+        footer h3 { font-size: 2rem; margin-bottom: 10px; }
+        footer p { color: #CBD5E1; font-weight: 300; }
 
         /* Responsivo */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.8rem; }
+            nav { padding: 20px 5%; }
+            .btn-nav { display: none; }
+            .lista-incluye { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <nav id="navbar">
-        <div class="logo">DataFlow <span>AI</span></div>
-        <button class="btn-nav" onclick="document.getElementById('features').scrollIntoView();">Ver Soluciones</button>
+        <div class="logo">AURA<span>.</span></div>
+        <button class="btn-nav" onclick="document.getElementById('galeria').scrollIntoView();">Explorar Rutas</button>
     </nav>
 
     <header class="hero">
-        <h1>Inteligencia de Negocios<br>en Tiempo Real</h1>
-        <p>Conecta tus bases de datos y transforma información cruda en Dashboards interactivos sin escribir una sola línea de código.</p>
-        <a href="#features" class="btn-primary">Empieza tu Prueba Gratis</a>
+        <h1>El mundo en <span>cuatro</span> tiempos</h1>
+        <p>Aura Expediciones te lleva a capturar la esencia de la naturaleza. Rutas fotográficas exclusivas, de cupo limitado, diseñadas para observar cómo el planeta se transforma a través de los ciclos de la luz.</p>
+        <a href="#experiencia" class="btn-primary">Descubrir Más</a>
     </header>
 
-    <section id="features" class="features">
-        <h2>Potencia tu Toma de Decisiones</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Integración Total</h3>
-                <p>Conéctate a MySQL, PostgreSQL, Excel o APIs de terceros en menos de 5 minutos.</p>
+    <section id="experiencia" class="experiencia">
+        <h2>Fotografía sin límites logísticos</h2>
+        <p>No somos una agencia de viajes tradicional. Somos fotógrafos diseñando rutas para fotógrafos. Nuestro objetivo es ubicarte en el lugar exacto, en el minuto perfecto de la luz dorada, con todo resuelto.</p>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Grupos Reducidos</h3>
+                <p>Limitamos nuestras expediciones a un máximo de 6 personas. Esto garantiza silencio en el campo, espacio suficiente para colocar trípodes y atención personalizada de nuestros instructores.</p>
             </div>
-            <div class="card">
-                <h3>Reportes Automatizados</h3>
-                <p>Programa el envío de reportes financieros y KPIs directamente al correo de tus directivos.</p>
+            <div class="feature-item">
+                <h3>Asesoría en Campo</h3>
+                <p>Nuestros guías son fotógrafos profesionales premiados internacionalmente. Aprenderás técnicas avanzadas de larga exposición, apilamiento de enfoque (focus stacking) y composición de paisajes.</p>
             </div>
-            <div class="card">
-                <h3>Seguridad Bancaria</h3>
-                <p>Tu información está protegida con encriptación AES-256 y protocolos de nivel corporativo.</p>
+            <div class="feature-item">
+                <h3>Locaciones Inéditas</h3>
+                <p>Evitamos las trampas para turistas. Llevamos vehículos todo terreno y campamentos de lujo para adentrarnos en reservas naturales mucho antes de que salga el sol.</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer-cta">
-        <h2>¿Listo para escalar tu empresa?</h2>
-        <p style="margin-bottom: 30px; color: #A0A0A0;">Únete a más de 500 empresas que ya optimizan sus datos.</p>
-        <a href="#" class="btn-primary">Contactar a Ventas</a>
-        <p style="margin-top: 40px; font-size: 0.8rem; color: #666;">&copy; 2026 DataFlow AI. Todos los derechos reservados.</p>
+    <section id="galeria" class="seasons">
+        <h2>Colección Estacional 2026</h2>
+        <p>Selecciona tu temporada ideal. Clic en las fotografías para ampliar la vista.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="img-container" onclick="abrirLightbox('https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/primavera.jpg')">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/primavera.jpg" alt="Primavera">
+                    <div class="hover-text">🔍 Ampliar Foto</div>
+                </div>
+                <div class="card-content">
+                    <h3>Renacer Floral</h3>
+                    <p>Documentaremos el violento y hermoso deshielo que da paso a la explosión de colores en los valles europeos. Un taller enfocado en fotografía macro, uso de polarizadores y teoría del color en paisajes vivos.</p>
+                    <div class="tag-list">
+                        <span class="tag">Destino: Alpes Suizos</span>
+                        <span class="tag">Dificultad: Baja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-container" onclick="abrirLightbox('https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/verano.jpg')">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/verano.jpg" alt="Verano">
+                    <div class="hover-text">🔍 Ampliar Foto</div>
+                </div>
+                <div class="card-content">
+                    <h3>Cielos Profundos</h3>
+                    <p>Aprovechando las noches despejadas de verano, nos alejaremos de toda contaminación lumínica. Masterclass intensiva de astrofotografía para capturar el núcleo de la Vía Láctea y trazos de estrellas (Star Trails).</p>
+                    <div class="tag-list">
+                        <span class="tag">Destino: Desierto de Atacama</span>
+                        <span class="tag">Dificultad: Media</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-container" onclick="abrirLightbox('https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/oto%C3%B1o.jpg')">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/oto%C3%B1o.jpg" alt="Otoño">
+                    <div class="hover-text">🔍 Ampliar Foto</div>
+                </div>
+                <div class="card-content">
+                    <h3>Bosques Dorados</h3>
+                    <p>Una expedición centrada en el contraste térmico y visual. Fotografía de fauna salvaje preparándose para la hibernación y captura de texturas en los densos bosques de arces y robles en su transición dorada.</p>
+                    <div class="tag-list">
+                        <span class="tag">Destino: Kyoto, Japón</span>
+                        <span class="tag">Dificultad: Baja</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img-container" onclick="abrirLightbox('https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/invierno.jpg')">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Landing/invierno.jpg" alt="Invierno">
+                    <div class="hover-text">🔍 Ampliar Foto</div>
+                </div>
+                <div class="card-content">
+                    <h3>Blancura Extrema</h3>
+                    <p>Nuestra ruta más desafiante. Fotografía minimalista en alto contraste y cacería de Auroras Boreales. Incluye entrenamiento de supervivencia básica y técnicas para proteger el equipo fotográfico a -20°C.</p>
+                    <div class="tag-list">
+                        <span class="tag">Destino: Tromsø, Noruega</span>
+                        <span class="tag">Dificultad: Alta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="incluye">
+        <h2>Detalles de la Reserva Premium</h2>
+        <ul class="lista-incluye">
+            <li>Hospedaje en hoteles boutique y campamentos de lujo (Glamping).</li>
+            <li>Transporte privado en vehículos todoterreno (4x4).</li>
+            <li>Seguro de viaje internacional con cobertura para equipo fotográfico.</li>
+            <li>Masterclass diaria de edición y revelado RAW en Adobe Lightroom.</li>
+            <li>Desayunos y cenas gourmet elaboradas por chefs locales.</li>
+            <li>Permisos de acceso exclusivo a Parques Nacionales.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <h3 style="color: var(--accent);">AURA Expediciones</h3>
+        <p>Corporativo Zona Río | Tijuana, B.C. | México</p>
+        <p>contacto@aura-expediciones.com | +52 (664) 100 2030</p>
+        <p style="font-size: 0.8rem; margin-top: 30px; opacity: 0.4;">&copy; 2026 Aura Photo Tours. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript para interacción -->
+    <div id="miLightbox" class="lightbox">
+        <span class="close-btn" onclick="cerrarLightbox()">&times;</span>
+        <img id="imagenGrande" src="" alt="Vista ampliada">
+    </div>
+
     <script>
-        // Efecto del menú al hacer scroll
+        // Efecto Pegajoso de la Navegación
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
+            }
+        });
+
+        // Lógica del Lightbox (Abrir y Cerrar imágenes)
+        const lightbox = document.getElementById('miLightbox');
+        const imgGrande = document.getElementById('imagenGrande');
+
+        function abrirLightbox(ruta) {
+            imgGrande.src = ruta;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquea el scroll de fondo
+        }
+
+        function cerrarLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaura el scroll
+        }
+
+        // Cierra el lightbox si das clic en la zona oscura exterior
+        lightbox.addEventListener('click', function(e) {
+            if (e.target !== imgGrande) {
+                cerrarLightbox();
+            }
+        });
+
+        // Cierra el lightbox presionando la tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape" && lightbox.classList.contains('active')) {
+                cerrarLightbox();
             }
         });
     </script>
