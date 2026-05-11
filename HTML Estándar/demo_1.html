@@ -2,80 +2,82 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Luz & Sombra | Fotografía</title>
+    <title>Investigación | Planetas Rocosos</title>
 </head>
-<body style="background-color: #000000; color: #FFFFFF; font-family: Arial, sans-serif; margin: 0;">
+<body style="background-color: #0B0C10; color: #C5C6C7; font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6;">
 
-    <!-- CONTENEDOR PRINCIPAL FLEX -->
-    <div style="display: flex; min-height: 100vh;">
+    <div style="display: flex; min-height: 100vh; flex-wrap: wrap;">
 
-        <!-- MENÚ LATERAL (SIDEBAR) -->
-        <div style="width: 25%; background-color: #333333; padding: 20px; border-right: 2px solid #FFD700;">
-            <h2 style="color: #FFD700; text-align: center; margin-top: 0; margin-bottom: 30px;">Luz & Sombra</h2>
+        <div style="width: 25%; min-width: 220px; background-color: #1F2833; padding: 30px 20px; border-right: 3px solid #45A29E; box-sizing: border-box;">
+            <h2 style="color: #45A29E; text-align: center; font-family: Georgia, serif; margin-bottom: 40px;">Instituto de Ciencias Planetarias</h2>
             
-            <button onclick="mostrarSeccion('sec-bienvenida')" style="background-color: #FFD700; color: #000000; padding: 15px; margin-bottom: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">1. Bienvenida</button>
+            <button onclick="mostrarSeccion('sec-tierra')" style="background-color: #45A29E; color: #0B0C10; padding: 15px; margin-bottom: 15px; font-size: 1rem; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px;">1. La Tierra</button>
             
-            <button onclick="mostrarSeccion('sec-portafolio')" style="background-color: #FFD700; color: #000000; padding: 15px; margin-bottom: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">2. Portafolio</button>
+            <button onclick="mostrarSeccion('sec-vecinos')" style="background-color: #45A29E; color: #0B0C10; padding: 15px; margin-bottom: 15px; font-size: 1rem; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px;">2. Mercurio y Venus</button>
             
-            <button onclick="mostrarSeccion('sec-reservas')" style="background-color: #FFD700; color: #000000; padding: 15px; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%;">3. Reservaciones</button>
+            <button onclick="mostrarSeccion('sec-marte')" style="background-color: #45A29E; color: #0B0C10; padding: 15px; font-size: 1rem; font-weight: bold; border: none; cursor: pointer; text-align: left; width: 100%; border-radius: 4px;">3. Marte</button>
         </div>
 
-        <!-- ÁREA DE CONTENIDO DERECHA -->
-        <div style="width: 75%; padding: 40px 5%;">
+        <div style="width: 75%; padding: 40px 5%; box-sizing: border-box; background-color: #0B0C10;">
             
-            <!-- SECCIÓN 1: BIENVENIDA -->
-            <div id="sec-bienvenida" style="display: block; text-align: center;">
-                <h1 style="color: #FFD700;">Capturando tus mejores momentos</h1>
-                <p>Especialistas en retratos corporativos, bodas y eventos sociales en Tijuana.</p>
-                <img src="https://via.placeholder.com/450x250?text=Camara+Fotografica" alt="Cámara" style="border: 2px solid #333333; margin-top: 20px; max-width: 100%;">
-            </div>
-
-            <!-- SECCIÓN 2: PORTAFOLIO -->
-            <div id="sec-portafolio" style="display: none; text-align: center;">
-                <h2 style="color: #FFD700;">Nuestro Trabajo</h2>
-                <p style="margin-bottom: 30px;">Hacemos que la iluminación trabaje a tu favor.</p>
-                
-                <div style="margin-bottom: 30px;">
-                    <p style="background-color: #333333; padding: 10px; display: inline-block; margin-top: 0; margin-bottom: 5px;">Sesiones de Boda (Desde $500 USD)</p><br>
-                    <img src="https://via.placeholder.com/350x200?text=Sesion+Boda" alt="Boda" style="max-width: 100%;">
+            <div id="sec-tierra" style="display: block;">
+                <h1 style="color: #45A29E; font-family: Georgia, serif; font-size: 2.5rem; border-bottom: 2px solid #1F2833; padding-bottom: 10px;">La Tierra: El Oasis de Vida</h1>
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Est%C3%A1ndar/tierra.jpg" alt="La Tierra" style="width: 100%; max-width: 550px; border-radius: 12px; box-shadow: 0 10px 30px rgba(69, 162, 158, 0.3);">
                 </div>
-                
-                <div style="margin-bottom: 20px;">
-                    <p style="background-color: #333333; padding: 10px; display: inline-block; margin-top: 0; margin-bottom: 5px;">Retrato Corporativo (Desde $100 USD)</p><br>
-                    <img src="https://via.placeholder.com/350x200?text=Sesion+Retrato" alt="Retrato" style="max-width: 100%;">
+                <p style="font-size: 1.1rem; text-align: justify;">La Tierra es el único mundo conocido que alberga vida. Su atmósfera rica en oxígeno y sus vastos océanos permiten una biodiversidad única. Con un núcleo de hierro activo, genera un campo magnético que nos protege de la radiación solar letal.</p>
+                <div style="background-color: #1F2833; padding: 20px; border-radius: 8px; border-left: 5px solid #45A29E; margin-top: 20px;">
+                    <strong>Dato Académico:</strong> La inclinación de 23.5 grados de su eje es la responsable de la existencia de las estaciones del año.
                 </div>
             </div>
 
-            <!-- SECCIÓN 3: RESERVACIONES -->
-            <div id="sec-reservas" style="display: none; text-align: center;">
-                <h2 style="color: #FFD700;">Reserva tu fecha</h2>
-                <p>Mira cómo trabajamos detrás de cámaras en este breve video:</p>
+            <div id="sec-vecinos" style="display: none;">
+                <h1 style="color: #45A29E; font-family: Georgia, serif; font-size: 2.5rem; text-align: center;">Mundos de Extremos Caloríficos</h1>
                 
-                <video width="400" controls style="border: 3px solid #333333; max-width: 100%; margin-top: 15px;">
-                    <source src="URL_DEL_VIDEO.mp4" type="video/mp4">
-                    Tu navegador no soporta video.
-                </video>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 280px; background-color: #1F2833; padding: 20px; border-radius: 12px; text-align: center;">
+                        <h3 style="color: #45A29E;">Mercurio</h3>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Est%C3%A1ndar/mercurio.jpg" alt="Mercurio" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                        <p style="font-size: 0.9rem; text-align: justify;">Es el planeta más pequeño y cercano al Sol. Carece de atmósfera, lo que provoca que su temperatura varíe entre -180°C en la noche y 430°C durante el día.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 280px; background-color: #1F2833; padding: 20px; border-radius: 12px; text-align: center;">
+                        <h3 style="color: #45A29E;">Venus</h3>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Est%C3%A1ndar/venus.jpeg" alt="Venus" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                        <p style="font-size: 0.9rem; text-align: justify;">El planeta más caliente del sistema debido a un efecto invernadero descontrolado. Su presión atmosférica es 90 veces superior a la de la Tierra.</p>
+                    </div>
+                </div>
+            </div>
 
-                <h3 style="margin-top: 40px;">Contacto Directo</h3>
-                <p>Email: hola@luzysombra.com</p>
-                <p>Tel: (664) 123 0000</p>
+            <div id="sec-marte" style="display: none;">
+                <h1 style="color: #45A29E; font-family: Georgia, serif; font-size: 2.5rem;">Marte: El Horizonte Rojo</h1>
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-top: 30px;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="font-size: 1.1rem; text-align: justify;">Conocido por su color rojizo debido al óxido de hierro. Marte posee el volcán más grande del sistema solar, el Monte Olimpo, y un cañón gigantesco llamado Valles Marineris. Es el foco principal de la búsqueda de vida pasada fuera de la Tierra.</p>
+                        <ul style="color: #45A29E; font-weight: bold;">
+                            <li>Gravedad: 38% de la terrestre</li>
+                            <li>Día marciano: 24.6 horas</li>
+                            <li>Lunas: Fobos y Deimos</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/HTML%20Est%C3%A1ndar/marte.jpg" alt="Marte" style="width: 100%; border-radius: 12px; border: 2px solid #45A29E;">
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
-    <!-- SCRIPT DE JAVASCRIPT PARA CAMBIAR LAS PANTALLAS -->
     <script>
-        function mostrarSeccion(idSeccion) {
-            // Ocultamos todas las secciones
-            document.getElementById('sec-bienvenida').style.display = 'none';
-            document.getElementById('sec-portafolio').style.display = 'none';
-            document.getElementById('sec-reservas').style.display = 'none';
+        function mostrarSeccion(id) {
+            // Ocultar todas
+            document.getElementById('sec-tierra').style.display = 'none';
+            document.getElementById('sec-vecinos').style.display = 'none';
+            document.getElementById('sec-marte').style.display = 'none';
             
-            // Mostramos la solicitada
-            document.getElementById(idSeccion).style.display = 'block';
+            // Mostrar la elegida
+            document.getElementById(id).style.display = 'block';
         }
     </script>
-
 </body>
 </html>
