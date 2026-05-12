@@ -3,211 +3,627 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Motors | Vehículos Eléctricos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>Eneagrama | Instituto de Psicología Profunda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de 6 Colores: Lujo y Psicología */
         :root {
-            --black: #121212; --gray: #2C2C2C; --red: #D32F2F;
-            --white: #FFFFFF; --silver: #E0E0E0; --blue: #1976D2;
+            --bg-ebano: #0A0A0B;      /* Negro Ébano (Fondo principal) */
+            --bg-grafito: #18191C;    /* Grafito Oscuro (Tarjetas) */
+            --oro-calido: #D4AF37;    /* Oro Cálido (Acentos principales) */
+            --texto-nieve: #F3F4F6;   /* Blanco Nieve (Textos) */
+            --verde-sabio: #4A5D23;   /* Verde Sabio (Crecimiento/Salud) */
+            --rojo-vino: #7A2021;     /* Rojo Vino (Estrés/Alerta) */
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--black); color: var(--white); overflow-x: hidden; }
-        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-ebano); color: var(--texto-nieve); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
 
-        /* Navbar */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 25px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: linear-gradient(to bottom, rgba(18,18,18,0.9), transparent); transition: background 0.3s;
+        /* Barra Superior */
+        .topbar { background-color: var(--bg-grafito); padding: 20px 5%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--texto-nieve); letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--oro-calido); font-style: italic; font-family: 'Playfair Display', serif; text-transform: none; font-size: 1.6rem; }
+        .institute-tag { font-size: 0.85rem; color: #9CA3AF; letter-spacing: 1px; text-transform: uppercase; }
+
+        .container { max-width: 1400px; margin: 50px auto; padding: 0 5%; }
+        
+        .view { display: none; animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .view.active { display: block; }
+        @keyframes fadeUp { 
+            0% { opacity: 0; transform: translateY(20px); } 
+            100% { opacity: 1; transform: translateY(0); } 
         }
-        nav.scrolled { background: var(--black); box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 3px; }
-        .logo span { color: var(--red); }
-        .nav-links a { color: var(--silver); text-decoration: none; margin-left: 25px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700; transition: 0.3s; }
-        .nav-links a:hover { color: var(--white); }
 
-        /* General Sections */
-        section { padding: 100px 5%; }
-        .title { font-size: 3rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
-        .desc { color: var(--silver); line-height: 1.8; font-size: 1.1rem; max-width: 600px; }
+        /* VISTA 1: MATRIZ GRID 3x3 */
+        .header-matrix { text-align: center; margin-bottom: 60px; }
+        .header-matrix h1 { font-size: 3rem; color: var(--oro-calido); margin-bottom: 15px; }
+        .header-matrix p { color: #9CA3AF; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
 
-        /* 1. Hero */
-        .hero { height: 100vh; background: url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1920&q=80') center/cover fixed; display: flex; align-items: flex-end; padding-bottom: 100px; position: relative; }
-        .hero::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, var(--black), transparent); }
-        .hero-content { position: relative; z-index: 2; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
-        .hero h1 { font-size: 5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
-        .hero h1 span { display: block; font-weight: 300; font-size: 2rem; color: var(--red); }
-        .btn-red { background: var(--red); color: var(--white); padding: 15px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .btn-red:hover { background: var(--white); color: var(--black); }
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .profile-card { 
+            background: var(--bg-grafito); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; 
+            overflow: hidden; cursor: pointer; transition: 0.4s ease; display: flex; flex-direction: column;
+        }
+        .profile-card:hover { border-color: var(--oro-calido); transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+        
+        .card-img-wrapper { height: 220px; overflow: hidden; position: relative; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: 0.5s; }
+        .profile-card:hover .card-img-wrapper img { filter: grayscale(0%); transform: scale(1.05); }
+        .card-number { position: absolute; top: 15px; right: 15px; background: var(--oro-calido); color: var(--bg-ebano); width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-weight: 800; font-size: 1.2rem; font-family: 'Playfair Display', serif; }
 
-        /* 2. Visión */
-        .vision { display: flex; align-items: center; gap: 50px; background: var(--gray); }
-        .vision-text { flex: 1; }
-        .vision-img { flex: 1; height: 400px; background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80') center/cover; }
+        .card-content { padding: 25px; }
+        .card-content h3 { font-size: 1.8rem; margin-bottom: 5px; color: var(--texto-nieve); }
+        .card-content span { font-size: 0.85rem; color: var(--oro-calido); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 15px; }
+        .card-content p { font-size: 0.95rem; color: #9CA3AF; line-height: 1.6; }
 
-        /* 3. Modelos */
-        .models { text-align: center; }
-        .models-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .model-card { background: var(--gray); padding: 40px 20px; transition: 0.4s; border-bottom: 3px solid transparent; }
-        .model-card:hover { transform: translateY(-10px); border-bottom-color: var(--blue); }
-        .model-img { width: 100%; height: 150px; object-fit: contain; margin-bottom: 20px; }
+        /* VISTA 2: DETALLE DEL PERFIL */
+        .btn-back { background: transparent; border: 1px solid var(--oro-calido); color: var(--oro-calido); padding: 10px 25px; border-radius: 30px; cursor: pointer; margin-bottom: 40px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-back:hover { background: var(--oro-calido); color: var(--bg-ebano); }
 
-        /* 4. Rendimiento (Parallax) */
-        .performance { background: url('https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1920&q=80') center/cover fixed; padding: 150px 5%; position: relative; }
-        .performance::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
-        .perf-content { position: relative; z-index: 2; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; }
-        .perf-stat h3 { font-size: 4rem; color: var(--white); font-weight: 900; }
-        .perf-stat p { color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .detail-layout { display: grid; grid-template-columns: 350px 1fr; gap: 50px; }
+        
+        /* Panel Izquierdo (Ficha Técnica) */
+        .detail-left { display: flex; flex-direction: column; gap: 20px; }
+        .detail-img { width: 100%; height: 400px; border-radius: 12px; overflow: hidden; border: 2px solid var(--bg-grafito); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .detail-img img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 5. Carga / Batería */
-        .charging { display: flex; align-items: center; gap: 50px; flex-direction: row-reverse; }
+        .info-box { background: var(--bg-grafito); padding: 25px; border-radius: 12px; border-top: 3px solid var(--oro-calido); }
+        .info-line { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .info-line:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .info-line label { display: block; font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .info-line span { font-weight: 600; font-size: 1rem; color: var(--texto-nieve); }
+        .info-line span.highlight { color: var(--oro-calido); }
 
-        /* 6. Tecnología */
-        .tech { background: var(--gray); text-align: center; }
-        .tech-img { width: 100%; max-width: 900px; height: 400px; object-fit: cover; margin-top: 40px; }
+        /* Panel Derecho (Análisis Profundo) */
+        .detail-right { display: flex; flex-direction: column; gap: 30px; }
+        .main-description { background: var(--bg-grafito); padding: 40px; border-radius: 12px; }
+        .main-description h2 { font-size: 3rem; margin-bottom: 15px; color: var(--oro-calido); line-height: 1.1; }
+        .main-description p { font-size: 1.1rem; color: #D1D5DB; text-align: justify; margin-bottom: 20px; }
 
-        /* 7. Sustentabilidad */
-        .sustain { background: linear-gradient(135deg, var(--black), #002b1f); border-top: 1px solid var(--gray); }
+        .core-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .core-card { padding: 25px; border-radius: 8px; background: rgba(0,0,0,0.2); border-left: 4px solid; }
+        .core-card.fear { border-color: var(--rojo-vino); }
+        .core-card.desire { border-color: var(--verde-sabio); }
+        .core-card h4 { font-size: 0.9rem; color: #9CA3AF; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', sans-serif; }
+        .core-card p { font-size: 1.1rem; font-weight: 600; font-family: 'Playfair Display', serif; }
 
-        /* 8. Galería */
-        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-auto-rows: 250px; gap: 15px; margin-top: 40px; }
-        .gal-item { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; filter: grayscale(50%); }
-        .gal-item:hover { filter: grayscale(0%); transform: scale(1.02); z-index: 2; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        .gal-1 { grid-column: 1 / 3; grid-row: 1 / 3; }
+        .dynamics-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+        .dynamic-card { background: var(--bg-grafito); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .dynamic-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--texto-nieve); }
+        .dynamic-card.stress h3 { color: var(--rojo-vino); }
+        .dynamic-card.growth h3 { color: var(--verde-sabio); }
+        .dynamic-card p { font-size: 0.95rem; color: #9CA3AF; line-height: 1.6; }
 
-        /* 9. Contacto / Reserva */
-        .reserve { background: var(--red); color: var(--white); text-align: center; }
-        .reserve form { max-width: 500px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 15px; }
-        .reserve input, .reserve select { padding: 15px; background: var(--white); border: none; font-family: inherit; font-weight: 700; outline: none; }
-        .btn-black { background: var(--black); color: var(--white); padding: 15px; border: none; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
-        .btn-black:hover { background: var(--gray); }
-
-        /* JS Reveal */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; } .hero h1 { font-size: 3rem; } .hero-content { flex-direction: column; align-items: flex-start; gap: 20px; } .vision, .charging { flex-direction: column; } .gallery-grid { grid-template-columns: 1fr; } .gal-1 { grid-column: 1; grid-row: auto; }
+        @media (max-width: 1024px) {
+            .detail-layout { grid-template-columns: 1fr; }
+            .detail-img { height: 350px; }
+            .dynamics-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <a href="#inicio" class="logo">Nova<span>Motors</span></a>
-        <div class="nav-links">
-            <a href="#modelos">Modelos</a>
-            <a href="#rendimiento">Rendimiento</a>
-            <a href="#tecnologia">Tecnología</a>
-            <a href="#reserva">Test Drive</a>
-        </div>
-    </nav>
+    <div class="topbar">
+        <div class="logo">Eneagrama<span>Studio</span></div>
+        <div class="institute-tag">Centro de Estudios de la Personalidad</div>
+    </div>
 
-    <!-- 1. Inicio -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1 class="reveal">El futuro <span>ya se conduce.</span></h1>
-            <a href="#reserva" class="btn-red reveal" style="transition-delay: 0.2s;">Configurar Modelo</a>
-        </div>
-    </section>
+    <div class="container">
 
-    <!-- 2. Visión -->
-    <section id="vision" class="vision reveal">
-        <div class="vision-text">
-            <h2 class="title">Diseño Puro</h2>
-            <p class="desc">En Nova Motors, no rediseñamos el automóvil; lo reinventamos desde cero. Cada curva y cada componente están optimizados aerodinámicamente para lograr el máximo coeficiente de eficiencia sin sacrificar la elegancia.</p>
-        </div>
-        <div class="vision-img"></div>
-    </section>
-
-    <!-- 3. Modelos -->
-    <section id="modelos" class="models reveal">
-        <h2 class="title">Nuestra Línea</h2>
-        <div class="models-grid">
-            <div class="model-card">
-                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=400&q=80" alt="Model S" class="model-img">
-                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Nova Sedan EV</h3>
-                <p class="desc" style="font-size: 0.9rem;">El equilibrio perfecto entre autonomía y lujo ejecutivo.</p>
+        <div id="view-matrix" class="view active">
+            <div class="header-matrix">
+                <h1>Los 9 Arquetipos Humanos</h1>
+                <p>Explora el mapa de la psique. Descubre las motivaciones profundas, miedos y pasiones que rigen el comportamiento humano.</p>
             </div>
-            <div class="model-card">
-                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=400&q=80" alt="Model X" class="model-img">
-                <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Nova SUV-X</h3>
-                <p class="desc" style="font-size: 0.9rem;">Espacio para 7 pasajeros con tracción total inteligente (AWD).</p>
+            <div class="matrix-grid">
+                <div class="profile-card" onclick="openProfile('perfil-1')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">1</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/reformador.png" alt="Reformador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Reformador</h3>
+                        <span>Idealista y Concienzudo</span>
+                        <p>Éticos, dedicados y perfeccionistas. Viven con un fuerte sentido del bien y del mal, buscando siempre mejorar su entorno.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-2')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">2</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/ayudador.png" alt="Ayudador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Ayudador</h3>
+                        <span>Generoso e Interpersonal</span>
+                        <p>Empáticos, sinceros y de buen corazón. Impulsados por la necesidad de ser amados y de sentirse indispensables para los demás.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-3')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">3</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/triunfador.jpg" alt="Triunfador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Triunfador</h3>
+                        <span>Pragmático y Adaptable</span>
+                        <p>Seguros de sí mismos, atractivos y orientados al éxito. Buscan la validación a través de sus logros y su imagen proyectada.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-4')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">4</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/individualismo.jpg" alt="Individualista">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Individualista</h3>
+                        <span>Sensible e Introspectivo</span>
+                        <p>Románticos, melancólicos y creativos. Sienten que son fundamentalmente diferentes a los demás y buscan su identidad única.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-5')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">5</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/investigador.jpg" alt="Investigador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Investigador</h3>
+                        <span>Cerebral y Perceptivo</span>
+                        <p>Aislados, innovadores y objetivos. Observan el mundo desde la distancia, acumulando conocimiento para sentirse seguros.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-6')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">6</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/leal.png" alt="Leal">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Leal</h3>
+                        <span>Comprometido y Cauteloso</span>
+                        <p>Confiables, trabajadores y responsables. Constantemente escanean su entorno en busca de amenazas para garantizar su seguridad.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-7')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">7</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/entusiasta.jpg" alt="Entusiasta">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Entusiasta</h3>
+                        <span>Activo y Espontáneo</span>
+                        <p>Extrovertidos, optimistas y versátiles. Buscan constantemente nuevas experiencias para evitar el dolor emocional y el aburrimiento.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-8')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">8</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/desafiador.jpg" alt="Desafiador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Desafiador</h3>
+                        <span>Poderoso y Dominante</span>
+                        <p>Seguros, fuertes y asertivos. Protegen su vulnerabilidad tomando el control absoluto de su entorno e imponiendo su voluntad.</p>
+                    </div>
+                </div>
+                <div class="profile-card" onclick="openProfile('perfil-9')">
+                    <div class="card-img-wrapper">
+                        <div class="card-number">9</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/pacificador.jpg" alt="Pacificador">
+                    </div>
+                    <div class="card-content">
+                        <h3>El Pacificador</h3>
+                        <span>Receptivo y Acomodaticio</span>
+                        <p>Amables, estables y confiados. Buscan la paz interior y exterior, fusionándose con los deseos de otros para evitar el conflicto.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- 4. Rendimiento -->
-    <section id="rendimiento" class="performance reveal">
-        <div class="perf-content">
-            <div class="perf-stat"><h3>1.9s</h3><p>0 - 100 km/h</p></div>
-            <div class="perf-stat"><h3>1020</h3><p>Caballos de Fuerza</p></div>
-            <div class="perf-stat"><h3>322</h3><p>Km/h Velocidad Máxima</p></div>
+        <div id="perfil-1" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/reformador.png" alt="Reformador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Instintivo (El Cuerpo)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Ira</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Serenidad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>1w9 (El Idealista) | 1w2 (El Abogado)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 1: El Reformador</h2>
+                        <p>El Tipo 1 es un individuo de principios, decidido, con gran autocontrol y perfeccionista. Mantienen estándares éticos extraordinariamente altos y sienten una misión constante de mejorar el mundo que los rodea. Sin embargo, este rigor los lleva a convivir con un "crítico interno" implacable que juzga severamente tanto sus propias acciones como las de los demás.</p>
+                        <p>La "Ira" es su pasión oculta; no suelen explotar en rabia abierta (porque lo consideran inapropiado), sino que la canalizan como resentimiento, rigidez e indignación moral contra un mundo que se niega a ser perfecto.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser malo, corrupto, perverso o defectuoso.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Ser íntegro, correcto y tener la razón.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 4:</strong> Bajo niveles altos de estrés, el metódico Tipo 1 pierde su objetividad y estructura. Se vuelven melancólicos, irracionalmente críticos, se sienten incomprendidos por todos y adoptan una postura de víctimas trágicas, sintiendo que son los únicos que se esfuerzan.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 7:</strong> En estado de crecimiento y relajación, el rígido Tipo 1 aprende a soltar el control. Se vuelven más alegres, espontáneos, de mente abierta y aprenden a aceptar las imperfecciones de la vida, permitiéndose disfrutar sin el peso constante del deber.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- 5. Carga -->
-    <section id="carga" class="charging reveal">
-        <div class="vision-text">
-            <h2 class="title">Carga Ultrarrápida</h2>
-            <p class="desc">La nueva arquitectura de batería de 800 voltios permite recuperar hasta 300 kilómetros de autonomía en tan solo 15 minutos en nuestra red de supercargadores.</p>
+        <div id="perfil-2" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/ayudador.png" alt="Ayudador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Emocional (El Corazón)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">El Orgullo</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Humildad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>2w1 (El Servidor) | 2w3 (El Anfitrión)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 2: El Ayudador</h2>
+                        <p>El Tipo 2 busca el amor y la conexión por encima de todo. Son amigables, generosos y abnegados, impulsados por la profunda necesidad de ser útiles a los demás. Tienen un "radar" excepcional para detectar las emociones y necesidades de quienes los rodean.</p>
+                        <p>Su trampa psicológica es el "Orgullo": la creencia secreta de que ellos no tienen necesidades propias, pero que el mundo colapsaría sin su intervención y cuidado. A menudo dan para recibir amor a cambio, creando dependencias emocionales ocultas.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser indigno de ser amado o no ser deseado.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Sentirse amado, apreciado e indispensable.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 8:</strong> Cuando sienten que su amor y sacrificio constante no son agradecidos ni correspondidos, el dulce Tipo 2 se vuelve agresivo, controlador y dominante. Comienzan a cobrar en cara los favores realizados y exigen atención de manera contundente.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 4:</strong> En salud psicológica, aprenden a mirar hacia adentro. Reconocen sus propias emociones profundas y necesidades genuinas. Se vuelven auténticos y comprenden que son dignos de amor por quienes son, no solo por lo que dan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="vision-img" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938cb?auto=format&fit=crop&w=800&q=80');"></div>
-    </section>
 
-    <!-- 6. Tecnología -->
-    <section id="tecnologia" class="tech reveal">
-        <h2 class="title">Cabina Inteligente</h2>
-        <p class="desc" style="margin: 0 auto;">Sin botones. Una pantalla central cinematográfica de 17 pulgadas controla absolutamente todo, desde la temperatura hasta el sistema de conducción autónoma de nivel 3.</p>
-        <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1000&q=80" alt="Interior" class="tech-img">
-    </section>
-
-    <!-- 7. Sustentabilidad -->
-    <section id="sustentabilidad" class="sustain reveal">
-        <h2 class="title">Cero Emisiones</h2>
-        <p class="desc">Nuestra planta de ensamblaje funciona 100% con energía solar. El interior de nuestros vehículos está tapizado con cuero vegano y plásticos reciclados del océano.</p>
-    </section>
-
-    <!-- 8. Galería -->
-    <section id="galeria" class="reveal">
-        <h2 class="title">El Arte del Movimiento</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=800&q=80" class="gal-item gal-1">
-            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=400&q=80" class="gal-item">
-            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80" class="gal-item">
+        <div id="perfil-3" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/triunfador.jpg" alt="Triunfador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Emocional (El Corazón)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Vanidad (Engaño)</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Veracidad / Autenticidad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>3w2 (El Encantador) | 3w4 (El Profesional)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 3: El Triunfador</h2>
+                        <p>Los Tipo 3 son personas adaptables, orientadas al éxito y extremadamente eficientes. Saben "leer la habitación" y pueden moldear su personalidad para convertirse en la imagen de éxito que su entorno valora. Son altamente ambiciosos y carismáticos.</p>
+                        <p>Su mayor desafío es el "Engaño" (principalmente el autoengaño). De tanto actuar un papel para obtener admiración y aplausos, terminan confundiendo su imagen pública con su verdadera identidad, perdiendo contacto con lo que realmente sienten en su corazón.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser inútil, fracasar y no tener valor inherente.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Ser valioso, aceptado, exitoso y admirado.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 9:</strong> Bajo presión extrema o fracasos absolutos que destruyen su imagen, el activo Tipo 3 colapsa. Se vuelven apáticos, desvinculados, pierden toda motivación y entran en un estado de negación pasiva donde rinden sus esfuerzos.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 6:</strong> En estado de madurez, sueltan su obsesión por el brillo personal y la imagen. Se vuelven más leales, cooperativos, orientados al equipo y se comprometen con causas o personas que van más allá de su propio éxito.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- 9. Reserva -->
-    <section id="reserva" class="reserve reveal">
-        <h2 class="title">Solicita un Test Drive</h2>
-        <p>Siente la aceleración instantánea en tus propias manos.</p>
-        <form>
-            <input type="text" placeholder="Nombre Completo" required>
-            <input type="email" placeholder="Correo Electrónico" required>
-            <select>
-                <option>Nova Sedan EV</option>
-                <option>Nova SUV-X</option>
-            </select>
-            <button type="submit" class="btn-black">Agendar Prueba</button>
-        </form>
-    </section>
+        <div id="perfil-4" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/individualismo.jpg" alt="Individualista"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Emocional (El Corazón)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Envidia</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Ecuanimidad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>4w3 (El Aristócrata) | 4w5 (El Bohemio)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 4: El Individualista</h2>
+                        <p>Profundamente introspectivos y románticos, los Tipo 4 se sienten fundamentalmente diferentes a los demás. Ocultan una sensación de carencia bajo una fachada de superioridad estética, originalidad y melancolía. Poseen un acceso profundo al espectro emocional humano.</p>
+                        <p>Su pasión es la "Envidia", entendida como una sensación constante de que a los demás se les concedió algo fundamental (felicidad, normalidad, encaje social) que a ellos se les negó al nacer, llevándolos a focalizarse siempre en lo que les falta.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser ordinario y carecer de identidad personal.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Expresar su singularidad y descubrir quiénes son.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 2:</strong> Cuando el aislamiento emocional los asfixia, comienzan a aferrarse desesperadamente a las personas. Manipulan situaciones sutilmente para ser rescatados y asfixian a sus seres queridos con demandas de atención e intimidad forzada.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 1:</strong> En su mejor estado, dejan de ser controlados por la marea de sus sentimientos fluctuantes. Adoptan disciplina, objetividad, estructura y logran materializar su enorme potencial creativo en obras tangibles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil-5" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/investigador.jpg" alt="Investigador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Mental (La Cabeza)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Avaricia</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Desapego / Generosidad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>5w4 (El Iconoclasta) | 5w6 (El Solucionador)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 5: El Investigador</h2>
+                        <p>Los Tipo 5 viven en el reino de la mente. Son pioneros intelectuales, agudos y perceptivos que buscan descifrar cómo funciona el mundo. Prefieren observar desde la distancia antes que involucrarse emocional o físicamente, para evitar ser abrumados.</p>
+                        <p>Su pasión es la "Avaricia", pero no material, sino de sus propios recursos internos. Sienten que tienen un nivel de energía (o batería) muy bajo y construyen muros para proteger su tiempo, su espacio y sus conocimientos de las "intrusiones" del mundo exterior.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser inútil, incapaz, impotente o ignorante.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Ser competente y entender la realidad plenamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 7:</strong> Cuando el mundo exige demasiado de ellos, su mente metódica se fragmenta. Se vuelven hiperactivos, dispersos, frenéticos e incapaces de concentrarse, saltando de idea en idea de forma superficial y ansiosa.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 8:</strong> Al sentirse seguros de sus recursos, salen de su cueva mental y toman acción en el mundo físico. Comienzan a liderar con confianza, tomando decisiones directas y utilizando sus datos para impactar la realidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil-6" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/leal.png" alt="Leal"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Mental (La Cabeza)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">El Miedo (Ansiedad)</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Valor / Fe</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>6w5 (El Defensor) | 6w7 (El Amigo)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 6: El Leal</h2>
+                        <p>Los Tipo 6 operan con un radar interno diseñado para detectar amenazas y peores escenarios posibles. Son trabajadores, responsables y forman lazos de lealtad irrompibles con amigos o sistemas de creencias que les brinden seguridad.</p>
+                        <p>Su núcleo está dominado por el "Miedo" o la ansiedad basal. Curiosamente, este miedo puede manifestarse de forma fóbica (sumisión y evitación del peligro) o contrafóbica (enfrentar el miedo con agresividad y rebeldía para demostrar que no están asustados).</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Carecer de apoyo, orientación y seguridad.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Tener certezas, respaldo y previsibilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 3:</strong> Presionados por la paranoia de perder seguridad, se vuelven engañosos, altamente competitivos y arrogantes. Utilizan cualquier medio, incluyendo pisotear a otros, para asegurar su posición o protegerse de las amenazas percibidas.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 9:</strong> Cuando logran calmar su mente hipervigilante, se relajan profundamente. Se vuelven pacíficos, optimistas, inclusivos y desarrollan fe en que ellos mismos y el universo pueden sostenerlos sin necesidad de estar siempre en guardia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil-7" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/entusiasta.jpg" alt="Entusiasta"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Mental (La Cabeza)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Gula</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Sobriedad / Constancia</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>7w6 (El Animador) | 7w8 (El Realista)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 7: El Entusiasta</h2>
+                        <p>Espontáneos, optimistas y amantes de la diversión, los Tipo 7 viven en constante anticipación de las cosas maravillosas que depara el futuro. Son mentes rápidas que aprenden de todo un poco, siempre buscando mantener sus opciones abiertas para no sentirse atrapados.</p>
+                        <p>Su pasión es la "Gula" mental. No pueden saciarse de experiencias, ideas y estímulos novedosos. Utilizan esta hiperactividad y planificación constante como un mecanismo de defensa para huir del aburrimiento y, sobre todo, del dolor emocional profundo.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Estar atrapado en el dolor, la privación o el aburrimiento.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Estar feliz, satisfecho y experimentar todo lo posible.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 1:</strong> Cuando sus múltiples opciones fallan y se sienten acorralados, la alegría desaparece. Se vuelven rígidos, sumamente críticos, frustrados y comienzan a imponer reglas severas o juicios duros para intentar retomar el control del caos.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 5:</strong> Al aprender a estar presentes y tolerar la incomodidad interna, dejan de saltar superficialmente. Desarrollan una capacidad profunda para enfocarse, estudiar, terminar los proyectos que empiezan e interiorizar la sabiduría.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil-8" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/desafiador.jpg" alt="Desafiador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Instintivo (El Cuerpo)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Lujuria (Exceso)</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Inocencia / Vulnerabilidad</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>8w7 (El Inconformista) | 8w9 (El Oso)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 8: El Desafiador</h2>
+                        <p>Los Tipo 8 son personas imponentes, asertivas y protectoras. Se niegan rotundamente a ser débiles en un mundo que perciben como injusto u hostil. Toman el control de su entorno y utilizan su tremenda energía para liderar y proteger a quienes consideran bajo su cuidado.</p>
+                        <p>Su pasión es la "Lujuria" o el exceso. Buscan intensidad en todo lo que hacen (trabajo, comida, discusiones) para sentir que están vivos, empujando los límites de su cuerpo y entorno constantemente. Detestan la debilidad, especialmente en sí mismos.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">Ser dañado, controlado o manipulado por otros.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Ser independiente y proteger su propia autonomía.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 5:</strong> Si se sienten traicionados o abrumados frente a un poder mayor, el imponente Ocho se retira. Se aíslan, se vuelven paranoicos, calculadores y fríos, cortando lazos emocionales mientras planean su supervivencia desde las sombras.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 2:</strong> Cuando se sienten verdaderamente seguros, bajan su escudo de hierro. Utilizan su inmensa fuerza no para dominar, sino para nutrir, amar incondicionalmente, y mostrar una ternura y compasión genuinas hacia los demás.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="perfil-9" class="view">
+            <button class="btn-back" onclick="backMatrix()">Volver al Índice</button>
+            <div class="detail-layout">
+                <div class="detail-left">
+                    <div class="detail-img"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/pacificador.jpg" alt="Pacificador"></div>
+                    <div class="info-box">
+                        <div class="info-line"><label>Tríada Base</label><span>Instintivo (El Cuerpo)</span></div>
+                        <div class="info-line"><label>Pasión (Pecado Capital)</label><span class="highlight">La Pereza (Narcotización)</span></div>
+                        <div class="info-line"><label>Virtud a desarrollar</label><span>Acción Correcta</span></div>
+                        <div class="info-line"><label>Alas Posibles</label><span>9w8 (El Árbitro) | 9w1 (El Soñador)</span></div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="main-description">
+                        <h2>Eneatipo 9: El Pacificador</h2>
+                        <p>El Tipo 9 es la corona del Eneagrama, uniendo a todos los demás tipos. Son personas tranquilas, receptivas y acomodaticias que buscan mantener la homeostasis y evitar el conflicto a toda costa, creando armonía en sus entornos y relaciones.</p>
+                        <p>Su pasión es la "Pereza", pero no necesariamente física (pueden ser muy trabajadores). Es una pereza psico-espiritual o "narcotización": se olvidan de sí mismos, adormecen sus propios deseos, talentos y enojos para fusionarse con las agendas de los demás y no perturbar la paz.</p>
+                        
+                        <div class="core-grid">
+                            <div class="core-card fear">
+                                <h4>Miedo Profundo</h4>
+                                <p style="color: var(--rojo-vino);">La fragmentación, pérdida, separación o el conflicto.</p>
+                            </div>
+                            <div class="core-card desire">
+                                <h4>Deseo Central</h4>
+                                <p style="color: var(--verde-sabio);">Tener estabilidad absoluta interior y paz exterior.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamics-section">
+                        <div class="dynamic-card stress">
+                            <h3>Dirección de Desintegración</h3>
+                            <p><strong>Hacia el Tipo 6:</strong> Cuando el conflicto reprimido finalmente estalla y amenaza su seguridad, el pacífico Nueve se llena de pánico. Se vuelven altamente ansiosos, pesimistas, reactivos, preocupados y comienzan a dudar de las intenciones de todos a su alrededor.</p>
+                        </div>
+                        <div class="dynamic-card growth">
+                            <h3>Dirección de Integración</h3>
+                            <p><strong>Hacia el Tipo 3:</strong> Cuando despiertan de su letargo emocional, recuperan el contacto con su propio valor. Se vuelven enérgicos, proactivos, independientes y orientados a sus propios objetivos vitales, invirtiendo finalmente en sí mismos de manera contundente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        // Navbar Background change on scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Reveal Animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+        function openProfile(idPerfil) {
+            document.querySelectorAll('.view').forEach(v => {
+                v.classList.remove('active');
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            document.getElementById(idPerfil).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backMatrix() {
+            document.querySelectorAll('.view').forEach(v => {
+                v.classList.remove('active');
+            });
+            document.getElementById('view-matrix').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
