@@ -3,215 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataCore | Inteligencia de Negocios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <title>El Panteón Clásico | Los 12 Olímpicos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de 8 Colores: Museo Clásico */
         :root {
-            --bg-dark: #0A1931; --bg-panel: #222831; --primary: #185ADB; --cyan: #00E7DF;
-            --white: #FFFFFF; --gray: #F5F5F5; --purple: #9D4EDD; --yellow: #FFC107;
+            --c-marmol: #F5F5F0;     /* Mármol Puro (Fondo) */
+            --c-onice: #1A1A1A;      /* Ónice Oscuro (Texto) */
+            --c-oro: #D4AF37;        /* Oro Olímpico (Acentos) */
+            --c-egeo: #1B263B;       /* Azul Egeo (Paneles Oscuros) */
+            --c-bronce: #CD7F32;     /* Bronce Antiguo (Detalles) */
+            --c-granate: #7A1C1C;    /* Granate Profundo (Resaltados) */
+            --c-piedra: #6C757D;     /* Gris Piedra (Bordes) */
+            --c-nieve: #FFFFFF;      /* Blanco Nieve (Tarjetas) */
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--gray); color: var(--bg-dark); display: flex; height: 100vh; overflow: hidden; }
-        
-        /* Menú Lateral */
-        .sidebar { width: 260px; background: var(--bg-dark); color: var(--white); display: flex; flex-direction: column; overflow-y: auto; box-shadow: 4px 0 15px rgba(0,0,0,0.1); z-index: 10; }
-        .sidebar-header { padding: 30px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 1.8rem; font-weight: 900; color: var(--white); }
-        .logo span { color: var(--cyan); }
-        
-        .nav-btn { background: transparent; border: none; color: #aaa; text-align: left; padding: 15px 20px; font-size: 0.95rem; font-weight: 500; cursor: pointer; border-left: 4px solid transparent; transition: 0.3s; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .nav-btn:hover { color: var(--white); background: rgba(24, 90, 219, 0.2); }
-        .nav-btn.active { color: var(--cyan); border-left-color: var(--cyan); background: rgba(0, 231, 223, 0.1); font-weight: 700; }
+        body { font-family: 'Cormorant Garamond', serif; background-color: var(--c-marmol); color: var(--c-onice); display: flex; overflow-x: hidden; }
+        h1, h2, h3, .nav-btn { font-family: 'Cinzel', serif; }
 
-        /* Contenedor Principal (Donde cargan las páginas) */
-        .main-content { flex: 1; overflow-y: auto; background-color: var(--white); position: relative; }
+        /* Sidebar - Menú Lateral Simétrico */
+        .sidebar {
+            width: 340px; height: 100vh; background-color: var(--c-egeo);
+            position: fixed; display: flex; flex-direction: column; 
+            border-right: 4px solid var(--c-oro); z-index: 1000;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+        }
+        .logo-box { padding: 40px 20px; text-align: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); }
+        .logo-box h2 { color: var(--c-nieve); font-size: 2.2rem; letter-spacing: 4px; margin-bottom: 5px; }
+        .logo-box span { color: var(--c-oro); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .nav-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+            background-color: rgba(212, 175, 55, 0.2); margin-top: auto; margin-bottom: auto;
+        }
+        .nav-btn {
+            background: var(--c-egeo); border: none; color: var(--c-piedra);
+            padding: 20px 10px; text-align: center; font-size: 0.85rem; font-weight: 700;
+            cursor: pointer; transition: 0.4s; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .nav-btn span { font-size: 1.5rem; color: var(--c-bronce); margin-bottom: 5px; opacity: 0.5; transition: 0.4s; font-family: 'Cormorant Garamond', serif; }
+        .nav-btn:hover { color: var(--c-marmol); background: rgba(255,255,255,0.05); }
+        .nav-btn:hover span { opacity: 1; transform: translateY(-3px); }
+        .nav-btn.active { color: var(--c-nieve); background: var(--c-granate); }
+        .nav-btn.active span { color: var(--c-oro); opacity: 1; }
+
+        .sidebar-footer { padding: 20px; text-align: center; color: var(--c-piedra); font-size: 0.8rem; border-top: 1px solid rgba(212, 175, 55, 0.3); font-family: 'Arial', sans-serif; }
+
+        /* Contenido Principal */
+        .main-content { margin-left: 340px; width: calc(100% - 340px); min-height: 100vh; padding: 60px 5%; }
         
-        /* Estructura de las "Páginas" */
-        .page { display: none; padding: 60px 8%; animation: fadeIn 0.4s ease-out; }
-        .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Estilos Internos */
-        h1 { font-size: 3rem; color: var(--bg-dark); margin-bottom: 15px; font-weight: 900; }
-        h1 span { color: var(--primary); }
-        h2 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
-        p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
+        /* Efectos de Cascada (Staggered Animations) */
+        .god-section { display: none; }
+        .god-section.active { display: block; }
         
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
-        .card { background: var(--gray); padding: 30px; border-radius: 12px; border-top: 4px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .card h3 { color: var(--bg-dark); margin-bottom: 10px; }
-        .card-cyan { border-top-color: var(--cyan); }
-        .card-purple { border-top-color: var(--purple); }
+        .anim-element { opacity: 0; transform: translateY(30px); }
+        .god-section.active .anim-element { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .god-section.active .delay-1 { animation-delay: 0.1s; }
+        .god-section.active .delay-2 { animation-delay: 0.2s; }
+        .god-section.active .delay-3 { animation-delay: 0.3s; }
+        .god-section.active .delay-4 { animation-delay: 0.4s; }
 
-        .btn-action { background: var(--primary); color: var(--white); padding: 15px 30px; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-        .btn-action:hover { background: var(--bg-dark); box-shadow: 0 5px 15px rgba(24, 90, 219, 0.4); }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
 
-        .tech-tag { display: inline-block; background: var(--bg-panel); color: var(--cyan); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin: 5px 5px 0 0; font-weight: 700; }
+        /* Estructura Interna */
+        .god-header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--c-oro); padding-bottom: 30px; }
+        .god-header h1 { font-size: 5rem; color: var(--c-egeo); margin-bottom: 0; letter-spacing: -2px; line-height: 1; }
+        .god-header .domain { font-size: 1.6rem; color: var(--c-granate); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+
+        .layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 50px; }
+        
+        /* Tarjeta de Información */
+        .info-card { background: var(--c-nieve); padding: 40px; border-radius: 8px; border: 1px solid #E0E0E0; box-shadow: 0 20px 40px rgba(0,0,0,0.08); position: relative; }
+        .info-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--c-oro), var(--c-bronce)); border-radius: 8px 8px 0 0; }
+        
+        .data-list { list-style: none; margin-bottom: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .data-item { background: var(--c-marmol); padding: 15px; border-left: 3px solid var(--c-egeo); }
+        .data-item strong { color: var(--c-egeo); font-family: 'Cinzel', serif; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .data-item span { font-size: 1.1rem; color: var(--c-granate); font-style: italic; }
+        
+        .lore-text { font-size: 1.25rem; line-height: 1.8; text-align: justify; color: var(--c-onice); }
+        .lore-text p { margin-bottom: 20px; }
+        .lore-text h3 { color: var(--c-egeo); font-size: 1.5rem; margin: 30px 0 15px; border-bottom: 1px solid var(--c-bronce); display: inline-block; padding-bottom: 5px; }
+
+        /* Imágenes con Efectos Parallax Simulado */
+        .img-container { position: relative; overflow: hidden; border-radius: 8px; box-shadow: -20px 20px 0 var(--c-egeo); transition: 0.5s; }
+        .img-container:hover { box-shadow: -25px 25px 0 var(--c-oro); transform: translate(5px, -5px); }
+        .img-main { width: 100%; height: 100%; object-fit: cover; min-height: 650px; transition: transform 1s ease; }
+        .img-container:hover .img-main { transform: scale(1.08); }
+
+        .sub-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .sub-img-box { overflow: hidden; border-radius: 8px; border: 2px solid var(--c-bronce); position: relative; }
+        .sub-img-box::after { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(27, 38, 59, 0.3); transition: 0.4s; }
+        .sub-img-box:hover::after { background: rgba(27, 38, 59, 0); }
+        .sub-img { width: 100%; height: 350px; object-fit: cover; transition: 0.7s; }
+        .sub-img-box:hover .sub-img { transform: scale(1.1); }
+
+        @media (max-width: 1200px) {
+            .layout-grid { grid-template-columns: 1fr; }
+            .img-container { height: 500px; }
+            .img-main { min-height: 500px; }
+        }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+            .nav-grid { grid-template-columns: repeat(4, 1fr); }
+            .nav-btn span { display: none; }
+            .main-content { margin-left: 0; width: 100%; padding: 40px 5%; }
+            .god-header h1 { font-size: 3.5rem; }
+            .data-list { grid-template-columns: 1fr; }
+            .sub-gallery { grid-template-columns: 1fr; gap: 20px; }
+            .sidebar-footer { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ LATERAL (12 Botones) -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">Data<span>Core</span></div>
+    <aside class="sidebar">
+        <div class="logo-box">
+            <h2>OLIMPO</h2>
+            <span>Archivo Mitológico</span>
         </div>
-        <button class="nav-btn active" onclick="cambiarPagina('p1', this)">1. Resumen Ejecutivo</button>
-        <button class="nav-btn" onclick="cambiarPagina('p2', this)">2. Quiénes Somos</button>
-        <button class="nav-btn" onclick="cambiarPagina('p3', this)">3. Data Warehousing</button>
-        <button class="nav-btn" onclick="cambiarPagina('p4', this)">4. Metodología Inmon</button>
-        <button class="nav-btn" onclick="cambiarPagina('p5', this)">5. Metodología Kimball</button>
-        <button class="nav-btn" onclick="cambiarPagina('p6', this)">6. Desarrollo Python</button>
-        <button class="nav-btn" onclick="cambiarPagina('p7', this)">7. Modelado SQL</button>
-        <button class="nav-btn" onclick="cambiarPagina('p8', this)">8. Dashboards BI</button>
-        <button class="nav-btn" onclick="cambiarPagina('p9', this)">9. Hardware & Servidores</button>
-        <button class="nav-btn" onclick="cambiarPagina('p10', this)">10. Casos de Éxito</button>
-        <button class="nav-btn" onclick="cambiarPagina('p11', this)">11. FAQ Técnico</button>
-        <button class="nav-btn" onclick="cambiarPagina('p12', this)">12. Portal de Contacto</button>
-    </div>
-
-    <!-- CONTENEDOR DE PÁGINAS -->
-    <div class="main-content">
-
-        <!-- Página 1 -->
-        <div id="p1" class="page active">
-            <h1>Business <span>Intelligence</span> a gran escala.</h1>
-            <p>Transformamos datos crudos en decisiones estratégicas. Diseñamos ecosistemas analíticos completos, desde la extracción hasta la visualización en tiempo real.</p>
-            <div style="background: var(--bg-panel); color: var(--white); padding: 40px; border-radius: 12px; margin-top: 30px;">
-                <h2 style="color: var(--cyan);">Diagnóstico de Datos Gratuito</h2>
-                <p style="color: #ccc;">Evaluamos tu infraestructura actual de bases de datos y proponemos una arquitectura escalable.</p>
-                <button class="btn-action">Agendar Consultoría</button>
-            </div>
+        <nav class="nav-grid" id="menu">
+            </nav>
+        <div class="sidebar-footer">
+            Diseñado en Tijuana, B.C. | 2026
         </div>
+    </aside>
 
-        <!-- Página 2 -->
-        <div id="p2" class="page">
-            <h2>Quiénes Somos</h2>
-            <p>Somos un equipo de ingenieros de datos y analistas especializados en la Universidad Autónoma de Baja California (UABC). Entendemos que el valor de una empresa no está en cuánto software tiene, sino en cómo integra su información.</p>
-            <div class="grid-cards">
-                <div class="card card-cyan"><h3>Misión</h3><p>Democratizar el acceso a métricas precisas para empresas en crecimiento.</p></div>
-                <div class="card card-purple"><h3>Visión</h3><p>Ser el referente en Baja California en implementaciones de Data Vault y modelos analíticos predictivos.</p></div>
-            </div>
-        </div>
+    <main class="main-content" id="content-area">
+        </main>
 
-        <!-- Página 3 -->
-        <div id="p3" class="page">
-            <h2>Data Warehousing</h2>
-            <p>Construimos el cerebro de tu empresa. Centralizamos información de ERPs, CRMs y archivos planos en un repositorio único, limpio y auditable.</p>
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-top: 20px;">
-        </div>
-
-        <!-- Página 4 -->
-        <div id="p4" class="page">
-            <h2>Metodología Bill Inmon</h2>
-            <p>Aplicamos el enfoque "Top-Down" para corporativos. Creamos un Enterprise Data Warehouse (EDW) altamente normalizado (3NF) que garantiza la integridad absoluta de la información a nivel empresarial antes de crear Data Marts departamentales.</p>
-            <div style="padding: 20px; border-left: 5px solid var(--purple); background: var(--gray);">Ideal para el sector financiero y aseguradoras donde la trazabilidad es ley.</div>
-        </div>
-
-        <!-- Página 5 -->
-        <div id="p5" class="page">
-            <h2>Metodología Ralph Kimball</h2>
-            <p>Desplegamos modelos dimensionales (Esquema de Estrella o Copo de Nieve) basados en procesos de negocio ("Bottom-Up").</p>
-            <p>Esta arquitectura está optimizada para la velocidad de consulta y es la base perfecta para conectar herramientas como Power BI o Tableau rápidamente.</p>
-        </div>
-
-        <!-- Página 6 -->
-        <div id="p6" class="page">
-            <h2>Desarrollo con Python</h2>
-            <p>Automatizamos lo manual. Construimos pipelines ETL (Extract, Transform, Load) utilizando Python para limpiar y procesar millones de registros en minutos.</p>
-            <div>
-                <span class="tech-tag">Pandas</span> <span class="tech-tag">NumPy</span> <span class="tech-tag">Flask (APIs)</span> <span class="tech-tag">Machine Learning</span>
-            </div>
-        </div>
-
-        <!-- Página 7 -->
-        <div id="p7" class="page">
-            <h2>Modelado SQL Avanzado</h2>
-            <p>El lenguaje universal de los datos. Optimizamos consultas lentas, estructuramos vistas materializadas y gestionamos bases de datos relacionales robustas para garantizar que tus reportes carguen al instante.</p>
-        </div>
-
-        <!-- Página 8 -->
-        <div id="p8" class="page">
-            <h2>Dashboards BI Interactivos</h2>
-            <p>Los datos no sirven si no se entienden. Diseñamos tableros visuales de alto impacto (KPIs) para que la directiva pueda monitorear ventas, mermas e inventarios en tiempo real desde cualquier dispositivo.</p>
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Dashboard" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
-        </div>
-
-        <!-- Página 9 -->
-        <div id="p9" class="page">
-            <h2>Consultoría en Hardware TI</h2>
-            <p>Recomendamos y configuramos la infraestructura física necesaria para alojar tus datos locales.</p>
-            <div class="grid-cards">
-                <div class="card"><h3>Servidores Mini PC</h3><p>Alta eficiencia energética y procesamiento potente para correr scripts de Python 24/7 en oficinas pequeñas.</p></div>
-                <div class="card"><h3>Workstations</h3><p>Asesoría en equipos (RAM, GPU) para analistas que procesan modelos de Machine Learning locales.</p></div>
-            </div>
-        </div>
-
-        <!-- Página 10 -->
-        <div id="p10" class="page">
-            <h2>Casos de Estudio</h2>
-            <div class="grid-cards">
-                <div class="card card-purple">
-                    <h3 style="color: var(--purple);">Análisis de Incidencia Criminal</h3>
-                    <p>Uso de Kimball para mapear delitos en Tijuana, permitiendo filtros por colonia y hora en dashboards interactivos.</p>
-                </div>
-                <div class="card card-cyan">
-                    <h3 style="color: var(--cyan);">Detección de Fraude Bancario</h3>
-                    <p>Implementación de un repositorio seguro con metodología Inmon para cruzar perfiles financieros y detectar anomalías transaccionales.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Página 11 -->
-        <div id="p11" class="page">
-            <h2>FAQ Técnico</h2>
-            <div style="background: var(--white); border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
-                <h3 style="color: var(--bg-dark);">¿Trabajan con la nube o en servidores locales?</h3>
-                <p style="margin-bottom: 0;">Nos adaptamos. Podemos configurar instancias en AWS/Azure o montar arquitecturas híbridas on-premise.</p>
-            </div>
-            <div style="background: var(--white); border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
-                <h3 style="color: var(--bg-dark);">¿Qué pasa si mi empresa usa Access o Excel?</h3>
-                <p style="margin-bottom: 0;">Es el escenario más común. Creamos rutinas en Python para migrar tus históricos de Access/Excel a un motor SQL robusto (MySQL/PostgreSQL) sin perder un solo registro.</p>
-            </div>
-        </div>
-
-        <!-- Página 12 -->
-        <div id="p12" class="page">
-            <h2>Inicia tu Proyecto</h2>
-            <p>Estamos listos para estructurar el futuro de tu empresa.</p>
-            <form style="max-width: 500px; display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                <input type="text" placeholder="Nombre de la Empresa" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
-                <input type="email" placeholder="Correo Corporativo" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
-                <textarea rows="5" placeholder="Describe brevemente cómo manejas tus datos hoy (Excel, ERP, etc.)" style="padding: 15px; border: 1px solid #ccc; border-radius: 6px;"></textarea>
-                <button type="button" class="btn-action">Solicitar Propuesta</button>
-            </form>
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd;">
-                <p style="margin: 0; font-weight: 700;">Base de Operaciones: Tijuana, Baja California.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- SCRIPT PARA CAMBIAR DE PÁGINA (JAVA/JS) -->
     <script>
-        function cambiarPagina(idPagina, botonMenu) {
-            // 1. Ocultar todas las páginas
-            const paginas = document.querySelectorAll('.page');
-            paginas.forEach(pag => pag.classList.remove('active'));
+        // Datos masivos para las 12 secciones
+        const olimpoData = [
+            { id: 'zeus', name: "Zeus", num: "I", roman: "Júpiter", domain: "Rey del Olimpo y los Cielos", symbols: "Rayo, Águila, Roble", cult: "Olimpia, Dodona",
+              historia: "Gobernante supremo del panteón tras liderar a sus hermanos en la Titanomaquia y desterrar a su padre Cronos al Tártaro. Zeus impone el orden, la ley y la justicia en el cosmos, presidiendo desde su trono en el Monte Olimpo.",
+              mito: "A pesar de ser el guardián del orden, es tristemente célebre por sus constantes metamorfosis (en cisne, toro, lluvia de oro) para seducir a diosas, ninfas y mortales, desatando la furia de su esposa Hera y engendrando héroes legendarios como Perseo y Heracles.",
+              relaciones: "Hijo de Cronos y Rea. Esposo de Hera. Padre de Atenea, Apolo, Artemisa, Ares, Hermes, Dioniso y numerosos semidioses.",
+              imgs: ['zeus_1.jpg', 'zeus_2.jpg', 'zeus_3.jpg'] },
+            { id: 'hera', name: "Hera", num: "II", roman: "Juno", domain: "Reina de los Dioses", symbols: "Pavo Real, Granada, Diadema", cult: "Argos, Samos, Olimpia",
+              historia: "La deidad femenina más poderosa. Protectora sagrada de las mujeres, el matrimonio legítimo y el parto. Su presencia es de una majestad inquebrantable, exigiendo respeto absoluto tanto de dioses como de mortales.",
+              mito: "Su mitología está marcada por una cólera implacable. Condenó a Eco a repetir las últimas palabras de otros, envió serpientes a asesinar al bebé Heracles y maldijo a Leto para que no pudiera dar a luz en tierra firme, todo como venganza por las infidelidades de Zeus.",
+              relaciones: "Hija de Cronos y Rea. Esposa de Zeus. Madre de Ares, Hefesto y Hebe.",
+              imgs: ['hera_1.jpg', 'hera_2.jpg', 'hera_3.jpg'] },
+            { id: 'poseidon', name: "Poseidón", num: "III", roman: "Neptuno", domain: "Señor de los Mares", symbols: "Tridente, Caballo, Delfín", cult: "Corinto, Sounion",
+              historia: "El gobernante absoluto de las aguas. Tras la derrota de los Titanes, el mundo se dividió en tres, y a él le correspondió el océano. Habitaba en un palacio de coral y gemas en las profundidades del mar Egeo.",
+              mito: "Conocido como 'El Agitador de la Tierra'. Su furia provocaba tormentas y terremotos. Compitió contra Atenea por el patronazgo de Atenas, ofreciendo un manantial de agua salada (o el primer caballo), pero perdió ante el olivo de la diosa, lo que provocó que maldijera temporalmente la ciudad sin agua.",
+              relaciones: "Hermano de Zeus y Hades. Esposo de Anfítrite. Padre del cíclope Polifemo, Teseo y el caballo alado Pegaso.",
+              imgs: ['poseidon_1.jpg', 'poseidon_2.jpg', 'poseidon_3.jpg'] },
+            { id: 'demeter', name: "Deméter", num: "IV", roman: "Ceres", domain: "Diosa de la Agricultura", symbols: "Espiga de Trigo, Antorcha", cult: "Eleusis",
+              historia: "La madre nutricia. De ella dependía la supervivencia de la humanidad, pues otorgaba las cosechas, el grano y la fertilidad de la tierra. Su culto en los Misterios Eleusinos era el más sagrado y secreto de toda la Antigua Grecia.",
+              mito: "Cuando Hades secuestró a su hija Perséfone, el dolor de Deméter marchitó el mundo, creando el primer invierno. Amenazó con matar de hambre a la humanidad hasta que Zeus intervino. El pacto final estableció que Perséfone pasaría una parte del año en el inframundo (otoño/invierno) y el resto con su madre (primavera/verano).",
+              relaciones: "Hermana de Zeus. Madre de Perséfone (con Zeus) y de Pluto.",
+              imgs: ['demeter_1.jpg', 'demeter_2.jpg', 'demeter_3.jpg'] },
+            { id: 'atenea', name: "Atenea", num: "V", roman: "Minerva", domain: "Diosa de la Sabiduría y la Estrategia", symbols: "Búho, Olivo, Égida", cult: "Atenas (El Partenón)",
+              historia: "Nació de la cabeza de Zeus, completamente armada y lanzando un grito de guerra. Representa la inteligencia, las matemáticas, la artesanía y la guerra táctica, en contraste con la brutalidad sin sentido de Ares.",
+              mito: "Es la protectora por excelencia de los grandes héroes. Guio a Odiseo en su viaje de regreso a Ítaca, ayudó a Perseo a decapitar a Medusa entregándole un escudo pulido como espejo, y asistió a Heracles en sus doce trabajos.",
+              relaciones: "Hija predilecta de Zeus (nacida de Metis). Juró castidad eterna, siendo una de las tres diosas vírgenes.",
+              imgs: ['atenea_1.jpg', 'atenea_2.jpg', 'atenea_3.jpg'] },
+            { id: 'apolo', name: "Apolo", num: "VI", roman: "Apolo", domain: "Dios de la Luz, las Artes y la Profecía", symbols: "Lira, Arco Dorado, Laurel", cult: "Delfos, Delos",
+              historia: "El ideal de la juventud y belleza masculina (Kouros). Apolo conduce el sol por el cielo y es el maestro indiscutible de las Musas. A través de la Pitia en su santuario de Delfos, dictaba profecías que decidían el destino de reyes y naciones.",
+              mito: "Es un dios de dualidades extremas. Patrón de la medicina y la curación, pero capaz de disparar flechas infectadas con plagas. Transformó a su amada Dafne en un árbol de laurel para salvarla de su propia persecución, motivo por el cual siempre lleva una corona de hojas de laurel.",
+              relaciones: "Hijo de Zeus y Leto. Hermano gemelo de Artemisa. Padre de Asclepio (dios de la medicina) y Orfeo.",
+              imgs: ['apolo_1.jpg', 'apolo_2.jpg', 'apolo_3.jpg'] },
+            { id: 'artemisa', name: "Artemisa", num: "VII", roman: "Diana", domain: "Diosa de la Caza y la Naturaleza Salvaje", symbols: "Arco de Plata, Ciervo, Luna", cult: "Éfeso, Esparta",
+              historia: "Hermana gemela de Apolo. Es la guardiana implacable de los bosques, las montañas y los animales salvajes. Artemisa exigió a su padre Zeus seis deseos, siendo el primero mantener su virginidad eterna y nunca atarse al matrimonio.",
+              mito: "De naturaleza protectora pero vengativa. Cuando el cazador Acteón la vio bañándose desnuda accidentalmente en el bosque, ella lo transformó en un ciervo, provocando que fuera devorado por sus propios perros de caza. Es protectora de las niñas y las doncellas.",
+              relaciones: "Hija de Zeus y Leto. Hermana gemela de Apolo. Acompañada siempre por su séquito de ninfas.",
+              imgs: ['artemisa_1.jpg', 'artemisa_2.jpg', 'artemisa_3.jpg'] },
+            { id: 'ares', name: "Ares", num: "VIII", roman: "Marte", domain: "Dios de la Guerra Sangrienta", symbols: "Lanza, Casco, Buitre", cult: "Esparta, Tracia",
+              historia: "La encarnación del caos, la sed de sangre y el frenesí de la batalla. Mientras los atenienses adoraban la estrategia de Atenea, los guerreros de Esparta consideraban a Ares su máximo patrón, pidiéndole fuerza destructiva antes del combate.",
+              mito: "A pesar de ser el dios de la guerra, fue derrotado varias veces en la mitología (incluyendo por mortales como Diomedes, con ayuda de Atenea). Su mito más famoso no es bélico, sino romántico: su intenso, apasionado y adúltero romance con Afrodita, la diosa del amor.",
+              relaciones: "Hijo legítimo de Zeus y Hera (ambos lo despreciaban por su brutalidad). Padre de Fobos (Miedo), Deimos (Terror) y Eros (con Afrodita).",
+              imgs: ['ares_1.jpg', 'ares_2.jpg', 'ares_3.jpg'] },
+            { id: 'afrodita', name: "Afrodita", num: "IX", roman: "Venus", domain: "Diosa del Amor, el Deseo y la Belleza", symbols: "Concha, Paloma, Manzana de Oro", cult: "Pafos, Chipre, Corinto",
+              historia: "Nacida de la espuma del mar cerca de Chipre, tras la castración del titán Urano. Afrodita rige sobre la pasión, la procreación y la atracción irresistible, teniendo el poder de nublar el juicio de cualquier ser vivo, mortal o divino.",
+              mito: "Fue la chispa que encendió la Guerra de Troya al ofrecerle a Paris el amor de la mujer más hermosa del mundo, Helena. Aunque Zeus la obligó a casarse con el deforme Hefesto para evitar guerras entre los dioses, ella mantuvo numerosos amantes, siendo Ares su gran pasión.",
+              relaciones: "Nacida de Urano (o hija de Zeus y Dione). Esposa de Hefesto. Madre de Eros, Eneas y Deimos.",
+              imgs: ['afrodita_1.jpg', 'afrodita_2.jpg', 'afrodita_3.jpg'] },
+            { id: 'hefesto', name: "Hefesto", num: "X", roman: "Vulcano", domain: "Dios del Fuego y la Forja", symbols: "Yunque, Martillo, Volcán", cult: "Atenas, Lemnos",
+              historia: "El único dios obrero e imperfecto físicamente. Expulsado del Olimpo al nacer debido a su cojera, su genio incomparable en la ingeniería lo hizo indispensable, forjando los tronos del Olimpo y las armas de los dioses.",
+              mito: "Para vengarse de Hera por haberlo rechazado, forjó un trono de oro mágico que la atrapó, negándose a liberarla hasta que le fue concedida la mano de Afrodita. Sus forjas se encuentran bajo los volcanes, donde trabaja junto a los Cíclopes elaborando autómatas e invenciones imposibles.",
+              relaciones: "Hijo de Hera (a menudo engendrado sola por partenogénesis). Esposo de Afrodita.",
+              imgs: ['hefesto_1.jpg', 'hefesto_2.jpg', 'hefesto_3.jpg'] },
+            { id: 'hermes', name: "Hermes", num: "XI", roman: "Mercurio", domain: "Mensajero y Dios de las Fronteras", symbols: "Caduceo, Sandalias Aladas", cult: "Arcadia, Monte Cilene",
+              historia: "El dios más rápido, astuto y multifacético. Patrono de los viajeros, los comerciantes, los oradores, los atletas y los ladrones. Con su velocidad incomparable, es la voz de Zeus que transmite los decretos divinos por todo el cosmos.",
+              mito: "El mismo día que nació, escapó de su cuna, robó el rebaño sagrado de Apolo e inventó la lira utilizando el caparazón de una tortuga. Además, ejerce como 'Psicopompo', la deidad sagrada encargada de escoltar las almas de los recién fallecidos hasta las orillas del río Estigia en el Inframundo.",
+              relaciones: "Hijo de Zeus y la pléyade Maya. Padre de Pan y Hermafrodito.",
+              imgs: ['hermes_1.jpg', 'hermes_2.jpg', 'hermes_3.jpg'] },
+            { id: 'dioniso', name: "Dioniso", num: "XII", roman: "Baco", domain: "Dios del Vino, el Éxtasis y el Teatro", symbols: "Vid, Tirso, Pantera, Copa", cult: "Tebas, Tracia",
+              historia: "El dios más atípico del panteón y el único con una madre mortal. Dioniso representa la fuerza liberadora e irracional de la naturaleza humana, rompiendo las restricciones y convenciones sociales a través del vino y la locura ritual.",
+              mito: "Viajó por todo el mundo conocido (hasta la India) enseñando a los humanos el cultivo de la vid. Sus seguidoras femeninas, las Ménades, entraban en trances de éxtasis salvaje y eran capaces de despedazar bestias con sus propias manos si alguien intentaba detener sus ritos sagrados.",
+              relaciones: "Hijo de Zeus y la princesa mortal Sémele. Rescatado del vientre en llamas de su madre y gestado en el muslo de Zeus.",
+              imgs: ['dioniso_1.jpg', 'dioniso_2.jpg', 'dioniso_3.jpg'] }
+        ];
 
-            // 2. Quitar el color "activo" de todos los botones del menú
-            const botones = document.querySelectorAll('.nav-btn');
-            botones.forEach(btn => btn.classList.remove('active'));
+        const baseUrl = "https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Elite/";
+        const menuContainer = document.getElementById('menu');
+        const contentArea = document.getElementById('content-area');
 
-            // 3. Mostrar la página solicitada (se activa la animación CSS)
-            document.getElementById(idPagina).classList.add('active');
-            
-            // 4. Resaltar el botón que se presionó
-            botonMenu.classList.add('active');
+        function buildApp() {
+            olimpoData.forEach((god, index) => {
+                // Generar Botones del Menú
+                const btn = document.createElement('button');
+                btn.className = `nav-btn ${index === 0 ? 'active' : ''}`;
+                btn.innerHTML = `<span>${god.num}</span> ${god.name}`;
+                btn.onclick = (e) => switchView(god.id, e.currentTarget);
+                menuContainer.appendChild(btn);
 
-            // 5. Hacer scroll hacia arriba al cambiar de página
-            document.querySelector('.main-content').scrollTo(0, 0);
+                // Generar Secciones de Contenido (con clases delay para animación escalonada)
+                const view = document.createElement('section');
+                view.id = `view-${god.id}`;
+                view.className = `god-section ${index === 0 ? 'active' : ''}`;
+                view.innerHTML = `
+                    <div class="god-header anim-element delay-1">
+                        <h1>${god.name}</h1>
+                        <span class="domain">${god.domain}</span>
+                    </div>
+
+                    <div class="layout-grid">
+                        <div class="img-container anim-element delay-2">
+                            <img src="${baseUrl}${god.imgs[0]}" alt="${god.name}" class="img-main">
+                        </div>
+                        
+                        <div class="info-card anim-element delay-3">
+                            <ul class="data-list">
+                                <li class="data-item"><strong>Nombre Romano</strong><span>${god.roman}</span></li>
+                                <li class="data-item"><strong>Atributos Sagrados</strong><span>${god.symbols}</span></li>
+                                <li class="data-item"><strong>Centros de Culto</strong><span>${god.cult}</span></li>
+                                <li class="data-item"><strong>Relaciones</strong><span>${god.relaciones}</span></li>
+                            </ul>
+                            <div class="lore-text">
+                                <h3>Dominio Divino</h3>
+                                <p>${god.historia}</p>
+                                <h3>Mitos Destacados</h3>
+                                <p>${god.mito}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-gallery anim-element delay-4">
+                        <div class="sub-img-box"><img src="${baseUrl}${god.imgs[1]}" alt="Mito ${god.name} 1" class="sub-img"></div>
+                        <div class="sub-img-box"><img src="${baseUrl}${god.imgs[2]}" alt="Mito ${god.name} 2" class="sub-img"></div>
+                    </div>
+                `;
+                contentArea.appendChild(view);
+            });
         }
+
+        function switchView(id, btn) {
+            document.querySelectorAll('.god-section').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            // Forzar reflujo para reiniciar animaciones CSS
+            const targetView = document.getElementById(`view-${id}`);
+            targetView.classList.remove('active');
+            void targetView.offsetWidth; 
+            
+            targetView.classList.add('active');
+            btn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        buildApp();
     </script>
 </body>
 </html>
