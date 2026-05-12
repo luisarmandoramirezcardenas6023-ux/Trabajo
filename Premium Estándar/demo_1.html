@@ -3,173 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vortex Data | Premium Estándar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Instituto Panthera | Catálogo Científico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
-        /* Variables de Paleta */
+        /* Paleta de 4 Colores: Museo Nocturno */
         :root {
-            --dark: #1E1E24;
-            --accent: #FF4D4D;
-            --light: #F4F4F9;
-            --gray: #9296AB;
+            --bg-base: #0B0C10;     /* Negro absoluto */
+            --bg-panel: #1F2833;    /* Gris Plomo */
+            --text-silver: #C5C6C7; /* Plata (Texto) */
+            --accent-fire: #F2A900; /* Naranja/Ámbar vibrante */
         }
 
-        /* Reset Premium */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--light); color: var(--dark); overflow-x: hidden; }
-        html { scroll-behavior: smooth; }
-
-        /* Navegación Inteligente */
-        nav {
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            padding: 25px 10%; display: flex; justify-content: space-between; align-items: center;
-            transition: all 0.4s ease;
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-silver);
+            display: flex;
         }
-        nav.scrolled { background-color: var(--dark); padding: 15px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav.scrolled .logo, nav.scrolled .nav-links a { color: var(--light); }
+
+        /* Sidebar (Menú Lateral Fijo) */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: var(--bg-panel);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            border-right: 2px solid var(--accent-fire);
+            z-index: 100;
+        }
+        .sidebar h2 { color: var(--accent-fire); font-weight: 900; font-size: 1.8rem; margin-bottom: 50px; letter-spacing: 1px; }
+        .nav-btn {
+            background: none; border: none; color: var(--text-silver);
+            text-align: left; font-size: 1.1rem; font-weight: 600;
+            padding: 15px; margin-bottom: 10px; cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            color: var(--accent-fire);
+            background-color: rgba(242, 169, 0, 0.1);
+            border-left: 4px solid var(--accent-fire);
+        }
+
+        /* Área de Contenido */
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 50px 8%;
+        }
+        .seccion-dato {
+            display: none;
+            animation: fadeInRight 0.6s ease-out;
+        }
+        .seccion-dato.activa { display: block; }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Estructura de la información */
+        .header-title { font-size: 4rem; font-weight: 900; color: #FFF; margin-bottom: 10px; text-transform: uppercase; }
+        .header-title span { color: var(--accent-fire); }
+        .subtitle { font-size: 1.2rem; color: var(--accent-fire); margin-bottom: 40px; font-weight: 600; letter-spacing: 2px; }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .main-img {
+            width: 100%; height: 500px; object-fit: cover;
+            border-radius: 4px;
+            box-shadow: -15px 15px 0px var(--bg-panel);
+        }
+        .text-block { background-color: var(--bg-panel); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; }
+        .text-block h3 { color: var(--accent-fire); font-size: 2rem; margin-bottom: 20px; }
+        .text-block p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; text-align: justify; }
         
-        .logo { font-size: 1.8rem; font-weight: 700; color: var(--dark); transition: 0.4s; }
-        .logo span { color: var(--accent); }
-        .nav-links a {
-            text-decoration: none; color: var(--dark); font-weight: 500; margin-left: 30px;
-            transition: 0.3s; position: relative;
-        }
-        .nav-links a:hover { color: var(--accent); }
-        .nav-links a::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: -5px; left: 0; background-color: var(--accent); transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
+        .stats-box { border-top: 1px solid var(--accent-fire); padding-top: 20px; margin-top: auto; }
+        .stats-box p { margin-bottom: 5px; font-size: 0.95rem; }
+        .stats-box strong { color: #FFF; }
 
-        /* Sección 1: Inicio (Hero) */
-        .hero {
-            height: 100vh; display: flex; align-items: center; padding: 0 10%;
-            background: linear-gradient(135deg, var(--light) 0%, #e0e0ec 100%);
-            position: relative;
+        /* Galería inferior de 3 fotos */
+        .gallery-bottom { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery-bottom img {
+            width: 100%; height: 250px; object-fit: cover; border-radius: 4px; filter: grayscale(80%); transition: 0.4s;
         }
-        .hero-content { max-width: 600px; z-index: 2; }
-        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: var(--gray); margin-bottom: 40px; }
-        .btn-main {
-            background-color: var(--accent); color: var(--light); padding: 15px 40px;
-            text-decoration: none; border-radius: 30px; font-weight: 700;
-            transition: transform 0.3s, box-shadow 0.3s; display: inline-block;
-        }
-        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4); }
+        .gallery-bottom img:hover { filter: grayscale(0%); transform: translateY(-10px); box-shadow: 0 10px 20px rgba(242,169,0,0.3); }
 
-        /* Sección 2: Soluciones */
-        .soluciones { padding: 100px 10%; text-align: center; background-color: var(--dark); color: var(--light); }
-        .soluciones h2 { font-size: 2.5rem; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .card {
-            background-color: rgba(255,255,255,0.05); padding: 40px 30px; border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1); transition: 0.4s;
-        }
-        .card:hover { background-color: var(--accent); transform: translateY(-10px); }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .card p { color: var(--light); opacity: 0.8; }
-
-        /* Sección 3: Contacto */
-        .contacto { padding: 100px 10%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .contacto-info { flex: 1; min-width: 300px; margin-right: 50px; }
-        .contacto-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .contacto-info p { color: var(--gray); margin-bottom: 10px; font-size: 1.1rem; }
-        
-        .form-box { flex: 1; min-width: 300px; background-color: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .form-box input, .form-box textarea {
-            width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd;
-            border-radius: 10px; font-family: inherit; transition: 0.3s;
-        }
-        .form-box input:focus, .form-box textarea:focus { border-color: var(--accent); outline: none; }
-        .form-box button {
-            width: 100%; background-color: var(--dark); color: var(--light); border: none;
-            padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s;
-        }
-        .form-box button:hover { background-color: var(--accent); }
-
-        /* Clases para Animación JS */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .nav-links { display: none; } /* Oculto en móvil para este demo */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; align-items: center; justify-content: space-between; padding: 20px; border-right: none; border-bottom: 2px solid var(--accent-fire); }
+            .sidebar h2 { margin-bottom: 0; }
+            .nav-container { display: flex; }
+            .nav-btn { border-left: none; border-bottom: 4px solid transparent; margin-bottom: 0; }
+            .nav-btn:hover, .nav-btn.active { border-left: none; border-bottom: 4px solid var(--accent-fire); }
+            .main-content { margin-left: 0; width: 100%; }
+            .layout-grid { grid-template-columns: 1fr; }
+            .gallery-bottom { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <div class="logo">Vortex<span>Data</span></div>
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#soluciones">Soluciones</a>
-            <a href="#contacto">Contacto</a>
+    <div class="sidebar">
+        <h2>PANTHERA.</h2>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="verEspecie(event, 'panel-leon')">01. Leones</button>
+            <button class="nav-btn" onclick="verEspecie(event, 'panel-tigre')">02. Tigres</button>
+            <button class="nav-btn" onclick="verEspecie(event, 'panel-leopardo')">03. Leopardos</button>
         </div>
-    </nav>
+    </div>
 
-    <!-- 1. INICIO -->
-    <section id="inicio" class="hero">
-        <div class="hero-content fade-in">
-            <h1>Transforma tus datos en rentabilidad.</h1>
-            <p>Implementamos arquitecturas de datos sólidas y dashboards ejecutivos para que tomes decisiones informadas y escales tu negocio.</p>
-            <a href="#contacto" class="btn-main">Auditoría Gratuita</a>
-        </div>
-    </section>
+    <div class="main-content">
 
-    <!-- 2. SOLUCIONES -->
-    <section id="soluciones" class="soluciones">
-        <h2 class="fade-in">¿Cómo aportamos valor?</h2>
-        <div class="grid">
-            <div class="card fade-in">
-                <h3>Data Warehousing</h3>
-                <p>Centralizamos tu información dispersa creando una única fuente de verdad utilizando metodologías ágiles.</p>
-            </div>
-            <div class="card fade-in" style="transition-delay: 0.2s;">
-                <h3>Business Intelligence</h3>
-                <p>Desarrollo de tableros interactivos para monitorear el desempeño de tu empresa en tiempo real.</p>
-            </div>
-            <div class="card fade-in" style="transition-delay: 0.4s;">
-                <h3>Automatización (RPA)</h3>
-                <p>Elimina procesos manuales en Excel. Extraemos, limpiamos y cargamos tus datos automáticamente.</p>
-            </div>
-        </div>
-    </section>
+        <div id="panel-leon" class="seccion-dato activa">
+            <h1 class="header-title">El <span>León</span></h1>
+            <p class="subtitle">REY DE LA SABANA</p>
 
-    <!-- 3. CONTACTO -->
-    <section id="contacto" class="contacto">
-        <div class="contacto-info fade-in">
-            <h2>Hablemos de tu proyecto.</h2>
-            <p>Email: consultoria@vortexdata.mx</p>
-            <p>Teléfono: (664) 999 0000</p>
-            <p>Ubicación: Edificio Vía Corporativo, Tijuana.</p>
+            <div class="layout-grid">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leon_1.jpg" alt="León" class="main-img">
+                <div class="text-block">
+                    <h3>Biología y Comportamiento</h3>
+                    <p>Los leones poseen cuerpos musculosos, cabezas cortas y redondeadas, y un mechón prominente al final de su cola. Tienen un dimorfismo sexual muy marcado: los machos lucen una espesa melena que se oscurece con la edad, la cual sirve tanto para atraer a las hembras como para proteger su cuello durante las feroces peleas territoriales.</p>
+                    <p>Cazan principalmente de noche. Su visión nocturna es excelente, permitiéndoles acercarse a sus presas al amparo de la oscuridad. Dedican hasta 20 horas del día a descansar y dormir para conservar energía.</p>
+                    <div class="stats-box">
+                        <p><strong>Peso Promedio:</strong> 150 - 250 kg (Machos)</p>
+                        <p><strong>Velocidad Máxima:</strong> 80 km/h (Ráfagas cortas)</p>
+                        <p><strong>Estado de Conservación:</strong> Vulnerable</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-bottom">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leon_2.jpg" alt="León Extra 1">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leon_3.jpg" alt="León Extra 2">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leon_4.jpg" alt="León Extra 3">
+            </div>
         </div>
-        <div class="form-box fade-in" style="transition-delay: 0.3s;">
-            <input type="text" placeholder="Tu Nombre">
-            <input type="email" placeholder="Correo Corporativo">
-            <textarea rows="4" placeholder="¿Qué reto técnico tienes actualmente?"></textarea>
-            <button>Enviar Solicitud</button>
+
+        <div id="panel-tigre" class="seccion-dato">
+            <h1 class="header-title">El <span>Tigre</span></h1>
+            <p class="subtitle">EL GIGANTE ASIÁTICO</p>
+
+            <div class="layout-grid">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/tigres_1.jpg" alt="Tigre" class="main-img">
+                <div class="text-block">
+                    <h3>Fuerza y Camuflaje</h3>
+                    <p>Con su distintivo patrón de rayas negras verticales sobre pelaje rojizo-anaranjado, el tigre es el depredador ápice de los bosques asiáticos. Las rayas de cada tigre son únicas, funcionando como las huellas dactilares humanas, permitiendo a los investigadores identificar individuos específicos en estado salvaje.</p>
+                    <p>Poseen una agilidad fenomenal para su enorme tamaño. Un tigre puede saltar hasta 10 metros de longitud en un solo brinco. A diferencia de otros gatos, el tigre busca activamente el agua para bañarse, demostrando ser un nadador incansable capaz de cruzar ríos de varios kilómetros de ancho.</p>
+                    <div class="stats-box">
+                        <p><strong>Peso Promedio:</strong> 180 - 300 kg (Tigre de Bengala y Siberiano)</p>
+                        <p><strong>Fuerza de Mordida:</strong> 1,050 PSI</p>
+                        <p><strong>Estado de Conservación:</strong> En Peligro</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-bottom">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/tigres_2.jpg" alt="Tigre Extra 1">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/tigres_3.jpg" alt="Tigre Extra 2">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/tigres_4.jpg" alt="Tigre Extra 3">
+            </div>
         </div>
-    </section>
+
+        <div id="panel-leopardo" class="seccion-dato">
+            <h1 class="header-title">El <span>Leopardo</span></h1>
+            <p class="subtitle">ESPECTRO DE LOS ÁRBOLES</p>
+
+            <div class="layout-grid">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leopardo_1.jpg" alt="Leopardo" class="main-img">
+                <div class="text-block">
+                    <h3>Agilidad Vertical</h3>
+                    <p>El leopardo se caracteriza por su cuerpo relativamente largo y patas cortas, acompañadas de un cráneo robusto que alberga fuertes músculos mandibulares. Sus manchas, conocidas como rosetas, son huecas por dentro, a diferencia de las del jaguar que tienen puntos en el centro.</p>
+                    <p>Es un animal de naturaleza solitaria, cautelosa y escurridiza. Para proteger sus presas de leones y hienas, el leopardo utiliza su asombrosa fuerza para trepar en ángulo recto por los troncos de los árboles con animales que pueden superar ampliamente su propio peso, colgándolos en las ramas para comer en paz.</p>
+                    <div class="stats-box">
+                        <p><strong>Peso Promedio:</strong> 30 - 70 kg</p>
+                        <p><strong>Habilidad Clave:</strong> Trepador excepcional</p>
+                        <p><strong>Estado de Conservación:</strong> Vulnerable</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-bottom">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leopardo_2.jpg" alt="Leopardo Extra 1">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leopardo_3.jpg" alt="Leopardo Extra 2">
+                <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Est%C3%A1ndar/leopardo_4.jpg" alt="Leopardo Extra 3">
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        // Efecto del Navbar al hacer scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
+        function verEspecie(evento, idPanel) {
+            // Ocultar paneles
+            let paneles = document.querySelectorAll('.seccion-dato');
+            paneles.forEach(panel => panel.classList.remove('activa'));
 
-        // Observer para revelar elementos al bajar (Fade In)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+            // Resetear botones
+            let botones = document.querySelectorAll('.nav-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+            // Activar seleccionado
+            document.getElementById(idPanel).classList.add('activa');
+            evento.currentTarget.classList.add('active');
+            
+            // Scroll arriba para móviles
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
