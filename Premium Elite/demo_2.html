@@ -3,202 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegis | Plataforma de Datos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Monte Olimpo | Experiencia Cinematográfica Épica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de 8 Colores Cinematográficos */
         :root {
-            --forest: #112D32; --emerald: #25846B; --mint: #88D4B5; --off-white: #F3F4F6;
-            --charcoal: #252A34; --red: #E74C3C; --teal: #0C1417; --gold: #F1C40F;
+            --c-vacio: #030305;      /* Vacío Espacial Profundo */
+            --c-carbon: #121418;     /* Gris Carbón Base */
+            --c-tormenta: #0F1B29;   /* Azul Tormenta (Tarjetas) */
+            --c-oro-etereo: #FADB5F; /* Oro Etereo Luminoso */
+            --c-plata: #E2E8F0;      /* Plata (Textos Principales) */
+            --c-olivo: #3F4A2E;      /* Verde Olivo Apagado */
+            --c-sangre: #991B1B;     /* Rojo Sangre Oscuro */
+            --c-magia: #00E5FF;      /* Cian Neón Mágico */
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--off-white); color: var(--charcoal); }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--c-vacio); color: var(--c-plata); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, .logo { font-family: 'Cinzel Decorative', serif; }
 
-        /* Barra de Navegación Superior */
-        .topbar { background: var(--teal); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 4px solid var(--emerald); }
-        .logo { color: var(--off-white); font-size: 1.8rem; font-weight: 800; }
-        .logo span { color: var(--gold); }
+        /* Navegación Superior Sticky Mejorada */
+        nav {
+            background-color: rgba(3, 3, 5, 0.95);
+            padding: 20px 5%; border-bottom: 1px solid rgba(250, 219, 95, 0.15);
+            position: sticky; top: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between; gap: 30px;
+            backdrop-filter: blur(15px); box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+        }
+        .logo { font-size: 1.8rem; color: #FFF; text-transform: uppercase; letter-spacing: 3px; white-space: nowrap; }
+        .logo span { color: var(--c-oro-etereo); text-shadow: 0 0 15px rgba(250, 219, 95, 0.4); }
+
+        .nav-scroller { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; width: 100%; scroll-behavior: smooth; }
+        .nav-scroller::-webkit-scrollbar { height: 4px; }
+        .nav-scroller::-webkit-scrollbar-thumb { background: var(--c-oro-etereo); border-radius: 10px; }
         
-        /* Menú Dinámico (Flex Wrap para 12 items) */
-        .menu-container { background: var(--forest); padding: 10px 5%; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .tab-btn { background: transparent; border: 1px solid transparent; color: var(--mint); padding: 10px 15px; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; border-radius: 4px; transition: 0.3s; }
-        .tab-btn:hover { background: rgba(37, 132, 107, 0.3); border-color: var(--emerald); color: var(--off-white); }
-        .tab-btn.active { background: var(--emerald); color: var(--off-white); box-shadow: 0 2px 10px rgba(37, 132, 107, 0.5); }
+        .tab-btn {
+            background: transparent; color: #94A3B8; border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 25px; border-radius: 30px; font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 1px; white-space: nowrap;
+        }
+        .tab-btn:hover { border-color: var(--c-oro-etereo); color: var(--c-plata); }
+        .tab-btn.active {
+            background: var(--c-oro-etereo); color: var(--c-vacio); border-color: var(--c-oro-etereo);
+            box-shadow: 0 0 20px rgba(250, 219, 95, 0.3);
+        }
 
-        /* Contenedor de Páginas */
-        .page-wrapper { min-height: 80vh; padding: 50px 10%; }
-        .page-view { display: none; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .page-view.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Estilos Internos de Página */
-        h1 { font-size: 2.8rem; color: var(--forest); margin-bottom: 10px; }
-        .code-block { font-family: 'Roboto Mono', monospace; background: var(--charcoal); color: var(--mint); padding: 20px; border-radius: 8px; font-size: 0.9rem; border-left: 5px solid var(--emerald); margin: 20px 0; }
-        .alert-box { background: rgba(231, 76, 60, 0.1); border: 1px solid var(--red); border-left: 5px solid var(--red); padding: 20px; border-radius: 4px; margin-top: 20px; }
+        /* Contenedor Principal */
+        .epic-container { max-width: 1500px; margin: 50px auto; padding: 0 5%; }
         
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        .myth-view { display: none; animation: epicScale 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .myth-view.active { display: block; }
+        @keyframes epicScale { 
+            0% { opacity: 0; transform: scale(0.97) translateY(20px); filter: blur(3px); } 
+            100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } 
+        }
+
+        /* Grid Asimétrico */
+        .cinema-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: stretch; }
+        
+        /* Panel de Texto de Alto Contraste */
+        .text-panel { 
+            background: linear-gradient(160deg, var(--c-carbon), var(--c-tormenta)); 
+            padding: 50px; border-radius: 16px; border-left: 5px solid var(--c-oro-etereo); 
+            position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
+            display: flex; flex-direction: column;
+        }
+        .text-panel::before { content: ''; position: absolute; top:0; left:0; width:100%; height:1px; background: linear-gradient(90deg, var(--c-oro-etereo), transparent); }
+        
+        .title-area { margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 20px; }
+        .title-area h1 { font-size: 4.5rem; color: #FFF; margin-bottom: 5px; text-shadow: 0 0 20px rgba(250, 219, 95, 0.2); line-height: 1; letter-spacing: -2px; }
+        .title-area .roman-name { color: var(--c-sangre); font-weight: 700; font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; }
+        
+        .lore-columns { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .lore-columns p { font-size: 1.1rem; color: #CBD5E1; text-align: justify; font-weight: 300; }
+        .lore-columns h3 { color: var(--c-magia); font-size: 1.2rem; margin: 15px 0 5px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        .attribute-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 30px; }
+        .attr-tag { background: rgba(250, 219, 95, 0.05); border: 1px solid var(--c-oro-etereo); color: var(--c-oro-etereo); padding: 8px 18px; border-radius: 30px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .attr-tag.enemy { border-color: var(--c-sangre); color: var(--c-sangre); background: rgba(153, 27, 27, 0.05); }
+
+        /* Mosaico Cinematográfico */
+        .collage-panel { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; gap: 20px; }
+        .collage-item { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); filter: brightness(0.85); }
+        .collage-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
+        
+        .img-hero { grid-column: 1 / -1; grid-row: 1 / 2; }
+        .img-hero img { border-bottom: 3px solid var(--c-oro-etereo); }
+        
+        /* Ajustes Responsivos */
+        @media (max-width: 1200px) {
+            .cinema-grid { grid-template-columns: 1fr; gap: 40px; }
+            .collage-panel { grid-template-rows: 400px 250px; }
+            .lore-columns { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 800px) {
+            nav { flex-direction: column; gap: 15px; padding: 20px 5%; }
+            .lore-columns { grid-template-columns: 1fr; }
+            .title-area h1 { font-size: 3.5rem; }
+            .collage-panel { grid-template-rows: 300px 200px; }
+            .text-panel { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="topbar">
-        <div class="logo">Aegis <span>Data</span></div>
-        <div style="color: var(--off-white); font-size: 0.9rem; font-family: 'Roboto Mono', monospace;">STATUS: <span style="color: var(--emerald);">ONLINE</span></div>
-    </div>
-
-    <!-- BOTONES JS (CAMBIO DE PÁGINA) -->
-    <div class="menu-container">
-        <button class="tab-btn active" onclick="loadPage('sec1', this)">1. Inicio</button>
-        <button class="tab-btn" onclick="loadPage('sec2', this)">2. Prevención Fraude</button>
-        <button class="tab-btn" onclick="loadPage('sec3', this)">3. Logística (Data Vault)</button>
-        <button class="tab-btn" onclick="loadPage('sec4', this)">4. Python ETL</button>
-        <button class="tab-btn" onclick="loadPage('sec5', this)">5. Arquitectura Web (HTML/CSS)</button>
-        <button class="tab-btn" onclick="loadPage('sec6', this)">6. Backend (Flask)</button>
-        <button class="tab-btn" onclick="loadPage('sec7', this)">7. Bases de Datos</button>
-        <button class="tab-btn" onclick="loadPage('sec8', this)">8. Integridad Financiera</button>
-        <button class="tab-btn" onclick="loadPage('sec9', this)">9. Módulos KPI</button>
-        <button class="tab-btn" onclick="loadPage('sec10', this)">10. Seguridad</button>
-        <button class="tab-btn" onclick="loadPage('sec11', this)">11. Infraestructura</button>
-        <button class="tab-btn" onclick="loadPage('sec12', this)">12. Portal Analistas</button>
-    </div>
-
-    <!-- PÁGINAS INDEPENDIENTES -->
-    <div class="page-wrapper">
-
-        <!-- 1. Inicio -->
-        <div id="sec1" class="page-view active">
-            <h1>Plataforma Aegis</h1>
-            <p style="font-size: 1.2rem; color: #555;">Análisis forense de datos, integridad financiera y modelado ágil para infraestructuras corporativas críticas.</p>
-            <div class="grid-2">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" style="width: 100%; border-radius: 8px;">
-                <div>
-                    <h3 style="color: var(--emerald); margin-bottom: 15px;">Motor Principal</h3>
-                    <p>Diseñamos sistemas que procesan millones de registros históricos sin perder agilidad. Especialistas en metodologías híbridas y puras (Inmon, Kimball, Data Vault).</p>
-                </div>
+    <nav>
+        <div class="logo">Olimpo <span>DataCore</span></div>
+        <div class="nav-scroller" id="tab-menu">
             </div>
-        </div>
+    </nav>
 
-        <!-- 2. Prevención Fraude -->
-        <div id="sec2" class="page-view">
-            <h1>Sistema Unificado contra Fraude</h1>
-            <p>Diagnóstico y prevención de fraudes bancarios en México.</p>
-            <div class="alert-box">
-                <h3 style="color: var(--red); margin-bottom: 10px;">Detección de Anomalías</h3>
-                <p>Nuestros algoritmos cruzan ubicaciones IP, montos transaccionales y frecuencia de operaciones para detectar y bloquear tarjetas comprometidas en milisegundos.</p>
-            </div>
-        </div>
+    <main class="epic-container" id="cinema-container">
+        </main>
 
-        <!-- 3. Logística (Data Vault) -->
-        <div id="sec3" class="page-view">
-            <h1>Logística de Vuelos (Data Vault 2.0)</h1>
-            <p>El esquema tradicional falla con datos extremadamente volátiles. Implementamos arquitecturas Data Vault (Hubs, Links, Satellites) para analizar grandes volúmenes.</p>
-            <div class="code-block">
-                -- Creación de Hub para Aerolíneas (Ejemplo)<br>
-                CREATE TABLE Hub_Airline (<br>
-                &nbsp;&nbsp;HK_Airline_ID VARCHAR(32) PRIMARY KEY,<br>
-                &nbsp;&nbsp;LoadDate DATETIME,<br>
-                &nbsp;&nbsp;RecordSource VARCHAR(50),<br>
-                &nbsp;&nbsp;AirlineCode VARCHAR(10)<br>
-                );
-            </div>
-            <p>Proyecto base probado con más de 7 millones de registros de retrasos aéreos, manteniendo trazabilidad histórica al 100%.</p>
-        </div>
-
-        <!-- 4. Python ETL -->
-        <div id="sec4" class="page-view">
-            <h1>Extracción y Limpieza en Python</h1>
-            <p>Scripts modulares orientados a objetos para gestionar inventarios y limpiar datos crudos.</p>
-            <div class="code-block">
-                import pandas as pd<br><br>
-                def clean_financial_data(df):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;df['monto'] = df['monto'].fillna(0)<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;df = df[df['status'] != 'ERROR']<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;return df
-            </div>
-        </div>
-
-        <!-- 5. Arquitectura Web -->
-        <div id="sec5" class="page-view">
-            <h1>Interfaces Web (HTML / CSS)</h1>
-            <p>El código más robusto necesita una interfaz limpia. Desarrollamos vistas de usuario responsivas usando HTML5 semántico y hojas de estilo (CSS) modulares para presentar los dashboards.</p>
-        </div>
-
-        <!-- 6. Backend (Flask) -->
-        <div id="sec6" class="page-view">
-            <h1>Microservicios con Flask</h1>
-            <p>Conectamos la base de datos SQL con la interfaz web a través del framework Flask en Python, gestionando rutas seguras (endpoints) y sesiones de usuario corporativas.</p>
-        </div>
-
-        <!-- 7. Bases de Datos -->
-        <div id="sec7" class="page-view">
-            <h1>Gestión SQL Relacional</h1>
-            <p>Estructuramos datos en MySQL integrando sistemas de inventarios y catálogos de clientes. Eliminamos la redundancia y optimizamos índices para reportes diarios.</p>
-        </div>
-
-        <!-- 8. Integridad Financiera -->
-        <div id="sec8" class="page-view">
-            <h1>Sistema de Integridad (Inmon)</h1>
-            <p>Bajo la filosofía Inmon, el EDW corporativo es la única fuente de verdad. Integramos todos los departamentos (Finanzas, Riesgo, Logística) en un modelo 3NF inmutable antes de la creación de reportes.</p>
-        </div>
-
-        <!-- 9. Módulos KPI -->
-        <div id="sec9" class="page-view">
-            <h1>Módulos de Control Visual</h1>
-            <div class="grid-2">
-                <div style="background: var(--off-white); padding: 20px; border-top: 4px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                    <h3>Tableros BI</h3>
-                    <p style="margin-top: 10px;">Visualización de series de tiempo e indicadores clave de rendimiento (KPIs) usando Power BI conectado a nuestras vistas SQL.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10. Seguridad -->
-        <div id="sec10" class="page-view">
-            <h1>Seguridad de Entorno</h1>
-            <p>Los datos financieros requieren protección de nivel bancario. Hasheo de contraseñas, roles de usuario en base de datos y control de acceso (IAM).</p>
-        </div>
-
-        <!-- 11. Infraestructura -->
-        <div id="sec11" class="page-view">
-            <h1>Evaluación de Hardware</h1>
-            <p>Análisis de especificaciones técnicas. Evaluamos capacidades de RAM, procesamiento Multi-Core (Laptops Gaming / Workstations / Mini PCs) para asegurar que tu equipo soporte las herramientas de Data Science locales.</p>
-        </div>
-
-        <!-- 12. Portal Analistas -->
-        <div id="sec12" class="page-view">
-            <h1>Portal de Acceso (Login)</h1>
-            <div style="background: var(--forest); padding: 40px; border-radius: 8px; max-width: 400px; margin: 30px auto; color: var(--off-white); text-align: center;">
-                <h3 style="color: var(--mint); margin-bottom: 20px;">Aegis Secure Login</h3>
-                <input type="text" placeholder="Usuario / ID Empleado" style="width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 4px;">
-                <input type="password" placeholder="Contraseña de Base de Datos" style="width: 100%; padding: 12px; margin-bottom: 20px; border: none; border-radius: 4px;">
-                <button style="width: 100%; padding: 12px; background: var(--emerald); color: var(--off-white); border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Ingresar al EDW</button>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- SCRIPT DE NAVEGACIÓN TIPO SPA -->
     <script>
-        function loadPage(targetId, btnElement) {
-            // Ocultar páginas
-            const pages = document.querySelectorAll('.page-view');
-            pages.forEach(page => page.classList.remove('active'));
+        // Array de Datos Ampliado
+        const epicData = [
+            { id: 'zeus', name: 'Zeus', roman: 'Dios del Cielo • Júpiter', tags: ['Rayo', 'Justicia', 'Águila', 'Soberano'], enemies: ['Cronos', 'Tifón', 'Gigantes'], 
+              historia: "El gobernante absoluto del Olimpo. Zeus lideró la rebelión contra su padre, el titán Cronos, liberando a sus hermanos tragados y forjando una nueva era cósmica tras la Titanomaquia. Desde su trono, observa y juzga las acciones de dioses y hombres.", 
+              mito: "A pesar de ser el portador de la justicia divina, las leyendas relatan incontables infidelidades hacia Hera, metamorfoseándose en lluvia de oro, un toro blanco o un majestuoso cisne para seducir mortales. Sus decisiones forjaron la Edad Heroica, siendo padre de Heracles, Perseo y Helena de Troya.",
+              imgs: ['zeus_1.jpg', 'zeus_2.jpg', 'zeus_3.jpg'] },
+            { id: 'hera', name: 'Hera', roman: 'Reina Majestuosa • Juno', tags: ['Matrimonio', 'Pavo Real', 'Lealtad', 'Venganza'], enemies: ['Amantes de Zeus', 'Heracles', 'Paris'], 
+              historia: "La más suprema de las diosas femeninas, compartiendo el trono celestial. Como patrona sagrada de la familia y el parto, encarna la fuerza de los vínculos legítimos. Exigía reverencia absoluta, y ciudades enteras como Argos estaban dedicadas a su culto inquebrantable.", 
+              mito: "Gran parte de su mitología está definida por su cólera implacable contra la descendencia ilegítima de Zeus. Envió dos serpientes a la cuna de Heracles, castigó a la ninfa Eco quitándole la voz, y su furia hacia el troyano Paris fue decisiva para la destrucción de Troya.",
+              imgs: ['hera_1.jpg', 'hera_2.jpg', 'hera_3.jpg'] },
+            { id: 'poseidon', name: 'Poseidón', roman: 'Señor del Abismo • Neptuno', tags: ['Océanos', 'Terremotos', 'Tridente', 'Caballos'], enemies: ['Odiseo', 'Atenea (Rivalidad)'], 
+              historia: "El temperamental y colérico soberano de las aguas. Tras echar suertes con sus hermanos, obtuvo el dominio del vasto océano. Con un golpe de su tridente forjado por los Cíclopes, puede fragmentar la tierra misma o invocar tempestades capaces de devorar flotas enteras.", 
+              mito: "Fue el creador del primer caballo, formándolo de la espuma del mar en un intento por impresionar a Deméter. Su ira contra Odiseo por cegar a su hijo, el cíclope Polifemo, provocó que el héroe vagara por diez años intentando regresar a Ítaca.",
+              imgs: ['poseidon_1.jpg', 'poseidon_2.jpg', 'poseidon_3.jpg'] },
+            { id: 'demeter', name: 'Deméter', roman: 'Madre Cosecha • Ceres', tags: ['Agricultura', 'Estaciones', 'Vida', 'Misterios'], enemies: ['Hades', 'Erisicton'], 
+              historia: "La fuerza nutricia que mantiene con vida a la humanidad. Sin su bendición, la tierra se vuelve estéril. Enseñó a la humanidad el arte de sembrar el trigo y presidía los Misterios Eleusinos, ritos que prometían a los iniciados recompensas en la vida después de la muerte.", 
+              mito: "El mito central de Deméter es el secuestro de su hija Perséfone por Hades. En su inconsolable duelo, abandonó sus deberes, causando hambruna global (el primer invierno). Tras un pacto con el inframundo, el ciclo de tristeza y alegría de Deméter dictó las estaciones eternamente.",
+              imgs: ['demeter_1.jpg', 'demeter_2.jpg', 'demeter_3.jpg'] },
+            { id: 'atenea', name: 'Atenea', roman: 'Estratega Divina • Minerva', tags: ['Sabiduría', 'Estrategia', 'Justicia', 'Búho'], enemies: ['Ares', 'Medusa', 'Poseidón'], 
+              historia: "Nacida armada y adulta directamente de la frente de Zeus, Atenea es la diosa de la razón, la civilización, la artesanía y la guerra justa. Nunca fue vencida en batalla, pues su mente analítica siempre supera a la fuerza bruta.", 
+              mito: "Compitió contra Poseidón por el dominio de Atenas. Mientras él ofreció una fuente de agua salada, ella plantó el primer olivo, un símbolo de paz y prosperidad, ganando el fervor de la ciudad. Asistió a Perseo, Belerofonte y fue la protectora constante de Odiseo.",
+              imgs: ['atenea_1.jpg', 'atenea_2.jpg', 'atenea_3.jpg'] },
+            { id: 'apolo', name: 'Apolo', roman: 'Luz Incorruptible • Apolo', tags: ['Sol', 'Música', 'Oráculo', 'Medicina'], enemies: ['La Serpiente Pitón', 'Níobe'], 
+              historia: "El más complejo y griego de todos los dioses. Personifica el equilibrio, la armonía (Kouros) y la civilización. A través del oráculo en su santuario de Delfos, era la conexión principal entre la voluntad de los dioses y el destino de los mortales.", 
+              mito: "Al igual que el sol que representa, puede ser vivificante o letal. Erradicó a la monstruosa serpiente Pitón, pero también masacró a los catorce hijos de Níobe porque ella se burló de su madre Leto. Su amor no correspondido por Dafne culminó con ella convertida en el árbol de laurel sagrado.",
+              imgs: ['apolo_1.jpg', 'apolo_2.jpg', 'apolo_3.jpg'] },
+            { id: 'artemisa', name: 'Artemisa', roman: 'Cazadora Salvaje • Diana', tags: ['Naturaleza', 'Arco', 'Luna', 'Virginidad'], enemies: ['Acteón', 'Orión', 'Agamenón'], 
+              historia: "Señora de las bestias y de todo terreno inexplorado. Hermana gemela de Apolo, Artemisa solicitó a Zeus permanecer soltera por la eternidad y liderar un séquito de ninfas cazadoras. Castiga con brutalidad a quienes invaden o profanan sus sagrados bosques.", 
+              mito: "Su ferocidad en la protección de la inocencia es legendaria. Exigió el sacrificio de Ifigenia cuando el rey Agamenón mató a uno de sus ciervos sagrados, y transformó al príncipe Acteón en una presa para sus propios sabuesos por haberla visto bañándose desnuda.",
+              imgs: ['artemisa_1.jpg', 'artemisa_2.jpg', 'artemisa_3.jpg'] },
+            { id: 'ares', name: 'Ares', roman: 'Furia de Sangre • Marte', tags: ['Guerra', 'Destrucción', 'Lanza', 'Caos'], enemies: ['Atenea', 'Heracles', 'Diomedes'], 
+              historia: "La deidad del conflicto bélico en su estado más primitivo y sangriento. Mientras Atenea rige la nobleza de la táctica defensiva, Ares personifica la violencia, el terror de la batalla y el frenesí destructivo. Fue venerado predominantemente por los espartanos.", 
+              mito: "A pesar de su terrible reputación y fuerza bruta, sufrió humillaciones en los mitos. Fue herido en la Guerra de Troya por un mortal (Diomedes, guiado por Atenea) y atrapado en una red de cadenas mágicas y transparentes por el herrero Hefesto tras descubrir su romance con Afrodita.",
+              imgs: ['ares_1.jpg', 'ares_2.jpg', 'ares_3.jpg'] },
+            { id: 'afrodita', name: 'Afrodita', roman: 'Perfección Deseada • Venus', tags: ['Amor', 'Belleza', 'Pasión', 'Paloma'], enemies: ['Psique', 'Hipólito'], 
+              historia: "La fuerza primigenia de la atracción. Según Hesíodo, nació adulta de la espuma marina tras la castración del cielo (Urano). Su poder desarma a hombres y dioses por igual, provocando deseos irrefrenables que destruyen imperios enteros y unen destinos.", 
+              mito: "Poseía un cinturón mágico que hacía irresistible a quien lo portara. Su intervención en el Juicio de Paris, donde sobornó al príncipe ofreciéndole a Helena, fue el catalizador directo de la Guerra de Troya. Fue la eterna amante secreta del dios de la guerra, Ares.",
+              imgs: ['afrodita_1.jpg', 'afrodita_2.jpg', 'afrodita_3.jpg'] },
+            { id: 'hefesto', name: 'Hefesto', roman: 'Fuego Creador • Vulcano', tags: ['Forja', 'Volcanes', 'Metalurgia', 'Ingeniería'], enemies: ['Hera (Rencor)'], 
+              historia: "El maestro artesano del cosmos. Siendo el único dios físicamente deforme, fue arrojado del Olimpo al nacer. Superó el rechazo mediante su trabajo inigualable, regresando al Olimpo tras atrapar a Hera en un trono mágico del que solo él conocía el mecanismo de liberación.", 
+              mito: "Trabaja en inmensas forjas bajo volcanes activos, asistido por Cíclopes y mujeres autómatas de oro que él mismo construyó y dotó de inteligencia. Forjó el escudo de Aquiles, la armadura de Eneas, y creó a la primera mujer humana, Pandora, por orden de Zeus.",
+              imgs: ['hefesto_1.jpg', 'hefesto_2.jpg', 'hefesto_3.jpg'] },
+            { id: 'hermes', name: 'Hermes', roman: 'Guía de Caminos • Mercurio', tags: ['Velocidad', 'Comercio', 'Astucia', 'Ladrones'], enemies: ['Ninguno (Neutral)'], 
+              historia: "El heraldo celestial de los dioses y protector de los viajeros. Ingenioso, rápido y engañoso, Hermes cruza fronteras invisibles. Es el inventor del fuego por fricción, del alfabeto y de la lira, instrumento que cedió a Apolo para redimir el robo de su ganado.", 
+              mito: "Su rol más oscuro e importante es el de 'Psicopompo', el guía inquebrantable de los muertos. Es la única deidad olímpica autorizada por Hades para entrar y salir del inframundo repetidamente, guiando las almas recién fallecidas hacia las orillas del río Estigia.",
+              imgs: ['hermes_1.jpg', 'hermes_2.jpg', 'hermes_3.jpg'] },
+            { id: 'dioniso', name: 'Dioniso', roman: 'El Liberador • Baco', tags: ['Vino', 'Éxtasis', 'Teatro', 'Locura'], enemies: ['Penteo', 'Licurgo', 'Los Piratas Tirrenos'], 
+              historia: "El dios vagabundo. Nacido de una mortal fulminada por el resplandor de Zeus y cosido en el muslo del dios para terminar su gestación. Dioniso representa el caos necesario de la naturaleza, disolviendo las fronteras del ego humano mediante el vino, la danza y el teatro.", 
+              mito: "Viajó hasta la India y Egipto acompañado de las Ménades y los Sátiros. Quienes le rendían tributo obtenían alegría divina; quienes rechazaban su divinidad o intentaban encadenarlo, eran castigados con una locura destructiva, como el rey Penteo, quien fue despedazado por su propia madre bajo el frenesí dionisíaco.",
+              imgs: ['dioniso_1.jpg', 'dioniso_2.jpg', 'dioniso_3.jpg'] }
+        ];
 
-            // Quitar estado activo a los botones
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+        const baseLink = "https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Elite/";
+        const tabMenu = document.getElementById('tab-menu');
+        const cinemaBox = document.getElementById('cinema-container');
 
-            // Mostrar página seleccionada y activar botón
-            document.getElementById(targetId).classList.add('active');
-            btnElement.classList.add('active');
+        // Construcción Dinámica para rendimiento y limpieza de código
+        function initApp() {
+            epicData.forEach((god, index) => {
+                // Generar Botones del Scroller
+                const btn = document.createElement('button');
+                btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+                btn.innerText = `0${index+1}. ${god.name}`;
+                btn.onclick = (e) => openMyth(god.id, e.target);
+                tabMenu.appendChild(btn);
 
-            // Scroll suave hacia el contenedor
-            window.scrollTo({
-                top: document.querySelector('.page-wrapper').offsetTop - 80,
-                behavior: 'smooth'
+                // Generar Tags y Vistas
+                const regularTags = god.tags.map(t => `<span class="attr-tag">${t}</span>`).join('');
+                const enemyTags = god.enemies.map(e => `<span class="attr-tag enemy">Enemigo: ${e}</span>`).join('');
+
+                const section = document.createElement('div');
+                section.className = `myth-view ${index === 0 ? 'active' : ''}`;
+                section.id = `myth-${god.id}`;
+                section.innerHTML = `
+                    <div class="cinema-grid">
+                        <div class="text-panel">
+                            <div class="title-area">
+                                <h1>${god.name}</h1>
+                                <span class="roman-name">${god.roman}</span>
+                            </div>
+                            <div class="lore-columns">
+                                <div>
+                                    <h3>Historia Divina</h3>
+                                    <p>${god.historia}</p>
+                                </div>
+                                <div>
+                                    <h3>El Mito Central</h3>
+                                    <p>${god.mito}</p>
+                                </div>
+                            </div>
+                            <div class="attribute-tags">
+                                ${regularTags}
+                                ${enemyTags}
+                            </div>
+                        </div>
+                        <div class="collage-panel">
+                            <div class="collage-item img-hero">
+                                <img src="${baseLink}${god.imgs[0]}" alt="${god.name} Principal">
+                            </div>
+                            <div class="collage-item img-small-1">
+                                <img src="${baseLink}${god.imgs[1]}" alt="${god.name} Secundario 1">
+                            </div>
+                            <div class="collage-item img-small-2">
+                                <img src="${baseLink}${god.imgs[2]}" alt="${god.name} Secundario 2">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cinemaBox.appendChild(section);
             });
         }
-    </script>
 
+        function openMyth(id, btnElement) {
+            document.querySelectorAll('.myth-view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
+            // Forzar reinicio de animación CSS
+            const target = document.getElementById(`myth-${id}`);
+            target.classList.remove('active');
+            void target.offsetWidth; 
+            
+            target.classList.add('active');
+            btnElement.classList.add('active');
+            
+            // Centrado fluido en el scroll de la navbar
+            btnElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        initApp();
+    </script>
 </body>
 </html>
