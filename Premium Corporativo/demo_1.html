@@ -3,260 +3,541 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Capital | Premium Corporativo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>PsycheMind | Análisis Profundo del Eneagrama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de 6 Colores: Bienestar Clínico */
         :root {
-            --bg-main: #0A192F; --bg-card: #112240; --accent: #64FFDA; 
-            --text-main: #F8F9FA; --text-muted: #8892B0; --gold: #FFD700;
+            --bg-base: #F8FAFC;      /* Blanco Nieve */
+            --bg-card: #FFFFFF;      /* Blanco Puro */
+            --text-main: #334155;    /* Gris Pizarra Profundo */
+            --accent-indigo: #4338CA;/* Índigo Clínico */
+            --accent-green: #059669; /* Verde Crecimiento */
+            --accent-coral: #E11D48; /* Rojo Alerta/Estrés */
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; }
-        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-base); color: var(--text-main); line-height: 1.6; padding-bottom: 50px; }
 
-        /* Navbar Glassmorphism */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1); transition: 0.3s;
+        /* Cabecera y Navegación */
+        header { background-color: var(--bg-card); padding: 30px 5% 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E2E8F0; }
+        .header-title { font-size: 2.2rem; font-weight: 900; color: var(--accent-indigo); margin-bottom: 20px; text-align: center; letter-spacing: -1px; }
+        
+        .pill-nav { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 15px; scroll-behavior: smooth; }
+        .pill-nav::-webkit-scrollbar { height: 6px; }
+        .pill-nav::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+        
+        .pill-btn {
+            background-color: var(--bg-base); color: var(--text-main); border: 1px solid #E2E8F0;
+            padding: 12px 25px; border-radius: 30px; font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; white-space: nowrap; transition: 0.3s;
         }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
-        .logo span { color: var(--accent); }
-        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
-        .btn-outline { border: 1px solid var(--accent); color: var(--accent); padding: 8px 15px; border-radius: 4px; text-decoration: none; transition: 0.3s; margin-left: 20px; }
-        .btn-outline:hover { background: rgba(100,255,218,0.1); }
+        .pill-btn:hover { background-color: #F1F5F9; border-color: var(--accent-indigo); }
+        .pill-btn.active { background-color: var(--accent-indigo); color: var(--bg-card); border-color: var(--accent-indigo); box-shadow: 0 5px 15px rgba(67, 56, 202, 0.3); }
 
-        /* Estructura Base */
-        section { padding: 100px 10%; }
-        .section-title { font-size: 2.5rem; color: var(--text-main); margin-bottom: 20px; text-align: center; }
-        .section-title span { color: var(--accent); }
-        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-inline: auto; line-height: 1.6; }
+        /* Contenedor Principal */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .section-type { display: none; animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .section-type.activa { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 1. Hero */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, var(--bg-card), var(--bg-main)); }
-        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
-        .btn-primary { background: var(--accent); color: var(--bg-main); padding: 15px 35px; font-weight: 800; border-radius: 4px; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
-        .btn-primary:hover { box-shadow: 0 0 20px rgba(100,255,218,0.4); transform: translateY(-3px); }
+        /* Diseño de Tarjeta Extendida */
+        .profile-card { background-color: var(--bg-card); border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; border: 1px solid #E2E8F0; }
+        
+        /* Fila Superior: Foto + Info Básica */
+        .top-row { display: flex; flex-wrap: wrap; border-bottom: 1px solid #E2E8F0; }
+        .profile-img { width: 35%; position: relative; min-width: 300px; }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+        .type-badge { position: absolute; top: 20px; left: 20px; background: var(--bg-card); color: var(--accent-indigo); padding: 10px 25px; border-radius: 30px; font-weight: 900; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        /* 2. Nosotros */
-        .about { display: flex; align-items: center; gap: 50px; background: var(--bg-card); }
-        .about-text { flex: 1; }
-        .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
-        .about-img { flex: 1; height: 400px; background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80') center/cover; border-radius: 8px; border: 1px solid var(--accent); }
+        .basic-info { width: 65%; padding: 50px; flex-grow: 1; }
+        .basic-info h1 { font-size: 3.5rem; margin-bottom: 5px; font-weight: 900; color: #0F172A; letter-spacing: -1.5px; }
+        .role-title { color: var(--accent-indigo); font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; }
+        .description { font-size: 1.15rem; margin-bottom: 30px; color: #475569; text-align: justify; }
 
-        /* 3. Soluciones */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--bg-main); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card h3 { color: var(--text-main); margin-bottom: 15px; font-size: 1.3rem; }
-        .card p { color: var(--text-muted); line-height: 1.6; }
+        .psyche-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .psyche-box { padding: 25px; border-radius: 12px; background-color: var(--bg-base); border-top: 4px solid; }
+        .psyche-box.fear { border-color: var(--accent-coral); }
+        .psyche-box.desire { border-color: var(--accent-green); }
+        .psyche-box h3 { font-size: 0.95rem; text-transform: uppercase; margin-bottom: 10px; color: #64748B; font-weight: 700; }
+        .psyche-box p { font-weight: 700; font-size: 1.1rem; color: #0F172A; }
 
-        /* 4. Plataforma */
-        .platform { background: var(--bg-main); text-align: center; }
-        .dashboard-mockup { width: 100%; max-width: 900px; height: 400px; margin: 0 auto; background: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80') center/cover; border-radius: 12px; border: 4px solid var(--bg-card); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        /* Fila Inferior: Análisis Profundo */
+        .deep-analysis { padding: 50px; background-color: #F8FAFC; }
+        .deep-analysis h2 { font-size: 2rem; color: #0F172A; margin-bottom: 30px; }
+        
+        .analysis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .data-card { background: var(--bg-card); padding: 30px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .data-card h4 { font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .data-card p { font-size: 1rem; color: #475569; margin-bottom: 15px; }
+        .data-card ul { padding-left: 20px; color: #475569; }
+        .data-card li { margin-bottom: 8px; }
 
-        /* 5. Estadísticas (Contadores JS) */
-        .stats { background: var(--bg-card); display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; padding: 80px 10%; border-top: 1px solid rgba(255,215,0,0.2); border-bottom: 1px solid rgba(255,215,0,0.2); }
-        .stat-item h4 { font-size: 4rem; color: var(--gold); margin-bottom: 10px; font-weight: 800; }
-        .stat-item p { color: var(--text-main); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .stress-path h4 { color: var(--accent-coral); }
+        .growth-path h4 { color: var(--accent-green); }
+        .wings-path h4 { color: var(--accent-indigo); }
 
-        /* 6. Seguridad */
-        .security { display: flex; align-items: center; gap: 50px; flex-direction: row-reverse; }
-
-        /* 7. Testimonios */
-        .testimonials { background: var(--bg-card); }
-        .testimonial-card { background: var(--bg-main); padding: 30px; border-radius: 8px; border-left: 4px solid var(--accent); }
-        .testimonial-card p { color: var(--text-muted); font-style: italic; margin-bottom: 20px; }
-        .testimonial-card h5 { color: var(--text-main); font-size: 1rem; }
-
-        /* 8. FAQ */
-        .faq-item { background: var(--bg-card); margin-bottom: 15px; border-radius: 8px; overflow: hidden; }
-        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--text-muted); }
-
-        /* 9. Contacto */
-        .contact { text-align: center; }
-        .contact form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-        .contact input, .contact textarea { padding: 15px; background: var(--bg-card); border: 1px solid var(--text-muted); color: var(--text-main); border-radius: 4px; outline: none; transition: 0.3s; }
-        .contact input:focus, .contact textarea:focus { border-color: var(--accent); }
-
-        /* Animaciones */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 3rem; } .about, .security { flex-direction: column; } }
+        @media (max-width: 900px) {
+            .profile-img { width: 100%; height: 350px; }
+            .basic-info { width: 100%; padding: 30px; }
+            .basic-info h1 { font-size: 2.8rem; }
+            .psyche-grid { grid-template-columns: 1fr; }
+            .deep-analysis { padding: 30px; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#inicio" class="logo">Apex<span>Capital</span></a>
-        <div class="nav-links">
-            <a href="#soluciones">Soluciones</a>
-            <a href="#plataforma">Plataforma</a>
-            <a href="#seguridad">Seguridad</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contacto" class="btn-outline">Acceso Clientes</a>
+    <header>
+        <div class="header-title">Clínica PsycheMind</div>
+        <div class="pill-nav">
+            <button class="pill-btn active" onclick="verTipo('tipo-1', this)">1. Reformador</button>
+            <button class="pill-btn" onclick="verTipo('tipo-2', this)">2. Ayudador</button>
+            <button class="pill-btn" onclick="verTipo('tipo-3', this)">3. Triunfador</button>
+            <button class="pill-btn" onclick="verTipo('tipo-4', this)">4. Individualista</button>
+            <button class="pill-btn" onclick="verTipo('tipo-5', this)">5. Investigador</button>
+            <button class="pill-btn" onclick="verTipo('tipo-6', this)">6. Leal</button>
+            <button class="pill-btn" onclick="verTipo('tipo-7', this)">7. Entusiasta</button>
+            <button class="pill-btn" onclick="verTipo('tipo-8', this)">8. Desafiador</button>
+            <button class="pill-btn" onclick="verTipo('tipo-9', this)">9. Pacificador</button>
         </div>
-    </nav>
+    </header>
 
-    <!-- 1. Inicio -->
-    <section id="inicio" class="hero">
-        <h1 class="reveal">Inteligencia Financiera</h1>
-        <p class="reveal">Gestión patrimonial impulsada por algoritmos de vanguardia y análisis de datos en tiempo real.</p>
-        <a href="#contacto" class="btn-primary reveal">Abrir Cuenta Corporativa</a>
-    </section>
+    <div class="container">
 
-    <!-- 2. Nosotros -->
-    <section id="nosotros" class="about reveal">
-        <div class="about-text">
-            <h2>Nuestra <span>Visión</span></h2>
-            <p>En Apex Capital, democratizamos el acceso a herramientas de inversión institucionales. Nuestro equipo de ingenieros de datos y analistas financieros han creado una infraestructura tecnológica que minimiza el riesgo y maximiza el rendimiento a través del Machine Learning.</p>
-        </div>
-        <div class="about-img"></div>
-    </section>
-
-    <!-- 3. Soluciones -->
-    <section id="soluciones" class="reveal">
-        <h2 class="section-title">Portafolio de <span>Servicios</span></h2>
-        <p class="section-subtitle">Soluciones adaptables a las necesidades de liquidez y crecimiento de tu empresa.</p>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Gestión Activa</h3>
-                <p>Rebalanceo automático de portafolios basado en volatilidad del mercado y análisis predictivo.</p>
-            </div>
-            <div class="card">
-                <h3>Tesorería Corporativa</h3>
-                <p>Instrumentos de deuda a corto plazo para optimizar el flujo de caja operativo de tu negocio.</p>
-            </div>
-            <div class="card">
-                <h3>Venture Capital</h3>
-                <p>Acceso exclusivo a rondas de inversión privadas en startups tecnológicas emergentes.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Plataforma -->
-    <section id="plataforma" class="platform reveal">
-        <h2 class="section-title">Tu capital, <span>tu control</span></h2>
-        <p class="section-subtitle">Visualiza tus rendimientos, exporta reportes fiscales y conecta tus cuentas bancarias desde nuestro Dashboard intuitivo.</p>
-        <div class="dashboard-mockup"></div>
-    </section>
-
-    <!-- 5. Estadísticas -->
-    <section id="estadisticas" class="stats reveal">
-        <div class="stat-item"><h4 class="counter" data-target="850">0</h4><p>Millones Gestionados</p></div>
-        <div class="stat-item"><h4 class="counter" data-target="99">0</h4><p>% Retención de Clientes</p></div>
-        <div class="stat-item"><h4 class="counter" data-target="15">0</h4><p>Años de Experiencia</p></div>
-    </section>
-
-    <!-- 6. Seguridad -->
-    <section id="seguridad" class="security reveal">
-        <div class="about-text">
-            <h2>Seguridad <span>Inquebrantable</span></h2>
-            <p>Tu tranquilidad es nuestra prioridad. Operamos bajo estrictas regulaciones internacionales. Toda tu información y transacciones están protegidas por encriptación AES-256 de grado militar y autenticación biométrica de múltiples factores.</p>
-        </div>
-        <div class="about-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80');"></div>
-    </section>
-
-    <!-- 7. Testimonios -->
-    <section id="testimonios" class="testimonials reveal">
-        <h2 class="section-title">Lo que dicen <span>nuestros clientes</span></h2>
-        <div class="grid-3">
-            <div class="testimonial-card">
-                <p>"La transparencia de su plataforma y los reportes automatizados nos han ahorrado decenas de horas en contabilidad mensual."</p>
-                <h5>— CFO, Empresa Logística</h5>
-            </div>
-            <div class="testimonial-card">
-                <p>"Sus algoritmos de protección contra caídas del mercado funcionaron a la perfección durante la última crisis financiera."</p>
-                <h5>— Inversor Privado</h5>
-            </div>
-            <div class="testimonial-card">
-                <p>"El equipo de soporte técnico y los asesores financieros están siempre disponibles. Un servicio verdaderamente premium."</p>
-                <h5>— CEO, Startup Tecnológica</h5>
+        <div id="tipo-1" class="section-type activa">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 1</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/reformador.png" alt="El Reformador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Reformador</h1>
+                        <div class="role-title">Racional, Idealista y Perfeccionista</div>
+                        <p class="description">Las personas de este tipo son éticas y concienzudas, con un fuerte sentido del bien y del mal. Son profesores y defensores del cambio: siempre se esfuerzan por mejorar las cosas, pero temen cometer errores. Son bien organizados, ordenados y exigentes. Su mayor lucha interna es contra la ira reprimida y el resentimiento, los cuales disfrazan de "indignación moral".</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Ser malo, corrupto, perverso o defectuoso.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Tener integridad, ser bueno y equilibrado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Bajo estrés severo, el metódico Tipo 1 se desplaza hacia el comportamiento insano del <strong>Tipo 4</strong>. Pierden su objetividad, se vuelven irracionalmente melancólicos, se sienten incomprendidos y adoptan una mentalidad de víctima, creyendo que nadie aprecia sus esfuerzos por mantener el orden.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>En estado de salud y relajación, el crítico Tipo 1 se mueve hacia las cualidades positivas del <strong>Tipo 7</strong>. Se vuelven más espontáneos, alegres, de mente abierta y aprenden a aceptar las imperfecciones de la vida, permitiéndose disfrutar sin sentir culpa.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>1w9 (El Idealista):</strong> Más relajados, objetivos y desapegados. Combinan el juicio del 1 con la paz del 9.</li>
+                                <li><strong>1w2 (El Abogado):</strong> Más interpersonales, empáticos y vocales sobre sus ideales. Inclinación a ayudar a otros a mejorar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- 8. FAQ -->
-    <section id="faq" class="reveal">
-        <h2 class="section-title">Preguntas <span>Frecuentes</span></h2>
-        <div style="max-width: 800px; margin: 0 auto;">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">¿Cuál es el monto mínimo de inversión? <span>+</span></div>
-                <div class="faq-answer"><p style="padding-bottom: 20px;">El monto mínimo para cuentas corporativas es de $50,000 USD.</p></div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">¿Tienen plazos forzosos? <span>+</span></div>
-                <div class="faq-answer"><p style="padding-bottom: 20px;">No, ofrecemos liquidez diaria en nuestros fondos de tesorería a la vista.</p></div>
+        <div id="tipo-2" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 2</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/ayudador.png" alt="El Ayudador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Ayudador</h1>
+                        <div class="role-title">Empático, Sincero y Orientado a Otros</div>
+                        <p class="description">El Tipo 2 busca el amor y la conexión por encima de todo. Son amigables, generosos y abnegados, impulsados por la necesidad de ser útiles. Su trampa psicológica es el <strong>orgullo</strong>: la creencia secreta de que ellos no tienen necesidades, pero los demás los necesitan desesperadamente a ellos para sobrevivir.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Ser inútil o indigno de ser amado.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Sentirse amado, apreciado y necesitado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Cuando sienten que su amor y sacrificio no son correspondidos, el dulce Tipo 2 se mueve hacia el <strong>Tipo 8</strong> malsano. Se vuelven agresivos, dominantes, exigentes y controladores, cobrando en cara todo lo que han hecho por los demás de manera resentida.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Cuando están seguros emocionalmente, avanzan hacia el <strong>Tipo 4</strong>. Aprenden a reconocer sus propias emociones profundas, se vuelven creativos, auténticos y se dan cuenta de que son dignos de amor por quienes son, no solo por lo que dan.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>2w1 (El Servidor):</strong> Más serios, éticos y discretos en su ayuda. Sirven por sentido del deber.</li>
+                                <li><strong>2w3 (El Anfitrión):</strong> Más sociables, ambiciosos y conscientes de su imagen. Disfrutan ser el centro de atención.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- 9. Contacto -->
-    <section id="contacto" class="contact reveal">
-        <h2 class="section-title">Hablemos de <span>negocios</span></h2>
-        <form>
-            <input type="text" placeholder="Nombre Completo">
-            <input type="email" placeholder="Correo Electrónico">
-            <textarea rows="5" placeholder="¿Cómo podemos ayudarte?"></textarea>
-            <button class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Mensaje</button>
-        </form>
-    </section>
+        <div id="tipo-3" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 3</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/triunfador.jpg" alt="El Triunfador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Triunfador</h1>
+                        <div class="role-title">Pragmático, Ambicioso y Camaleónico</div>
+                        <p class="description">Adaptables y orientados a resultados. El Tipo 3 quiere sentirse valioso y evitar el fracaso a toda costa. Son expertos en "leer la habitación" y adoptar la persona que se espera de ellos para lograr el éxito. Su pecado capital es el <strong>engaño</strong>, especialmente el autoengaño de confundir su imagen pública con su verdadera identidad.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>No tener valor inherente; ser un "perdedor".</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Ser valioso, aceptado, exitoso y admirado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Ante el fracaso o el agotamiento severo, el activo Tipo 3 cae hacia el <strong>Tipo 9</strong> malsano. Se vuelven apáticos, desvinculados, pierden toda motivación y se rinden, entrando en un estado de negación pasiva donde "ya nada importa".</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Al soltar su obsesión por la imagen, se mueven hacia el <strong>Tipo 6</strong> sano. Se vuelven más leales, cooperativos, orientados al equipo y comprometidos con causas más grandes que su propio éxito personal y gloria.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>3w2 (El Encantador):</strong> Más cálidos, amistosos y enfocados en ser populares e influyentes.</li>
+                                <li><strong>3w4 (El Profesional):</strong> Más enfocados en su trabajo, serios, elegantes y con un toque de individualismo artístico.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-4" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 4</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/individualismo.jpg" alt="El Individualista">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Individualista</h1>
+                        <div class="role-title">Romántico, Introspectivo y Trágico</div>
+                        <p class="description">Los Cuatro se sienten fundamentalmente diferentes a los demás. Ocultan una sensación de carencia bajo una fachada de superioridad artística y melancolía. Su pasión dominante es la <strong>envidia</strong>: la sensación constante de que a los demás se les dio algo fundamental (felicidad, normalidad) que a ellos se les negó al nacer.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Ser común, defectuoso o no tener identidad.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Descubrirse a sí mismos y su significado único.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Cuando el aislamiento emocional los asfixia, se desplazan al <strong>Tipo 2</strong> malsano. Comienzan a aferrarse desesperadamente a las personas, manipulando situaciones para ser rescatados y asfixiando a sus parejas con demandas de atención emocional.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>En su mejor estado, el Cuatro deja de ser controlado por sus sentimientos fluctuantes y se mueve hacia el <strong>Tipo 1</strong>. Adoptan disciplina, objetividad y estructura, logrando materializar su enorme potencial creativo en la realidad.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>4w3 (El Aristócrata):</strong> Más extrovertidos, ambiciosos y preocupados por crear una imagen estética y exitosa.</li>
+                                <li><strong>4w5 (El Bohemio):</strong> Más introvertidos, intelectuales, excéntricos y retirados del mundo social.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-5" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 5</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/investigador.jpg" alt="El Investigador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Investigador</h1>
+                        <div class="role-title">Cerebral, Perceptivo y Aislado</div>
+                        <p class="description">El Tipo 5 vive en su mente. Son pioneros intelectuales que buscan descifrar cómo funciona el cosmos. Su pasión oculta es la <strong>avaricia</strong>, pero no de dinero, sino de su propio tiempo, energía y recursos internos. Temen que el mundo exterior los abrume y los vacíe por completo.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Ser inútil, impotente, incapaz o ignorante.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Ser competente y entender la realidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Cuando el mundo exige demasiado de ellos, el analítico Cinco colapsa hacia el <strong>Tipo 7</strong> malsano. Su mente se fragmenta: se vuelven hiperactivos, dispersos, frenéticos e incapaces de concentrarse, saltando impulsivamente de una idea a otra sin terminar nada.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Al sentirse seguros y con energía, salen de su aislamiento mental hacia el <strong>Tipo 8</strong> sano. Comienzan a liderar con confianza, toman acción decisiva en el mundo físico y utilizan su inmenso conocimiento para tomar el control de su vida.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>5w4 (El Iconoclasta):</strong> Más emocionales, creativos e interesados en las humanidades, el arte o lo surrealista.</li>
+                                <li><strong>5w6 (El Solucionador):</strong> Más lógicos, orientados a la ciencia, técnicos y cooperativos en sistemas estructurados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-6" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 6</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/leal.png" alt="El Leal">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Leal</h1>
+                        <div class="role-title">Comprometido, Cauteloso y Escéptico</div>
+                        <p class="description">El Tipo 6 opera con un radar de amenazas interno constantemente encendido. Son los defensores del status quo, buscando seguridad en sistemas, creencias o figuras de autoridad. Paradójicamente, pueden ser sumisos a la autoridad (fóbicos) o rebelarse agresivamente contra ella (contrafóbicos) para controlar su ansiedad base.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Carecer de apoyo, orientación y seguridad.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Tener seguridad, respaldo y previsibilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Presionados por la paranoia, el leal Seis se desplaza al <strong>Tipo 3</strong> malsano. Comienzan a actuar con arrogancia, competitividad despiadada y engaño, utilizando cualquier medio para asegurar su posición o aplastar a quienes perciben como amenazas.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Cuando logran calmar su mente ansiosa, se mueven hacia el <strong>Tipo 9</strong> sano. Se vuelven relajados, pacíficos, optimistas e inclusivos, confiando finalmente en que el universo los sostendrá sin necesidad de estar siempre alerta.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>6w5 (El Defensor):</strong> Más intelectuales, solitarios, serios y enfocados en predecir problemas a través del análisis de datos.</li>
+                                <li><strong>6w7 (El Amigo):</strong> Más sociables, afables y utilizando el humor y la simpatía para desarmar posibles amenazas y ganar aliados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-7" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 7</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/entusiasta.jpg" alt="El Entusiasta">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Entusiasta</h1>
+                        <div class="role-title">Espontáneo, Versátil y Evasivo</div>
+                        <p class="description">Viven en constante anticipación del futuro. Su pasión es la <strong>gula</strong>, pero no necesariamente de comida, sino de experiencias, ideas y estímulos. Llenan sus agendas al límite porque detenerse significaría enfrentar la ansiedad, el aburrimiento y el dolor emocional profundo que evaden a toda costa.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Estar atrapado en el dolor o la privación.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Estar feliz, satisfecho y ser totalmente libre.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Cuando sus múltiples opciones fallan, el alegre Siete colapsa en el <strong>Tipo 1</strong> malsano. Se vuelven rígidos, críticos, frustrados, juzgando duramente a los demás e imponiendo reglas estrictas para intentar recuperar el control de su vida caótica.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Al aprender a estar presentes y tolerar la incomodidad, avanzan hacia el <strong>Tipo 5</strong> sano. Dejan de saltar superficialmente sobre las cosas y desarrollan una capacidad profunda para enfocarse, estudiar e interiorizar el conocimiento.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>7w6 (El Animador):</strong> Más leales, responsables y orientados a mantener la red de amistades seguras mientras se divierten.</li>
+                                <li><strong>7w8 (El Realista):</strong> Más asertivos, agresivos y materiales. Utilizan una tremenda fuerza de voluntad para conseguir lo que quieren.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-8" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 8</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/desafiador.jpg" alt="El Desafiador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Desafiador</h1>
+                        <div class="role-title">Dominante, Fuerte y Protector</div>
+                        <p class="description">El Tipo 8 se niega a ser vulnerable o débil en un mundo que perciben como hostil. Su pasión es la <strong>Lujuria</strong>: el deseo de vivir con intensidad extrema y empujar contra el entorno para sentir que están vivos. Detestan la debilidad, pero utilizarán su inmenso poder para proteger a los inocentes bajo su cuidado.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>Ser dañado, controlado o dominado por otros.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Tener control total de su vida y su destino.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Si se sienten traicionados o abrumados, el poderoso Ocho se retira al <strong>Tipo 5</strong> malsano. Se aíslan, se vuelven paranoicos, maquiavélicos y maquinan estrategias de venganza en la oscuridad, cortando todos los lazos emocionales.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Cuando bajan sus defensas, revelan su corazón en el <strong>Tipo 2</strong> sano. Utilizan su tremenda fuerza no para dominar, sino para nutrir, proteger, amar incondicionalmente y ayudar a empoderar a las personas que los rodean.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>8w7 (El Inconformista):</strong> Más extrovertidos, enérgicos, visionarios y menos propensos a deprimirse. Orientados a la acción expansiva.</li>
+                                <li><strong>8w9 (El Oso):</strong> Más calmados, territoriales y estoicos. Tienen un aura de poder silencioso; no atacan a menos que sean provocados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tipo-9" class="section-type">
+            <div class="profile-card">
+                <div class="top-row">
+                    <div class="profile-img">
+                        <div class="type-badge">TIPO 9</div>
+                        <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Corporativo/pacificador.jpg" alt="El Pacificador">
+                    </div>
+                    <div class="basic-info">
+                        <h1>El Pacificador</h1>
+                        <div class="role-title">Acomodaticio, Receptivo y Terco</div>
+                        <p class="description">El Tipo 9 busca mantener la paz a cualquier precio. Su pecado capital es la <strong>pereza</strong>, pero no física, sino una pereza de auto-atención (narcotización). Evitan lidiar con sus propios problemas, enojos o deseos reales fusionándose pasivamente con los deseos de los demás para no crear fricción.</p>
+                        
+                        <div class="psyche-grid">
+                            <div class="psyche-box fear">
+                                <h3>Miedo Básico</h3>
+                                <p>La pérdida, la separación o el conflicto abierto.</p>
+                            </div>
+                            <div class="psyche-box desire">
+                                <h3>Deseo Básico</h3>
+                                <p>Paz interior absoluta y mantener las cosas como están.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deep-analysis">
+                    <h2>Análisis Clínico Dinámico</h2>
+                    <div class="analysis-grid">
+                        <div class="data-card stress-path">
+                            <h4>Camino de Desintegración (Estrés)</h4>
+                            <p>Cuando el conflicto es inevitable y los abruma, el pacífico Nueve se desplaza al <strong>Tipo 6</strong> malsano. Se vuelven altamente ansiosos, pesimistas, reactivos y preocupados, dudando de todo y de todos a su alrededor.</p>
+                        </div>
+                        <div class="data-card growth-path">
+                            <h4>Camino de Integración (Crecimiento)</h4>
+                            <p>Cuando despiertan de su letargo emocional, avanzan hacia el <strong>Tipo 3</strong> sano. Recuperan el contacto con su verdadero valor personal, se vuelven enérgicos, independientes y orientados a sus propios objetivos y desarrollo vital.</p>
+                        </div>
+                        <div class="data-card wings-path">
+                            <h4>Influencia de las Alas</h4>
+                            <ul>
+                                <li><strong>9w8 (El Árbitro):</strong> Más terrenales, sociales y capaces de usar fuerza y asertividad si su paz interior es amenazada directamente.</li>
+                                <li><strong>9w1 (El Soñador):</strong> Más idealistas, ordenados, imaginativos y perfeccionistas pasivos en su búsqueda de un mundo armonioso.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <script>
-        // Animación al hacer Scroll (Reveal)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    // Iniciar contadores si es la sección de stats
-                    if(entry.target.classList.contains('stats')) {
-                        startCounters();
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Animación de Contadores
-        let countersStarted = false;
-        function startCounters() {
-            if(countersStarted) return;
-            countersStarted = true;
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const increment = target / 50;
-                let current = 0;
-                const updateCounter = () => {
-                    current += increment;
-                    if(current < target) {
-                        counter.innerText = Math.ceil(current);
-                        setTimeout(updateCounter, 30);
-                    } else {
-                        counter.innerText = target + (target > 50 ? '+' : '');
-                    }
-                };
-                updateCounter();
-            });
-        }
-
-        // Acordeón FAQ
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const symbol = element.querySelector('span');
-            if (answer.style.maxHeight) {
-                answer.style.maxHeight = null;
-                symbol.innerText = '+';
-            } else {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-                symbol.innerText = '-';
-            }
+        function verTipo(id, btn) {
+            document.querySelectorAll('.section-type').forEach(sec => sec.classList.remove('activa'));
+            document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('activa');
+            btn.classList.add('active');
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
