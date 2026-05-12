@@ -85,12 +85,25 @@
 
         /* Mosaico Cinematográfico */
         .collage-panel { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; gap: 20px; }
-        .collage-item { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
-        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); filter: brightness(0.85); }
+        .collage-item { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6); cursor: pointer; }
+        /* object-position: center top evita que se corten mal los rostros en el grid */
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); filter: brightness(0.85); }
         .collage-item:hover img { transform: scale(1.08); filter: brightness(1.1); }
         
         .img-hero { grid-column: 1 / -1; grid-row: 1 / 2; }
         .img-hero img { border-bottom: 3px solid var(--c-oro-etereo); }
+
+        /* Estilos del Lightbox Cinematográfico */
+        .lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(3, 3, 5, 0.98); z-index: 9999;
+            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .lightbox.active { display: flex; opacity: 1; }
+        /* object-fit: contain muestra la foto COMPLETA en pantalla grande */
+        .lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; box-shadow: 0 0 50px rgba(0,229,255,0.2); border-radius: 4px; border: 1px solid var(--c-oro-etereo); }
+        .lightbox-close { position: absolute; top: 20px; right: 40px; color: var(--c-plata); font-size: 3rem; cursor: pointer; transition: 0.3s; line-height: 1; }
+        .lightbox-close:hover { color: var(--c-sangre); transform: scale(1.2); }
         
         /* Ajustes Responsivos */
         @media (max-width: 1200px) {
@@ -118,8 +131,12 @@
     <main class="epic-container" id="cinema-container">
         </main>
 
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Zoom Foto">
+    </div>
+
     <script>
-        // Array de Datos Ampliado
         const epicData = [
             { id: 'zeus', name: 'Zeus', roman: 'Dios del Cielo • Júpiter', tags: ['Rayo', 'Justicia', 'Águila', 'Soberano'], enemies: ['Cronos', 'Tifón', 'Gigantes'], 
               historia: "El gobernante absoluto del Olimpo. Zeus lideró la rebelión contra su padre, el titán Cronos, liberando a sus hermanos tragados y forjando una nueva era cósmica tras la Titanomaquia. Desde su trono, observa y juzga las acciones de dioses y hombres.", 
@@ -154,7 +171,7 @@
               mito: "A pesar de su terrible reputación y fuerza bruta, sufrió humillaciones en los mitos. Fue herido en la Guerra de Troya por un mortal (Diomedes, guiado por Atenea) y atrapado en una red de cadenas mágicas y transparentes por el herrero Hefesto tras descubrir su romance con Afrodita.",
               imgs: ['ares_1.jpg', 'ares_2.jpg', 'ares_3.jpg'] },
             { id: 'afrodita', name: 'Afrodita', roman: 'Perfección Deseada • Venus', tags: ['Amor', 'Belleza', 'Pasión', 'Paloma'], enemies: ['Psique', 'Hipólito'], 
-              historia: "La fuerza primigenia de la atracción. Según Hesíodo, nació adulta de la espuma marina tras la castración del cielo (Urano). Su poder desarma a hombres y dioses por igual, provocando deseos irrefrenables que destruyen imperios enteros y unen destinos.", 
+              historia: "Nacida de la espuma del mar, Afrodita es la fuerza abrumadora del deseo, la belleza estética y la pasión reproductiva. Su encanto puede doblegar la mente tanto de dioses sabios como de mortales reyes.", 
               mito: "Poseía un cinturón mágico que hacía irresistible a quien lo portara. Su intervención en el Juicio de Paris, donde sobornó al príncipe ofreciéndole a Helena, fue el catalizador directo de la Guerra de Troya. Fue la eterna amante secreta del dios de la guerra, Ares.",
               imgs: ['afrodita_1.jpg', 'afrodita_2.jpg', 'afrodita_3.jpg'] },
             { id: 'hefesto', name: 'Hefesto', roman: 'Fuego Creador • Vulcano', tags: ['Forja', 'Volcanes', 'Metalurgia', 'Ingeniería'], enemies: ['Hera (Rencor)'], 
@@ -175,17 +192,30 @@
         const tabMenu = document.getElementById('tab-menu');
         const cinemaBox = document.getElementById('cinema-container');
 
-        // Construcción Dinámica para rendimiento y limpieza de código
+        // Lógica del Lightbox
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            lb.classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if(e.target === this) closeLightbox();
+        });
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'Escape') closeLightbox();
+        });
+
         function initApp() {
             epicData.forEach((god, index) => {
-                // Generar Botones del Scroller
                 const btn = document.createElement('button');
                 btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
                 btn.innerText = `0${index+1}. ${god.name}`;
                 btn.onclick = (e) => openMyth(god.id, e.target);
                 tabMenu.appendChild(btn);
 
-                // Generar Tags y Vistas
                 const regularTags = god.tags.map(t => `<span class="attr-tag">${t}</span>`).join('');
                 const enemyTags = god.enemies.map(e => `<span class="attr-tag enemy">Enemigo: ${e}</span>`).join('');
 
@@ -215,13 +245,13 @@
                             </div>
                         </div>
                         <div class="collage-panel">
-                            <div class="collage-item img-hero">
+                            <div class="collage-item img-hero" onclick="openLightbox('${baseLink}${god.imgs[0]}')">
                                 <img src="${baseLink}${god.imgs[0]}" alt="${god.name} Principal">
                             </div>
-                            <div class="collage-item img-small-1">
+                            <div class="collage-item img-small-1" onclick="openLightbox('${baseLink}${god.imgs[1]}')">
                                 <img src="${baseLink}${god.imgs[1]}" alt="${god.name} Secundario 1">
                             </div>
-                            <div class="collage-item img-small-2">
+                            <div class="collage-item img-small-2" onclick="openLightbox('${baseLink}${god.imgs[2]}')">
                                 <img src="${baseLink}${god.imgs[2]}" alt="${god.name} Secundario 2">
                             </div>
                         </div>
@@ -235,7 +265,6 @@
             document.querySelectorAll('.myth-view').forEach(v => v.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             
-            // Forzar reinicio de animación CSS
             const target = document.getElementById(`myth-${id}`);
             target.classList.remove('active');
             void target.offsetWidth; 
@@ -243,7 +272,6 @@
             target.classList.add('active');
             btnElement.classList.add('active');
             
-            // Centrado fluido en el scroll de la navbar
             btnElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
