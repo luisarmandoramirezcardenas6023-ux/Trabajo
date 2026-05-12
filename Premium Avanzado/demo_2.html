@@ -3,217 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oasis Baja Resort | Premium Avanzado</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Matriz Estratégica | Ajedrez Avanzado Analítico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
     <style>
+        /* Paleta de 6 Colores: Lujo y Profundidad Analítica */
         :root {
-            --navy: #1D3557; --smoke: #F8F9FA; --sand: #EDF6F9;
-            --ocean: #006D77; --coral: #FFB5A7; --sunset: #E29578;
+            --bg-pizarra: #121418;     /* Negro Pizarra Profundo (Fondo Nuevo) */
+            --bg-panel: #1E2228;      /* Gris Panel Oscuro (Navegación y Tarjetas) */
+            --accent-oro: #C5A059;     /* Oro Viejo (Títulos y Acentos) */
+            --accent-oro-dim: rgba(197, 160, 89, 0.2);
+            --text-crema: #EAE3D2;     /* Crema Suave (Texto Principal) */
+            --text-muted: #A09A8E;     /* Crema Apagado (Texto Secundario) */
+            --ambar-destacado: #9B111E;/* Rojo Burdeos (Badges y Detalles) */
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lato', sans-serif; background-color: var(--smoke); color: var(--navy); overflow-x: hidden; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        html { scroll-behavior: smooth; }
-
-        /* Navbar */
-        nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 25px 5%; display: flex; justify-content: space-between; align-items: center;
-            background-color: var(--smoke); box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.4s;
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-pizarra); 
+            color: var(--text-crema);
+            line-height: 1.6;
         }
-        .logo { font-size: 2rem; font-weight: 700; color: var(--ocean); text-decoration: none; }
-        .nav-links a { color: var(--navy); text-decoration: none; margin-left: 25px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--sunset); }
-        .btn-book { background: var(--sunset); color: var(--smoke); padding: 10px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; transition: 0.3s; }
-        .btn-book:hover { background: var(--ocean); }
 
-        /* Secciones */
-        section { padding: 100px 5%; }
-        .title { font-size: 3rem; text-align: center; color: var(--ocean); margin-bottom: 20px; font-style: italic; }
-        .subtitle { text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        /* Títulos estilizados para detalles extra */
+        h1, h2, h3 { font-weight: 800; }
+        .historical-note { 
+            font-family: 'Playfair Display', serif; 
+            font-style: italic; 
+            color: var(--accent-oro); 
+            font-size: 1.1rem; 
+            margin-bottom: 20px; 
+            display: block;
+        }
 
-        /* 1. Inicio */
-        .hero { height: 100vh; background: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80') center/cover fixed; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--smoke); position: relative; }
-        .hero::after { content: ''; position: absolute; top:0; left:0; width: 100%; height: 100%; background: rgba(29, 53, 87, 0.4); }
-        .hero-content { position: relative; z-index: 2; }
-        .hero h1 { font-size: 5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); margin-bottom: 20px; }
-        .hero p { font-size: 1.3rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 40px; }
+        /* Navegación Superior Estilizada */
+        .topbar {
+            background-color: var(--bg-panel); padding: 15px 5%;
+            position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border-bottom: 1px solid var(--accent-oro-dim);
+            overflow-x: auto; white-space: nowrap;
+        }
+        .topbar::-webkit-scrollbar { display: none; }
+        
+        .tab-btn {
+            background: transparent; color: var(--text-muted); border: none;
+            padding: 12px 25px; margin: 0 5px; font-weight: 600; font-size: 0.95rem;
+            cursor: pointer; transition: 0.3s; border-radius: 30px; 
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .tab-btn:hover { color: var(--accent-oro); }
+        .tab-btn.active {
+            background-color: var(--accent-oro); color: var(--bg-pizarra);
+            box-shadow: 0 0 15px var(--accent-oro-dim);
+        }
 
-        /* 2. Habitaciones */
-        .rooms { background: var(--smoke); }
-        .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .room-card { background: var(--white); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; cursor: pointer; }
-        .room-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,109,119,0.15); }
-        .room-img { width: 100%; height: 250px; object-fit: cover; }
-        .room-info { padding: 30px; text-align: center; }
-        .room-info h3 { font-size: 1.8rem; color: var(--navy); margin-bottom: 10px; }
-        .room-info p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+        /* Área de Contenido */
+        .content-area { max-width: 1300px; margin: 60px auto; padding: 0 5%; padding-bottom: 60px; }
+        
+        .tab-content { display: none; animation: slideFade 0.6s ease-out; }
+        .tab-content.activa { display: block; }
+        @keyframes slideFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 3. Experiencias */
-        .experiences { background: var(--sand); }
-        .exp-container { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 50px; }
-        .exp-img { flex: 1; min-width: 300px; max-width: 500px; height: 400px; object-fit: cover; box-shadow: -20px 20px 0 var(--ocean); }
-        .exp-text { flex: 1; min-width: 300px; max-width: 500px; }
-        .exp-text h3 { font-size: 2.5rem; color: var(--navy); margin-bottom: 20px; }
-        .exp-text p { font-size: 1.1rem; line-height: 1.8; color: #555; }
+        /* Diseño de la Tarjeta Principal Renovada */
+        .data-card {
+            background-color: var(--bg-panel); border-radius: 12px; overflow: hidden;
+            display: flex; box-shadow: 0 15px 35px rgba(0,0,0,0.4); margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+        .data-img { width: 40%; position: relative; overflow: hidden; border-right: 1px solid var(--accent-oro-dim); }
+        .data-img img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: 0.5s ease; filter: sepia(30%) grayscale(20%); 
+        }
+        .data-card:hover .data-img img { filter: sepia(0%) grayscale(0%); transform: scale(1.02); }
+        
+        .data-info { width: 60%; padding: 60px; display: flex; flex-direction: column; }
+        .data-info h1 { font-size: 3.5rem; margin-bottom: 5px; color: #FFFFFF; letter-spacing: -1px; }
+        .data-info .badge { 
+            display: inline-block; background-color: var(--ambar-destacado); color: #FFFFFF; 
+            padding: 6px 18px; border-radius: 4px; font-size: 0.8rem; font-weight: 800; 
+            margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;
+        }
+        .data-info p.main-desc { font-size: 1.1rem; line-height: 1.8; color: var(--text-crema); margin-bottom: 30px; text-align: justify; }
 
-        /* 4. Gastronomía (Asimétrico) */
-        .gastro { background: var(--navy); color: var(--smoke); }
-        .gastro .title { color: var(--coral); }
-        .gastro .subtitle { color: var(--sand); }
-        .gastro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .gastro-img-1 { grid-column: 1 / 2; grid-row: 1 / 3; width: 100%; height: 100%; object-fit: cover; }
-        .gastro-img-2 { width: 100%; height: 250px; object-fit: cover; }
-        .gastro-text { padding: 40px; display: flex; flex-direction: column; justify-content: center; background: rgba(255,181,167,0.1); border-left: 4px solid var(--sunset); }
+        /* Nuevos Detalles: Orígenes */
+        .origins-section { margin-bottom: 40px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 8px; }
+        .origins-section h4 { color: #FFFFFF; margin-bottom: 10px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .origins-section p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
-        /* 5. Ubicación */
-        .location { background: var(--smoke); text-align: center; }
-        .map-placeholder { width: 100%; max-width: 800px; height: 400px; background: #ddd; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #888; font-family: 'Playfair Display'; font-size: 1.5rem; border: 2px dashed #bbb; }
+        /* Detalles Estadísticos Renovados */
+        .specs-row { display: flex; gap: 30px; border-top: 1px solid var(--accent-oro-dim); padding-top: 30px; margin-top: auto; }
+        .spec-item { flex: 1; text-align: center; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; border: 1px solid transparent; transition: 0.3s; }
+        .spec-item:hover { border-color: var(--accent-oro-dim); background: rgba(0,0,0,0.3); }
+        .spec-item h4 { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px; }
+        .spec-item p { color: var(--accent-oro); font-weight: 800; font-size: 1.3rem; margin: 0; font-family: 'Playfair Display', serif; }
 
-        /* 6. Reservas */
-        .booking { background: var(--sand); }
-        .book-form { max-width: 800px; margin: 0 auto; background: var(--white); padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { font-family: 'Playfair Display'; color: var(--ocean); margin-bottom: 5px; font-size: 1.1rem; }
-        .form-group input, .form-group select { padding: 15px; border: 1px solid #ccc; font-family: 'Lato'; outline: none; transition: 0.3s; }
-        .form-group input:focus, .form-group select:focus { border-color: var(--sunset); }
-        .form-full { grid-column: 1 / -1; }
-        .btn-submit { background: var(--ocean); color: var(--smoke); border: none; padding: 20px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; font-family: 'Playfair Display'; text-transform: uppercase; letter-spacing: 2px; }
-        .btn-submit:hover { background: var(--navy); }
+        /* Galería Secundaría con Efectos */
+        .secondary-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        .secondary-gallery img { width: 100%; height: 280px; object-fit: cover; transition: 0.5s ease; filter: brightness(0.8); }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1); }
+        .gallery-item::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); opacity: 0; transition: 0.3s;
+        }
+        .gallery-item:hover::after { opacity: 1; }
 
-        /* Animaciones JS */
-        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
-        .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-        @media(max-width: 768px) { .nav-links { display: none; } .gastro-grid { grid-template-columns: 1fr; } .book-form { grid-template-columns: 1fr; } .hero h1 { font-size: 3.5rem; } }
+        /* Responsivo Renovado (Celulares) */
+        @media (max-width: 950px) {
+            .data-card { flex-direction: column; }
+            .data-img { width: 100%; height: 350px; border-right: none; border-bottom: 1px solid var(--accent-oro-dim); }
+            .data-info { width: 100%; padding: 40px; }
+            .data-info h1 { font-size: 2.8rem; }
+            .specs-row { flex-direction: grid; grid-template-columns: 1fr 1fr; gap: 15px; flex-wrap: wrap;}
+            .secondary-gallery { grid-template-columns: 1fr; gap: 20px; }
+            .secondary-gallery img { height: 300px; }
+        }
+        @media (max-width: 600px) {
+            .topbar { justify-content: flex-start; padding: 10px 5%; }
+            .tab-btn { padding: 10px 18px; font-size: 0.85rem; }
+            .data-info h1 { font-size: 2.2rem; }
+            .data-info { padding: 30px 20px; }
+            .specs-row .spec-item { flex: 0 0 calc(50% - 8px); }
+        }
     </style>
 </head>
 <body>
 
-    <nav id="navbar">
-        <a href="#hero" class="logo">Oasis Baja</a>
-        <div class="nav-links">
-            <a href="#habitaciones">Suites</a>
-            <a href="#experiencias">Spa</a>
-            <a href="#gastronomia">Restaurante</a>
-            <a href="#reserva" class="btn-book">Reservar</a>
-        </div>
+    <nav class="topbar">
+        <button class="tab-btn active" onclick="cambiarTab('tab-rey', this)">01. Rey</button>
+        <button class="tab-btn" onclick="cambiarTab('tab-reina', this)">02. Reina</button>
+        <button class="tab-btn" onclick="cambiarTab('tab-torre', this)">03. Torre</button>
+        <button class="tab-btn" onclick="cambiarTab('tab-alfil', this)">04. Alfil</button>
+        <button class="tab-btn" onclick="cambiarTab('tab-caballo', this)">05. Caballo</button>
+        <button class="tab-btn" onclick="cambiarTab('tab-peon', this)">06. Peón</button>
     </nav>
 
-    <!-- 1. Inicio -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Tu escape perfecto</h1>
-            <p>Descubre el lujo frente al Mar de Cortés.</p>
-            <a href="#reserva" class="btn-book" style="padding: 15px 40px; font-size: 1.2rem;">Ver Disponibilidad</a>
-        </div>
-    </section>
+    <main class="content-area">
 
-    <!-- 2. Habitaciones -->
-    <section id="habitaciones" class="rooms">
-        <h2 class="title fade-up">Nuestras Suites</h2>
-        <p class="subtitle fade-up">Espacios diseñados para el descanso absoluto, con vistas panorámicas al océano y amenidades premium.</p>
-        <div class="room-grid">
-            <div class="room-card fade-up">
-                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Suite Ocean" class="room-img">
-                <div class="room-info">
-                    <h3>Ocean Front Suite</h3>
-                    <p>Balcón privado, cama King Size con sábanas de algodón egipcio y baño con tina de hidromasaje.</p>
+        <div id="tab-rey" class="tab-content activa">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/rey_1.jpg" alt="El Rey">
+                </div>
+                <div class="data-info">
+                    <h1>El Rey</h1>
+                    <span class="historical-note">"Nómada en su propio reino, cautivo de su propia corona."</span>
+                    <div><span class="badge">Objetivo Supremo</span></div>
+                    <p class="main-desc">La figura central de la matriz estratégica. La victoria no se logra mediante la aniquilación del ejército enemigo, sino mediante el "Jaque Mate": el atrapamiento ineludible del soberano. Requiere protección absoluta durante la apertura y el medio juego, pero su naturaleza cambia drásticamente en el final, transformándose en una pieza de ataque activa, potente y necesaria para la coronación.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>Derivado del 'Raja' (Rey) del Chaturanga indio y el 'Shah' del Shatranj persa. De aquí proviene la frase "Jaque Mate", del persa "Shāh Māt", que significa "el Rey está indefenso" o "el Rey ha muerto". Históricamente, su movimiento siempre ha sido limitado para reflejar que el líder no debe exponerse innecesariamente en batalla.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>1 Casilla</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>∞ Infinito</p></div>
+                        <div class="spec-item"><h4>Fase Clave</h4><p>Final</p></div>
+                    </div>
                 </div>
             </div>
-            <div class="room-card fade-up" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Villa" class="room-img">
-                <div class="room-info">
-                    <h3>Villa Privada</h3>
-                    <p>Acceso directo a la playa, alberca infinita privada, cocina completa y servicio de mayordomo 24/7.</p>
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/rey_2.jpg" alt="Detalle Rey 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/rey_3.jpg" alt="Detalle Rey 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/rey_4.jpg" alt="Detalle Rey 4"></div>
+            </div>
+        </div>
+
+        <div id="tab-reina" class="tab-content">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/reina_1.jpg" alt="La Reina">
+                </div>
+                <div class="data-info">
+                    <h1>La Reina</h1>
+                    <span class="historical-note">"La furia desatada, el poder absoluto en el tablero de ébano."</span>
+                    <div><span class="badge">Fuerza Táctica de Élite</span></div>
+                    <p class="main-desc">El arma de destrucción masiva en el ajedrez moderno. Con la capacidad combinada de una Torre y un Alfil, la Reina domina filas, columnas y diagonales. Es la pieza más versátil para ataques dobles, clavadas y la ejecución de mates rápidos. Su pérdida sin compensación suele ser catastrófica, redefiniendo instantáneamente la evaluación de la partida.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>Originalmente el 'Mantri' (Consejero) o 'Visir', una pieza débil que solo movía una casilla en diagonal. Su transformación en la pieza más poderosa ocurrió en Europa a finales del siglo XV (Ajedrez de la dama), posiblemente influenciada por el auge de reinas poderosas como Isabel la Católica. Este cambio aceleró drásticamente el ritmo del juego.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>Ilimitado</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>9 Puntos</p></div>
+                        <div class="spec-item"><h4>Fase Clave</h4><p>Medio Juego</p></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 3. Experiencias -->
-    <section id="experiencias" class="experiences">
-        <div class="exp-container">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Spa" class="exp-img fade-up">
-            <div class="exp-text fade-up" style="transition-delay: 0.2s;">
-                <h3 class="serif">Renueva cuerpo y alma</h3>
-                <p>Nuestro <strong>Thalasso Spa</strong> aprovecha los minerales del mar para ofrecerte tratamientos holísticos, masajes de tejido profundo y circuitos de hidroterapia que borrarán cualquier rastro de estrés.</p>
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/reina_2.jpg" alt="Detalle Reina 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/reina_3.jpg" alt="Detalle Reina 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/reina_4.jpg" alt="Detalle Reina 4"></div>
             </div>
         </div>
-    </section>
 
-    <!-- 4. Gastronomía -->
-    <section id="gastronomia" class="gastro">
-        <h2 class="title fade-up">Sabores Locales</h2>
-        <p class="subtitle fade-up">Ingredientes de la Baja, frescura garantizada y una cava con los mejores vinos de la región.</p>
-        <div class="gastro-grid">
-            <img src="https://images.unsplash.com/photo-1414235077428-338988a2e8c0?auto=format&fit=crop&w=600&q=80" alt="Comida" class="gastro-img-1 fade-up">
-            <div class="gastro-text fade-up" style="transition-delay: 0.2s;">
-                <h3 class="serif" style="font-size: 2rem; color: var(--coral); margin-bottom: 10px;">Restaurante Marea</h3>
-                <p style="line-height: 1.8;">Disfruta de pesca del día, cortes selectos y vegetales orgánicos de nuestro propio huerto. Dirigido por el Chef Ejecutivo internacional.</p>
+        <div id="tab-torre" class="tab-content">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/torre_1.jpg" alt="La Torre">
+                </div>
+                <div class="data-info">
+                    <h1>La Torre</h1>
+                    <span class="historical-note">"Columnas de piedra, vigías eternos de la geometría del campo."</span>
+                    <div><span class="badge">Estructura y Poder Lineal</span></div>
+                    <p class="main-desc">Especialistas en la geometría pura de líneas rectas. Las Torres brillan cuando se abren paso entre la estructura de peones, dominando columnas y filas abiertas. Son fundamentales para la maniobra del 'Enroque'. Una torre en la séptima fila (o segunda para las negras) es una pesadilla para el rival, restringiendo al rey y devorando infantería.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>Proviene del 'Ratha' (Carro de guerra) indio. Al pasar al persa como 'Rukh', los europeos lo confundieron con la palabra italiana 'Rocca' (fortaleza), transformando el carro blindado en una torre de asedio. De ahí su diseño arquitectónico actual y su movimiento pesado pero imparable.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>Ortogonal</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>5 Puntos</p></div>
+                        <div class="spec-item"><h4>Fase Clave</h4><p>Final/Apertura</p></div>
+                    </div>
+                </div>
             </div>
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Vinos" class="gastro-img-2 fade-up" style="transition-delay: 0.4s;">
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/torre_2.jpg" alt="Detalle Torre 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/torre_3.jpg" alt="Detalle Torre 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/torre_4.jpg" alt="Detalle Torre 4"></div>
+            </div>
         </div>
-    </section>
 
-    <!-- 5. Ubicación -->
-    <section id="ubicacion" class="location">
-        <h2 class="title fade-up">Encuéntranos</h2>
-        <p class="subtitle fade-up">A solo 45 minutos del Aeropuerto Internacional, en un enclave exclusivo alejado del bullicio.</p>
-        <div class="map-placeholder fade-up">
-            [ Mapa Interactivo de Google Maps ]
+        <div id="tab-alfil" class="tab-content">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/alfil_1.jpg" alt="El Alfil">
+                </div>
+                <div class="data-info">
+                    <h1>El Alfil</h1>
+                    <span class="historical-note">"Francotirador de la fe, esclavo de su propio color."</span>
+                    <div><span class="badge">Infantería Ligera Diagonal</span></div>
+                    <p class="main-desc">Dueños de las diagonales. Atados perpetuamente al color de la casilla de su nacimiento, los alfiles operan mejor en pares, donde cubren las debilidades del otro. Son excelentes para "clavar" piezas enemigas de mayor valor y para presionar desde largas distancias. Su valor relativo aumenta en posiciones abiertas sin peones bloqueando su camino.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>En la India era el 'Gaja' (Elefante de guerra). Los persas lo llamaron 'Pil', y los árabes 'Al-Fil'. En Europa, la forma de la pieza persa (dos colmillos) se confundió con una mitra de obispo, cambiando su nombre a 'Bishop' en inglés o 'Fou' (bufón) en francés. El español conservó el nombre árabe original.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>Diagonal</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>3 Puntos</p></div>
+                        <div class="spec-item"><h4>Fase Clave</h4><p>Abierta</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/alfil_2.jpg" alt="Detalle Alfil 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/alfil_3.jpg" alt="Detalle Alfil 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/alfil_4.jpg" alt="Detalle Alfil 4"></div>
+            </div>
         </div>
-    </section>
 
-    <!-- 6. Reservas -->
-    <section id="reserva" class="booking">
-        <h2 class="title fade-up">Asegura tu estancia</h2>
-        <form class="book-form fade-up">
-            <div class="form-group">
-                <label>Llegada</label>
-                <input type="date" required>
+        <div id="tab-caballo" class="tab-content">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/caballo_1.jpg" alt="El Caballo">
+                </div>
+                <div class="data-info">
+                    <h1>El Caballo</h1>
+                    <span class="historical-note">"Salto de fe, caos asimétrico en la orden geométrica."</span>
+                    <div><span class="badge">Unidad de Infiltración</span></div>
+                    <p class="main-desc">La única unidad capaz de violar la linealidad del tablero saltando sobre otras piezas. Su movimiento en forma de 'L' es difícil de predecir para los principiantes y letal en posiciones cerradas y congestionadas. Son maestros de la "horquilla", atacando múltiples objetivos de alto valor simultáneamente sin poder ser bloqueados.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>Derivado del 'Ashva' (Caballo) indio. Su movimiento ha permanecido prácticamente inalterado durante más de 1500 años de historia del ajedrez, representando a la caballería y su capacidad de maniobra flanqueando las líneas enemigas o saltando fortificaciones.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>Salto 'L'</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>3 Puntos</p></div>
+                        <div class="spec-item"><h4>Fase Clave</h4><p>Cerrada</p></div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Salida</label>
-                <input type="date" required>
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/caballo_2.jpg" alt="Detalle Caballo 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/cabello_3.jpg" alt="Detalle Caballo 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/caballo_4.jpg" alt="Detalle Caballo 4"></div>
             </div>
-            <div class="form-group">
-                <label>Adultos</label>
-                <select><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+        </div>
+
+        <div id="tab-peon" class="tab-content">
+            <div class="data-card">
+                <div class="data-img">
+                    <img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/peon_1.jpg" alt="El Peón">
+                </div>
+                <div class="data-info">
+                    <h1>El Peón</h1>
+                    <span class="historical-note">"Infantería del sacrificio, alma y estructura del orden mortal."</span>
+                    <div><span class="badge">Infantería de Estructura</span></div>
+                    <p class="main-desc">"Los peones son el alma del ajedrez", dijo Philidor. Ellos dictan la estructura, el espacio y el ritmo de la partida. Aunque débiles individualmente, en falange son una defensa inexpugnable. Su mayor gloria es la perseverancia: si alcanzan la octava fila, se transforman (promocionan) en cualquier pieza mayor, usualmente una segunda Reina.</p>
+                    
+                    <div class="origins-section">
+                        <h4>Orígenes y Curiosidades</h4>
+                        <p>Del 'Padati' (Soldado de infantería) indio. Históricamente, representaban a la clase baja o campesinado en el tablero-reino. Su movimiento limitado y captura diagonal reflejan la lucha cuerpo a cuerpo de la infantería antigua. La regla del doble paso inicial se añadió en Europa para acelerar el inicio del juego.</p>
+                    </div>
+
+                    <div class="specs-row">
+                        <div class="spec-item"><h4>Rango</h4><p>1 Paso</p></div>
+                        <div class="spec-item"><h4>Valor</h4><p>1 Punto</p></div>
+                        <div class="spec-item"><h4>Potencial</h4><p>Promoción</p></div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Habitación</label>
-                <select><option>Ocean Front Suite</option><option>Villa Privada</option></select>
+            <div class="secondary-gallery">
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/peon_2.jpg" alt="Detalle Peón 2"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/peon_3.jpg" alt="Detalle Peón 3"></div>
+                <div class="gallery-item"><img src="https://raw.githubusercontent.com/luisarmandoramirezcardenas6023-ux/Trabajo/main/Premium%20Avanzado/peon_4.jpg" alt="Detalle Peón 4"></div>
             </div>
-            <div class="form-group form-full">
-                <button type="submit" class="btn-submit">Consultar Disponibilidad</button>
-            </div>
-        </form>
-    </section>
+        </div>
+
+    </main>
 
     <script>
-        // Efecto scroll en Navbar
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if(window.scrollY > 50) {
-                nav.style.padding = '15px 5%';
-                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.padding = '25px 5%';
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-            }
-        });
-
-        // Revelar al hacer scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        function cambiarTab(id, btnElement) {
+            // Ocultar contenidos con animación de salida suave si se desea (opcional)
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('activa');
             });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+            
+            // Desmarcar botones
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Mostrar contenido actual
+            const targetTab = document.getElementById(id);
+            targetTab.classList.add('activa');
+            
+            // Marcar botón actual
+            btnElement.classList.add('active');
+            
+            // Scroll suave hacia arriba para mejorar UX en móvil
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
