@@ -113,78 +113,81 @@
     <!-- ==============================================
          NEW: SECCIÓN SOBRE MÍ (UI Bento Grid)
          ============================================== -->
-    <section id="sobre-mi" class="pantalla">
+        <section id="sobre-mi" class="pantalla">
         <div class="glass-container">
+            
             <div class="portafolio-header">
                 <h2 class="section-title text-gradient" style="font-size: 2.5rem; margin-bottom: 15px;">Sobre Mí</h2>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
                 
-                <!-- Intro Card -->
-                <div class="card-portafolio" style="grid-column: 1 / -1; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)); border-color: rgba(255,255,255,0.1);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div class="card-portafolio" style="display: flex; align-items: flex-start; gap: 20px; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)); border-color: rgba(255,255,255,0.1); width: 100%; text-align: left;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="margin-bottom: 0; font-size: 2.5rem;">👤</div>
                     <div style="flex: 1;">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 5px;">Ramirez Cardenas Luis Armando</h3>
-                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 15px; font-size: 1.1rem;">📍 Tijuana, B.C., México | 🎂 25 años</p>
-                        <p style="color: var(--text-dim); line-height: 1.7; font-size: 1.05rem;">
+                        <h3 style="font-size: 1.6rem; margin-bottom: 5px;">Ramirez Cardenas Luis Armando</h3>
+                        <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px; font-size: 1rem;">📍 Tijuana, B.C., México | 🎂 25 años</p>
+                        <p style="color: var(--text-dim); line-height: 1.6; font-size: 1.05rem; margin: 0;">
                             Soy una persona responsable, sumamente <strong>atenta al detalle</strong> y con una pasión inagotable por <strong>aprender cosas nuevas</strong> todos los días. Mi visión es integrar el análisis estructurado con el crecimiento tecnológico constante.
                         </p>
                     </div>
                 </div>
-
-                <!-- Pasatiempos -->
-                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(187, 134, 252, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
-                    <div class="icon-portafolio" style="color: var(--accent-purple);">🎧</div>
-                    <h3 style="margin-bottom: 15px;">Estilo de Vida y Pasatiempos</h3>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir al cine</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Jugar Fútbol</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Montañismo</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Caminar</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Amigos & Antros</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir a la Playa</span>
-                        <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Conciertos</span>
-                        <span class="badge-portafolio badge-purple" style="width: 100%;">🎶 Música: Pop, Reggaetón, Corridos (Inglés/Español)</span>
+    
+                <div class="card-portafolio" style="display: flex; align-items: flex-start; gap: 20px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; width: 100%; text-align: left;" onmouseover="this.style.transform='translateY(-5px) scale(1.01)'; this.style.boxShadow='0 15px 30px rgba(187, 134, 252, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="color: var(--accent-purple); margin-bottom: 0; font-size: 2.5rem;">🎧</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Estilo de Vida y Pasatiempos</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir al cine</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Jugar Fútbol</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Montañismo</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Caminar</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Amigos & Antros</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Ir a la Playa</span>
+                            <span class="badge-portafolio" style="background: rgba(255,255,255,0.05);">Conciertos</span>
+                            <span class="badge-portafolio badge-purple" style="width: 100%; margin-top: 5px;">🎶 Música: Pop, Reggaetón, Corridos (Inglés/Español)</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Gaming -->
-                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
-                    <div class="icon-portafolio">🎮</div>
-                    <h3 style="margin-bottom: 5px;">Gaming Zone</h3>
-                    <p style="font-size: 0.9rem; color: var(--accent-cyan); margin-bottom: 15px;">Sagas Favoritas: Hollow Knight & Resident Evil</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                        <span class="badge-portafolio badge-purple">Resident Evil</span>
-                        <span class="badge-portafolio badge-purple">God of War</span>
-                        <span class="badge-portafolio badge-purple">Cuphead</span>
-                        <span class="badge-portafolio badge-purple">Apex</span>
-                        <span class="badge-portafolio badge-purple">Crash</span>
-                        <span class="badge-portafolio badge-purple">Pokémon</span>
-                        <span class="badge-portafolio badge-purple">Hollow Knight</span>
-                        <span class="badge-portafolio badge-purple">Clash Royale</span>
+    
+                <div class="card-portafolio" style="display: flex; align-items: flex-start; gap: 20px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; width: 100%; text-align: left;" onmouseover="this.style.transform='translateY(-5px) scale(1.01)'; this.style.boxShadow='0 15px 30px rgba(0, 210, 255, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="margin-bottom: 0; font-size: 2.5rem;">🎮</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin-bottom: 5px; font-size: 1.3rem;">Gaming Zone</h3>
+                        <p style="font-size: 0.9rem; color: var(--accent-cyan); margin-bottom: 12px; margin-top: 0;">Sagas Favoritas: Hollow Knight & Resident Evil</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                            <span class="badge-portafolio badge-purple">Resident Evil</span>
+                            <span class="badge-portafolio badge-purple">God of War</span>
+                            <span class="badge-portafolio badge-purple">Cuphead</span>
+                            <span class="badge-portafolio badge-purple">Apex</span>
+                            <span class="badge-portafolio badge-purple">Crash</span>
+                            <span class="badge-portafolio badge-purple">Pokémon</span>
+                            <span class="badge-portafolio badge-purple">Hollow Knight</span>
+                            <span class="badge-portafolio badge-purple">Clash Royale</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Comida -->
-                <div class="card-portafolio" style="transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 30px rgba(0, 200, 83, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
-                    <div class="icon-portafolio" style="color: var(--accent-green);">🌮</div>
-                    <h3 style="margin-bottom: 15px;">Gastronomía Favorita</h3>
-                    <ul style="padding-left: 20px; color: var(--text-dim); line-height: 1.6;">
-                        <li style="margin-bottom: 5px;"><strong>Tacos:</strong> Asada, Adobada, Carnitas, Birria.</li>
-                        <li style="margin-bottom: 5px;"><strong>Comida China:</strong> Pollo Cantonés, Enchilado, Pollo con Piña, Agridulce.</li>
-                        <li><strong>Pizza</strong></li>
-                    </ul>
+    
+                <div class="card-portafolio" style="display: flex; align-items: flex-start; gap: 20px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; width: 100%; text-align: left;" onmouseover="this.style.transform='translateY(-5px) scale(1.01)'; this.style.boxShadow='0 15px 30px rgba(0, 200, 83, 0.15)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='none'">
+                    <div class="icon-portafolio" style="color: var(--accent-green); margin-bottom: 0; font-size: 2.5rem;">🌮</div>
+                    <div style="flex: 1;">
+                        <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Gastronomía Favorita</h3>
+                        <ul style="padding-left: 20px; color: var(--text-dim); line-height: 1.6; margin: 0;">
+                            <li style="margin-bottom: 5px;"><strong>Tacos:</strong> Asada, Adobada, Carnitas, Birria.</li>
+                            <li style="margin-bottom: 5px;"><strong>Comida China:</strong> Pollo Cantonés, Enchilado, Pollo con Piña, Agridulce.</li>
+                            <li><strong>Pizza</strong></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <!-- Mascota -->
-                <div class="card-portafolio" style="display: flex; align-items: center; gap: 20px; background: linear-gradient(145deg, rgba(0, 210, 255, 0.05), transparent); border-color: rgba(0, 210, 255, 0.2); transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+    
+                <div class="card-portafolio" style="display: flex; align-items: center; gap: 20px; background: linear-gradient(145deg, rgba(0, 210, 255, 0.05), transparent); border-color: rgba(0, 210, 255, 0.2); transition: transform 0.4s ease; width: 100%; text-align: left;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                     <div style="font-size: 3.5rem; text-shadow: 0 0 10px rgba(0,210,255,0.5);">🐈</div>
-                    <div>
-                        <h3 style="margin-bottom: 5px; color: var(--text-main);">Pelusín</h3>
+                    <div style="flex: 1;">
+                        <h3 style="margin-bottom: 5px; color: var(--text-main); font-size: 1.3rem;">Pelusín</h3>
                         <p style="margin: 0; font-size: 0.95rem; color: var(--text-dim);">Mi fiel gato y compañero de aventuras.</p>
                     </div>
                 </div>
-
+    
             </div>
         </div>
     </section>
